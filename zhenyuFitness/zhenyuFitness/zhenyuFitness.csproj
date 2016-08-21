@@ -535,6 +535,7 @@
     <Content Include="js\colorpicker\img\saturation.png" />
     <Content Include="js\colorpicker\js\bootstrap-colorpicker.min.js" />
     <Content Include="js\countable\jquery.simplyCountable.min.js" />
+    <Content Include="js\custom\goal.js" />
     <Content Include="js\d3\d3.v3.js" />
     <Content Include="js\d3\d3.v3.min.js" />
     <Content Include="js\datatables\extras\AutoFill\callbacks.html" />
@@ -1090,6 +1091,7 @@
     <Content Include="js\xcharts\xcharts.min.js" />
     <Content Include="Pages\Exercises\ExerciseContent.aspx" />
     <Content Include="Pages\Exercises\ExercisesList.aspx" />
+    <Content Include="Pages\Goal\GoalSetting.aspx" />
     <Content Include="Pages\Login\forgetPassword.aspx" />
     <Content Include="Pages\Login\Register.aspx" />
     <Content Include="Pages\LoujunjieAdmin\Admin_ExerciseEdit.aspx" />
@@ -1123,6 +1125,13 @@
     </Compile>
     <Compile Include="Pages\Exercises\ExercisesList.aspx.designer.cs">
       <DependentUpon>ExercisesList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Goal\GoalSetting.aspx.cs">
+      <DependentUpon>GoalSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Goal\GoalSetting.aspx.designer.cs">
+      <DependentUpon>GoalSetting.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login\forgetPassword.aspx.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>
@@ -1160,6 +1169,7 @@
       <Name>zhenyuFitness.DAO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

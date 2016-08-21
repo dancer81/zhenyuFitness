@@ -1,6 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/generalMaster.Master" AutoEventWireup="true" CodeBehind="Register.aspx.cs" Inherits="zhenyuFitness.Pages.Login.Register" EnableViewState="false"%>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/generalMaster.Master" CodeBehind="GoalSetting.aspx.cs" Inherits="zhenyuFitness.Pages.Goal.GoalSetting" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <title>用户注册</title>
+    <title>健身目标设定</title>
         <!-- WIZARD -->
     <link rel="stylesheet" type="text/css" href="../../js/bootstrap-wizard/wizard.css" />
         <!-- WIZARD -->
@@ -8,7 +9,7 @@
     <!-- WIZARD -->
     <script src="../../js/jquery-validate/jquery.validate.js"></script>
     <script src="../../js/jquery-validate/additional-methods.min.js"></script>
-        <script src="../../js/bootstrap-wizard/form-wizard.js"></script>
+        <script src="../..//js/custom/goal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="row">
@@ -16,7 +17,7 @@
                                 <!-- BOX -->
                                 <div class="box border red" id="formWizard">
                                     <div class="box-title">
-                                        <h4><i class="fa fa-bars"></i>用户注册 - <span class="stepHeader">Step 1 of 3</h4>
+                                        <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">Step 1 of 4</h4>
                                         <div class="tools hidden-xs">
                                             
                                             <a href="javascript:;" class="collapse">
@@ -35,20 +36,26 @@
                                                         <li>
                                                             <a href="#account" data-toggle="tab" class="wiz-step">
                                                                 <span class="step-number">1</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>创建账号 </span>
+                                                                <span class="step-name"><i class="fa fa-check"></i>step 1 </span>
                                                             </a>
                                                         </li>
 
                                                         <li>
                                                             <a href="#payment" data-toggle="tab" class="wiz-step active">
                                                                 <span class="step-number">2</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>个人信息</span>
+                                                                <span class="step-name"><i class="fa fa-check"></i>step 2</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#confirm" data-toggle="tab" class="wiz-step">
                                                                 <span class="step-number">3</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>确认提交 </span>
+                                                                <span class="step-name"><i class="fa fa-check"></i>step 3 </span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                                                <span class="step-number">4</span>
+                                                                <span class="step-name"><i class="fa fa-check"></i>step 4 </span>
                                                             </a>
                                                         </li>
                                                     </ul>
@@ -201,6 +208,66 @@
                                                             </div>
 
                                                         </div>
+
+                                                        <div class="tab-pane" id="payment">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">性别<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
+                                                                        男士
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
+                                                                        女士
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">体重<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
+                                                                        1-2年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
+                                                                        2-4年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
+                                                                        4年以上
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
                                                         <div class="tab-pane" id="confirm">
                                                             <h3 class="block">请确认您的信息</h3>
                                                             <h4 class="form-section">账户信息</h4>
@@ -306,39 +373,6 @@
             App.setPage("Register");  //Set current page
             App.init(); //Initialise plugins and elements
             FormWizard.init();
-            /*bootbox.alert("你好你好你好你好");*/        /*bootbox.dialog({
-            title : "修改密码",
-            message : "<div class='well ' style='margin-top:25px;'><form class='form-horizontal' role='form'><div class='form-group'><label class='col-sm-3 control-label no-padding-right' for='txtOldPwd'>旧密码</label><div class='col-sm-9'><input type='text' id='txtOldPwd' placeholder='请输入旧密码' class='col-xs-10 col-sm-5' /></div></div><div class='space-4'></div><div class='form-group'><label class='col-sm-3 control-label no-padding-right' for='txtNewPwd1'>新密码</label><div class='col-sm-9'><input type='text' id='txtNewPwd1' placeholder='请输入新密码' class='col-xs-10 col-sm-5' /></div></div><div class='space-4'></div><div class='form-group'><label class='col-sm-3 control-label no-padding-right' for='txtNewPwd2'>确认新密码</label><div class='col-sm-9'><input type='text' id='txtNewPwd2' placeholder='再次输入新密码' class='col-xs-10 col-sm-5' /></div></div></form></div>",
-            buttons : {
-                "success" : {
-                    "label" : "<i class='icon-ok'></i> 保存",
-                    "className" : "btn-sm btn-success",
-                    "callback" : function() {
-                        var txt1 = $("#txtOldPwd").val();
-                        var txt2 = $("#txtNewPwd1").val();
-                        var txt3 = $("#txtNewPwd2").val();
-
-                        if(txt1 == "" || txt2 == "" || txt3 == ""){
-                            bootbox.alert("密码不能为空");
-                            return false;
-                        }
-                        if(txt2 != txt3 ){
-                            bootbox.alert("两次输入新密码不一致，请重新输入!");
-                            return false;
-                        }
-                        var info = {"opt":"changepassword","oldpwd":txt1,"newpwd1":txt2,"newpwd2":txt3};
-                        //$.post("../CommonServlet",info,function(data){
-                        bootbox.alert("密码更新成功");
-                        //},'json');
-                    }
-                },
-                "cancel" : {
-                    "label" : "<i class='icon-info'></i> 取消",
-                    "className" : "btn-sm btn-danger",
-                    "callback" : function() { }
-                }
-            }
-        });*/
         });
     </script>
 

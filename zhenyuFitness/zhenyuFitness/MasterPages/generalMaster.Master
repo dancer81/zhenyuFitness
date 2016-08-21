@@ -53,7 +53,7 @@
     <script type="text/javascript" src="<%=appRootPath %>/js/jQuery-Cookie/jquery.cookie.min.js"></script>
     <!-- CUSTOM SCRIPT -->
     <script src="<%=appRootPath %>/js/script.js"></script>
-    <script src="<%=appRootPath %>/js/bootstrap-wizard/form-wizard.js"></script>
+<%--    <script src="<%=appRootPath %>/js/bootstrap-wizard/form-wizard.js"></script>--%>
      <!-- /JAVASCRIPTS -->
         
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
