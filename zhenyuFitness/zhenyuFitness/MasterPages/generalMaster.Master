@@ -1,0 +1,1011 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="generalMaster.master.cs" Inherits="zhenyuFitness.MasterPages.generalMaster"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- STYLESHEETS --><!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/css/cloud-admin.css">
+    <!--<link rel="stylesheet" type="text/css"  href="css/themes/default.css" id="skin-switcher" >-->
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/css/themes/night.css">
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/css/responsive.css">
+
+    <link href="<%=appRootPath %>/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- DATE RANGE PICKER -->
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <!-- SELECT2 -->
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/js/select2/select2.min.css" />
+    <!-- UNIFORM -->
+    <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/js/uniform/css/uniform.default.min.css" />
+
+    <!-- FONTS -->
+    <!--<link href='http://fonts.useso.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>-->
+
+    <!-- JAVASCRIPTS -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- JQUERY -->
+    <script src="<%=appRootPath %>/js/jquery/jquery-2.0.3.min.js"></script>
+    <!-- JQUERY UI-->
+    <script src="<%=appRootPath %>/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <script src="<%=appRootPath %>/js/bootstrap-dist/js/bootstrap.min.js"></script>
+
+    <!-- DATE RANGE PICKER -->
+    <script src="<%=appRootPath %>/js/bootstrap-daterangepicker/moment.min.js"></script>
+    <script src="<%=appRootPath %>/js/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+    <!-- SLIMSCROLL -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script>
+    <script type="text/javascript" src="<%=appRootPath %>/js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js"></script>
+    <!-- BLOCK UI -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/jQuery-BlockUI/jquery.blockUI.min.js"></script>
+    <!-- SELECT2 -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/select2/select2.min.js"></script>
+    <!-- UNIFORM -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/uniform/jquery.uniform.min.js"></script>
+    <!-- BOOTBOX -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/bootbox/bootbox.min.js"></script>
+    <!-- COOKIE -->
+    <script type="text/javascript" src="<%=appRootPath %>/js/jQuery-Cookie/jquery.cookie.min.js"></script>
+    <!-- CUSTOM SCRIPT -->
+    <script src="<%=appRootPath %>/js/script.js"></script>
+    <script src="<%=appRootPath %>/js/bootstrap-wizard/form-wizard.js"></script>
+     <!-- /JAVASCRIPTS -->
+        
+    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <title>none</title>
+    </asp:ContentPlaceHolder>
+</head>
+<body style="font-family: 微软雅黑;overflow:scroll;overflow-y:scroll" >
+    <!-- HEADER -->
+    <header class="navbar clearfix" id="header">
+
+        <div class="container">
+            <div class="navbar-brand">
+                <!-- COMPANY LOGO -->
+                <a href="index.html">
+                    <img <%--src="<%=appRootPath %>/img/logo/logo.png"--%> src="http://localhost/resources/img/logo/logo.png" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120">
+                </a>
+                <!-- /COMPANY LOGO -->
+                <!-- TEAM STATUS FOR MOBILE -->
+                <div class="visible-xs">
+                    <a href="#" class="team-status-toggle switcher btn dropdown-toggle">
+                        <i class="fa fa-users"></i>
+                    </a>
+                </div>
+                <!-- /TEAM STATUS FOR MOBILE -->
+                <!-- SIDEBAR COLLAPSE -->
+                <div id="sidebar-collapse" class="sidebar-collapse btn">
+                    <i class="fa fa-bars"
+                       data-icon1="fa fa-bars"
+                       data-icon2="fa fa-bars"></i>
+                </div>
+                <!-- /SIDEBAR COLLAPSE -->
+            </div>
+            <!-- NAVBAR LEFT -->
+            <ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+
+
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="fa fa-male"></i>
+                        <span class="name">个人主页</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="index.html" class="dropdown-toggle">
+                        <i class="fa fa-users"></i>
+                        <span class="name">社区主页</span>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="team-status-toggle dropdown-toggle tip-bottom" data-toggle="tooltip" title="您特别关注的会员">
+                        <i class="fa fa-rub"></i>
+                        <span class="name">特别关注</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-cog"></i>
+                        <span class="name">设置</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu skins">
+                        <li class="dropdown-title">
+                            <span><i class="fa fa-leaf"></i>个人设置</span>
+                        </li>
+                        <li><a href="#" data-skin="default">目标制定</a></li>
+                        <li><a href="#" data-skin="night">计划制定</a></li>
+                        <li><a href="#" data-skin="earth">照片视频</a></li>
+                    </ul>
+                </li>
+
+
+
+            </ul>
+            <!-- /NAVBAR LEFT -->
+            <!-- BEGIN TOP NAVIGATION MENU -->
+            <ul class="nav navbar-nav pull-right" >
+                <li style="display:<%= Show_Logout %>">
+                    <form method="post">
+                        <input type="hidden" name="logoutHidden" value="1" />
+                        <button type="submit"style="width:80px;margin-top:13px;background-color:transparent;border:none;color:white;">安全退出</button>
+                    </form>
+                </li>
+                <!-- BEGIN NOTIFICATION DROPDOWN -->
+                <li class="dropdown" id="header-notification">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge">7</span>
+
+                    </a>
+                    <ul class="dropdown-menu notification">
+                        <li class="dropdown-title">
+                            <span><i class="fa fa-bell"></i>7 Notifications</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-success"><i class="fa fa-user"></i></span>
+                                <span class="body">
+                                    <span class="message">5 users online. </span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>Just now</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-primary"><i class="fa fa-comment"></i></span>
+                                <span class="body">
+                                    <span class="message">Martin commented.</span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>19 mins</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning"><i class="fa fa-lock"></i></span>
+                                <span class="body">
+                                    <span class="message">DW1 server locked.</span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>32 mins</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-info"><i class="fa fa-twitter"></i></span>
+                                <span class="body">
+                                    <span class="message">Twitter connected.</span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>55 mins</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-danger"><i class="fa fa-heart"></i></span>
+                                <span class="body">
+                                    <span class="message">Jane liked. </span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>2 hrs</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="label label-warning"><i class="fa fa-exclamation-triangle"></i></span>
+                                <span class="body">
+                                    <span class="message">Database overload.</span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>6 hrs</span>
+                                    </span>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="footer">
+                            <a href="#">See all notifications <i class="fa fa-arrow-circle-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END NOTIFICATION DROPDOWN -->
+                <!-- BEGIN INBOX DROPDOWN -->
+                <li class="dropdown" id="header-message">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-envelope"></i>
+                        <span class="badge">3</span>
+                    </a>
+                    <ul class="dropdown-menu inbox">
+                        <li class="dropdown-title">
+                            <span><i class="fa fa-envelope-o"></i>3 Messages</span>
+                            <span class="compose pull-right tip-right" title="Compose message"><i class="fa fa-pencil-square-o"></i></span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar2.jpg" alt="" />
+                                <span class="body">
+                                    <span class="from">Jane Doe</span>
+                                    <span class="message">
+                                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
+                                    </span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>Just Now</span>
+                                    </span>
+                                </span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar1.jpg" alt="" />
+                                <span class="body">
+                                    <span class="from">Vince Pelt</span>
+                                    <span class="message">
+                                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
+                                    </span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>15 min ago</span>
+                                    </span>
+                                </span>
+
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar8.jpg" alt="" />
+                                <span class="body">
+                                    <span class="from">Debby Doe</span>
+                                    <span class="message">
+                                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse mole ...
+                                    </span>
+                                    <span class="time">
+                                        <i class="fa fa-clock-o"></i>
+                                        <span>2 hours ago</span>
+                                    </span>
+                                </span>
+
+                            </a>
+                        </li>
+                        <li class="footer">
+                            <a href="#">See all messages <i class="fa fa-arrow-circle-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END INBOX DROPDOWN -->
+                <!-- BEGIN TODO DROPDOWN -->
+                <li class="dropdown" id="header-tasks">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="fa fa-tasks"></i>
+                        <span class="badge">3</span>
+                    </a>
+                    <ul class="dropdown-menu tasks">
+                        <li class="dropdown-title">
+                            <span><i class="fa fa-check"></i>6 tasks in progress</span>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="header clearfix">
+                                    <span class="pull-left">Software Update</span>
+                                    <span class="pull-right">60%</span>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                        <span class="sr-only">60% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="header clearfix">
+                                    <span class="pull-left">Software Update</span>
+                                    <span class="pull-right">25%</span>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+                                        <span class="sr-only">25% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="header clearfix">
+                                    <span class="pull-left">Software Update</span>
+                                    <span class="pull-right">40%</span>
+                                </span>
+                                <div class="progress progress-striped">
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+                                        <span class="sr-only">40% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="header clearfix">
+                                    <span class="pull-left">Software Update</span>
+                                    <span class="pull-right">70%</span>
+                                </span>
+                                <div class="progress progress-striped active">
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+                                        <span class="sr-only">70% Complete</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="header clearfix">
+                                    <span class="pull-left">Software Update</span>
+                                    <span class="pull-right">65%</span>
+                                </span>
+                                <div class="progress">
+                                    <div class="progress-bar progress-bar-success" style="width: 35%">
+                                        <span class="sr-only">35% Complete (success)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-warning" style="width: 20%">
+                                        <span class="sr-only">20% Complete (warning)</span>
+                                    </div>
+                                    <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                        <span class="sr-only">10% Complete (danger)</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="footer">
+                            <a href="#">See all tasks <i class="fa fa-arrow-circle-right"></i></a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END TODO DROPDOWN -->
+                <!-- BEGIN USER LOGIN DROPDOWN -->
+                <!--<li class="dropdown user" id="header-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img alt="" src="img/avatars/avatar3.jpg" />
+                        <span class="username">John Doe</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-user"></i>My Profile</a></li>
+                        <li><a href="#"><i class="fa fa-cog"></i>Account Settings</a></li>
+                        <li><a href="#"><i class="fa fa-eye"></i>Privacy Settings</a></li>
+                        <li><a href="login.html"><i class="fa fa-power-off"></i>Log Out</a></li>
+                    </ul>
+                </li>-->
+                <li class="dropdown user" id="header-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top:12px">
+                        <img alt="" src="<%=profilePic %>" style="display:<%= profilePicDisplay %>"/>
+                        <span class="username" style="display:<%= profilePicDisplay %>"><%=userName %></span>
+                        <i class="fa fa-male" style="display:<%= userNotLogin %>"></i>
+                    </a>
+                    <div class="box border orange dropdown-menu" style="display:<%= Show_LoginBox %>">
+                        <div class="box-title">
+                            <h4><i class="fa fa-bars"></i>请登录</h4>
+                        </div>
+                        <div class="box-body big" style="padding: 15px 8px 15px 8px">
+                            <form role="form" method="post">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">电子邮箱</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" name="emailLogin">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">登录密码</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" name="passwordLogin">
+                                </div>
+                                <input type="hidden" name="loginHidden" value="1" />
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox"> 记住我
+                                    </label>
+                                </div>
+<%--                                <input type="hidden" name="__viewstate" />--%>
+                                <button type="submit" class="btn btn-success" style="width:45%">登录</button><br><br>
+                                <span> <a href="<%=appRootPath %>/Pages/Login/Register.aspx">注册</a>     | </span>
+                                <span><a href="<%=appRootPath %>/Pages/Login/forgetPassword.aspx">忘记密码</a> </span>
+                                <br>
+                            </form>
+                        </div>
+                    </div>
+
+
+                </li>
+                
+
+
+                <!-- END USER LOGIN DROPDOWN -->
+            </ul>
+            <!-- END TOP NAVIGATION MENU -->
+        </div>
+
+        <!-- TEAM STATUS -->
+        <div class="container team-status" id="team-status">
+            <div id="scrollbar">
+                <div class="handle">
+                </div>
+            </div>
+            <div id="teamslider">
+                <ul class="team-list">
+                    <li class="current">
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar3.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                You
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 35%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 20%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">6</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">3</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">1</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar1.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Max Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 15%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 40%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 20%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">2</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">8</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">4</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar2.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Jane Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 65%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 10%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 15%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">10</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">3</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">4</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar4.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Ellie Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 5%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 48%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 27%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">1</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">6</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">2</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar5.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Lisa Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 21%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 20%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 40%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">4</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">5</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">9</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar6.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Kelly Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 45%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 21%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">6</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">3</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">1</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar7.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Jessy Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 7%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 30%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 10%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">1</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">6</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">2</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);">
+                            <span class="image">
+                                <img src="<%=resourceRootPath %>/img/avatars/avatar8.jpg" alt="" />
+                            </span>
+                            <span class="title">
+                                Debby Doe
+                            </span>
+                            <div class="progress">
+                                <div class="progress-bar progress-bar-success" style="width: 70%">
+                                    <span class="sr-only">35% Complete (success)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-warning" style="width: 20%">
+                                    <span class="sr-only">20% Complete (warning)</span>
+                                </div>
+                                <div class="progress-bar progress-bar-danger" style="width: 5%">
+                                    <span class="sr-only">10% Complete (danger)</span>
+                                </div>
+                            </div>
+                            <span class="status">
+                                <div class="field">
+                                    <span class="badge badge-green">13</span> completed
+                                    <span class="pull-right fa fa-check"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-orange">7</span> in-progress
+                                    <span class="pull-right fa fa-adjust"></span>
+                                </div>
+                                <div class="field">
+                                    <span class="badge badge-red">1</span> pending
+                                    <span class="pull-right fa fa-list-ul"></span>
+                                </div>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- /TEAM STATUS -->
+    </header>
+    <!--/HEADER -->
+    <!-- PAGE -->
+    <section id="page">
+        <!-- SIDEBAR -->
+       
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-menu nav-collapse">
+                <div class="divide-20"></div>
+                <!-- SEARCH BAR -->
+                <div id="search-bar">
+                    <input class="search" type="text" placeholder="搜索"><i class="fa fa-search search-icon"></i>
+                </div>
+                <!-- /SEARCH BAR -->
+                <!-- SIDEBAR QUICK-LAUNCH -->
+                <!-- <div id="quicklaunch">
+                        <!-- /SIDEBAR QUICK-LAUNCH -->
+                <!-- SIDEBAR MENU -->
+                <ul>
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-home fa-fw"></i><span class="menu-text"><span style="font-style: oblique">fitspace&nbsp;</span>社区</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub" id="abcd">
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text">目标</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub" id="abc">
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">目标制定</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">总体目标</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">了解你的身体</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text">健身计划</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub">
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">计划制定</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">进度跟踪</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">饮食搭配</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">健身日历</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text">跟踪</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub">
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">进度</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">体重和体脂率</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">力量</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">围度</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">对比照片</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text">动力</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub">
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">来晒一晒</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">我的朋友</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">我的粉丝</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">我关注的人</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">我的健身群</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">我的健身哲学</span></a></li>
+                                </ul>
+                            </li>
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text">档案管理</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub">
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">个人信息完善</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">照片和视频</span></a></li>
+                                    <li><a class="" href="#"><span class="sub-sub-menu-text">其他设置</span></a></li>
+                                </ul>
+                            </li>
+
+
+
+
+
+
+                        </ul>
+                    </li>
+
+                    <li class="has-sub" >
+                        <a href="javascript:;" class="">
+                            <i class="fa fa-gears fa-fw"></i><span class="menu-text">训练大厅</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub" id="a2">
+                            <li class="has-sub-sub">
+                                <a href="javascript:;" class="">
+                                    <span class="sub-menu-text" >健身动作库</span>
+                                    <span class="arrow"></span>
+                                </a>
+                                <ul class="sub-sub"  id="a21">
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?menu=a2-a21" target=""><span class="sub-sub-menu-text">所有动作</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a2-a21"><span class="sub-sub-menu-text">胸大肌</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=CE4DFA88-7CEE-49F7-9097-EBDEB36716EE&menu=a2-a21"><span class="sub-sub-menu-text">背阔肌</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a2-a21"><span class="sub-sub-menu-text">腿部肌群</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a2-a21"><span class="sub-sub-menu-text">手臂肌群</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a2-a21"><span class="sub-sub-menu-text">肩部肌群</span></a></li>
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a2-a21"><span class="sub-sub-menu-text">臀部肌群</span></a></li>
+                                </ul>
+                            </li>
+                            <li><a class="" href="elements.html"><span class="sub-menu-text">训练计划</span></a></li>
+                            <li><a class="" href="notifications.html"><span class="sub-menu-text">杠铃</span></a></li>
+                            <li><a class="" href="buttons_icons.html"><span class="sub-menu-text">哑铃</span></a></li>
+                            <li><a class="" href="sliders_progress.html"><span class="sub-menu-text">初学者</span></a></li>
+                            <li><a class="" href="typography.html"><span class="sub-menu-text">女士</span></a></li>
+                            <li><a class="" href="tabs_accordions.html"><span class="sub-menu-text">制定训练目标</span></a></li>
+                            <li><a class="" href="treeview.html"><span class="sub-menu-text">制定训练计划</span></a></li>
+
+                        </ul>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa  fa-cutlery fa-fw"></i><span class="menu-text">运动营养学</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="elements.html"><span class="sub-menu-text">饮食计划</span></a></li>
+                            <li><a class="" href="notifications.html"><span class="sub-menu-text">食谱</span></a></li>
+                            <li><a class="" href="buttons_icons.html"><span class="sub-menu-text">补剂</span></a></li>
+                            <li><a class="" href="sliders_progress.html"><span class="sub-menu-text">饮食小贴士</span></a></li>
+                            <li><a class="" href="typography.html"><span class="sub-menu-text">计算器</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa  fa-road fa-fw"></i><span class="menu-text">专题</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">增肌</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">减脂</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">塑形</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">健身房</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">室外</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">自重锻炼</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">初学者</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">女士</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">健身教练</span></a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="index.html">
+                            <i class="fa fa-shopping-cart fa-fw"></i><span class="menu-text">商城</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="has-sub">
+                        <a href="javascript:;" class="">
+                            <i class="fa  fa-question fa-fw"></i><span class="menu-text">有问必答</span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub">
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">常见问题</span></a></li>
+                            <li><a class="" href="#"><span class="sub-sub-menu-text">来信咨询</span></a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- /SIDEBAR MENU -->
+            </div>
+        </div>
+        <!-- /SIDEBAR -->
+        <div id="main-content">
+            <!-- SAMPLE BOX CONFIGURATION MODAL FORM-->
+            <div class="modal fade" id="box-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title">Box Settings</h4>
+                        </div>
+                        <div class="modal-body">
+                            Here goes box setting content.
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /SAMPLE BOX CONFIGURATION MODAL FORM-->
+            <div class="container">
+                <div class="row">
+                    <!--Content-->
+                    <div id="content" class="col-lg-12">
+                        <!-- PAGE HEADER-->
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="page-header">
+                                    <!-- STYLER -->
+                                    <!-- /STYLER -->
+                                    <!-- BREADCRUMBS -->
+                                    <ul class="breadcrumb">
+                                        <li>
+                                            <i class="fa fa-home"></i>
+                                            <a href="index.aspx">首页</a>
+                                        </li>
+                                        <%=pagePath %>
+                                    </ul>
+                                    <!-- /BREADCRUMBS -->
+                                    <%--<div class="clearfix">
+                                        <h3 class="content-title pull-left">啊啊啊啊啊啊</h3>
+                                    </div>
+                                    <div class="description">哦哦哦哦哦哦</div>--%>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /PAGE HEADER -->
+
+                        <!--PAGE CONTENT-->
+                       
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+        
+                            </asp:ContentPlaceHolder>
+       
+                        <!--/PAGE CONTENT-->
+
+                        <!--PAGE FOOTER-->
+                        <div class="footer-tools">
+                            <span class="go-top">
+                                <i class="fa fa-chevron-up"></i>顶部
+                            </span>
+                        </div>
+                        <!--/PAGE FOOTER-->
+                    </div>
+                    <!-- /CONTENT-->
+                </div>
+            </div>
+        </div>
+        <form runat="server"></form>
+    </section>
+    <!--/PAGE -->
+    
+    <script>
+        jQuery(document).ready(function () {            
+			var s = window.location.href; 
+            var s = s.split("?"); //分割url和url参数
+            if(s.length == 1) return; //如果没有参数则返回
+            else{  
+               s = s[1].split("&"); //分割各种类型的参数
+                var j;
+               for(var i=0;i<s.length;i++)
+                {
+                    if(s[i].indexOf("menu") >= 0){ //如果包含指定的参数名（这里为menu），则返回该"参数名=参数值"
+                        j = i;  
+                        break;
+                    }
+                }              
+                s  = s[j].split("=");
+                if(s.length == 1)   return;
+                else s = s[1];
+            }
+            s = s.split("-");           
+                    for(var i =0;i<s.length;i++)
+                    {
+                        $('#'+s[i]).slideToggle();
+                    }
+        });
+    </script>
+</body>
+</html>
