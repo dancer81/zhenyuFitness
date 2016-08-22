@@ -17,7 +17,7 @@
                                 <!-- BOX -->
                                 <div class="box border red" id="formWizard">
                                     <div class="box-title">
-                                        <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">Step 1 of 4</h4>
+                                        <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">步骤 1 / 9</span></h4>
                                         <div class="tools hidden-xs">
                                             
                                             <a href="javascript:;" class="collapse">
@@ -32,33 +32,58 @@
                                         <form id="registerForm" action="#" class="form-horizontal" method="post">
                                             <div class="wizard-form">
                                                 <div class="wizard-content">
-                                                    <ul class="nav nav-pills nav-justified steps">
+                                                    <ul class="nav nav-pills nav-justified steps" style="display:none">
                                                         <li>
                                                             <a href="#account" data-toggle="tab" class="wiz-step">
-                                                                <span class="step-number">1</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>step 1 </span>
+                                                               <%-- <span class="step-number">1</span>--%>
+                                                                <span class="step-name" style="font-family:楷体"><i class="fa fa-check"></i>输入身体数据</span>
                                                             </a>
                                                         </li>
 
                                                         <li>
                                                             <a href="#payment" data-toggle="tab" class="wiz-step active">
-                                                                <span class="step-number">2</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>step 2</span>
+                                                                <%--<span class="step-number">2</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>您的体脂率</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#confirm" data-toggle="tab" class="wiz-step">
-                                                                <span class="step-number">3</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>step 3 </span>
+                                                                <%--<span class="step-number">3</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>目标体格</span>
                                                             </a>
                                                         </li>
                                                         <li>
                                                             <a href="#confirm" data-toggle="tab" class="wiz-step">
-                                                                <span class="step-number">4</span>
-                                                                <span class="step-name"><i class="fa fa-check"></i>step 4 </span>
+                                                              <%--  <span class="step-number">4</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>目标身体数据</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                                               <%-- <span class="step-number">4</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>健身历史</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                                               <%-- <span class="step-number">4</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>目标实现日期</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                                              <%--  <span class="step-number">4</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>设置提醒</span>
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                                               <%-- <span class="step-number">4</span>--%>
+                                                                <span class="step-name"><i class="fa fa-check"></i>目标设置完成</span>
                                                             </a>
                                                         </li>
                                                     </ul>
+                                                    <div class="nav nav-pills nav-justified steps" style="height:60px;text-align:center;background-color:#4d4848"><span id="currentStep" style="color:white;font-size:25px">请输入当前的身体数据</span></div>
                                                     <div id="bar" class="progress progress-striped progress-sm active" role="progressbar">
                                                         <div class="progress-bar progress-bar-warning"></div>
                                                     </div>
@@ -241,6 +266,243 @@
                                                                     <span class="error-span"></span>
                                                                 </div>
                                                             </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">体重<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
+                                                                        1-2年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
+                                                                        2-4年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
+                                                                        4年以上
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane" id="payment">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">性别<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
+                                                                        男士
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
+                                                                        女士
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">体重<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
+                                                                        1-2年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
+                                                                        2-4年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
+                                                                        4年以上
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane" id="payment">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">性别<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
+                                                                        男士
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
+                                                                        女士
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">体重<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
+                                                                        1-2年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
+                                                                        2-4年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
+                                                                        4年以上
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane" id="payment">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">性别<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
+                                                                        男士
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
+                                                                        女士
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">体重<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
+                                                                        1-2年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
+                                                                        2-4年
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
+                                                                        4年以上
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="tab-pane" id="payment">
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">性别<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
+                                                                        男士
+                                                                    </label>
+                                                                    <label class="radio">
+                                                                        <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
+                                                                        女士
+                                                                    </label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
+
+
+
+                                                            <div class="form-group">
+                                                                <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                                                <div class="col-md-4">
+                                                                    <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
+                                                                    <span class="error-span"></span>
+                                                                </div>
+                                                            </div>
+
                                                             <div class="form-group">
                                                                 <label class="control-label col-md-3">体重<span class="required">*</span></label>
                                                                 <div class="col-md-4">
@@ -381,16 +643,7 @@
     <script type="text/javascript">
 
         $(".nextBtn").click(function () {
-            $("[data-display='email']").html($("[name='email']").val());
-            $("[data-display='province']").html($("[name='province']").val());
-            $("[data-display='name']").html($("[name='name']").val());
-            $("[data-display='phone']").html($("[name='phone']").val());
-            $("[data-display='gender']").html($("[name='gender']:checked")[0].nextSibling.nodeValue);
-            $("[data-display='birthday']").html($("[name='birthday']").val());
-            $("[data-display='height']").html($("[name='height']").val() + '厘米');
-            $("[data-display='weight']").html($("[name='weight']").val() + '千克');
-            $("[data-display='fitHis']").html($("[name='fitHis']:checked")[0].nextSibling.nodeValue);
-
+            //alert("asdfsf");
         });
 
     </script>
