@@ -14,7 +14,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12">      
             <!-- BOX -->
             <div class="box border red" id="formWizard">
                 <div class="box-title">
