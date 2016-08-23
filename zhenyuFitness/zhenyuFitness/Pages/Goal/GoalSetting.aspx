@@ -11,14 +11,38 @@
     <script src="../../js/jquery-validate/additional-methods.min.js"></script>
     <script src="../..//js/custom/goal.js"></script>
 
+    <link href="../../css/Hover_css/normalize.css" rel="stylesheet" />
+    <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../../css/inputcomponent.css" rel="stylesheet" />
+    <style>
+        .bgcolor-1 {
+            background: #FFFFF;
+        }
+
+        .inputcontainer {
+            background: #f9f7f6;
+            font-weight: 500;
+            font-size: 1.05em;
+            font-family: 'Raleway', Arial, sans-serif;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .inputcontent {
+            font-size: 150%;
+            padding: 3em 0;
+        }
+    </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="row">
-        <div class="col-md-12">      
+        <div class="col-md-12">
             <!-- BOX -->
             <div class="box border red" id="formWizard">
                 <div class="box-title">
-                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">步骤 1 / 9</span></h4>
+                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader"> 1 / 9</span></h4>
                     <div class="tools hidden-xs">
 
                         <a href="javascript:;" class="collapse">
@@ -91,49 +115,44 @@
                                 <div class="tab-content">
                                     <div class="alert alert-danger display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
-                                        您的表单信息填写有误，请修改后继续。
+                                        <span id="error-span-top"></span>请修改后继续。
                                                        
+                                   
                                     </div>
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
                                                        
+                                   
                                     </div>
                                     <div class="tab-pane active" id="bodystats">
-                                        <div class="form-group">
-                                            <link href="../../css/inputcomponent.css" rel="stylesheet" />
-                                            <section class="content bgcolor-4" style="width: 98%; text-align: center">
-                                                <span class="input input--kuro">
-                                                    <input class="input__field input__field--kuro" type="text" id="input-31">
-                                                    <label class="input__label input__label--kuro" for="input-31">
-                                                        <svg class="graphic graphic--kuro" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                                                            <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
-                                                        </svg>
-                                                        <span class="input__label-content input__label-content--kuro">身高(厘米)</span>
+
+                                        <div class="inputcontainer">
+                                            <section class="inputcontent bgcolor-1">
+                                                <span class="input input--haruki">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-1">
+                                                    <label class="input__label input__label--haruki" for="input-1">
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">身 高</span></span>
                                                     </label>
                                                 </span>
-                                                <span class="input input--kuro">
-                                                    <input class="input__field input__field--kuro" type="text" id="input-32">
-                                                    <label class="input__label input__label--kuro" for="input-32">
-                                                        <svg class="graphic graphic--kuro" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                                                            <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
-                                                        </svg>
-                                                        <span class="input__label-content input__label-content--kuro">体重(千克)</span>
+                                                <span class="input input--haruki">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-2">
+                                                    <label class="input__label input__label--haruki" for="input-2">
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">体 重</span></span>
                                                     </label>
                                                 </span>
-                                                <span class="input input--kuro">
-                                                    <input class="input__field input__field--kuro" type="text" id="input-33">
-                                                    <label class="input__label input__label--kuro" for="input-33">
-                                                        <svg class="graphic graphic--kuro" width="100%" height="100%" viewBox="0 0 404 77" preserveAspectRatio="none">
-                                                            <path d="m0,0l404,0l0,77l-404,0l0,-77z"></path>
-                                                        </svg>
-                                                        <span class="input__label-content input__label-content--kuro">腰围(厘米)</span>
+                                                <span class="input input--haruki">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-3">
+                                                    <label class="input__label input__label--haruki" for="input-3">
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">腰 围</span></span>
                                                     </label>
                                                 </span>
                                             </section>
+                                            <!---->
+
+
                                         </div>
-
-
+                                        <!-- /container -->
 
                                         <%--<div class="form-group">
                                                                 <label class="control-label col-md-3">电子邮箱<span class="required">*</span></label>
@@ -213,35 +232,10 @@
                                                                 </div>
                                                             </div>--%>
                                     </div>
-                                    <div class="tab-pane" id="yourbodyfat">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-
-
+                                    <div class="tab-pane" id="bodystats1">
 
                                         <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
+                                            <label class="control-label col-md-3"><span style="font-size: 22px">身高</span></label>
                                             <div class="col-md-4">
                                                 <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
                                                 <span class="error-span"></span>
@@ -261,16 +255,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -285,11 +282,13 @@
                                                     <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
                                                     男士
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -326,16 +325,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -349,11 +351,13 @@
                                                     <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
                                                     男士
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -390,16 +394,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -413,11 +420,13 @@
                                                     <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
                                                     男士
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -454,16 +463,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -477,11 +489,13 @@
                                                     <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
                                                     男士
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -518,16 +532,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -541,11 +558,13 @@
                                                     <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
                                                     男士
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -582,16 +601,19 @@
                                                     <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
                                                     1-2年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                 </label>
                                             </div>
                                         </div>
@@ -681,7 +703,7 @@
                                         <div class="col-md-offset-3 col-md-9">
                                             <a href="javascript:;" class="btn btn-default prevBtn">
                                                 <i class="fa fa-arrow-circle-left"></i>上一步
-                                                                </a>
+                                            </a>
                                             <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
                                             </a>
                                             <%--  <input type="hidden" name="__viewstate" />--%>
@@ -735,7 +757,7 @@
                 }
             }
         })();
-		</script>
+    </script>
 
 
 
