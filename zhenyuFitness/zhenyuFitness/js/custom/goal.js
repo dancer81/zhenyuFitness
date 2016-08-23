@@ -15,6 +15,8 @@
             var alert_success = $('.alert-success', wizform);
             var alert_error = $('.alert-danger', wizform);
 
+            $('#steptitle').html("请输入当前的身体数据");
+
             /*-----------------------------------------------------------------------------------*/
             /*	Validate the form elements
 			/*-----------------------------------------------------------------------------------*/
@@ -132,80 +134,75 @@
                 'nextSelector': '.nextBtn',
                 'previousSelector': '.prevBtn',
                 onNext: function (tab, navigation, index) {
-                    var height = parseFloat($('#input-1').val());
+                    //alert(index);
+                    showStepTitle(0, index);
+
+                    /* 验证身高、体重、腰围输入的正确性 */
+                    $('#error-span-top').html("");
+                    var tag = 0;
+                    var height = parseFloat($('#input-1').val()); 
                     var weight = parseFloat($('#input-2').val());
                     var waist = parseFloat($('#input-3').val());
-                    if (isNaN(height) || isNaN(weight) || isNaN(waist)) {
-                        if (isNaN(height))//如果不是数字
+                    if ($('#input-1').val().length == 0) {
+                        tag = 1;
+                        $('#error-span-top').html($('#error-span-top').html() + "身高必须填写。此数值将参与估算您的体脂率。<br />");
+                    }
+                    if ($('#input-2').val().length == 0) {
+                        tag = 1;
+                        $('#error-span-top').html($('#error-span-top').html() + "体重必须填写。此数值将参与估算您的体脂率。<br />");
+                    }
+                    if ($('#input-3').val().length == 0) {
+                        tag = 1;
+                        $('#error-span-top').html($('#error-span-top').html() + "腰围必须填写。此数值将参与估算您的体脂率。<br />");
+                    }
+                    if ($('#input-1').val().length != 0 && (isNaN(height) || height > 300 || height <= 0)) {
+                        tag = 1;
+                        if (isNaN(height))
                         {
-                            $('#error-span-top').html("身高必须为数字。<br />");
+                            $('#error-span-top').html($('#error-span-top').html() + "身高必须为数字。<br />");
                         }
-                        if (isNaN(weight))//如果不是数字
+                        if (height > 3)
                         {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的身高似乎不太可能超过3米……<br />");
+                        }
+                        if (height < 0.5)
+                        {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的身高似乎不太可能小于0.5米……<br />");
+                        }
+                    }
+
+
+                    if ($('#input-2').val().length != 0 &&(isNaN(weight) || weight > 300 || weight < 20)) {
+                        tag = 1;
+                        if (isNaN(weight)) {
                             $('#error-span-top').html($('#error-span-top').html() + "体重必须为数字。<br />");
                         }
-                        if (isNaN(waist))//如果不是数字
-                        {
+                        if (weight > 300) {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的体重似乎不太可能超过300千克……<br />");
+                        }
+                        if (weight < 20) {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的体重似乎不太可能小于20千克……<br />");
+                        }
+                    }
+
+                    if ($('#input-3').val().length != 0 && (isNaN(waist) || waist > 300 || waist < 20)) {
+                        tag = 1;
+                        if (isNaN(waist)) {
                             $('#error-span-top').html($('#error-span-top').html() + "腰围必须为数字。<br />");
                         }
-                        alert_error.show();
-                        return false;
-                    }
-                    else//如果是数字
-                    {
-                        if (height >= 3) {
-                            $('#error-span-top').html("您的身高似乎不太可能超过3米……");
-                            alert_error.show();
-                            return false;
+                        if (waist > 300) {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的腰围似乎不太可能超过300厘米……<br />");
                         }
-                        if (height <= 0) {
-                            $('#error-span-top').html("您的身高不可能小于0……");
-                            alert_error.show();
-                            return false;
+                        if (waist < 20) {
+                            $('#error-span-top').html($('#error-span-top').html() + "您的腰围似乎不太可能小于20厘米……<br />");
                         }
                     }
-
                     
-                    if (isNaN(weight))//如果不是数字
-                    {
-                        $('#error-span-top').html("体重必须为数字。");
+                    if (tag == 1) {
                         alert_error.show();
                         return false;
                     }
-                    else//如果是数字
-                    {
-                        if (weight >= 250) {
-                            $('#error-span-top').html("您的体重似乎不太可能超过250千克……");
-                            alert_error.show();
-                            return false;
-                        }
-                        if (weight <= 0) {
-                            $('#error-span-top').html("您的体重不可能小于0……");
-                            alert_error.show();
-                            return false;
-                        }
-                    }
-
-                    
-                    if (isNaN(waist))//如果不是数字
-                    {
-                        $('#error-span-top').html("腰围必须为数字。");
-                        alert_error.show();
-                        return false;
-                    }
-                    else//如果是数字
-                    {
-                        if (waist >= 500) {
-                            $('#error-span-top').html("您的腰围似乎不太可能超过50厘米……");
-                            alert_error.show();
-                            return false;
-                        }
-                        if (waist <= 0) {
-                            $('#error-span-top').html("您的腰围不可能小于0……");
-                            alert_error.show();
-                            return false;
-                        }
-                    }
+                    /* end 验证身高、体重、腰围输入的正确性 */
 
 
 
@@ -241,6 +238,9 @@
 
                 },
                 onPrevious: function (tab, navigation, index) {
+                    showStepTitle(1, index);
+
+
                     alert_success.hide();
                     alert_error.hide();
                     var total = navigation.find('li').length;
@@ -285,3 +285,24 @@
         }
     };
 }();
+
+
+function showStepTitle(direction, index) {
+    if(direction == 0)//next
+    {
+        if(index == 1)
+        {
+            $('#steptitle').html("请确认您的体脂率");
+        }
+
+    }
+    if(direction == 1)//previous
+    {
+        if(index == 0)
+        {
+            $('#steptitle').html("请输入当前的身体数据");
+        }
+    }
+}
+
+
