@@ -14,6 +14,9 @@
     <link href="../../css/Hover_css/normalize.css" rel="stylesheet" />
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../../css/inputcomponent.css" rel="stylesheet" />
+    <!-- icheck-->
+    <link href="../../js/icheck/square/blue.css" rel="stylesheet" />
+    <script src="../../js/icheck/icheck.min.js"></script>
     <style>
         .bgcolor-1 {
             background: #FFFFF;
@@ -42,7 +45,7 @@
             <!-- BOX -->
             <div class="box border red" id="formWizard">
                 <div class="box-title">
-                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader"> 1 / 9</span></h4>
+                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">1 / 9</span></h4>
                     <div class="tools hidden-xs">
 
                         <a href="javascript:;" class="collapse">
@@ -118,214 +121,321 @@
                                         <span id="error-span-top"></span>请修改后继续。
                                                        
                                    
+                                   
                                     </div>
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
                                                        
                                    
+                                   
                                     </div>
                                     <div class="tab-pane active" id="bodystats">
-
+                                        <%--                                        <input type="radio" name="iCheck">
+                                        <input type="radio" name="iCheck" checked>--%>
                                         <div class="inputcontainer">
-                                            <section class="inputcontent bgcolor-1" >
+                                            <section class="inputcontent bgcolor-1">
                                                 <span class="input input--haruki">
                                                     <input class="input__field input__field--haruki" type="text" id="input-1">
                                                     <label class="input__label input__label--haruki" for="input-1">
-                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">身 高&nbsp;<span style="font-size:18px">cm</span></span></span>
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">身 高&nbsp;<span style="font-size: 18px">cm</span></span></span>
                                                     </label>
                                                 </span>
-                                                
+
                                                 <span class="input input--haruki">
                                                     <input class="input__field input__field--haruki" type="text" id="input-2">
                                                     <label class="input__label input__label--haruki" for="input-2">
-                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">体 重&nbsp;<span style="font-size:18px">kg</span></span></span>
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">体 重&nbsp;<span style="font-size: 18px">kg</span></span></span>
                                                     </label>
                                                 </span>
                                                 <span class="input input--haruki">
                                                     <input class="input__field input__field--haruki" type="text" id="input-3">
                                                     <label class="input__label input__label--haruki" for="input-3">
-                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">腰 围&nbsp;<span style="font-size:18px">cm</span></span></span>
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">腰 围&nbsp;<span style="font-size: 18px">cm</span></span></span>
                                                     </label>
                                                 </span>
                                             </section>
-                                            <!---->
-
-
                                         </div>
-                                        <!-- /container -->
-
-                                        <%--<div class="form-group">
-                                                                <label class="control-label col-md-3">电子邮箱<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="email" placeholder="请提供您的电子邮箱地址" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">密码<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="password" class="form-control" name="password" placeholder="请提供您的密码，密码长度为6-12位" id="password" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">再次输入密码<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="password" class="form-control" name="confirmpassword" placeholder="请再次输入密码" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">用户名<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="name" placeholder="在FitSpace社区里，您希望其他会员对您的称呼" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">所在省份<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <select name="province" id="province_select" class="col-md-12 full-width-fix">
-                                                                        <option value=""></option>
-                                                                        <option value="北京市">北京市</option>
-                                                                        <option value="浙江省">浙江省</option>
-                                                                        <option value="天津市">天津市</option>
-                                                                        <option value="安徽省">安徽省</option>
-                                                                        <option value="上海市">上海市</option>
-                                                                        <option value="福建省">福建省</option>
-                                                                        <option value="重庆市">重庆市</option>
-                                                                        <option value="江西省">江西省</option>
-                                                                        <option value="山东省">山东省</option>
-                                                                        <option value="河南省">河南省</option>
-                                                                        <option value="湖北省">湖北省</option>
-                                                                        <option value="湖南省">湖南省</option>
-                                                                        <option value="广东省">广东省</option>
-                                                                        <option value="海南省">海南省</option>
-                                                                        <option value="山西省">山西省</option>
-                                                                        <option value="青海省">青海省</option>
-                                                                        <option value="江苏省">江苏省</option>
-                                                                        <option value="辽宁省">辽宁省</option>
-                                                                        <option value="吉林省">吉林省</option>
-                                                                        <option value="台湾省">台湾省</option>
-                                                                        <option value="河北省">河北省</option>
-                                                                        <option value="贵州省">贵州省</option>
-                                                                        <option value="四川省">四川省</option>
-                                                                        <option value="云南省">云南省</option>
-                                                                        <option value="陕西省">陕西省</option>
-                                                                        <option value="甘肃省">甘肃省</option>
-                                                                        <option value="黑龙江省">黑龙江省</option>
-                                                                        <option value="香港特别行政区">香港特别行政区</option>
-                                                                        <option value="澳门特别行政区">澳门特别行政区</option>
-                                                                        <option value="广西壮族自治区">广西壮族自治区</option>
-                                                                        <option value="宁夏回族自治区">宁夏回族自治区</option>
-                                                                        <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
-                                                                        <option value="内蒙古自治区">内蒙古自治区</option>
-                                                                        <option value="西藏自治区">西藏自治区</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">联系电话</label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="phone" placeholder="您的联系电话" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>--%>
                                     </div>
 
-                                    <div class="tab-pane active" id="yourbodyfat">
-                                        <div class="inputcontainer">
-                                            <section class="inputcontent bgcolor-1" >
-                                                <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-4" value="21%">
-                                                    <label class="input__label input__label--haruki" for="input-1">
-                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size:25px">您的体脂率</span></span>
+                                    <div class="tab-pane" id="yourbodyfat" style="background: #f9f7f6;">
+                                        
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-3"><span style="font-size: 15px; color: #0033CC; font-style: oblique;margin-top:15px;">您知道什么是体脂率吗？</span></div>
+                                                <div class="col-md-5"></div>
+                                                <div class="col-md-3">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" class="uniform" name="chk_knowbodyfat" value="0" checked>
+                                                        知道 
                                                     </label>
-                                                </span>
-                                                
-                                                
-                                            </section>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" class="uniform" name="chk_knowbodyfat" value="1">
+                                                        我不知道 
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        <div id="step2_part1" >
+                                            <div class="inputcontainer">
+                                                <section class="inputcontent bgcolor-1">
+                                                    <span class="input input--haruki">
+                                                        <input class="input__field input__field--haruki" type="text" id="input-4">
+                                                        <label class="input__label input__label--haruki" for="input-4">
+                                                            <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
+                                                        </label>
+                                                    </span>
+                                                </section>
+                                            </div>
                                         </div>
-                                        <!-- /container -->
+                                        <br />
+                                        <div id="step2_part2" style="display:none">
+                                            <div>
+                                                <div class="row">
+                                                    <div class="col-md-1"></div>
+                                                    <div class="col-md-10" style="background-color: white; border-width: 2px; border: 6px solid #c8c8c8; padding: 10px;">
+                                                        <span style="font-size: 14px; color: #003366;">体脂率是决定您身体形态最重要的指标，其计算方法为：您全身脂肪重量/您的体重。<br />
+                                                            <br />
+                                                            <br />
+                                                        </span>
+                                                        <span>下图两位男士同年龄(35)、同身高(180cm)、同体重(90kg)，但是身体形态差异却十分巨大！<br />
+                                                            <br />
+                                                        </span>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <table style="margin-left: 25px;">
+                                                                    <tr>
+                                                                        <td rowspan="3">
+                                                                            <img src="http://localhost/resources/img/对比/male_lean.jpg" /></td>
+                                                                        <td>
+                                                                            <img src="http://localhost/resources/img/对比/male_lean_chart.png" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>身高：1.8米</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>体重：90千克</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：9%</td>
+                                                                    </tr>
+                                                                </table>
 
-                                        <%--<div class="form-group">
-                                                                <label class="control-label col-md-3">电子邮箱<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="email" placeholder="请提供您的电子邮箱地址" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
+
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">密码<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="password" class="form-control" name="password" placeholder="请提供您的密码，密码长度为6-12位" id="password" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
+                                                            <div class="col-md-6">
+                                                                <table style="margin-left: 25px;">
+                                                                    <tr>
+                                                                        <td rowspan="3">
+                                                                            <img src="http://localhost/resources/img/对比/male_large.jpg" /></td>
+                                                                        <td>
+                                                                            <img src="http://localhost/resources/img/对比/male_large_chart.png" /></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>身高：1.8米</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>体重：90千克</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：26%</td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">再次输入密码<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="password" class="form-control" name="confirmpassword" placeholder="请再次输入密码" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">用户名<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="name" placeholder="在FitSpace社区里，您希望其他会员对您的称呼" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">所在省份<span class="required">*</span></label>
-                                                                <div class="col-md-4">
-                                                                    <select name="province" id="province_select" class="col-md-12 full-width-fix">
-                                                                        <option value=""></option>
-                                                                        <option value="北京市">北京市</option>
-                                                                        <option value="浙江省">浙江省</option>
-                                                                        <option value="天津市">天津市</option>
-                                                                        <option value="安徽省">安徽省</option>
-                                                                        <option value="上海市">上海市</option>
-                                                                        <option value="福建省">福建省</option>
-                                                                        <option value="重庆市">重庆市</option>
-                                                                        <option value="江西省">江西省</option>
-                                                                        <option value="山东省">山东省</option>
-                                                                        <option value="河南省">河南省</option>
-                                                                        <option value="湖北省">湖北省</option>
-                                                                        <option value="湖南省">湖南省</option>
-                                                                        <option value="广东省">广东省</option>
-                                                                        <option value="海南省">海南省</option>
-                                                                        <option value="山西省">山西省</option>
-                                                                        <option value="青海省">青海省</option>
-                                                                        <option value="江苏省">江苏省</option>
-                                                                        <option value="辽宁省">辽宁省</option>
-                                                                        <option value="吉林省">吉林省</option>
-                                                                        <option value="台湾省">台湾省</option>
-                                                                        <option value="河北省">河北省</option>
-                                                                        <option value="贵州省">贵州省</option>
-                                                                        <option value="四川省">四川省</option>
-                                                                        <option value="云南省">云南省</option>
-                                                                        <option value="陕西省">陕西省</option>
-                                                                        <option value="甘肃省">甘肃省</option>
-                                                                        <option value="黑龙江省">黑龙江省</option>
-                                                                        <option value="香港特别行政区">香港特别行政区</option>
-                                                                        <option value="澳门特别行政区">澳门特别行政区</option>
-                                                                        <option value="广西壮族自治区">广西壮族自治区</option>
-                                                                        <option value="宁夏回族自治区">宁夏回族自治区</option>
-                                                                        <option value="新疆维吾尔自治区">新疆维吾尔自治区</option>
-                                                                        <option value="内蒙古自治区">内蒙古自治区</option>
-                                                                        <option value="西藏自治区">西藏自治区</option>
-                                                                    </select>
-                                                                </div>
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label class="control-label col-md-3">联系电话</label>
-                                                                <div class="col-md-4">
-                                                                    <input type="text" class="form-control" name="phone" placeholder="您的联系电话" />
-                                                                    <span class="error-span"></span>
-                                                                </div>
-                                                            </div>--%>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-1"></div>
+                                                </div>
+                                            </div>
+                                            <br />
+                                            <div style="border-bottom-width: 1px; border-bottom-color: #989898; border-bottom-style: solid;"></div>
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-1"></div>
+                                                <div class="col-md-10">
+                                                    <table>
+                                                        <tr>
+                                                            <td rowspan="3" style="height: 100px; width: 200px;">
+                                                                <img src="http://localhost/resources/img/bodyfatpercentage/15_shadow.jpg" /></td>
+                                                            <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 20px; font-weight: bold;">已估算您的体脂率：</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table>
+                                                                    <tr>
+                                                                        <td rowspan="5" style="width: 120px;"><span style="font-size: 30px; font-weight: bold;">14.5%</span></td>
+                                                                        <td><span style="font-size: 16px; font-weight: bold;">根据以下参数进行估算：</span></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <span style="font-size: 16px; font-weight: bold;">身高：</span><span>1.8</span><span>米</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <span style="font-size: 16px; font-weight: bold;">体重：</span><span>94.7</span><span>千克</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <span style="font-size: 16px; font-weight: bold;">性别：</span><span>男</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>
+                                                                            <span style="font-size: 16px; font-weight: bold;">腰围：</span><span>89.7</span><span>厘米</span>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+
+                                                            <tr>
+                                                                <td style="font-size: 16px; font-weight: bold;">
+                                                                    <span style="font-size: 16px; font-weight: bold;">此估算值对于普通人可能存在3%-5%的误差。但对于肌肉含量大的男性，此估算值可能会严重偏高！</span>
+                                                                </td>
+                                                            </tr>
+                                                    </table>
+                                                </div>
+                                                <div class="col-md-1"></div>
+                                            </div>
+
+                                            <br />
+                                            <div class="row">
+                                                <div class="col-md-8"></div>
+                                                <div class="col-md-4" style="text-align: center;">
+                                                    <button class="btn btn-primary" id="doestLookLikeMe">看起来不像我的体型</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <br />
+                                        <div id="step2_part3" style="display:none">
+                                            <div class="row">
+                                                <span style="font-size:20px;font-weight:bold;color:#0099FF;margin-left:30px;">请选择和您最接近的体型</span><br />
+                                                <%--<div class="col-md-1">
+                                                </div>
+                                                <div class="col-md-11">
+                                                    <span style="font-size:20px;font-weight:bold;color:#0099FF;">请选择和您最接近的体型</span>
+                                                </div>--%>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                    <span style="color: #0099FF">体脂率：5% &nbsp;<span>精干消瘦</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="10">
+                                                                    <span style="color: #0099FF">体脂率：10%&nbsp;<span>敏捷健壮</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="15">
+                                                                    <span style="color: #0099FF">体脂率：15%&nbsp;<span>强壮健康</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="20">
+                                                                    <span style="color: #0099FF">体脂率：20%&nbsp;<span>普通标准</span><span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="25">
+                                                                    <span style="color: #0099FF">体脂率：25%&nbsp;<span>有点超重</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="30">
+                                                                    <span style="color: #0099FF">体脂率：30%&nbsp;<span>轻度肥胖</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="35">
+                                                                    <span style="color: #0099FF">体脂率：35%&nbsp;<span>肥胖</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                        <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
+                                                        <div class="caption">
+                                                            <%--<p>...</p>--%>
+                                                            <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="40">
+                                                                    <span style="color: #0099FF">体脂率：40%&nbsp;<span>严重肥胖</span></span>
+                                                                </label>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
 
 
@@ -353,17 +463,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -380,11 +493,13 @@
                                                     男士
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -423,17 +538,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -449,11 +567,13 @@
                                                     男士
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -492,17 +612,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -518,11 +641,13 @@
                                                     男士
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -561,17 +686,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -587,11 +715,13 @@
                                                     男士
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -630,17 +760,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -656,11 +789,13 @@
                                                     男士
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -699,17 +834,20 @@
                                                     1-2年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
                                                     2-4年
                                                                    
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                 </label>
                                             </div>
@@ -822,6 +960,38 @@
             App.setPage("Register");  //Set current page
             App.init(); //Initialise plugins and elements
             FormWizard.init();
+
+            ////初始化icheck
+            //$('input').iCheck({
+            //    checkboxClass: 'icheckbox_square-red',
+            //    radioClass: 'iradio_square-red',
+            //    //increaseArea: '20%' // optional
+            //});
+
+            $('input:radio[name="chk_knowbodyfat"]').change(
+                function () {
+                    var chk_knowbodyfat_val = $('input:radio[name="chk_knowbodyfat"]:checked').val();
+                    //alert($('input:radio[name="chk_knowbodyfat"]:checked').val());
+                    if(chk_knowbodyfat_val == 1)
+                    {
+                        $("#step2_part1").css('display', 'none');
+                        $("#step2_part2").show();//css('display', 'normal');
+                        $("#step2_part3").css('display', 'none');
+                    }
+                    else {
+                        $("#step2_part1").show();
+                        $("#step2_part2").css('display', 'none');
+                        $("#step2_part3").css('display', 'none');
+                    }
+                });
+
+            $("#doestLookLikeMe").click(function (event) {
+                event.preventDefault();
+
+                $("#step2_part1").css('display', 'none');//show();
+                $("#step2_part2").css('display', 'none');
+                $("#step2_part3").show();
+            });
         });
     </script>
     <script type="text/javascript">
