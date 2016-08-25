@@ -96,6 +96,11 @@
   <ItemGroup>
     <Content Include="css\inputcomponent.css" />
     <Content Include="css\inputstyle.css" />
+    <Content Include="js\icheck_blue\blue%402x.png" />
+    <Content Include="js\icheck_blue\blue.css" />
+    <Content Include="js\icheck_blue\blue.png" />
+    <Content Include="js\icheck_blue\demo.html" />
+    <Content Include="js\icheck_blue\icheck.js" />
     <Content Include="js\inputclassie.js" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">

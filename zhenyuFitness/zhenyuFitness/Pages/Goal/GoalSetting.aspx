@@ -15,8 +15,8 @@
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../../css/inputcomponent.css" rel="stylesheet" />
     <!-- icheck-->
-    <link href="../../js/icheck/square/blue.css" rel="stylesheet" />
-    <script src="../../js/icheck/icheck.min.js"></script>
+    <link href="../../js/icheck_blue/blue.css" rel="stylesheet" />
+    <script src="../../js/icheck_blue/icheck.js"></script>
     <style>
         .bgcolor-1 {
             background: #FFFFF;
@@ -75,9 +75,9 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                        <a href="#physique" data-toggle="tab" class="wiz-step">
                                             <%--<span class="step-number">3</span>--%>
-                                            <span class="step-name"><i class="fa fa-check"></i>目标体格</span>
+                                            <span class="step-name"><i class="fa fa-check"></i>选择您的目标体格</span>
                                         </a>
                                     </li>
                                     <li>
@@ -123,11 +123,13 @@
                                    
                                    
                                    
+                                   
                                     </div>
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
                                                        
+                                   
                                    
                                    
                                    
@@ -162,21 +164,16 @@
 
                                     <div class="tab-pane" id="yourbodyfat" style="background: #f9f7f6;">
 
-                                        <div class="row" >
-                                            <div class="col-md-1"></div>
-                                            <div class="col-md-2" style="padding-top:6px;"><span style="font-size: 15px; color:#0033CC; font-style: oblique; margin-top: 15px;">您知道什么是体脂率吗？</span></div>
-                                            
-                                            <div class="col-md-2">
-                                                <label class="radio-inline">
-                                                    <input type="radio" class="uniform" name="chk_knowbodyfat" value="0" checked>
-                                                    <span style="color:#0033CC;">知道</span> 
-                                                   
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" class="uniform" name="chk_knowbodyfat" value="1">
-                                                    <span style="color:#0033CC;">我不知道</span> 
-                                                   
-                                                </label>
+                                        <div class="row">
+                                            <%--<div class="col-md-3"></div>--%>
+                                            <div class="col-md-3" style="padding-top: 6px;"><span style="font-size: 15px; color: #0033CC; font-style: oblique; margin-top: 15px;">您知道什么是体脂率吗？</span></div>
+
+                                            <div class="col-md-2" style="margin-top: 6px;">
+                                                <input type="radio" id="chk_knowbodyfat-1" name="chk_knowbodyfat" value="0" checked>
+                                                <label for="chk_knowbodyfat-1">知道</label>
+
+                                                <input type="radio" id="chk_knowbodyfat-2" name="chk_knowbodyfat" value="1">
+                                                <label for="chk_knowbodyfat-2">我不知道</label>
                                             </div>
                                             <div class="col-md-7"></div>
                                         </div>
@@ -194,111 +191,118 @@
                                         </div>
                                         <br />
                                         <div id="step2_part2" style="display: none;">
-                                            <div>
-                                                <div class="row" >
-                                                    <div class="col-md-3"></div>
-                                                    <div class="col-md-6" style="background-color: white; border-width: 2px; border: 6px solid #c8c8c8; padding: 10px;width:700px;">
-                                                        
-                                                            <span style="font-size: 14px; color: #003366;">体脂率是决定您身体形态最重要的指标，其计算方法为：您全身脂肪重量/您的体重。<br />
-                                                                <br />
-                                                                <br />
-                                                            </span>
-                                                            <span>下图两位男士同年龄(35)、同身高(180cm)、同体重(90kg)，但是身体形态差异却十分巨大！<br />
-                                                                <br />
-                                                            </span>
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <table style="margin-left: 25px;">
-                                                                        <tr>
-                                                                            <td rowspan="3">
-                                                                                <img src="http://localhost/resources/img/对比/male_lean.jpg" /></td>
-                                                                            <td>
-                                                                                <img src="http://localhost/resources/img/对比/male_lean_chart.png" /></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>身高：1.8米</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>体重：90千克</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：9%</td>
-                                                                        </tr>
-                                                                    </table>
+
+                                            <div class="row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-7" style="background-color: white; border-width: 2px; border: 6px solid #c8c8c8; padding: 10px; width: 600px;">
+
+                                                    <span style="font-size: 14px; color: #003366;">体脂率是决定您身体形态最重要的指标，其计算方法为：您全身脂肪重量/您的体重。<br />
+                                                        <br />
+                                                        <br />
+                                                    </span>
+                                                    <span id="step2_part2_constract_desc">下图两位男士同年龄(35)、同身高(180cm)、同体重(90kg)，但是身体形态差异却十分巨大！<br />
+                                                        <br />
+                                                    </span>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <table style="margin-left: 25px;">
+                                                                <tr>
+                                                                    <td rowspan="3">
+                                                                        <img src="http://localhost/resources/img/对比/male_lean.jpg" id="step2_part2_img_constrast_lean" /></td>
+                                                                    <td>
+                                                                        <img src="http://localhost/resources/img/对比/male_lean_chart.png" id="step2_part2_img_constrast_lean_chart" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_height_lean">身高：1.8米</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_weight_lean">体重：90千克</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_bodyfat_lean" colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：9%</td>
+                                                                </tr>
+                                                            </table>
 
 
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <table style="margin-left: 25px;">
-                                                                        <tr>
-                                                                            <td rowspan="3">
-                                                                                <img src="http://localhost/resources/img/对比/male_large.jpg" /></td>
-                                                                            <td>
-                                                                                <img src="http://localhost/resources/img/对比/male_large_chart.png" /></td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>身高：1.8米</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td>体重：90千克</td>
-                                                                        </tr>
-                                                                        <tr>
-                                                                            <td colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：26%</td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        
-
-
-
-
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <table style="margin-left: 25px;">
+                                                                <tr>
+                                                                    <td rowspan="3">
+                                                                        <img src="http://localhost/resources/img/对比/male_large.jpg" id="step2_part2_img_constrast_large" /></td>
+                                                                    <td>
+                                                                        <img src="http://localhost/resources/img/对比/male_large_chart.png" id="step2_part2_img_constrast_large_chart" /></td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_height_large">身高：1.8米</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_weight_large">体重：90千克</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td id="step2_part2_constrast_bodyfat_large" colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：26%</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
                                                     </div>
-                                                    <div class="col-md-3"></div>
+
+
+
+
+
                                                 </div>
+                                                <div class="col-md-2"></div>
                                             </div>
+
                                             <br />
                                             <div style="border-bottom-width: 1px; border-bottom-color: #989898; border-bottom-style: solid;"></div>
                                             <%--分割线--%>
                                             <br />
                                             <div class="row">
-                                                <div class="col-md-3"></div>
-                                                <div class="col-md-6">
+                                                <div class="col-md-2"></div>
+                                                <div class="col-md-8">
                                                     <table>
                                                         <tr>
-                                                            <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 15px; font-weight: bold;color:#5e87b0;">您的体型大致如下图：</span></td>
-                                                            
-                                                            <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 20px; font-weight: bold;color:#5e87b0;">已估算您的体脂率：</span></td>
+                                                            <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 15px; font-weight: bold; color: #5e87b0;">您的体型大致如下图：</span></td>
+
+                                                            <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 20px; font-weight: bold; color: #5e87b0;">已估算您的体脂率：</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td rowspan="2" style="height: 100px; width: 200px;">
-                                                                <img src="http://localhost/resources/img/bodyfatpercentage/15_shadow.jpg" />
+                                                                <img src="http://localhost/resources/img/bodyfatpercentage/15_shadow.jpg" id="step2_part2_img" />
 
                                                             </td>
                                                             <td>
                                                                 <table>
                                                                     <tr>
-                                                                        <td rowspan="5" style="width: 200px;"><span style="font-size: 45px; font-weight: bold;font-family:'Times New Roman';font-style:oblique;">14.5%</span></td>
-                                                                        <td><span style="font-size: 16px; font-weight: bold;color:#5e87b0;">根据以下参数进行估算：</span></td>
+                                                                        <td rowspan="6" style="width: 200px;"><span id="step2_part2_bodyfatrate_span" style="font-size: 45px; font-weight: bold; font-family: 'Times New Roman'; font-style: oblique;">14.5%</span></td>
+                                                                        <td><span style="font-size: 16px; font-weight: bold; color: #5e87b0;">根据以下参数进行估算：</span></td>
                                                                     </tr>
+
                                                                     <tr>
                                                                         <td>
-                                                                            <span style="font-size: 16px; font-weight: bold;color:#5e87b0;">身高：</span><span style="color:#5e87b0;">1.8</span><span style="color:#5e87b0;">米</span>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">性别：</span><span id="step2_part2_gender_span" style="color: #5e87b0;">男</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <span style="font-size: 16px; font-weight: bold;color:#5e87b0;">体重：</span><span style="color:#5e87b0;">94.7</span><span style="color:#5e87b0;">千克</span>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">年龄：</span><span id="step2_part2_age_span" style="color: #5e87b0;">35</span><span style="color: #5e87b0;">周岁</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <span style="font-size: 16px; font-weight: bold;color:#5e87b0;">性别：</span><span style="color:#5e87b0;">男</span>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">身高：</span><span id="step2_part2_height_span" style="color: #5e87b0;">1.8</span><span style="color: #5e87b0;">米</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <span style="font-size: 16px; font-weight: bold;color:#5e87b0;">腰围：</span><span style="color:#5e87b0;">89.7</span><span style="color:#5e87b0;">厘米</span>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">体重：</span><span id="step2_part2_weight_span" style="color: #5e87b0;">94.7</span><span style="color: #5e87b0;">千克</span>
+                                                                        </td>
+                                                                    </tr>
+
+                                                                    <tr>
+                                                                        <td>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">腰围：</span><span id="step2_part2_waist_span" style="color: #5e87b0;">89.7</span><span style="color: #5e87b0;">厘米</span>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -306,19 +310,19 @@
 
                                                             <tr>
                                                                 <td style="font-size: 16px; font-weight: bold;">
-                                                                    <span style="font-size: 14px;font-style:oblique;color:#5e87b0;">此估算值对于普通人可能存在3%-5%的误差。但对于肌肉含量大的男性，此估算值可能会严重偏高！</span>
+                                                                    <span style="font-size: 14px; font-style: oblique; color: #5e87b0;">此估算值对于普通人可能存在3%-5%的误差。但对于肌肉含量大的男性，此估算值可能会严重偏高！</span>
                                                                 </td>
                                                             </tr>
                                                     </table>
                                                 </div>
-                                                <div class="col-md-3"></div>
+                                                <div class="col-md-2"></div>
                                             </div>
 
                                             <br />
                                             <div class="row">
                                                 <div class="col-md-8"></div>
                                                 <div class="col-md-4" style="text-align: center;">
-                                                    <button class="btn btn-primary" id="doestLookLikeMe">什么？这看起来完全不像我！</button>
+                                                    <button class="btn btn-primary" id="doestLookLikeMe"><span style="font:bold 15px 微软雅黑;">什么？这看起来完全不像我啊！</span></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -328,23 +332,20 @@
                                         <div id="step2_part3" style="display: none">
                                             <div class="row">
                                                 <span style="font-size: 20px; font-weight: bold; color: #0099FF; margin-left: 30px;">请选择和您最接近的体型</span><br />
-                                                <%--<div class="col-md-1">
-                                                </div>
-                                                <div class="col-md-11">
-                                                    <span style="font-size:20px;font-weight:bold;color:#0099FF;">请选择和您最接近的体型</span>
-                                                </div>--%>
                                             </div>
-                                            <div class="row">
+                                            <div class="row" id="select_img_bodyfat1">
                                                 <div class="col-md-3">
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
+                                                        <img id="step2_part3_img1" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p id="ss" style="display:none;">..asfdasfasfasdfa.</p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="5">
-                                                                    <span style="color: #0099FF">体脂率：5% &nbsp;<span>精干消瘦</span></span>
+                                                                    <input id="ss1" type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                    <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
                                                                 </label>
+                                                               <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
+                                                                <label for="selectbodyfat-1" style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</label>--%>
                                                             </p>
                                                         </div>
                                                     </div>
@@ -357,8 +358,10 @@
                                                             <%--<p>...</p>--%>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
+                                                                    <%--<input type="radio" id="selectbodyfat-2" name="selectbodyfat" value="10">
+                                                                    <label for="selectbodyfat-2" style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</label>--%>
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="10">
-                                                                    <span style="color: #0099FF">体脂率：10%&nbsp;<span>敏捷健壮</span></span>
+                                                                    <span style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</span>
                                                                 </label>
                                                             </p>
                                                         </div>
@@ -372,7 +375,7 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="15">
-                                                                    <span style="color: #0099FF">体脂率：15%&nbsp;<span>强壮健康</span></span>
+                                                                    <span style="color: #0099FF">体脂率：15%&nbsp;强壮健康</span>
                                                                 </label>
                                                             </p>
                                                         </div>
@@ -386,14 +389,14 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="20">
-                                                                    <span style="color: #0099FF">体脂率：20%&nbsp;<span>普通标准</span><span></span>
+                                                                    <span style="color: #0099FF">体脂率：20%&nbsp;普通标准</span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
+                                            <div class="row" id="select_img_bodyfat2">
                                                 <div class="col-md-3">
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
@@ -402,7 +405,7 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="25">
-                                                                    <span style="color: #0099FF">体脂率：25%&nbsp;<span>有点超重</span></span>
+                                                                    <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
                                                                 </label>
                                                             </p>
                                                         </div>
@@ -416,13 +419,13 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="30">
-                                                                    <span style="color: #0099FF">体脂率：30%&nbsp;<span>轻度肥胖</span></span>
+                                                                    <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3" id="step2_part3_last2">
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
                                                         <div class="caption">
@@ -430,13 +433,13 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="35">
-                                                                    <span style="color: #0099FF">体脂率：35%&nbsp;<span>肥胖</span></span>
+                                                                    <span style="color: #0099FF">体脂率：35%&nbsp;肥胖</span>
                                                                 </label>
                                                             </p>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3">
+                                                <div class="col-md-3" id="step2_part3_last1">
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
                                                         <div class="caption">
@@ -444,7 +447,7 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="40">
-                                                                    <span style="color: #0099FF">体脂率：40%&nbsp;<span>严重肥胖</span></span>
+                                                                    <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
                                                                 </label>
                                                             </p>
                                                         </div>
@@ -453,6 +456,127 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="tab-pane active" id="physique">
+                                        <div class="row" id="select_img_physique1">
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img id="sss" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="10">
+                                                                <span style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="15">
+                                                                <span style="color: #0099FF">体脂率：15%&nbsp;强壮健康</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="20">
+                                                                <span style="color: #0099FF">体脂率：20%&nbsp;普通标准</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="select_img_physique2">
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="25">
+                                                                <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="30">
+                                                                <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="step2_part3_last2">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="35">
+                                                                <span style="color: #0099FF">体脂率：35%&nbsp;肥胖</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="step2_part3_last1">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="40">
+                                                                <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
 
 
                                     <div class="tab-pane" id="bodystats1">
@@ -481,6 +605,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -489,11 +614,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -514,11 +641,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -561,6 +690,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -569,11 +699,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -593,11 +725,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -640,6 +774,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -648,11 +783,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -672,11 +809,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -719,6 +858,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -727,11 +867,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -751,11 +893,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -798,6 +942,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -806,11 +951,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -830,11 +977,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -877,6 +1026,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -885,11 +1035,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -976,7 +1128,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="wizard-buttons">
+                            <div class="wizard-buttons" >
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
@@ -997,6 +1149,8 @@
             </div>
             <!-- /BOX -->
         </div>
+        <input type="hidden" id="gender" value="1" />
+        <input type="hidden" id="age" value="25" />
     </div>
     <script src="../../js/inputclassie.js"></script>
     <script>
@@ -1005,29 +1159,37 @@
             App.init(); //Initialise plugins and elements
             FormWizard.init();
 
-            ////初始化icheck
-            //$('input').iCheck({
-            //    checkboxClass: 'icheckbox_square-red',
-            //    radioClass: 'iradio_square-red',
-            //    //increaseArea: '20%' // optional
-            //});
 
-            //设置step2几个部分的显示顺序
-            $('input:radio[name="chk_knowbodyfat"]').change(
-                function () {
-                    var chk_knowbodyfat_val = $('input:radio[name="chk_knowbodyfat"]:checked').val();
-                    //alert($('input:radio[name="chk_knowbodyfat"]:checked').val());
-                    if (chk_knowbodyfat_val == 1) {
-                        $("#step2_part1").css('display', 'none');
-                        $("#step2_part2").show();//css('display', 'normal');
-                        $("#step2_part3").css('display', 'none');
-                    }
-                    else {
-                        $("#step2_part1").show();
-                        $("#step2_part2").css('display', 'none');
-                        $("#step2_part3").css('display', 'none');
-                    }
-                });
+            //begin: 初始化所有radio为icheck
+
+            //begin: 绑定onchange事件：设置step2几个部分的显示顺序
+            $('input:radio[name="chk_knowbodyfat"]').on('ifChanged', function (event) {
+                var chk_knowbodyfat_val = $('input:radio[name="chk_knowbodyfat"]:checked').val();
+                //alert($('input:radio[name="chk_knowbodyfat"]:checked').val());
+                if (chk_knowbodyfat_val == 1) {
+                    $("#step2_part1").css('display', 'none');
+                    $("#step2_part2").show();//css('display', 'normal');
+                    $("#step2_part3").css('display', 'none');
+                }
+                else {
+                    $("#step2_part1").show();
+                    $("#step2_part2").css('display', 'none');
+                    $("#step2_part3").css('display', 'none');
+                }
+            });
+            $('#ss1').on('ifChecked', function (event) {
+                $('#ss').show();
+            });
+
+
+            //end: 绑定onchange事件：设置step2几个部分的显示顺序
+
+            $(':radio').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%'
+            });
+            //end: 初始化所有radio为icheck
 
             $("#doestLookLikeMe").click(function (event) {
                 var chk_knowbodyfat_val = $('input:radio[name="chk_knowbodyfat"]:checked').val();

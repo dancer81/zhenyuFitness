@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+
+
+    <link href="blue.css"  rel="stylesheet">
+    <script src="../js/jquery.js"></script>
+    <script src="icheck.js"></script>
+</head>
+<body>
+
+    <div class="skin skin-square">
+                    <input tabindex="11" type="radio" id="square-radio-1" name="square-radio">
+                    <label for="square-radio-1">Radio button 1</label>
+
+                    <input tabindex="12" type="radio" id="square-radio-2" name="square-radio" checked>
+                    <label for="square-radio-2">Radio button 2</label>
+
+                    <input type="radio" id="square-radio-disabled" disabled>
+                    <label for="square-radio-disabled">Disabled</label>
+
+                    <input type="radio" id="square-radio-disabled-checked" checked disabled>
+                    <label for="square-radio-disabled-checked">Disabled &amp; checked</label>
+            <script>
+                $(document).ready(function(){
+                    $('.skin-square input').iCheck({
+                        checkboxClass: 'icheckbox_square-blue',
+                        radioClass: 'iradio_square-blue',
+                        increaseArea: '20%'
+                    });
+                });
+            </script>
+    </div>
+
+</body>
+</html>

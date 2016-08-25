@@ -76,7 +76,7 @@
                         required: true
 
                     },
-                    
+
                     fitHis: {
                         required: true
                     }
@@ -133,7 +133,7 @@
             $('#formWizard').bootstrapWizard({
                 'nextSelector': '.nextBtn',
                 'previousSelector': '.prevBtn',
-                onNext: function (tab, navigation, index) {                  
+                onNext: function (tab, navigation, index) {
                     if (index == 1) {
                         /* 验证身高、体重、腰围输入的正确性 */
                         $('#error-span-top').html("");
@@ -200,16 +200,183 @@
                     }
                     /* end 验证身高、体重、腰围输入的正确性 */
 
-                    /*根据input-1,input-2,input-3计算体脂率*/
+                    /*根据input-1,input-2,input-3,以及用户的年龄和性别来计算体脂率*/
                     if (index == 1) {
-                        var bodyfat = calculateBodyfat($('#input-1').val(), $('#input-2').val(), $('#input-3').val(), 0, 35);
-                        //var bodyfat1 = calbodyfat1($('#input-2').val(), $('#input-3').val(), 0);
-                        //var bodyfat2 = calbodyfat2($('#input-2').val(), $('#input-1').val(), $('#input-3').val(), 35, 0);
+                        var bodyfat = calculateBodyfat($('#input-1').val(), $('#input-2').val(), $('#input-3').val(), $('#gender').val(), $('#age').val());
                         $('#input-4').val(bodyfat.toFixed(2));
-                        initinput();                        
-                    }
-                    /*end 根据input-1,input-2,input-3计算体脂率*/
+                        initinput();
+                        /*end 根据input-1,input-2,input-3,以及用户的年龄和性别来计算体脂率*/
 
+                        /*初始化step2_part2里的参数*/
+                        //设置bodyfat
+                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2) + "%");
+                        //设置参数显示
+                        if ($("#gender").val() == 0) {
+                            $("#step2_part2_gender_span").html("男");
+                        }
+                        if ($("#gender").val() == 1) {
+                            $("#step2_part2_gender_span").html("女");
+                        }
+                        $("#step2_part2_age_span").html($("#age").val());
+                        $("#step2_part2_height_span").html($('#input-1').val());
+                        $("#step2_part2_weight_span").html($('#input-2').val());
+                        $("#step2_part2_waist_span").html($('#input-3').val());
+
+                        //设置对比数据、体型图片-男
+                        bodyfat /= 100;
+                        if ($("#gender").val() == 0)//男性
+                        {
+                            ////对比
+                            //$("#step2_part2_img_constrast_lean").attr('src', "http://localhost/resources/img/对比/male_lean.jpg");
+                            //$("#step2_part2_img_constrast_lean_chart").attr('src', "http://localhost/resources/img/对比/male_lean_chart.png");
+                            //$("#step2_part2_constrast_height_lean").html("身高：1.8米");
+                            //$("#step2_part2_constrast_weight_lean").html("体重：90千克");
+                            //$("#step2_part2_constrast_bodyfat_lean").html("体脂率：9%");
+                            //$("#step2_part2_img_constrast_large").attr('src', "http://localhost/resources/img/对比/male_large.jpg");
+                            //$("#step2_part2_img_constrast_large_chart").attr('src', "http://localhost/resources/img/对比/male_large_chart.png");
+                            //$("#step2_part2_constrast_height_large").html("身高：1.8米");
+                            //$("#step2_part2_constrast_weight_large").html("体重：90千克");
+                            //$("#step2_part2_constrast_bodyfat_large").html("体脂率：26%");
+
+                            //if (bodyfat <= 0.05) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/5_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.05 && bodyfat <= 0.1) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/10_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.1 && bodyfat <= 0.15) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/15_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.15 && bodyfat <= 0.2) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/20_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.2 && bodyfat <= 0.25) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/25_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.25 && bodyfat <= 0.3) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/30_man_shadow.jpg");
+                            //}
+                            //else if (bodyfat > 0.3 && bodyfat <= 0.35) {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/35_man_shadow.jpg");
+                            //}
+                            //else {
+                            //    $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/40_man_shadow.jpg");
+                            //}
+
+
+                            ////初始化step2_part3图片
+                            //var listimg1 = $("#select_img_bodyfat1 img");
+                            //for (i = 0; i < listimg1.length; i++) {
+                            //    var src = "http://localhost/resources/img/bodyfatpercentage/" + (i + 2) * 5 + "_man.jpg";
+                            //    listimg1.eq(i).attr('src', src);
+                            //}
+
+                            //var listimg2 = $("#select_img_bodyfat2 img");
+                            //for (i = 0; i < listimg2.length; i++) {
+                            //    var src = "http://localhost/resources/img/bodyfatpercentage/" + (i + 4) * 5 + "_man.jpg";
+                            //    listimg2.eq(i).attr('src', src);
+                            //}
+
+
+
+                        }
+                        if ($("#gender").val() == 1)//女性
+                        {
+                            //对比
+                            $("#step2_part2_constract_desc").html("下图两位女士同年龄(30)、同身高(165cm)、同体重(65kg)，但是身体形态差异却十分巨大！");
+                            $("#step2_part2_img_constrast_lean").attr('src', "http://localhost/resources/img/对比/female_lean.jpg");
+                            $("#step2_part2_img_constrast_lean_chart").attr('src', "http://localhost/resources/img/对比/female_lean_chart.png");
+                            $("#step2_part2_constrast_height_lean").html("身高：1.65米");
+                            $("#step2_part2_constrast_weight_lean").html("体重：65千克");
+                            $("#step2_part2_constrast_bodyfat_lean").html("体脂率：13%");
+                            $("#step2_part2_img_constrast_large").attr('src', "http://localhost/resources/img/对比/female_large.jpg");
+                            $("#step2_part2_img_constrast_large_chart").attr('src', "http://localhost/resources/img/对比/female_large_chart.png");
+                            $("#step2_part2_constrast_height_large").html("身高：1.65米");
+                            $("#step2_part2_constrast_weight_large").html("体重：65千克");
+                            $("#step2_part2_constrast_bodyfat_large").html("体脂率：33%");
+
+
+                            if (bodyfat <= 0.1) {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/10_women_shadow.jpg");
+                            }
+                            else if (bodyfat > 0.1 && bodyfat <= 0.15) {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/15_women_shadow.jpg");
+                            }
+                            else if (bodyfat > 0.15 && bodyfat <= 0.2) {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/20_women_shadow.jpg");
+                            }
+                            else if (bodyfat > 0.2 && bodyfat <= 0.25) {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/25_women_shadow.jpg");
+                            }
+                            else if (bodyfat > 0.25 && bodyfat <= 0.3) {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/30_women_shadow.jpg");
+                            }
+                            else {
+                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/35_women_shadow.jpg");
+                            }
+
+                            //初始化step2_part3图片
+                            var listimg1 = $("#select_img_bodyfat1 img");
+                            for (i = 0; i < listimg1.length; i++) {
+                                var src = "http://localhost/resources/img/bodyfatpercentage/" + (i + 2) * 5 + "_women.jpg";
+                                listimg1.eq(i).attr('src', src);
+                            }
+
+                            var listimg2 = $("#select_img_bodyfat2 img");
+                            for (i = 0; i < listimg2.length; i++) {
+                                var src = "http://localhost/resources/img/bodyfatpercentage/" + (i + 6) * 5 + "_women.jpg";
+                                listimg2.eq(i).attr('src', src);
+                            }
+
+                            $("#step2_part3_last1").css('display', 'none');
+                            $("#step2_part3_last2").css('display', 'none');
+
+                            //设置图片说明
+                            var listdesc = $("#select_img_bodyfat1 span");
+                            for (i = 0; i < listdesc.length; i++) {
+                                switch (i) {
+                                    case 0:
+                                        listdesc.eq(i).html("体脂率：10% &nbsp;纤细骨感");
+                                        break;
+                                    case 1:
+                                        listdesc.eq(i).html("体脂率：15% &nbsp;气质性感");
+                                        break;
+                                    case 2:
+                                        listdesc.eq(i).html("体脂率：20% &nbsp;活力健康");
+                                        break;
+                                    case 3:
+                                        listdesc.eq(i).html("体脂率：25% &nbsp;健康柔美");
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+
+                            listdesc = $("#select_img_bodyfat2 span");
+                            for (i = 0; i < listdesc.length; i++) {
+                                switch (i) {
+                                    case 0:
+                                        listdesc.eq(i).html("体脂率：30% &nbsp;超重……");
+                                        break;
+                                    case 1:
+                                        listdesc.eq(i).html("体脂率：35% &nbsp;肥胖……");
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            }
+                        }
+
+
+
+                        /* end 初始化step2_part2里的参数*/
+
+
+                        
+                    }
+
+
+                    //设置步骤标题
                     showStepTitle(0, index);
 
 
@@ -292,30 +459,27 @@
 
 
 function showStepTitle(direction, index) {
-    if(direction == 0)//next
+    if (direction == 0)//next
     {
-        if(index == 1)
-        {
+        if (index == 1) {
             $('#steptitle').html("请确认您的体脂率");
         }
+        
 
     }
-    if(direction == 1)//previous
+    if (direction == 1)//previous
     {
-        if(index == 0)
-        {
+        if (index == 0) {
             $('#steptitle').html("请输入当前的身体数据");
         }
     }
 }
 
-function calculateBodyfat(height,weight,waist,gender,age)
-{
+function calculateBodyfat(height, weight, waist, gender, age) {
     return (calbodyfat1(weight, waist, gender) + calbodyfat2(weight, height, waist, age, gender)) / 2;
 }
 
-function calbodyfat1(weight, waist, gender)
-{
+function calbodyfat1(weight, waist, gender) {
     var a = waist * 0.74;
     var b;
     if (gender == 0)//男性
@@ -325,8 +489,8 @@ function calbodyfat1(weight, waist, gender)
 }
 
 
-function calbodyfat2(weight,height, waist, age, gender) {
-    var BMI = weight / (height * height)*10000;
+function calbodyfat2(weight, height, waist, age, gender) {
+    var BMI = weight / (height * height) * 10000;
     var tag;
     if (gender == 0) tag = 1;//男性
     if (gender == 1) tag = 0;//女性
