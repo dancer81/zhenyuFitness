@@ -1,0 +1,31 @@
+﻿body {
+}
+
+
+
+/*step2_part3*/
+@keyframes flip {
+    0% {  /*初始状态*/
+        transform: rotateX(90deg);
+    }
+
+    90% { /*中间状态*/
+        transform: rotateX(0deg);
+    }
+
+    100% { /*结束状态*/
+        transform: rotateX(0deg);
+    }
+}
+
+#step2_part3 p.bf_desc {
+    display: none;
+    color: #0099FF;
+    background-color: white;
+    border: 6px solid #c8c8c8;
+    padding: 5px;
+    font: 400 15px 宋体;
+    transform: rotateX(90deg);
+    transform-origin: 100% 100%;
+    animation: flip 800ms 80ms forwards;
+}

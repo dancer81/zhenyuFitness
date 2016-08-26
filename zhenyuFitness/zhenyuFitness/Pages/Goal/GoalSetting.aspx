@@ -9,7 +9,7 @@
     <!-- WIZARD -->
     <script src="../../js/jquery-validate/jquery.validate.js"></script>
     <script src="../../js/jquery-validate/additional-methods.min.js"></script>
-    <script src="../..//js/custom/goal.js"></script>
+    
 
     <link href="../../css/Hover_css/normalize.css" rel="stylesheet" />
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -17,6 +17,9 @@
     <!-- icheck-->
     <link href="../../js/icheck_blue/blue.css" rel="stylesheet" />
     <script src="../../js/icheck_blue/icheck.js"></script>
+
+    <link href="../../css/goal.css" rel="stylesheet" />
+    <script src="../..//js/custom/goal.js"></script>
     <style>
         .bgcolor-1 {
             background: #FFFFF;
@@ -45,7 +48,7 @@
             <!-- BOX -->
             <div class="box border red" id="formWizard">
                 <div class="box-title">
-                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">1 / 9</span></h4>
+                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">1 / 8</span></h4>
                     <div class="tools hidden-xs">
 
                         <a href="javascript:;" class="collapse">
@@ -291,7 +294,7 @@
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
-                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">身高：</span><span id="step2_part2_height_span" style="color: #5e87b0;">1.8</span><span style="color: #5e87b0;">米</span>
+                                                                            <span style="font-size: 16px; font-weight: bold; color: #5e87b0;">身高：</span><span id="step2_part2_height_span" style="color: #5e87b0;">1.8</span><span style="color: #5e87b0;">厘米</span>
                                                                         </td>
                                                                     </tr>
                                                                     <tr>
@@ -338,10 +341,10 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img id="step2_part3_img1" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <p id="ss" style="display:none;">..asfdasfasfasdfa.</p>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input id="ss1" type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="5">
                                                                     <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
                                                                 </label>
                                                                <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
@@ -355,7 +358,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <%--<input type="radio" id="selectbodyfat-2" name="selectbodyfat" value="10">
@@ -371,7 +374,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="15">
@@ -385,7 +388,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="20">
@@ -401,7 +404,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="25">
@@ -415,7 +418,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="30">
@@ -429,7 +432,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="35">
@@ -443,7 +446,7 @@
                                                     <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
                                                         <div class="caption">
-                                                            <%--<p>...</p>--%>
+                                                            <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="40">
@@ -461,7 +464,7 @@
                                         <div class="row" id="select_img_physique1">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img id="sss" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
+                                                    <img id="sss" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -476,7 +479,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/athlete-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -490,7 +493,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/male_model-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -504,7 +507,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/bodybuilder-large .png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -520,7 +523,7 @@
                                         <div class="row" id="select_img_physique2">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/strongman-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -534,7 +537,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -546,9 +549,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="step2_part3_last2">
+                                            <div class="col-md-3" id="step3_last2" style="display:none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/35_man.jpg" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -560,9 +563,9 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="step2_part3_last1">
+                                            <div class="col-md-3" id="step3_last1" style="display:none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/40_man.jpg" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -1149,8 +1152,8 @@
             </div>
             <!-- /BOX -->
         </div>
-        <input type="hidden" id="gender" value="1" />
-        <input type="hidden" id="age" value="25" />
+        <input type="hidden" id="gender" value="0" />
+        <input type="hidden" id="age" value="60" />
     </div>
     <script src="../../js/inputclassie.js"></script>
     <script>
@@ -1177,8 +1180,23 @@
                     $("#step2_part3").css('display', 'none');
                 }
             });
-            $('#ss1').on('ifChecked', function (event) {
-                $('#ss').show();
+            $('input:radio[name="selectbodyfat"]').on('ifChecked', function (event) {
+                var p = $(this).closest("p").prev();
+                var all_p = $("#step2_part3").find("p.bf_desc");
+                all_p.css('display', 'none');
+
+
+                var all_radio = $("#step2_part3").find("input.uniform"); //alert(all_radio.length);
+                for (i = 0; i < all_radio.length; i++) {
+                    //if ($('all_radio.eq(i):checked'))
+                    if (all_radio.eq(i).is(":checked"))
+                    {
+                        p.html(bodyfatDesc($("#gender").val(), i));
+                        p.show();
+                        break;
+                    }
+                }
+                
             });
 
 

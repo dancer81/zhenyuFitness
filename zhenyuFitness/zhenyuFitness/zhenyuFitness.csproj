@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\goal.css" />
     <Content Include="css\inputcomponent.css" />
     <Content Include="css\inputstyle.css" />
     <Content Include="js\icheck_blue\blue%402x.png" />
