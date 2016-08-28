@@ -200,7 +200,7 @@
                     }
                     /* end 验证身高、体重、腰围输入的正确性 */
 
-                    /*根据input-1,input-2,input-3,以及用户的年龄和性别来计算体脂率*/
+                    /*根据input-1,input-2,input-3,以及用户的年龄和性别来计算体脂率,即初始化第三步的内容*/
                     if (index == 1) {
                         var bodyfat = calculateBodyfat($('#input-1').val(), $('#input-2').val(), $('#input-3').val(), $('#gender').val(), $('#age').val());
                         $('#input-4').val(bodyfat.toFixed(2));
@@ -375,6 +375,25 @@
                         
                     }
 
+                    //验证健身目标有没有勾选
+                    if (index == 2) {
+                        var tag_fitnesstarget = 0;
+                        var fitnesstarget_radio = $("#fitnesstarget").find("input.uniform"); //alert(all_radio.length);
+                        for (i = 0; i < fitnesstarget_radio.length; i++) {
+                            //if ($('all_radio.eq(i):checked'))
+                            if (fitnesstarget_radio.eq(i).is(":checked")) {
+                                tag_fitnesstarget = 1;
+                                break;
+                            }
+                        }
+                        if (tag_fitnesstarget == 0) {
+                            $('#error-span-top').html("请选择您健身的总体目标后继续。");
+                            alert_error.show();
+                            return false;
+
+                        }
+                    }
+
 
                     //设置步骤标题
                     showStepTitle(index);
@@ -458,14 +477,17 @@
 }();
 
 //设置步骤标题
-function showStepTitle(index) {
+function showStepTitle(index) {//选择健身目标
     if (index == 0) {
-        $('#steptitle').html("请输入当前的身体数据");
+        $('#steptitle').html("请输入您当前的身体数据");
     }
     if (index == 1) {
-        $('#steptitle').html("请确认您的体脂率");
+        $('#steptitle').html("请选择您健身的总体目标");
     }
     if (index == 2) {
+        $('#steptitle').html("请确认您的体脂率");
+    }
+    if (index == 3) {
         $('#steptitle').html("请选择您的目标体格");
     }
 

@@ -18,7 +18,7 @@
     <link href="../../js/icheck_blue/blue.css" rel="stylesheet" />
     <script src="../../js/icheck_blue/icheck.js"></script>
 
-    <link href="../../css/goal.css" rel="stylesheet" />
+    <link href="../../css/custom/goal.css" rel="stylesheet" />
     <script src="../..//js/custom/goal.js"></script>
     <style>
         .bgcolor-1 {
@@ -64,10 +64,19 @@
                         <div class="wizard-form">
                             <div class="wizard-content">
                                 <ul class="nav nav-pills nav-justified steps" style="display: none">
+                                    
+
                                     <li>
                                         <a href="#bodystats" data-toggle="tab" class="wiz-step">
                                             <%-- <span class="step-number">1</span>--%>
                                             <span class="step-name" style="font-family: 楷体"><i class="fa fa-check"></i>输入身体数据</span>
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#fitnesstarget" data-toggle="tab" class="wiz-step">
+                                            <%-- <span class="step-number">1</span>--%>
+                                            <span class="step-name" style="font-family: 楷体"><i class="fa fa-check"></i>选择健身目标</span>
                                         </a>
                                     </li>
 
@@ -121,7 +130,7 @@
                                 <div class="tab-content">
                                     <div class="alert alert-danger display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
-                                        <span id="error-span-top"></span>请修改后继续。
+                                        <span id="error-span-top"></span><%--请修改后继续。--%>
                                                        
                                    
                                    
@@ -131,12 +140,10 @@
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
-                                                       
-                                   
-                                   
-                                   
-                                   
                                     </div>
+
+                                    
+
                                     <div class="tab-pane active" id="bodystats">
                                         <%--                                        <input type="radio" name="iCheck">
                                         <input type="radio" name="iCheck" checked>--%>
@@ -162,6 +169,126 @@
                                                     </label>
                                                 </span>
                                             </section>
+                                        </div>
+                                    </div>
+
+                                    <div class="tab-pane" id="fitnesstarget">
+                                        <div class="row" id="select_img_fitnesstarget1">
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img id="sss" src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                <span style="color: #0099FF">增肌</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/losefat.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="10">
+                                                                <span style="color: #0099FF">减脂</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/transform.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="15">
+                                                                <span style="color: #0099FF">塑形</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/enduration.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="20">
+                                                                <span style="color: #0099FF">耐力</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row" id="select_img_fitnesstarget2">
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/sport.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="25">
+                                                                <span style="color: #0099FF">运动</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/flexibility.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="30">
+                                                                <span style="color: #0099FF">柔韧性</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="step3_last2" style="display:none">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/others.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="35">
+                                                                <span style="color: #0099FF">其他</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3" id="step3_last1" style="display:none">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.jpg" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectbodyfat" value="40">
+                                                                <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
 
@@ -345,7 +472,7 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="5">
-                                                                    <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
+                                                                    <span style="color: #0099FF">体脂率：5% &nbsp;精干型男</span>
                                                                 </label>
                                                                <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
                                                                 <label for="selectbodyfat-1" style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</label>--%>
@@ -392,7 +519,7 @@
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="20">
-                                                                    <span style="color: #0099FF">体脂率：20%&nbsp;普通标准</span>
+                                                                    <span style="color: #0099FF">体脂率：20%&nbsp;普通型</span>
                                                                 </label>
                                                             </p>
                                                         </div>
