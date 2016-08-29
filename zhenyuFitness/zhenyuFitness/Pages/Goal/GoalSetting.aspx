@@ -9,7 +9,7 @@
     <!-- WIZARD -->
     <script src="../../js/jquery-validate/jquery.validate.js"></script>
     <script src="../../js/jquery-validate/additional-methods.min.js"></script>
-    
+
 
     <link href="../../css/Hover_css/normalize.css" rel="stylesheet" />
     <link href="../../font-awesome/css/font-awesome.min.css" rel="stylesheet" />
@@ -64,7 +64,7 @@
                         <div class="wizard-form">
                             <div class="wizard-content">
                                 <ul class="nav nav-pills nav-justified steps" style="display: none">
-                                    
+
 
                                     <li>
                                         <a href="#bodystats" data-toggle="tab" class="wiz-step">
@@ -131,18 +131,14 @@
                                     <div class="alert alert-danger display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         <span id="error-span-top"></span><%--请修改后继续。--%>
-                                                       
-                                   
-                                   
-                                   
-                                   
                                     </div>
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
+                                   
                                     </div>
 
-                                    
+
 
                                     <div class="tab-pane active" id="bodystats">
                                         <%--                                        <input type="radio" name="iCheck">
@@ -261,7 +257,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="step3_last2" style="display:none">
+                                            <div class="col-md-3" id="step3_last2" style="display: none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/others.png" alt="...">
                                                     <div class="caption">
@@ -275,7 +271,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="step3_last1" style="display:none">
+                                            <div class="col-md-3" id="step3_last1" style="display: none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.jpg" alt="...">
                                                     <div class="caption">
@@ -452,7 +448,7 @@
                                             <div class="row">
                                                 <div class="col-md-8"></div>
                                                 <div class="col-md-4" style="text-align: center;">
-                                                    <button class="btn btn-primary" id="doestLookLikeMe"><span style="font:bold 15px 微软雅黑;">什么？这看起来完全不像我啊！</span></button>
+                                                    <button class="btn btn-primary" id="doestLookLikeMe"><span style="font: bold 15px 微软雅黑;">什么？这看起来完全不像我啊！</span></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -474,7 +470,7 @@
                                                                     <input type="radio" class="uniform" name="selectbodyfat" value="5">
                                                                     <span style="color: #0099FF">体脂率：5% &nbsp;精干型男</span>
                                                                 </label>
-                                                               <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
+                                                                <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
                                                                 <label for="selectbodyfat-1" style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</label>--%>
                                                             </p>
                                                         </div>
@@ -676,10 +672,30 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class ="col-md-6">
-                                                <p id="physique_desc" style="display:none;">GOAL PHYSIQUE: ATHLETE
-WEIGHT: 80.8 KG BODY FAT: 8%
-This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."</p>
+                                            <div class="col-md-6">
+                                                <div id="physique_desc" style="display: none;">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <span class="goal_physique">目标体型：健身爱好者</span>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <span class="goal_physique_status">目标体重: 80.8千克 / 目标体脂率: 8%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div>
                                             </div>
                                             <%--<div class="col-md-3" id="step3_last2" style="display:none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
@@ -741,6 +757,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -750,11 +767,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -777,11 +796,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -826,6 +847,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -835,11 +857,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -861,11 +885,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -910,6 +936,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -919,11 +946,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -945,11 +974,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -994,6 +1025,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1003,11 +1035,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -1029,11 +1063,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -1078,6 +1114,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1087,11 +1124,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -1113,11 +1152,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -1162,6 +1203,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1171,11 +1213,13 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -1263,7 +1307,7 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                                     </div>
                                 </div>
                             </div>
-                            <div class="wizard-buttons" >
+                            <div class="wizard-buttons">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
@@ -1321,34 +1365,33 @@ This body is built with plyometrics, high-intensity training, and weightlifting.
                 var all_radio = $("#step2_part3").find("input.uniform"); //alert(all_radio.length);
                 for (i = 0; i < all_radio.length; i++) {
                     //if ($('all_radio.eq(i):checked'))
-                    if (all_radio.eq(i).is(":checked"))
-                    {
+                    if (all_radio.eq(i).is(":checked")) {
                         p.html(bodyfatDesc($("#gender").val(), i));
                         p.show();
                         break;
                     }
                 }
-                
+
             });
             //physique
             $('input:radio[name="selectphysique"]').on('ifChecked', function (event) {
                 //alert(1);
-                $("#physique_desc").css('display', 'none');
+                //$("#physique_desc").css('display', 'none');
 
 
-                
+
                 var all_radio = $("#physique").find("input.uniform"); //alert(all_radio.length);
                 for (i = 0; i < all_radio.length; i++) {
                     if (all_radio.eq(i).is(":checked")) {
                         //alert(i);
-                        $("#physique_desc").html(bodyfatDesc($("#gender").val(), i));
+                        //$("#physique_desc").html(bodyfatDesc($("#gender").val(), i));
                         $("#physique_desc").show();
                         break;
                     }
                 }
 
             });
-            
+
 
             //end: 绑定onchange事件：设置step2几个部分的显示顺序
 

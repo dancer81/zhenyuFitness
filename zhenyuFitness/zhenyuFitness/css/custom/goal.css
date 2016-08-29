@@ -35,9 +35,21 @@
     color: #0099FF;
     background-color: white;
     border: 6px solid #c8c8c8;
-    padding: 5px;
+    padding: 10px;
     font: 400 15px 宋体;
     transform: rotateX(90deg);
     transform-origin: 100% 100%;
     animation: flip 800ms 80ms forwards;
+}
+
+#physique_desc .goal_physique{
+    margin-left:10px;
+    text-align:center;
+    font:normal bold 25px 黑体;
+}
+
+#physique_desc .goal_physique_status{
+    font:oblique 18px 微软雅黑;
+    /*padding-top:13px;*/
+
 }

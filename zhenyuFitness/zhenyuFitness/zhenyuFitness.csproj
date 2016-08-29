@@ -94,6 +94,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\custom\common.css" />
     <Content Include="css\custom\goal.css" />
     <Content Include="css\inputcomponent.css" />
     <Content Include="css\inputstyle.css" />
