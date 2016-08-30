@@ -18,6 +18,7 @@
     <link href="../../js/icheck_blue/blue.css" rel="stylesheet" />
     <script src="../../js/icheck_blue/icheck.js"></script>
 
+    <link href="../../css/custom/common.css" rel="stylesheet" />
     <link href="../../css/custom/goal.css" rel="stylesheet" />
     <script src="../..//js/custom/goal.js"></script>
     <style>
@@ -135,6 +136,7 @@
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
+                                   
                                    
                                     </div>
 
@@ -676,25 +678,63 @@
                                                 <div id="physique_desc" style="display: none;">
                                                     <div class="container">
                                                         <div class="row">
-                                                            <div class="col-md-6">
+                                                            <div class="col-md-12">
                                                                 <span class="goal_physique">目标体型：健身爱好者</span>
                                                             </div>
-                                                            <div class="col-md-6">
-                                                                <span class="goal_physique_status">目标体重: 80.8千克 / 目标体脂率: 8%</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span class="goal_physique_status">目标体脂率: 8%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>已计算您的目标体重：80.8千克</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>为此您必须：-7.0千克脂肪</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>+6.2千克瘦体重</span>
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."
+                                                           
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12">
-
+                                                            <div class="col-md-12 closegoalmember_title">和您目标相近的会员
                                                             </div>
                                                         </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 closegoalmember">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar5.jpg" /></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+     
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                             <%--<div class="col-md-3" id="step3_last2" style="display:none">
@@ -758,6 +798,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -768,11 +809,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -797,11 +840,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -848,6 +893,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -858,11 +904,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -886,11 +934,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -937,6 +987,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -947,11 +998,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -975,11 +1028,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -1026,6 +1081,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1036,11 +1092,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -1064,11 +1122,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -1115,6 +1175,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1125,11 +1186,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                
@@ -1153,11 +1216,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
                                                     女士
                                                                    
+                                               
                                                
                                                
                                                
@@ -1204,6 +1269,7 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
@@ -1214,11 +1280,13 @@
                                                
                                                
                                                
+                                               
                                                 </label>
                                                 <label class="radio">
                                                     <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
                                                     4年以上
                                                                    
+                                               
                                                
                                                
                                                

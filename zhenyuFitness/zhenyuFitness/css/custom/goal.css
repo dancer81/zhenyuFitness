@@ -43,8 +43,8 @@
 }
 
 #physique_desc .goal_physique{
-    margin-left:10px;
-    text-align:center;
+    /*margin-bottom:20px;*/
+    /*text-align:center;*/
     font:normal bold 25px 黑体;
 }
 
@@ -52,4 +52,28 @@
     font:oblique 18px 微软雅黑;
     /*padding-top:13px;*/
 
+}
+
+#physique_desc .goal_physique_status_desc{
+
+}
+
+#physique_desc .closegoalmember_title{
+    border-top-style:solid;
+    border-top-width:1px;
+    border-top-color:#ddd;
+    margin-top:20px;
+    margin-bottom:15px;
+    text-align:center;
+    padding-top:10px;
+}
+
+#physique_desc .closegoalmember{
+    /*padding-left:50px;*/
+    text-align:center;
+    /*background-color:red;*/
+}
+
+#physique_desc table{
+    margin:auto;
 }
