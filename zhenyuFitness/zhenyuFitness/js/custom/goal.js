@@ -209,7 +209,7 @@
 
                         /*初始化step2_part2里的参数*/
                         //设置bodyfat
-                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2) + "%");
+                        $("#step2_part2_bodyfatrate_span span").html(bodyfat.toFixed(2));
                         //设置参数显示
                         if ($("#gender").val() == 0) {
                             $("#step2_part2_gender_span").html("男");
@@ -394,6 +394,24 @@
                         }
                     }
 
+                    //验证目标体格有没有勾选
+                    if (index == 4) {
+                        var tag_physique = 0;
+                        var physique_radio = $("#physique").find("input.uniform"); //alert(all_radio.length);
+                        for (i = 0; i < physique_radio.length; i++) {
+                            //if ($('all_radio.eq(i):checked'))
+                            if (physique_radio.eq(i).is(":checked")) {
+                                tag_physique = 1;
+                                break;
+                            }
+                        }
+                        if (tag_physique == 0) {
+                            $('#error-span-top').html("请选择您的目标体型后继续。");
+                            alert_error.show();
+                            return false;
+
+                        }
+                    }
 
                     //设置步骤标题
                     showStepTitle(index);
@@ -627,6 +645,62 @@ function bodyfatDesc(gender,index)
         }
     }
     return desc;
+}
+
+//根据用户所填信息，获取用户的体脂率的100倍
+function getbodyfat()
+{
+    var radio_knowbf = $('input:radio[name="chk_knowbodyfat"]:checked').val();
+    if (radio_knowbf == 0) {
+        return $("#input-4").val();
+    }
+    else {
+        if ($('input:radio[name="selectbodyfat"]:checked').val() == null) {//如果没有选择体脂率图片
+            return $("#step2_part2_bodyfatrate_span span").html();
+        }
+        else {
+            var all_radio = $("#step2_part3").find("input.uniform"); //alert(all_radio.length);
+            for (i = 0; i < all_radio.length; i++) {
+                if (all_radio.eq(i).is(":checked")) {
+                    return (i + 1) * 5;
+                }
+            }
+        }
+    }
+}
+
+function physiqueDesc(gender, index) {
+    if (gender == 0) {
+        var goal_weight;
+        switch(index)
+        {
+            case 0:
+                var goal_bf = 0.075;
+                goal_weight = 54.3 * $("#input-1").val();
+                fatchange = getbodyfat();
+                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/SKINNY_RIPPED.png');
+                $("#goal_physique_status").html("目标体脂率: 7.5%");
+                $("#goal_weight").html(goal_weight.toFixed(2) +"千克");
+                $("#fatchange").html(fatchange(goal_weight, goal_bf));
+                $("#leanmasschange").html(fatchange(goal_weight, goal_bf));
+                break;
+        }
+    }
+    
+}
+
+function fatchange(weightGoal, bfGoal) {
+    var weightNow = $("#input-2").val();
+    var bfNow = getbodyfat() / 100;
+
+    return (weightNow * bfNow - weightGoal * bfGoal).toFixed(2);
+}
+
+function leanmasschange(weightGoal, bfGoal) {
+    var weightNow = $("#input-2").val();
+    var bfNow = getbodyfat() / 100;
+
+    return (weightNow * (1 - bfNow) - weightGoal * (1 - bfGoal)).toFixed(2);
 }
 
 

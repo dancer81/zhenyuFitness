@@ -31,7 +31,7 @@
 }
 
 #physique_desc {
-    display: none;
+    /*text-align:center;*/
     color: #0099FF;
     background-color: white;
     border: 6px solid #c8c8c8;
@@ -77,3 +77,15 @@
 #physique_desc table{
     margin:auto;
 }
+
+/*#physique_desc .goal_physique_fat_leanmass{
+    text-align:right;
+    padding-right:20px;
+    color:#0066FF;
+    font-weight:bold;
+}
+
+#physique_desc .goal_physique_fat_leanmass span span{
+    font-style:oblique;
+}*/
+

@@ -368,7 +368,7 @@
                                                                     <td id="step2_part2_constrast_weight_large">体重：90千克</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td id="step2_part2_constrast_bodyfat_large" colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;">体脂率：26%</td>
+                                                                    <td id="step2_part2_constrast_bodyfat_large" colspan="2" style="text-align: center; font-size: 17px; color: #0066FF; font-weight: bold;"><span>体脂率：26</span>%</td>
                                                                 </tr>
                                                             </table>
                                                         </div>
@@ -645,37 +645,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row" id="select_img_physique2">
-                                            <div class="col-md-3">
-                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/strongman-large.png" alt="...">
-                                                    <div class="caption">
-                                                        <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="25">
-                                                                <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
-                                                    <div class="caption">
-                                                        <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="30">
-                                                                <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
-                                                            </label>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div id="physique_desc" style="display: none;">
+                                        <div class="container">
+                                            <div  id="physique_desc" class="row collapse">
+                                                <%-- <div class="col-md-12">
+                                                <div id="physique_desc">
                                                     <div class="container">
                                                         <div class="row">
                                                             <div class="col-md-12">
@@ -709,34 +682,185 @@
                                                             </div>
                                                         </div>
                                                         <div class="row">
-                                                            <div class="col-md-12 closegoalmember_title">和您目标相近的会员
+                                                            <div class="col-md-12 closegoalmember_title">
+                                                                和您目标相近的会员
                                                             </div>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-12 closegoalmember">
                                                                 <table>
                                                                     <tr>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar5.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar5.jpg" /></a></td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
-                                                                        <td><a href="#"><img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
                                                         </div>
-     
+
                                                     </div>
 
                                                 </div>
+                                            </div>--%>
+                                                <div>
+                                                    <div class="col-md-5">
+                                                        <div>
+                                                            <span class="goal_physique">目标体型：健身爱好者</span>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-5" style="text-align:center;">
+                                                                <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
+                                                            </div>
+                                                            <div class="col-md-7" style="padding-top:10px;">
+                                                                <div>
+                                                                    <span class="goal_physique_status">目标体脂率: 8%</span>
+                                                                </div>
+                                                                <div style="margin-top:10px;">
+                                                                    <span>已计算您的目标体重：</span>
+                                                                </div>
+                                                                <div style="text-align:center;"><span id="goal_weight">80.8千克</span></div>
+                                                                <div>
+                                                                    <span>为此您必须：</span>
+                                                                </div>
+                                                                <div>
+                                                                    <table>
+                                                                        <tr><td>减少</td><td id="fatchange">47.0千克</td><td style="text-align:center;">脂肪</td></tr>
+                                                                        <tr><td>增加</td><td id="leanmasschange">1.2千克</td><td style="text-align:center;">瘦体重</td></tr>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <%--<div class="col-md-2" style="text-align:center;">
+                                                        <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
+                                                    </div>
+                                                    <div class="col-md-3">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span class="goal_physique">目标体型：健身爱好者</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span class="goal_physique_status">目标体脂率: 8%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>已计算您的目标体重：80.8千克</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>为此您必须：-7.0千克脂肪</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>+6.2千克瘦体重</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>--%>
+                                                    <div class="col-md-4">
+                                                        This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."
+                                                    </div>
+                                                    <div class="col-md-3">
+
+                                                        <table>
+                                                            <tr>
+                                                                <td colspan="4" style="text-align:center;height:40px;">与您目标相近的会员</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+
+                                                            </tr>
+                                                            <tr>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                <td><a href="#">
+                                                                    <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                            </tr>
+                                                            
+                                                        </table>
+
+                                                    </div>
+                                                </div>
+
                                             </div>
+                                        </div>
+
+
+
+                                        <div class="row" id="select_img_physique2">
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/physique/man/strongman-large.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="25">
+                                                                <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
+                                                    <div class="caption">
+                                                        <%--<p>...</p>--%>
+                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                            <label class="radio-inline">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="30">
+                                                                <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
+                                                            </label>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
                                             <%--<div class="col-md-3" id="step3_last2" style="display:none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/physique/35_man.jpg" alt="...">
@@ -1443,21 +1567,15 @@
             });
             //physique
             $('input:radio[name="selectphysique"]').on('ifChecked', function (event) {
-                //alert(1);
-                //$("#physique_desc").css('display', 'none');
-
-
-
-                var all_radio = $("#physique").find("input.uniform"); //alert(all_radio.length);
+                //根据选择的形体，初始化说明框的数据
+                var all_radio = $("#physique").find("input.uniform");
                 for (i = 0; i < all_radio.length; i++) {
                     if (all_radio.eq(i).is(":checked")) {
-                        //alert(i);
-                        //$("#physique_desc").html(bodyfatDesc($("#gender").val(), i));
-                        $("#physique_desc").show();
-                        break;
+                        physiqueDesc($("#gender").val(), i);
                     }
                 }
 
+                $('.collapse').collapse();
             });
 
 
