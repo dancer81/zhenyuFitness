@@ -179,7 +179,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="5">
                                                                 <span style="color: #0099FF">增肌</span>
                                                             </label>
                                                         </p>
@@ -194,7 +194,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="10">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="10">
                                                                 <span style="color: #0099FF">减脂</span>
                                                             </label>
                                                         </p>
@@ -208,7 +208,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="15">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="15">
                                                                 <span style="color: #0099FF">塑形</span>
                                                             </label>
                                                         </p>
@@ -222,7 +222,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="20">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="20">
                                                                 <span style="color: #0099FF">耐力</span>
                                                             </label>
                                                         </p>
@@ -238,7 +238,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="25">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="25">
                                                                 <span style="color: #0099FF">运动</span>
                                                             </label>
                                                         </p>
@@ -252,21 +252,21 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="30">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="30">
                                                                 <span style="color: #0099FF">柔韧性</span>
                                                             </label>
                                                         </p>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="step3_last2" style="display: none">
+                                            <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/others.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="35">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="35">
                                                                 <span style="color: #0099FF">其他</span>
                                                             </label>
                                                         </p>
@@ -280,7 +280,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectbodyfat" value="40">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="40">
                                                                 <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
                                                             </label>
                                                         </p>
@@ -594,7 +594,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="5">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="0">
                                                                 <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
                                                             </label>
                                                         </p>
@@ -604,12 +604,12 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/athlete-large.png" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/male_model-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="10">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="1">
                                                                 <span style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</span>
                                                             </label>
                                                         </p>
@@ -618,12 +618,12 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/male_model-large.png" alt="...">
+                                                    <img src="http://localhost/resources/img/physique/man/athlete-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="15">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="2">
                                                                 <span style="color: #0099FF">体脂率：15%&nbsp;强壮健康</span>
                                                             </label>
                                                         </p>
@@ -637,7 +637,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="20">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="3">
                                                                 <span style="color: #0099FF">体脂率：20%&nbsp;普通标准</span>
                                                             </label>
                                                         </p>
@@ -724,7 +724,7 @@
                                                 <div>
                                                     <div class="col-md-5">
                                                         <div>
-                                                            <span class="goal_physique">目标体型：健身爱好者</span>
+                                                            <span class="goal_physique"><span id="goal_physique">健身爱好者</span></span>
                                                         </div>
                                                         <div class="row">
                                                             <div class="col-md-5" style="text-align:center;">
@@ -743,8 +743,8 @@
                                                                 </div>
                                                                 <div>
                                                                     <table>
-                                                                        <tr><td>减少</td><td id="fatchange">47.0千克</td><td style="text-align:center;">脂肪</td></tr>
-                                                                        <tr><td>增加</td><td id="leanmasschange">1.2千克</td><td style="text-align:center;">瘦体重</td></tr>
+                                                                        <tr><td id="fatchangeD">减少</td><td id="fatchange">47.0千克</td><td style="text-align:center;">脂肪</td></tr>
+                                                                        <tr><td id="leanmasschangeD">增加</td><td id="leanmasschange">1.2千克</td><td style="text-align:center;">瘦体重</td></tr>
                                                                     </table>
                                                                 </div>
                                                             </div>
@@ -780,45 +780,33 @@
                                                             </div>
                                                         </div>
                                                     </div>--%>
-                                                    <div class="col-md-4">
-                                                        This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."
+                                                    <div class="col-md-4" id="goal_physique_desc">
+                                                        
                                                     </div>
                                                     <div class="col-md-3">
 
-                                                        <table>
+                                                        <table id="similargoalmemberImgs">
                                                             <tr>
                                                                 <td colspan="4" style="text-align:center;height:40px;">与您目标相近的会员</td>
                                                             </tr>
                                                             <tr>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
                                                             </tr>
                                                             <tr>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
 
                                                             </tr>
                                                             <tr>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
-                                                                <td><a href="#">
-                                                                    <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
+                                                                <td></td>
                                                             </tr>
                                                             
                                                         </table>
@@ -828,9 +816,6 @@
 
                                             </div>
                                         </div>
-
-
-
                                         <div class="row" id="select_img_physique2">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
@@ -839,7 +824,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="25">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="4">
                                                                 <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
                                                             </label>
                                                         </p>
@@ -853,7 +838,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectphysique" value="30">
+                                                                <input type="radio" class="uniform" name="selectphysique" value="5">
                                                                 <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
                                                             </label>
                                                         </p>
@@ -1520,7 +1505,7 @@
             </div>
             <!-- /BOX -->
         </div>
-        <input type="hidden" id="gender" value="0" />
+        <input type="hidden" id="gender" value="1" />
         <input type="hidden" id="age" value="35" />
     </div>
     <script src="../../js/inputclassie.js"></script>
@@ -1530,7 +1515,7 @@
             App.init(); //Initialise plugins and elements
             FormWizard.init();
 
-
+            initPagebyGender($("#gender").val());
             //begin: 初始化所有radio为icheck
 
             //begin: 绑定onchange事件：设置step2几个部分的显示顺序
@@ -1572,6 +1557,7 @@
                 for (i = 0; i < all_radio.length; i++) {
                     if (all_radio.eq(i).is(":checked")) {
                         physiqueDesc($("#gender").val(), i);
+                        break;
                     }
                 }
 
