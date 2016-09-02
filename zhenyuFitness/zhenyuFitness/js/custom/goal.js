@@ -209,7 +209,7 @@
 
                         /*初始化step2_part2里的参数*/
                         //设置bodyfat
-                        $("#step2_part2_bodyfatrate_span span").html(bodyfat.toFixed(2));
+                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2));
                         //设置参数显示
                         if ($("#gender").val() == 0) {
                             $("#step2_part2_gender_span").html("男");
@@ -532,7 +532,9 @@ function showStepTitle(index) {//选择健身目标
 }
 
 function calculateBodyfat(height, weight, waist, gender, age) {
-    return (calbodyfat1(weight, waist, gender) + calbodyfat2(weight, height, waist, age, gender)) / 2;
+    var first = calbodyfat1(weight, waist, gender);
+    var second = calbodyfat2(weight, height, waist, age, gender);
+    return (first + second) / 2;
 }
 
 function calbodyfat1(weight, waist, gender) {
@@ -665,8 +667,6 @@ function physiqueDesc(gender, index) {
                 coefficient = 42.7;
                 $("#goal_physique").html("很瘦，但肌肉线条明显");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/SKINNY_RIPPED.png');
-                $(".goal_physique_status").html("目标体脂率: 7.5%");
-
                 break;
             case 1:
                 goal_bf = 0.08;
@@ -706,33 +706,32 @@ function physiqueDesc(gender, index) {
     else {//女性
         switch (index) {
             case 0:
-                goal_bf = 0.075;
-                coefficient = 42.7;
+                goal_bf = 0.20;
+                coefficient = 31.8;
                 $("#goal_physique").html("时尚女模特");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FASHION_MODEL.png');
-                $(".goal_physique_status").html("目标体脂率: 7.5%");
                 break;
             case 1:
-                goal_bf = 0.08;
-                coefficient = 45.1;
+                goal_bf = 0.18;
+                coefficient = 33.4;
                 $("#goal_physique").html("比基尼女郎");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/SWIMSUIT.png');
                 break;
             case 2:
-                goal_bf = 0.08;
-                coefficient = 47.8;
+                goal_bf = 0.16;
+                coefficient = 33.9;
                 $("#goal_physique").html("健康女士");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FIT_WOMAN.png');
                 break;
             case 3:
-                goal_bf = 0.06;
-                coefficient = 53.4;
+                goal_bf = 0.13;
+                coefficient = 34;
                 $("#goal_physique").html("健身女士");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
                 break;
             case 4:
-                goal_bf = 0.2;
-                coefficient = 71.1;
+                goal_bf = 0.09;
+                coefficient = 38.6;
                 $("#goal_physique").html("专业女健美运动员");
                 $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
                 break;
@@ -844,22 +843,19 @@ function goalphysiqueDesc(gender, index) {
     else {//女性
         switch (index) {
             case 0://skinny ripped
-                desc = "这并不是所谓的‘骨瘦如柴’或者‘瘦胖子（即，体重小但体脂率高）’。这种体型具有极高的‘瘦体重’和极低的脂肪含量，体表的肌肉线条十分清晰，腹部六块腹肌如同雕刻出来似得，这一切都意味着常年累月刻苦的锻炼。相信很多女性都喜欢这种体型的男士，而很多男士都希望拥有此种体型。";
+                desc = "这是一个能让女士十分自信的体型，是一具属于舞台的、魅力十足的躯体。身体略微有一丝肌肉线条，但身体每一寸地方都让人觉得既紧致又柔和。这种体型必须在日常健身锻炼中十分注意细节。不要惊讶，这不是天方夜谭，你也可以拥有如此让人着迷的身材。";
                 break;
             case 1:
-                desc = "这完全可以在健身房锻炼而获得！这种体型全身肌肉线条可见，腹部平坦腹肌隐约可见。相比前一种体型，因为体脂率略有升高，因为体型更为柔和，看起来也更有亲和力。";
+                desc = "这是一种极其适合穿着泳装比基尼的身体形态。身体线条错落有致，但不突兀；苗条柔软，但并不弱不禁风，能与‘热情’、‘健康’、‘魅力’紧紧联系起来。如果你想拥有此种体型，你必须经常进行力量训练，同时有合理的饮食搭配。坚持，日复一日，迟早你就会拥有此种身材。";
                 break;
             case 2:
-                desc = "这种体型代表着力量、速度和敏捷性，是视觉效果和身体素质的高度统一！它必须通过高强度的力量训练和高强度的有氧练习才能获得。你必须在健身房刻苦的练习已增加肌肉，同时结合高强度的有氧练习能保证你始终保持一个很低的体脂率。";
+                desc = "如果你想拥有这种体型，那么你就必须和懒惰、贪吃、自我放纵说再见了。你的身体肌肉线条清晰，但并不让人望而生畏；相反，如果你有这种体型，相信我，你肯定拥有无数的粉丝。你是健康和性感的代言！当然，这一切并不容易，从现在开始迈出第一步，循序渐进。相信我，你也可以的！";
                 break;
             case 3:
-                desc = "如果你想拥有这样的体型，那么长年混迹于健身房只是一个开始，你还必须有科学的训练方法、合理的饮食搭配、良好的生活习惯以及高度自律能力。健身已经不是一种习惯或者爱好，它已经是一种生活态度。";
+                desc = "这是一种‘痛苦指数’很高的体型，意味着你的生活极度自律，而健身房才是你快乐的源泉。健身是你的生活态度，力量训练是你的第一选择。你的体脂肪率已经低于大部分普通男士，所以在某些男士看来，你的体型近乎完美！真是不容易，但这一切都是值得的！";
                 break;
             case 4:
-                desc = "谁说脂肪无用？这具巨量肌肉和脂肪混合的躯体所拥有的力量是其他几种体型望尘莫及的。什么？肌肉线条是什么玩意儿，去！我就是要力量！想成为大力士？努力训练，保证充足甚至是过量的饮食，一切重物在你面前都不值一提！";
-                break;
-            case 5:
-                desc = "这是专业健美运动员的体型，普通人想练到这种程度几乎不可能。它拥有所有体型中最低的体脂率和最高的肌肉含量，健美舞台才是你的归宿！想拥有这种体型，除了努力和汗水，还必须拥有天赋和基因。";
+                desc = "什么？这是女士的体型吗？你没看错！这是专业女性健美运动员的体型。普通的女士无论怎么进行力量训练都绝无可能练成这种体型！没错！是绝无可能！可能大部分女士都不认同这种体型，但是如果你希望达到这个目标，我们可以帮助你！";
                 break;
             default:
                 break;
@@ -914,10 +910,10 @@ function initFitnessTarget(gender) {
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/transform.png');
                     break;
                 case 3:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/sport.png');
+                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/endurance.png');
                     break;
                 case 4:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/endurance.png');
+                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/sport.png');
                     break;
                 case 5:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/stretch.png');

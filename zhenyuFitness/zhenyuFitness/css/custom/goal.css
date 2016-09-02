@@ -1,6 +1,37 @@
 ﻿body {
 }
 
+.caption_p{
+    text-align: center; 
+    background-color: white; 
+    box-shadow: 0 3px 3px 0 #7E7E7E;
+}
+
+.caption_p span{
+    color: #0099FF;
+}
+
+#knowbodyfat_text{
+    margin-left:25px;
+    padding-top: 6px;
+
+}
+
+#knowbodyfat_text span{
+    font-size: 17px; 
+    color:#0099FF;
+    /*color: #0033CC;*/
+    font-style: oblique; 
+    font-weight:bold;
+    margin-top: 15px;
+}
+
+.inputcontainer div span{
+    color:#0099FF;
+    font-size:12px;
+    font-style:oblique;
+    font-family:微软雅黑;
+}
 
 
 /*step2_part3*/
@@ -18,20 +49,28 @@
     }
 }
 
+#step2_part3{
+    background-color:white;
+}
+
+#step2_part3 .thumbnail{
+    background-color:white;
+    border:none;
+}
+
 #step2_part3 p.bf_desc {
     display: none;
     color: #0099FF;
     background-color: white;
     border: 6px solid #c8c8c8;
     padding: 5px;
-    font: 400 15px 宋体;
+    font: 400 13px 微软雅黑;
     transform: rotateX(90deg);
     transform-origin: 100% 100%;
     animation: flip 800ms 80ms forwards;
 }
 
 #physique_desc {
-    /*text-align:center;*/
     color: #0099FF;
     background-color: white;
     border: 6px solid #c8c8c8;
@@ -78,6 +117,27 @@
     margin:auto;
 }
 
+
+#physique_desc #goal_physique_desc{
+    width:300px;
+    margin-top:20px;
+    margin-bottom:20px;
+    padding:10px 20px;
+    font-family:微软雅黑;
+    border:solid 1px;
+    background-color:#f9f7f6;
+}
+
+#physique_desc .col-md-3{
+    margin-top:5px;
+    margin-left:5px;
+    text-align:right;
+    /*border:solid 1px;*/
+}
+
+#similargoalmemberImgs{
+    text-align:center;
+}
 /*#physique_desc .goal_physique_fat_leanmass{
     text-align:right;
     padding-right:20px;
