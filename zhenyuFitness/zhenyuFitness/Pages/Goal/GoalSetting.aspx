@@ -589,7 +589,7 @@
                                         <div class="row" id="select_img_physique1">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" alt="...">
+                                                    <img id="sss" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -647,6 +647,80 @@
                                         </div>
                                         <div class="container">
                                             <div  id="physique_desc" class="row collapse">
+                                                <%-- <div class="col-md-12">
+                                                <div id="physique_desc">
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span class="goal_physique">目标体型：健身爱好者</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span class="goal_physique_status">目标体脂率: 8%</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>已计算您的目标体重：80.8千克</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>为此您必须：-7.0千克脂肪</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <span>+6.2千克瘦体重</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                This body is built with plyometrics, high-intensity training, and weightlifting. It's about power, speed, and agility. You want to look good, but performing well is equally important. You're packing a lot of muscle from years in the gym, but drills keep you lean, mean, and explosive. People see you and instantly think, "Athlete."
+                                                           
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 closegoalmember_title">
+                                                                和您目标相近的会员
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-12 closegoalmember">
+                                                                <table>
+                                                                    <tr>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar1.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar4.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar5.jpg" /></a></td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar6.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar7.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar8.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar2.jpg" /></a></td>
+                                                                        <td><a href="#">
+                                                                            <img src="http://localhost/resources/img/avatars/avatar3.jpg" /></a></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+                                            </div>--%>
                                                 <div>
                                                     <div class="col-md-5">
                                                         <div>
@@ -757,7 +831,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3" id="last_physique_div">
+                                            <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
                                                     <div class="caption">

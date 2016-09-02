@@ -648,16 +648,16 @@ function bodyfatDesc(gender,index)
 
 
 function physiqueDesc(gender, index) {
-    var goal_weight;
-    var fatchangeValue;
-    var leanmasschangeValue;
-    var coefficient;
-    var goal_bf;
-    //设置体型描述文字的html
-    goalphysiqueDesc(gender, index);
-    //设置目标相近会员栏
-    setSimilargoalMember(gender, index);
     if (gender == 0) {
+        var goal_weight;
+        var fatchangeValue;
+        var leanmasschangeValue;
+        var coefficient;
+        var goal_bf;
+        //设置体型描述文字的html
+        goalphysiqueDesc(gender, index);
+        //设置目标相近会员栏
+        setSimilargoalMember(index);
         switch(index)
         {
             case 0:
@@ -702,49 +702,12 @@ function physiqueDesc(gender, index) {
                 break;
 
         }
+        //alert(getbodyfat());
+        setGoalbfHtml(goal_bf);
+        goal_weight = coefficient * $("#input-1").val() / 100;
+        $("#goal_weight").html(goal_weight.toFixed(1) + "千克");
+        setFatchangeAndLeanmasschange(goal_weight, goal_bf);
     }
-    else {//女性
-        switch (index) {
-            case 0:
-                goal_bf = 0.075;
-                coefficient = 42.7;
-                $("#goal_physique").html("时尚女模特");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FASHION_MODEL.png');
-                $(".goal_physique_status").html("目标体脂率: 7.5%");
-                break;
-            case 1:
-                goal_bf = 0.08;
-                coefficient = 45.1;
-                $("#goal_physique").html("比基尼女郎");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/SWIMSUIT.png');
-                break;
-            case 2:
-                goal_bf = 0.08;
-                coefficient = 47.8;
-                $("#goal_physique").html("健康女士");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FIT_WOMAN.png');
-                break;
-            case 3:
-                goal_bf = 0.06;
-                coefficient = 53.4;
-                $("#goal_physique").html("健身女士");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
-                break;
-            case 4:
-                goal_bf = 0.2;
-                coefficient = 71.1;
-                $("#goal_physique").html("专业女健美运动员");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
-                break;
-            default:
-                break;
-
-        }
-    }
-    setGoalbfHtml(goal_bf);
-    goal_weight = coefficient * $("#input-1").val() / 100;
-    $("#goal_weight").html(goal_weight.toFixed(1) + "千克");
-    setFatchangeAndLeanmasschange(goal_weight, goal_bf);
     
 }
 
@@ -814,7 +777,6 @@ function getbodyfat() {
     }
 }
 
-//设置目标体型图片的说明
 function goalphysiqueDesc(gender, index) {
     var desc;
     if (gender == 0) {//男性
@@ -841,7 +803,7 @@ function goalphysiqueDesc(gender, index) {
                 break;
         }
     }
-    else {//女性
+    else {
         switch (index) {
             case 0://skinny ripped
                 desc = "这并不是所谓的‘骨瘦如柴’或者‘瘦胖子（即，体重小但体脂率高）’。这种体型具有极高的‘瘦体重’和极低的脂肪含量，体表的肌肉线条十分清晰，腹部六块腹肌如同雕刻出来似得，这一切都意味着常年累月刻苦的锻炼。相信很多女性都喜欢这种体型的男士，而很多男士都希望拥有此种体型。";
@@ -870,7 +832,7 @@ function goalphysiqueDesc(gender, index) {
 }
 
 //根据用户目标体型来选择与用户目标相近的会员
-function setSimilargoalMember(gender,index) {
+function setSimilargoalMember(index) {
     var imglist = new Array();
     
     //ajax取得数据源(用到参数index),并赋值给imglist,imglist最大长度为12（3行）
@@ -978,9 +940,9 @@ function initBodyfatSelect(gender) {
     }
 }
 
-//初始化女性目标体型选择图片
+//初始化女性体脂率选择图片
 function initphysiqueSelect(gender) {
-    var imglist = $("#physique .thumbnail img");
+    var imglist = $("#physique img"); 
     if (gender == 1) {
         for (i = 0; i < imglist.length; i++) {
             switch (i) {
@@ -1004,8 +966,6 @@ function initphysiqueSelect(gender) {
             }
         }
     }
-
-    $("#last_physique_div").css('display', 'none');
 }
 
 function initPagebyGender(gender){
