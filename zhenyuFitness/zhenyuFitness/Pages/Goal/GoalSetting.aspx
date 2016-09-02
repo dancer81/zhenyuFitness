@@ -177,7 +177,7 @@
                                                     <img id="sss" src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="5">
                                                                 <span style="color: #0099FF">增肌</span>
@@ -192,7 +192,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/losefat.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="10">
                                                                 <span style="color: #0099FF">减脂</span>
@@ -206,10 +206,10 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/transform.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="15">
-                                                                <span style="color: #0099FF">塑形</span>
+                                                                <span>塑形</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -220,7 +220,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/enduration.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="20">
                                                                 <span style="color: #0099FF">耐力</span>
@@ -236,7 +236,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/sport.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="25">
                                                                 <span style="color: #0099FF">运动</span>
@@ -250,7 +250,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/flexibility.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="30">
                                                                 <span style="color: #0099FF">柔韧性</span>
@@ -264,7 +264,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/others.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="35">
                                                                 <span style="color: #0099FF">其他</span>
@@ -278,7 +278,7 @@
                                                     <img src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.jpg" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
-                                                        <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
+                                                        <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="40">
                                                                 <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
@@ -293,10 +293,9 @@
                                     <div class="tab-pane" id="yourbodyfat" style="background: #f9f7f6;">
 
                                         <div class="row">
-                                            <%--<div class="col-md-3"></div>--%>
-                                            <div class="col-md-3" style="padding-top: 6px;"><span style="font-size: 15px; color: #0033CC; font-style: oblique; margin-top: 15px;">您知道什么是体脂率吗？</span></div>
+                                            <div id="knowbodyfat_text" class="col-md-3"><span>您知道什么是体脂率吗？</span></div>
 
-                                            <div class="col-md-2" style="margin-top: 6px;">
+                                            <div class="col-md-2" style="margin-top: 9px;">
                                                 <input type="radio" id="chk_knowbodyfat-1" name="chk_knowbodyfat" value="0" checked>
                                                 <label for="chk_knowbodyfat-1">知道</label>
 
@@ -311,11 +310,14 @@
                                                     <span class="input input--haruki">
                                                         <input class="input__field input__field--haruki" type="text" id="input-4">
                                                         <label class="input__label input__label--haruki" for="input-4">
-                                                            <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
+                                                            <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">已估算您的体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
                                                         </label>
                                                     </span>
+                                                    <div><span>如果您知道自己的体脂率，可以直接修改上面数值，然后进入下一步。</span></div>
+                                                    <div><span>如果您不知道什么是体脂率，请勾选上方对应的圆圈。</span></div>
                                                 </section>
                                             </div>
+                                            
                                         </div>
                                         <br />
                                         <div id="step2_part2" style="display: none;">
@@ -387,8 +389,8 @@
                                             <%--分割线--%>
                                             <br />
                                             <div class="row">
-                                                <div class="col-md-2"></div>
-                                                <div class="col-md-8">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-7">
                                                     <table>
                                                         <tr>
                                                             <td style="border-left-width: 20px; border-left-color: transparent;"><span style="font-size: 15px; font-weight: bold; color: #5e87b0;">您的体型大致如下图：</span></td>
@@ -403,8 +405,8 @@
                                                             <td>
                                                                 <table>
                                                                     <tr>
-                                                                        <td rowspan="6" style="width: 200px;"><span id="step2_part2_bodyfatrate_span" style="font-size: 45px; font-weight: bold; font-family: 'Times New Roman'; font-style: oblique;">14.5%</span></td>
-                                                                        <td><span style="font-size: 16px; font-weight: bold; color: #5e87b0;">根据以下参数进行估算：</span></td>
+                                                                        <td rowspan="6" style="width: 150px;"><span id="step2_part2_bodyfatrate_span" style="font-size: 45px; font-weight: bold; font-family: 'Times New Roman'; font-style: oblique;"></span></td>
+                                                                        <td><span style="font-size: 16px; font-weight: bold; color: #5e87b0;width:110px;">根据以下参数进行估算：</span></td>
                                                                     </tr>
 
                                                                     <tr>
@@ -438,7 +440,7 @@
 
                                                             <tr>
                                                                 <td style="font-size: 16px; font-weight: bold;">
-                                                                    <span style="font-size: 14px; font-style: oblique; color: #5e87b0;">此估算值对于普通人可能存在3%-5%的误差。但对于肌肉含量大的男性，此估算值可能会严重偏高！</span>
+                                                                    <span style="font-size: 14px; font-style: oblique; color: #5e87b0;">此估算值对于普通人可能存在5%左右的误差。但对于肌肉含量大的男性，此估算值可能会严重偏高！</span>
                                                                 </td>
                                                             </tr>
                                                     </table>
@@ -448,9 +450,9 @@
 
                                             <br />
                                             <div class="row">
-                                                <div class="col-md-8"></div>
-                                                <div class="col-md-4" style="text-align: center;">
-                                                    <button class="btn btn-primary" id="doestLookLikeMe"><span style="font: bold 15px 微软雅黑;">什么？这看起来完全不像我啊！</span></button>
+                                                <div class="col-md-6"></div>
+                                                <div class="col-md-6" style="text-align: center;">
+                                                    <button class="btn btn-primary" id="doestLookLikeMe"><span style="font: bold 15px 微软雅黑;">这看起来完全不像我啊！</span></button>
                                                 </div>
                                             </div>
                                         </div>
@@ -463,7 +465,7 @@
                                             </div>
                                             <div class="row" id="select_img_bodyfat1">
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img id="step2_part3_img1" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -480,7 +482,7 @@
 
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -496,7 +498,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -510,7 +512,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -526,7 +528,7 @@
                                             </div>
                                             <div class="row" id="select_img_bodyfat2">
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -540,7 +542,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -554,7 +556,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3" id="step2_part3_last2">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -568,7 +570,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-3" id="step2_part3_last1">
-                                                    <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
+                                                    <div class="thumbnail">
                                                         <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
@@ -726,7 +728,7 @@
                                                         <div>
                                                             <span class="goal_physique"><span id="goal_physique">健身爱好者</span></span>
                                                         </div>
-                                                        <div class="row">
+                                                        <div class="row" style="margin-top:20px;">
                                                             <div class="col-md-5" style="text-align:center;">
                                                                 <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
                                                             </div>
@@ -750,36 +752,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <%--<div class="col-md-2" style="text-align:center;">
-                                                        <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
-                                                    </div>
-                                                    <div class="col-md-3">
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <span class="goal_physique">目标体型：健身爱好者</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <span class="goal_physique_status">目标体脂率: 8%</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <span>已计算您的目标体重：80.8千克</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <span>为此您必须：-7.0千克脂肪</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-md-12">
-                                                                <span>+6.2千克瘦体重</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>--%>
                                                     <div class="col-md-4" id="goal_physique_desc">
                                                         
                                                     </div>
@@ -1570,7 +1542,7 @@
             $(':radio').iCheck({
                 checkboxClass: 'icheckbox_square-blue',
                 radioClass: 'iradio_square-blue',
-                increaseArea: '20%'
+                increaseArea: '100%'
             });
             //end: 初始化所有radio为icheck
 
