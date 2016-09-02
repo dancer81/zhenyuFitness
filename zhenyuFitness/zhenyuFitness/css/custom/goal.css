@@ -81,6 +81,11 @@
     animation: flip 800ms 80ms forwards;
 }
 
+#physique_desc .col-md-7{
+    background-color:white;
+    padding-top:10px;
+}
+
 #physique_desc .goal_physique{
     /*margin-bottom:20px;*/
     /*text-align:center;*/
@@ -117,6 +122,9 @@
     margin:auto;
 }
 
+#select_img_physique2{
+    margin-top:20px;
+}
 
 #physique_desc #goal_physique_desc{
     width:300px;

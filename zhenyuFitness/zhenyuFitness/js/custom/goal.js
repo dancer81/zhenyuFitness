@@ -209,7 +209,7 @@
 
                         /*初始化step2_part2里的参数*/
                         //设置bodyfat
-                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2));
+                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2)+"%");
                         //设置参数显示
                         if ($("#gender").val() == 0) {
                             $("#step2_part2_gender_span").html("男");
