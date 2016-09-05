@@ -762,21 +762,35 @@ function physiqueDesc(gender, index) {
     $("#goal_weight").html(goal_weight.toFixed(1) + "千克");
     setFatchangeAndLeanmasschange(goal_weight, goal_bf);
 
-    //初始化第五部的页面数据，2个输入框数据goalweight,goalBF和一个图片
+    //初始化第五步的页面数据
     $("#input-5").val(goal_weight.toFixed(1));
     $("#input-6").val((goal_bf * 100).toFixed(1));
     initinput();
     $("#yourgoalstats_physique_img").attr('src', yourgoalstats_physique_img);
     $("#yourgoalstats_physiquetext").html($("#goal_physique").html());
 
-    
+    //初始化第六步的页面数据
+    $("#goaldate_weight").html(goal_weight.toFixed(1));
+    $("#goaldate_bf").html((goal_bf * 100).toFixed(1) + "%");
+
+    var goaldaycount = calGoalDayCount(goal_weight, goal_bf);
+    $("#knobdiv input").val(goaldaycount);
+    $("#goaldatecount").html(goaldaycount);
+    $("#knobdiv input").attr('data-max', goaldaycount * 3);
+    var min = (goaldaycount / 5).toFixed(0);
+    $("#knobdiv input").attr('data-min', min);
+
+
+
+
+    initKnob(goaldaycount * 3, min);
 }
 
 function setGoalbfHtml(bfGoal)
 {
     $(".goal_physique_status").html("目标体脂率: " + (bfGoal *100).toFixed(1) + "%");
 }
-//设置增加减少脂肪量和瘦体重的html
+//设置增加减少脂肪量和瘦体重的html(第四步、第六步)
 function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
 {
     var fatchangeValue = fatchange(weightGoal, bfGoal);
@@ -784,20 +798,32 @@ function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
     if (fatchangeValue > 0) {
         $("#fatchangeD").html("增加");
         $("#fatchange").html(fatchangeValue + "千克");
+
+        $("#goaldate_fatD").html("增加");
+        $("#goaldate_fatA").html(fatchangeValue);
     }
     else {
         $("#fatchangeD").html("减少");
         $("#fatchange").html((0 - fatchangeValue) + "千克");
+
+        $("#goaldate_fatD").html("减少");
+        $("#goaldate_fatA").html(0 - fatchangeValue);
     }
 
     leanmasschangeValue = leanmasschange(weightGoal, bfGoal);
     if (leanmasschangeValue > 0) {
         $("#leanmasschangeD").html("增加");
         $("#leanmasschange").html(leanmasschangeValue + "千克");
+
+        $("#goaldate_leanD").html("增加");
+        $("#goaldate_leanA").html(leanmasschangeValue);
     }
     else {
         $("#leanmasschangeD").html("减少");
         $("#leanmasschange").html(0 - leanmasschangeValue + "千克");
+
+        $("#goaldate_leanD").html("减少");
+        $("#goaldate_leanA").html(0 - leanmasschangeValue);
     }
 }
 
@@ -1061,3 +1087,133 @@ function initPagebyGender(gender){
     initphysiqueSelect(gender);
 }
 
+//粗略估算用户达到目标体重和体脂率的天数
+function calGoalDayCount(weightGoal, bfGoal) {
+    var fatC = fatchange(weightGoal, bfGoal);
+    var leanC = leanmasschange(weightGoal, bfGoal);
+
+    var gender = $("#gender").val();
+    var age = $("#age").val();
+
+    var vFat = 3;//每个月减脂3kg
+    var vLeanmass = 5;//每年增肌5kg
+    var vFatMonths = 0;//减脂月数
+    var vLeanmassYears = 0;//增肌年数
+
+    var VdecreaseFat;//减脂系数
+    var VincreaseLeanmass;//增肌系数
+
+    if (gender == 0) {//男性
+        if (age < 30) {
+            VdecreaseFat = 1;
+            VincreaseLeanmass = 1;
+        }
+        else if (age >= 30 && age < 40) {
+            VdecreaseFat = 0.8;
+            VincreaseLeanmass = 0.8;
+        }
+        else if (age >= 40 && age < 50) {
+            VdecreaseFat = 0.4;
+            VincreaseLeanmass = 0.4;
+        }
+        else {
+            VdecreaseFat = 0.2;
+            VincreaseLeanmass = 0.2;
+        }
+    }
+    else {//女性
+        if (age < 30) {
+            VdecreaseFat = 0.8;
+            VincreaseLeanmass = 0.5;
+        }
+        else if (age >= 30 && age < 40) {
+            VdecreaseFat = 0.6;
+            VincreaseLeanmass = 0.3;
+        }
+        else if (age >= 40 && age < 50) {
+            VdecreaseFat = 0.4;
+            VincreaseLeanmass = 0.1;
+        }
+        else {
+            VdecreaseFat = 0.1;
+            VincreaseLeanmass = 0.05;
+        }
+    }
+
+    
+    //先增肌
+    if (leanC > 0) {//净体重变化>0,需要增肌
+        vLeanmassYears = leanC / (vLeanmass * VincreaseLeanmass);
+    }
+    if (fatC < 0) {//脂肪变化<0,需要减脂
+        vFatMonths = (-fatC) / (vFat * VdecreaseFat);
+    }
+
+
+
+
+    //alert("增肌系数:" + VincreaseLeanmass + "||减脂系数" + VdecreaseFat + "||需要增肌" + leanC + "千克,需要用时" + vLeanmassYears + "年，其中每年增肌" + vLeanmass * VincreaseLeanmass + "千克" + "||需要减脂" + fatC + "千克,需要用时" + vFatMonths + "个月，其中每个月减脂" + vFatMonths * VdecreaseFat + "千克");
+    return (vFatMonths * 30 + vLeanmassYears * 365).toFixed(0);
+}
+
+function initKnob(maxV,minV) {
+    $(".knob").knob({
+        width: 250,
+        max: maxV,
+        min: minV,
+        //thickness: .3,
+        change: function (value) {
+            $("#goaldatecount").html(value);
+            console.log("change : " + value);
+        },
+        release: function (value) {
+            //console.log(this.$.attr('value'));
+            console.log("release : " + value);
+        },
+        cancel: function () {
+            console.log("cancel : ", this);
+        },
+        draw: function () {
+
+            // "tron" case
+            if (this.$.data('skin') == 'tron') {
+                var a = this.angle(this.cv)  // Angle
+                    , sa = this.startAngle          // Previous start angle
+                    , sat = this.startAngle         // Start angle
+                    , ea                            // Previous end angle
+                    , eat = sat + a                 // End angle
+                    , r = 1;
+
+                this.g.lineWidth = this.lineWidth;
+
+                this.o.cursor
+                    && (sat = eat - 0.3)
+                    && (eat = eat + 0.3);
+
+                if (this.o.displayPrevious) {
+                    ea = this.startAngle + this.angle(this.v);
+                    this.o.cursor
+                        && (sa = ea - 0.3)
+                        && (ea = ea + 0.3);
+                    this.g.beginPath();
+                    this.g.strokeStyle = this.pColor;
+                    this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+                    this.g.stroke();
+                }
+
+                this.g.beginPath();
+                this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+                this.g.stroke();
+
+                this.g.lineWidth = 2;
+                this.g.beginPath();
+                this.g.strokeStyle = this.o.fgColor;
+                this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                this.g.stroke();
+
+                return false;
+            }
+        }
+    });
+}
