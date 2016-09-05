@@ -774,16 +774,19 @@ function physiqueDesc(gender, index) {
     $("#goaldate_bf").html((goal_bf * 100).toFixed(1) + "%");
 
     var goaldaycount = calGoalDayCount(goal_weight, goal_bf);
-    $("#knobdiv input").val(goaldaycount);
+
+
+    //$("#knobdiv input").val(goaldaycount);
     $("#goaldatecount").html(goaldaycount);
-    $("#knobdiv input").attr('data-max', goaldaycount * 3);
-    var min = (goaldaycount / 5).toFixed(0);
-    $("#knobdiv input").attr('data-min', min);
 
 
 
 
-    initKnob(goaldaycount * 3, min);
+    //$("#knobdiv input").attr('data-max', goaldaycount * 3);
+    //var min = (goaldaycount / 5).toFixed(0);
+    //$("#knobdiv input").attr('data-min', min);
+
+    //initKnob(goaldaycount * 3, min);
 }
 
 function setGoalbfHtml(bfGoal)
