@@ -49,7 +49,7 @@
             <!-- BOX -->
             <div class="box border red" id="formWizard">
                 <div class="box-title">
-                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">1 / 8</span></h4>
+                    <h4><i class="fa fa-bars"></i>健身目标设定 - <span class="stepHeader">1 / 7</span></h4>
                     <div class="tools hidden-xs">
 
                         <a href="javascript:;" class="collapse">
@@ -94,27 +94,15 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                        <a href="#yourgoalstats" data-toggle="tab" class="wiz-step">
                                             <%--  <span class="step-number">4</span>--%>
-                                            <span class="step-name"><i class="fa fa-check"></i>目标身体数据</span>
+                                            <span class="step-name"><i class="fa fa-check"></i>您的目标相关数据</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#confirm" data-toggle="tab" class="wiz-step">
+                                        <a href="#goaldate" data-toggle="tab" class="wiz-step">
                                             <%-- <span class="step-number">4</span>--%>
-                                            <span class="step-name"><i class="fa fa-check"></i>健身历史</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#confirm" data-toggle="tab" class="wiz-step">
-                                            <%-- <span class="step-number">4</span>--%>
-                                            <span class="step-name"><i class="fa fa-check"></i>目标实现日期</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="#confirm" data-toggle="tab" class="wiz-step">
-                                            <%--  <span class="step-number">4</span>--%>
-                                            <span class="step-name"><i class="fa fa-check"></i>设置提醒</span>
+                                            <span class="step-name"><i class="fa fa-check"></i>达成目标所需天数</span>
                                         </a>
                                     </li>
                                     <li>
@@ -136,6 +124,7 @@
                                     <div class="alert alert-success display-none">
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
+                                   
                                    
                                    
                                     </div>
@@ -317,7 +306,7 @@
                                                     <div><span>如果您不知道什么是体脂率，请勾选上方对应的圆圈。</span></div>
                                                 </section>
                                             </div>
-                                            
+
                                         </div>
                                         <br />
                                         <div id="step2_part2" style="display: none;">
@@ -406,7 +395,7 @@
                                                                 <table>
                                                                     <tr>
                                                                         <td rowspan="6" style="width: 150px;"><span id="step2_part2_bodyfatrate_span" style="font-size: 40px; font-weight: bold; font-family: 'Times New Roman'; font-style: oblique;"></span></td>
-                                                                        <td><span style="font-size: 16px; font-weight: bold; color: #5e87b0;width:110px;">根据以下参数进行估算：</span></td>
+                                                                        <td><span style="font-size: 16px; font-weight: bold; color: #5e87b0; width: 110px;">根据以下参数进行估算：</span></td>
                                                                     </tr>
 
                                                                     <tr>
@@ -648,44 +637,51 @@
                                             </div>
                                         </div>
                                         <div class="container">
-                                            <div  id="physique_desc" class="row collapse">
+                                            <div id="physique_desc" class="row collapse">
                                                 <div>
                                                     <div class="col-md-5">
-                                                        <div style="padding-left:20px;">
+                                                        <div style="padding-left: 20px;">
                                                             <span class="goal_physique"><span id="goal_physique">健身爱好者</span></span>
                                                         </div>
-                                                        <div class="row" style="margin-top:20px;">
-                                                            <div class="col-md-5" style="text-align:center;">
+                                                        <div class="row" style="margin-top: 20px;">
+                                                            <div class="col-md-5" style="text-align: center;">
                                                                 <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
                                                             </div>
-                                                            <div class="col-md-7" >
+                                                            <div class="col-md-7">
                                                                 <div>
-                                                                    <span class="goal_physique_status"  style="color:forestgreen;">目标体脂率: 8%</span>
+                                                                    <span class="goal_physique_status" style="color: forestgreen;">目标体脂率: 8%</span>
                                                                 </div>
-                                                                <div style="margin-top:10px;">
+                                                                <div style="margin-top: 10px;">
                                                                     <span>已计算您的目标体重：</span>
                                                                 </div>
-                                                                <div style="text-align:center;"><span id="goal_weight">80.8千克</span></div>
+                                                                <div style="text-align: center;"><span id="goal_weight">80.8千克</span></div>
                                                                 <div>
                                                                     <span>为此您必须：</span>
                                                                 </div>
                                                                 <div>
                                                                     <table>
-                                                                        <tr><td id="fatchangeD">减少</td><td id="fatchange">47.0千克</td><td style="text-align:center;color:orangered;">脂肪</td></tr>
-                                                                        <tr><td id="leanmasschangeD">增加</td><td id="leanmasschange">1.2千克</td><td style="text-align:center;color:forestgreen;">瘦体重</td></tr>
+                                                                        <tr>
+                                                                            <td id="fatchangeD">减少</td>
+                                                                            <td id="fatchange">47.0千克</td>
+                                                                            <td style="text-align: center; color: orangered;">脂肪</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td id="leanmasschangeD">增加</td>
+                                                                            <td id="leanmasschange">1.2千克</td>
+                                                                            <td style="text-align: center; color: forestgreen;">瘦体重</td>
+                                                                        </tr>
                                                                     </table>
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-4" id="goal_physique_desc">
-                                                        
                                                     </div>
                                                     <div class="col-md-3">
 
                                                         <table id="similargoalmemberImgs">
                                                             <tr>
-                                                                <td colspan="4" style="text-align:center;height:40px;">与您目标相近的会员</td>
+                                                                <td colspan="4" style="text-align: center; height: 40px;">与您目标相近的会员</td>
                                                             </tr>
                                                             <tr>
                                                                 <td></td>
@@ -706,7 +702,7 @@
                                                                 <td></td>
                                                                 <td></td>
                                                             </tr>
-                                                            
+
                                                         </table>
 
                                                     </div>
@@ -729,7 +725,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-3"  id="last_physique_div">
+                                            <div class="col-md-3" id="last_physique_div">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
                                                     <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
                                                     <div class="caption">
@@ -746,534 +742,123 @@
                                         </div>
                                     </div>
 
+                                    <div class="tab-pane" id="yourgoalstats">
+                                        <div class="inputcontainer">
+                                            <section class="inputcontent bgcolor-1">
+                                                <div><span style="font-size: 15px;">您的目标体型：<span id="yourgoalstats_physiquetext"></span></span></div>
+                                                <div>
+                                                    <img id="yourgoalstats_physique_img" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" />
+                                                </div>
+                                                <div><span style="font-size: 15px;">根据您的目标体型、当前的身高、体重和体脂率，计算出您的目标体重和体脂率为：</span></div>
+                                                <span class="input input--haruki">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-5">
+                                                    <label class="input__label input__label--haruki" for="input-5">
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的目标体重&nbsp;<span style="font-size: 18px">(千克)</span></span></span>
+                                                    </label>
+                                                </span>
 
-
-                                    <div class="tab-pane" id="bodystats1">
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3"><span style="font-size: 22px">身高</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <div class="tab-pane" id="payment">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
+                                                <span class="input input--haruki">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-6">
+                                                    <label class="input__label input__label--haruki" for="input-6">
+                                                        <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的目标体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
+                                                    </label>
+                                                </span>
+                                                <div id="seperator1"></div>
+                                                <div>
+                                                    <span style="font-size: 16px; margin-bottom: 15px;">和您目标体型相同，且最能激励您的会员：<br />
+                                                    </span>
+                                                </div>
+                                                <div id="yourgoalstats_table">
+                                                    <table id="samephysique_topinspiration_memberImgs">
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <%--<div>
+                                                    <table id="samephysique_topinspiration_memberImgs">
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>--%>
+                                            </section>
                                         </div>
 
                                     </div>
-                                    <div class="tab-pane" id="payment">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
+
+                                    <div class="tab-pane" id="goaldate">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-4"></div>
+                                                <div class="col-md-4">
+                                                    <div id="knobdiv">
+                                                        <h4>请选择您目标达成的天数</h4>
+                                                        <input class="knob" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#D9534F" value="90">
+                                                    </div>
+                                                    <div style="margin-bottom: 20px; text-align: center;"><span style="color: #0099FF; font-size: 23px;">适中</span></div>
+                                                </div>
+                                                <div class="col-md-4"></div>
                                             </div>
                                         </div>
 
+                                        <div id="goaldate_desc">
+                                            <div id="goaldate_bodychange">
+                                                <span>您希望在<span id="goaldatecount">300</span>天后达成的目标：<br />
+                                                </span>
+                                                <span>体重<span id="goaldate_weight">50</span>千克 <span style="color: #0099FF;">&</span> 体脂率<span id="goaldate_bf">18%</span></span>
 
-
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
+                                            </div>
+                                            <div id="goaldate_fatchange">
+                                                <div>您需要:</div>
+                                                <div>
+                                                    <span id="goaldate_fatD">减少</span>脂肪：<span id="goaldate_fatA">10</span>千克<br />
+                                                    <span id="goaldate_leanD">增加</span>瘦体重：<span id="goaldate_leanA">9</span>千克
+                                                </div>
                                             </div>
                                         </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="tab-pane" id="payment">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="tab-pane" id="payment">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                    <div class="tab-pane" id="payment">
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">性别<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="0" data-title="Male" class="uniform" checked="checked" />
-                                                    男士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="gender" value="1" data-title="Female" class="uniform" />
-                                                    女士
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">出生年月<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="date" class="form-control" name="birthday" placeholder="adsfasdf" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">身高<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的身高（厘米）" class="form-control" name="height" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">体重<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <input type="text" placeholder="请输入您的体重（千克）" class="form-control" name="weight" />
-                                                <span class="error-span"></span>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="control-label col-md-3">健身历史<span class="required">*</span></label>
-                                            <div class="col-md-4">
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="0" data-title="level1" class="uniform" checked="checked" />
-                                                    1-2年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="1" data-title="level2" class="uniform" />
-                                                    2-4年
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                                <label class="radio">
-                                                    <input type="radio" name="fitHis" value="2" data-title="level3" class="uniform" />
-                                                    4年以上
-                                                                   
-                                               
-                                               
-                                               
-                                               
-                                               
-                                               
-                                                </label>
-                                            </div>
-                                        </div>
-
                                     </div>
 
                                     <div class="tab-pane" id="confirm">
@@ -1378,11 +963,72 @@
         <input type="hidden" id="age" value="35" />
     </div>
     <script src="../../js/inputclassie.js"></script>
+    <script src="../../js/jQuery-Knob/js/jquery.knob.min.js"></script>
     <script>
         jQuery(document).ready(function () {
             App.setPage("Register");  //Set current page
             App.init(); //Initialise plugins and elements
             FormWizard.init();
+
+            $(".knob").knob({
+                width: 250,
+                max: 180,
+                min: 45,
+                //thickness: .3,
+                change: function (value) {
+                    $("#goaldatecount").html(value);
+                    //console.log("change : " + value);
+                },
+                release: function (value) {
+                    //console.log(this.$.attr('value'));
+                    console.log("release : " + value);
+                },
+                cancel: function () {
+                    console.log("cancel : ", this);
+                },
+                draw: function () {
+
+                    // "tron" case
+                    if (this.$.data('skin') == 'tron') {
+                        var a = this.angle(this.cv)  // Angle
+                            , sa = this.startAngle          // Previous start angle
+                            , sat = this.startAngle         // Start angle
+                            , ea                            // Previous end angle
+                            , eat = sat + a                 // End angle
+                            , r = 1;
+
+                        this.g.lineWidth = this.lineWidth;
+
+                        this.o.cursor
+                            && (sat = eat - 0.3)
+                            && (eat = eat + 0.3);
+
+                        if (this.o.displayPrevious) {
+                            ea = this.startAngle + this.angle(this.v);
+                            this.o.cursor
+                                && (sa = ea - 0.3)
+                                && (ea = ea + 0.3);
+                            this.g.beginPath();
+                            this.g.strokeStyle = this.pColor;
+                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
+                            this.g.stroke();
+                        }
+
+                        this.g.beginPath();
+                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
+                        this.g.stroke();
+
+                        this.g.lineWidth = 2;
+                        this.g.beginPath();
+                        this.g.strokeStyle = this.o.fgColor;
+                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
+                        this.g.stroke();
+
+                        return false;
+                    }
+                }
+            });
 
             initPagebyGender($("#gender").val());
             //begin: 初始化所有radio为icheck

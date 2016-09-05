@@ -157,3 +157,107 @@
     font-style:oblique;
 }*/
 
+
+#yourgoalstats_physiquetext{
+    color:forestgreen;
+    /*font-style:normal;*/
+    font-size:16px;
+}
+
+#seperator1{
+    margin:40px auto;
+    width:500px;
+    /*border-bottom:solid 1px;*/
+}
+
+#yourgoalstats_table{
+    margin-top:8px;
+}
+
+#samephysique_topinspiration_memberImgs{
+    margin:0 auto;
+}
+
+
+#knobdiv{
+    text-align:center;
+}
+
+#knobdiv h4{
+    color:#0099FF;
+    font-family:微软雅黑;
+}
+
+#goaldate_desc{
+    border:6px solid #c8c8c8;
+    width:600px;
+    margin:0 auto;
+}
+
+#goaldate_bodychange{
+    margin:0 auto 30px;
+    text-align:center;
+}
+
+#goaldate_bodychange span{
+    font-family:微软雅黑;
+    font-size:20px;
+    color:#0099FF;
+}
+
+#goaldate_bodychange span span{
+    font-family:'Times New Roman';
+    font-size:26px;
+    font-style:oblique;
+    color:forestgreen;
+}
+
+#goaldate_fatchange{
+    margin: 0 auto; 
+    text-align: center;
+}
+
+#goaldate_desc{
+    padding-top:10px;
+    /*background-color:#f9f7f6;*/
+}
+
+#goaldate_fatchange div:nth-child(1){
+    font-family:KaiTi;
+    font-size:18px;
+    color:#0099FF;
+}
+
+#goaldate_fatchange div{
+    font-size:25px;
+    color:#0099FF;
+}
+
+#goaldate_fatchange div span{
+    font-size:25px;
+    color:#0099FF;
+}
+
+#goaldate_fatA{
+    /*color:forestgreen;*/
+    font-family:'Times New Roman';
+}
+
+#goaldate_leanA{
+    /*color:forestgreen;*/
+    font-family:'Times New Roman';
+}
+
+/*#goaldate_fatchange span{
+    font-family:微软雅黑;
+    font-size:20px;
+    color:#0099FF;
+}
+
+#goaldate_fatchange span span{
+    font-family:'Times New Roman';
+    font-size:26px;
+    font-style:oblique;
+    color:forestgreen;
+}*/
+

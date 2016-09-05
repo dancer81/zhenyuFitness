@@ -393,6 +393,11 @@
                         }
                     }
 
+                    //体脂率是否为空或者合理，因为允许用户修改，所以可能出错。
+                    if (index == 3) {
+
+                    }
+
                     //验证目标体格有没有勾选
                     if (index == 4) {
                         var tag_physique = 0;
@@ -410,6 +415,9 @@
                             return false;
 
                         }
+
+                        //设置下一步的“最能激励您的用户”图片列表；
+                        setSamephysiqueTopInspirationMemberImgs($("#gender").val(), index);
                     }
 
                     //设置步骤标题
@@ -505,30 +513,17 @@ function showStepTitle(index) {//选择健身目标
         $('#steptitle').html("请确认您的体脂率");
     }
     if (index == 3) {
-        $('#steptitle').html("请选择您的目标体格");
+        $('#steptitle').html("请选择您的目标体型");
     }
-
-
-    //if (direction == 0)//next
-    //{
-    //    if (index == 1) {
-    //        $('#steptitle').html("请确认您的体脂率");
-    //    }
-    //    if (index == 2) {
-    //        $('#steptitle').html("请选择您的目标体格");
-    //    }
-        
-
-    //}
-    //if (direction == 1)//previous
-    //{
-    //    if (index == 0) {
-    //        $('#steptitle').html("请输入当前的身体数据");
-    //    }
-    //    if (index == 1) {
-    //        $('#steptitle').html("请确认您的体脂率");
-    //    }
-    //}
+    if (index == 4) {
+        $('#steptitle').html("您健身目标的相关数据");
+    }
+    if (index == 5) {
+        $('#steptitle').html("目标达成的天数");
+    }
+    if (index == 6) {
+        $('#steptitle').html("健身目标设置完成");
+    }
 }
 
 function calculateBodyfat(height, weight, waist, gender, age) {
@@ -536,7 +531,6 @@ function calculateBodyfat(height, weight, waist, gender, age) {
     var second = calbodyfat2(weight, height, waist, age, gender);
     return (first + second) / 2;
 }
-
 function calbodyfat1(weight, waist, gender) {
     var a = waist * 0.74;
     var b;
@@ -545,8 +539,6 @@ function calbodyfat1(weight, waist, gender) {
     else b = weight * 0.082 + 34.89;//女性
     return (a - b) / weight * 100;
 }
-
-
 function calbodyfat2(weight, height, waist, age, gender) {
     var BMI = weight / (height * height) * 10000;
     var tag;
@@ -555,7 +547,7 @@ function calbodyfat2(weight, height, waist, age, gender) {
     return 1.2 * BMI + 0.23 * age - 5.4 - 10.8 * tag;
 }
 
-
+//初始化定制的输入框
 function initinput() {
     if (!String.prototype.trim) {
         (function () {
@@ -655,6 +647,8 @@ function physiqueDesc(gender, index) {
     var leanmasschangeValue;
     var coefficient;
     var goal_bf;
+    var physique_img;
+    var yourgoalstats_physique_img;
     //设置体型描述文字的html
     goalphysiqueDesc(gender, index);
     //设置目标相近会员栏
@@ -665,38 +659,50 @@ function physiqueDesc(gender, index) {
             case 0:
                 goal_bf = 0.075;
                 coefficient = 42.7;
+                physique_img = "http://localhost/resources/img/physique/man/bk/SKINNY_RIPPED.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/skinny_ripped-large.png";
                 $("#goal_physique").html("很瘦，但肌肉线条明显");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/SKINNY_RIPPED.png');
+                
                 break;
             case 1:
                 goal_bf = 0.08;
                 coefficient = 45.1;
+                physique_img = "http://localhost/resources/img/physique/man/bk/MALE_MODEL.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/male_model-large.png";
                 $("#goal_physique").html("男性模特");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/MALE_MODEL.png');
+                
                 break;
             case 2:
                 goal_bf = 0.08;
                 coefficient = 47.8;
+                physique_img = "http://localhost/resources/img/physique/man/bk/ATHLETE.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/athlete-large.png";
                 $("#goal_physique").html("对抗类男性运动员");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/ATHLETE.png');
+                
                 break;
             case 3:
                 goal_bf = 0.06;
                 coefficient = 53.4;
+                physique_img = "http://localhost/resources/img/physique/man/bk/BODYBUILDER.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/bodybuilder-large.png";
                 $("#goal_physique").html("健身达人");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/BODYBUILDER.png');
+                
                 break;
             case 4:
                 goal_bf = 0.2;
                 coefficient = 71.1;
+                physique_img = "http://localhost/resources/img/physique/man/bk/STRONGMAN.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/strongman-large.png";
                 $("#goal_physique").html("大力士");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/STRONGMAN.png');
+                
                 break;
             case 5:
                 goal_bf = 0.04;
                 coefficient = 64.4;
+                physique_img = "http://localhost/resources/img/physique/man/bk/PRO_BODYBUILDER.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/pro_bodybuilder-large.png";
                 $("#goal_physique").html("专业健美运动员");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/man/bk/PRO_BODYBUILDER.png');
+                
                 break;
             default:
                 break;
@@ -708,42 +714,61 @@ function physiqueDesc(gender, index) {
             case 0:
                 goal_bf = 0.20;
                 coefficient = 31.8;
+                physique_img = "http://localhost/resources/img/physique/women/bk/FASHION_MODEL.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fashion_model-large.png";
                 $("#goal_physique").html("时尚女模特");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FASHION_MODEL.png');
+                
                 break;
             case 1:
                 goal_bf = 0.18;
                 coefficient = 33.4;
+                physique_img = "http://localhost/resources/img/physique/women/bk/SWIMSUIT.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/swimsuit-large.png";
                 $("#goal_physique").html("比基尼女郎");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/SWIMSUIT.png');
+                
                 break;
             case 2:
                 goal_bf = 0.16;
                 coefficient = 33.9;
+                physique_img = "http://localhost/resources/img/physique/women/bk/FIT_WOMAN.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fit_woman-large.png";
                 $("#goal_physique").html("健康女士");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FIT_WOMAN.png');
+                
                 break;
             case 3:
                 goal_bf = 0.13;
                 coefficient = 34;
+                physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fitness_model-large.png";
                 $("#goal_physique").html("健身女士");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
+                
                 break;
             case 4:
                 goal_bf = 0.09;
                 coefficient = 38.6;
+                physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
+                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/bodybuilder-large.png";
                 $("#goal_physique").html("专业女健美运动员");
-                $("#physique_desc .col-md-5 img").attr('src', 'http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png');
+                
                 break;
             default:
                 break;
 
         }
     }
+    $("#physique_desc .col-md-5 img").attr('src', physique_img);
     setGoalbfHtml(goal_bf);
     goal_weight = coefficient * $("#input-1").val() / 100;
     $("#goal_weight").html(goal_weight.toFixed(1) + "千克");
     setFatchangeAndLeanmasschange(goal_weight, goal_bf);
+
+    //初始化第五部的页面数据，2个输入框数据goalweight,goalBF和一个图片
+    $("#input-5").val(goal_weight.toFixed(1));
+    $("#input-6").val((goal_bf * 100).toFixed(1));
+    initinput();
+    $("#yourgoalstats_physique_img").attr('src', yourgoalstats_physique_img);
+    $("#yourgoalstats_physiquetext").html($("#goal_physique").html());
+
     
 }
 
@@ -891,6 +916,32 @@ function setSimilargoalMember(gender,index) {
         });
     });
 
+}
+
+function setSamephysiqueTopInspirationMemberImgs(gender, index) {
+    var imglist = new Array();
+
+    //ajax取得数据源(用到参数index),并赋值给imglist,imglist最大长度为12（2行）
+    imglist[0] = "http://localhost/resources/img/avatars/avatar1.jpg";
+    imglist[1] = "http://localhost/resources/img/avatars/avatar2.jpg";
+    imglist[2] = "http://localhost/resources/img/avatars/avatar3.jpg";
+    imglist[3] = "http://localhost/resources/img/avatars/avatar4.jpg";
+    imglist[4] = "http://localhost/resources/img/avatars/avatar5.jpg";
+    imglist[5] = "http://localhost/resources/img/avatars/avatar6.jpg";
+    imglist[6] = "http://localhost/resources/img/avatars/avatar7.jpg";
+    imglist[7] = "http://localhost/resources/img/avatars/avatar8.jpg";
+    imglist[8] = "http://localhost/resources/img/avatars/avatar3.jpg";
+    imglist[9] = "http://localhost/resources/img/avatars/avatar4.jpg";
+
+    //将imglist赋值给对应的table
+    var htmlTD;
+    $("#samephysique_topinspiration_memberImgs tr:gt(0)").each(function (i) {
+        $(this).children("td").each(function (j) {
+            if (i * 6 + j >= imglist.length) return false;
+            htmlTD = "<a href='#'><img src='" + imglist[i * 6 + j] + "' /></a>";
+            $(this).html(htmlTD);
+        });
+    });
 }
 
 //初始化女性健身目标选择图片
