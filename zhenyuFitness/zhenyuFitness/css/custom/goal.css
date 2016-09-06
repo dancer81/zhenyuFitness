@@ -248,16 +248,32 @@
     font-family:'Times New Roman';
 }
 
-/*#goaldate_fatchange span{
-    font-family:微软雅黑;
-    font-size:20px;
-    color:#0099FF;
+#confirm .container> div:nth-child(1){
+    text-align:center;
+    font-size:30px;
+    margin-bottom:30px;
 }
 
-#goaldate_fatchange span span{
-    font-family:'Times New Roman';
-    font-size:26px;
-    font-style:oblique;
-    color:forestgreen;
-}*/
+#confirm_desc{
+    width:560px;
+    height:600px;
+    background-color:#f9f7f6;
+    border:6px solid #0099FF;
+    padding-top:30px;
+}
 
+#confirm_desc .col-md-7 .confirm_desc_field{
+    font-family:微软雅黑;
+    font-size:15px;
+    color:#999999;
+}
+
+#confirm_desc .col-md-7 .confirm_desc_fieldvalue{
+    font-family:微软雅黑;
+    font-size:22px;
+    color:#666666;
+}
+
+#confirm_desc .col-md-7 .confirm_desc_fieldvalue span{
+    font-family:微软雅黑;
+}

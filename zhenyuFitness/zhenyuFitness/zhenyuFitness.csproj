@@ -104,6 +104,37 @@
     <Content Include="js\icheck_blue\demo.html" />
     <Content Include="js\icheck_blue\icheck.js" />
     <Content Include="js\inputclassie.js" />
+    <Content Include="js\jquery_Countdown\countdown.js" />
+    <Content Include="js\jquery_Countdown\images\flipper00.png" />
+    <Content Include="js\jquery_Countdown\images\flipper01.png" />
+    <Content Include="js\jquery_Countdown\images\flipper02.png" />
+    <Content Include="js\jquery_Countdown\images\flipper10.png" />
+    <Content Include="js\jquery_Countdown\images\flipper11.png" />
+    <Content Include="js\jquery_Countdown\images\flipper12.png" />
+    <Content Include="js\jquery_Countdown\images\flipper20.png" />
+    <Content Include="js\jquery_Countdown\images\flipper21.png" />
+    <Content Include="js\jquery_Countdown\images\flipper22.png" />
+    <Content Include="js\jquery_Countdown\images\flipper30.png" />
+    <Content Include="js\jquery_Countdown\images\flipper31.png" />
+    <Content Include="js\jquery_Countdown\images\flipper32.png" />
+    <Content Include="js\jquery_Countdown\images\flipper40.png" />
+    <Content Include="js\jquery_Countdown\images\flipper41.png" />
+    <Content Include="js\jquery_Countdown\images\flipper42.png" />
+    <Content Include="js\jquery_Countdown\images\flipper50.png" />
+    <Content Include="js\jquery_Countdown\images\flipper51.png" />
+    <Content Include="js\jquery_Countdown\images\flipper52.png" />
+    <Content Include="js\jquery_Countdown\images\flipper60.png" />
+    <Content Include="js\jquery_Countdown\images\flipper61.png" />
+    <Content Include="js\jquery_Countdown\images\flipper62.png" />
+    <Content Include="js\jquery_Countdown\images\flipper70.png" />
+    <Content Include="js\jquery_Countdown\images\flipper71.png" />
+    <Content Include="js\jquery_Countdown\images\flipper72.png" />
+    <Content Include="js\jquery_Countdown\images\flipper80.png" />
+    <Content Include="js\jquery_Countdown\images\flipper81.png" />
+    <Content Include="js\jquery_Countdown\images\flipper82.png" />
+    <Content Include="js\jquery_Countdown\images\flipper90.png" />
+    <Content Include="js\jquery_Countdown\images\flipper91.png" />
+    <Content Include="js\jquery_Countdown\images\flipper92.png" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -179,6 +210,7 @@
     <Content Include="js\xcharts\LICENSE" />
     <Content Include="js\xcharts\README.md" />
     <Content Include="MasterPages\generalMaster.Master" />
+    <Content Include="js\jquery_Countdown\images\.DS_Store" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -381,6 +381,33 @@
                         for (i = 0; i < fitnesstarget_radio.length; i++) {
                             //if ($('all_radio.eq(i):checked'))
                             if (fitnesstarget_radio.eq(i).is(":checked")) {
+                                //设置最后一步（总结）的“健身主要目标”
+                                switch(i)
+                                {
+                                    case 0:
+                                        $("#confirm_desc_targetvalue").html("增肌");
+                                        break;
+                                    case 1:
+                                        $("#confirm_desc_targetvalue").html("减脂");
+                                        break;
+                                    case 2:
+                                        $("#confirm_desc_targetvalue").html("塑形");
+                                        break;
+                                    case 3:
+                                        $("#confirm_desc_targetvalue").html("耐力");
+                                        break;
+                                    case 4:
+                                        $("#confirm_desc_targetvalue").html("体育运动");
+                                        break;
+                                    case 5:
+                                        $("#confirm_desc_targetvalue").html("柔韧性");
+                                        break;
+                                    case 6:
+                                        $("#confirm_desc_targetvalue").html("其他");
+                                        break;
+                                    default:
+                                        break;
+                                }
                                 tag_fitnesstarget = 1;
                                 break;
                             }
@@ -420,6 +447,15 @@
                         setSamephysiqueTopInspirationMemberImgs($("#gender").val(), index);
                     }
 
+                    if (index == 6) {
+                        if ($("#foo").length <= 0) {
+                            $("<div class='confirm_desc_fieldvalue' id='foo'>").appendTo("#foo_father");
+                        }
+                        var goalday_count = $("#goaldatecount").html();
+                        $("#confirm_desc_daycount").html(goalday_count);
+                        initCountdown(goalday_count);
+                    }
+
                     //设置步骤标题
                     showStepTitle(index);
 
@@ -454,7 +490,9 @@
                 },
                 onPrevious: function (tab, navigation, index) {
                     showStepTitle(index);
-
+                    if (index == 5) {
+                        $("#foo").remove();
+                    }
 
                     alert_success.hide();
                     alert_error.hide();
@@ -500,6 +538,9 @@
         }
     };
 }();
+
+
+var CountdownGoalDate;
 
 //设置步骤标题
 function showStepTitle(index) {//选择健身目标
@@ -774,31 +815,37 @@ function physiqueDesc(gender, index) {
     $("#goaldate_bf").html((goal_bf * 100).toFixed(1) + "%");
 
     var goaldaycount = calGoalDayCount(goal_weight, goal_bf);
-
-
-    //$("#knobdiv input").val(goaldaycount);
     $("#goaldatecount").html(goaldaycount);
+    var min = (goaldaycount / 5).toFixed(0);
+    //knob初始化，必须按照此循序：最大值，最小值，当前值，调用initKnob(),否则会出错
+    $("input.knob").attr('data-max', goaldaycount * 3);
+    $("input.knob").attr('data-min', min);
+    $("input.knob").val(goaldaycount);
+    $("input.knob").attr('data-bgColor', '#996699');
+    $("input.knob").attr('data-fgColor', '#0099FF');
+    initKnob();
+   
 
-
-
-
-    //$("#knobdiv input").attr('data-max', goaldaycount * 3);
-    //var min = (goaldaycount / 5).toFixed(0);
-    //$("#knobdiv input").attr('data-min', min);
-
-    //initKnob(goaldaycount * 3, min);
+    //初始化最后一步（总结）的页面部分数据
+    $("#confirm_desc_physiquevalue").html($("#goal_physique").html());
+    $("#confirm_desc_fieldvalue_goalweight").html(goal_weight.toFixed(1));
+    $("#confirm_desc_fieldvalue_goalbf").html((goal_bf * 100).toFixed(1) + "%");
+    $("#confirm_desc_img").attr('src', yourgoalstats_physique_img);
+    
 }
 
 function setGoalbfHtml(bfGoal)
 {
     $(".goal_physique_status").html("目标体脂率: " + (bfGoal *100).toFixed(1) + "%");
 }
-//设置增加减少脂肪量和瘦体重的html(第四步、第六步)
+//设置增加减少脂肪量和瘦体重的html(第四步、第六步、最后一步)
 function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
 {
     var fatchangeValue = fatchange(weightGoal, bfGoal);
 
     if (fatchangeValue > 0) {
+        $("#confirm_desc_fieldvalue_fatD").html("增加");
+        $("#confirm_desc_fieldvalue_fatA").html(fatchangeValue);
         $("#fatchangeD").html("增加");
         $("#fatchange").html(fatchangeValue + "千克");
 
@@ -806,6 +853,9 @@ function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
         $("#goaldate_fatA").html(fatchangeValue);
     }
     else {
+        $("#confirm_desc_fieldvalue_fatD").html("减少");
+        $("#confirm_desc_fieldvalue_fatA").html(0 - fatchangeValue);
+
         $("#fatchangeD").html("减少");
         $("#fatchange").html((0 - fatchangeValue) + "千克");
 
@@ -815,6 +865,9 @@ function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
 
     leanmasschangeValue = leanmasschange(weightGoal, bfGoal);
     if (leanmasschangeValue > 0) {
+        $("#confirm_desc_fieldvalue_leanD").html("增加");
+        $("#confirm_desc_fieldvalue_leanA").html(leanmasschangeValue);
+
         $("#leanmasschangeD").html("增加");
         $("#leanmasschange").html(leanmasschangeValue + "千克");
 
@@ -822,6 +875,9 @@ function setFatchangeAndLeanmasschange(weightGoal, bfGoal)
         $("#goaldate_leanA").html(leanmasschangeValue);
     }
     else {
+        $("#confirm_desc_fieldvalue_leanD").html("减少");
+        $("#confirm_desc_fieldvalue_leanA").html(0 - leanmasschangeValue);
+
         $("#leanmasschangeD").html("减少");
         $("#leanmasschange").html(0 - leanmasschangeValue + "千克");
 
@@ -1084,6 +1140,7 @@ function initphysiqueSelect(gender) {
     $("#last_physique_div").css('display', 'none');
 }
 
+//初始化页面（根据性别）
 function initPagebyGender(gender){
     initFitnessTarget(gender);
     initBodyfatSelect(gender);
@@ -1159,18 +1216,33 @@ function calGoalDayCount(weightGoal, bfGoal) {
     return (vFatMonths * 30 + vLeanmassYears * 365).toFixed(0);
 }
 
-function initKnob(maxV,minV) {
+//初始化半圆环进度条
+function initKnob() {
     $(".knob").knob({
-        width: 250,
-        max: maxV,
-        min: minV,
-        //thickness: .3,
+        width:250,
+        //min: minV,
+        //max:maxV,
         change: function (value) {
-            $("#goaldatecount").html(value);
-            console.log("change : " + value);
+            
+            //console.log("change : " + value);
         },
         release: function (value) {
-            //console.log(this.$.attr('value'));
+            $("#goaldatecount").html($("input.knob").val());
+            //alert(this.angle(this.cv))
+            var maxAngle = 2 * 3.14159 * 250 / 360;
+            var currentAngel = this.angle(this.cv);
+            if (currentAngel > maxAngle * 2 / 3) {
+                $("#goaldate_level").html("保守");
+                $("#goaldate_level").css('color', '#CCCC99');
+            }
+            else if (currentAngel < maxAngle * 1 / 3) {
+                $("#goaldate_level").html("激进");
+                $("#goaldate_level").css('color', '#d9534f');
+            }
+            else {
+                $("#goaldate_level").html("适中（推荐）");
+                $("#goaldate_level").css('color', '#0099FF');
+            }
             console.log("release : " + value);
         },
         cancel: function () {
@@ -1180,6 +1252,7 @@ function initKnob(maxV,minV) {
 
             // "tron" case
             if (this.$.data('skin') == 'tron') {
+
                 var a = this.angle(this.cv)  // Angle
                     , sa = this.startAngle          // Previous start angle
                     , sat = this.startAngle         // Start angle
@@ -1219,4 +1292,24 @@ function initKnob(maxV,minV) {
             }
         }
     });
+}
+
+function initCountdown(days) {
+    return new Countdown({
+        time: 86400 * days, // 86400 seconds = 1 day
+        width: 280,
+        height: 50,
+        rangeHi: "year",
+        target: "foo",
+        labels	:	{
+            font  	: "微软雅黑",
+            textScale 	: 0.8, // Percentage of size
+            weight	: "normal"	// < - no comma on last item!
+        },
+        style: "flip"	// <- no comma on last item!
+    });
+}
+
+function destroyCountdown() {
+    //delete 
 }

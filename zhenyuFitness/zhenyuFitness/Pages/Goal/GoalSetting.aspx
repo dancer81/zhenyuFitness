@@ -65,8 +65,6 @@
                         <div class="wizard-form">
                             <div class="wizard-content">
                                 <ul class="nav nav-pills nav-justified steps" style="display: none">
-
-
                                     <li>
                                         <a href="#bodystats" data-toggle="tab" class="wiz-step">
                                             <%-- <span class="step-number">1</span>--%>
@@ -125,12 +123,7 @@
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
                                    
-                                   
-                                   
                                     </div>
-
-
-
                                     <div class="tab-pane active" id="bodystats">
                                         <%--                                        <input type="radio" name="iCheck">
                                         <input type="radio" name="iCheck" checked>--%>
@@ -228,7 +221,7 @@
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectfitnesstarget" value="25">
-                                                                <span style="color: #0099FF">运动</span>
+                                                                <span style="color: #0099FF">体育运动</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -835,10 +828,10 @@
                                                 <div class="col-md-4"></div>
                                                 <div class="col-md-4">
                                                     <div id="knobdiv">
-                                                        <h4>请选择您目标达成的天数</h4>
+                                                        <h4>拖动半圆环进度条，选择您目标达成的天数</h4>
                                                         <input class="knob" data-angleoffset="-125" data-anglearc="250" data-fgcolor="#D9534F" value="90">
                                                     </div>
-                                                    <div style="margin-bottom: 20px; text-align: center;"><span style="color: #0099FF; font-size: 23px;">适中</span></div>
+                                                    <div style="margin-bottom: 20px; text-align: center;"><span style="color: #0099FF; font-size: 23px;" id="goaldate_level">适中（推荐）</span></div>
                                                 </div>
                                                 <div class="col-md-4"></div>
                                             </div>
@@ -856,83 +849,71 @@
                                                 <div>
                                                     <span id="goaldate_fatD">减少</span>脂肪：<span id="goaldate_fatA">10</span>千克<br />
                                                     <span id="goaldate_leanD">增加</span>瘦体重：<span id="goaldate_leanA">9</span>千克
+                                               
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="tab-pane" id="confirm">
-                                        <h3 class="block">请确认您的信息</h3>
-                                        <h4 class="form-section">账户信息</h4>
-                                        <div class="well">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">电子邮箱:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="email"></p>
-                                                </div>
+                                        <div class="container">
+                                            <div class="row">
+                                                <div>健身目标设置总结</div>
                                             </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">用户名:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="name"></p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">所在省份:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="province"></p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">联系电话:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="phone"></p>
-                                                </div>
-                                            </div>
-                                            <!--<div class="form-group">
-                                                                    <label class="control-label col-md-3">Address:</label>
-                                                                    <div class="col-md-4">
-                                                                        <p class="form-control-static" data-display="address"></p>
-                                                                    </div>
+                                            <div class="row">
+                                                <div class="col-md-3"></div>
+                                                <div class="col-md-6">
+                                                    <div class="row" id="confirm_desc">
+                                                        <div class="col-md-5">
+                                                            <img id="confirm_desc_img" src="http://localhost/resources/img/physique/women/swimsuit-large.png" />
+                                                        </div>
+                                                        <div class="col-md-7">
+                                                            <div>
+                                                                <div class="confirm_desc_field">健身主要目标：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue" id="confirm_desc_targetvalue">减脂</div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <div>
+                                                                <div class="confirm_desc_field">健身目标体型：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue" id="confirm_desc_physiquevalue">比基尼女郎</div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <div>
+                                                                <div class="confirm_desc_field">目标体重和体脂率：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">50</span>千克 <span style="font-family: 'Times New Roman'">&</span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <div>
+                                                                <div class="confirm_desc_field">身体成分变化：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue">
+                                                                    <span id="confirm_desc_fieldvalue_fatD">减少</span><span id="confirm_desc_fieldvalue_fatA" style="font-family: 'Times New Roman'">5.1</span>千克脂肪<br />
+                                                                    <span id="confirm_desc_fieldvalue_leanD">增加</span><span id="confirm_desc_fieldvalue_leanA" style="font-family: 'Times New Roman'">4.5</span>千克瘦体重
                                                                 </div>
-                                                                <div class="form-group">
-                                                                    <label class="control-label col-md-3">Country:</label>
-                                                                    <div class="col-md-4">
-                                                                        <p class="form-control-static" data-display="country"></p>
-                                                                    </div>
-                                                                </div>-->
-                                        </div>
-                                        <h4 class="form-section">个人信息</h4>
-                                        <div class="well">
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">性别:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="gender"></p>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <div>
+                                                                <div class="confirm_desc_field">目标在<span id="confirm_desc_daycount" style="font-family: 'Times New Roman'">2425</span>天后到期：</div>
+                                                            </div>
+                                                            <div id="foo_father">
+                                                                <div class="confirm_desc_fieldvalue" id="foo">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">出生年月:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="birthday"></p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">身高:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="height"></p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">体重:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="weight"></p>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label col-md-3">健身历史:</label>
-                                                <div class="col-md-4">
-                                                    <p class="form-control-static" data-display="fitHis"></p>
-                                                </div>
+                                                <div class="col-md-3"></div>
                                             </div>
                                         </div>
                                     </div>
@@ -964,71 +945,17 @@
     </div>
     <script src="../../js/inputclassie.js"></script>
     <script src="../../js/jQuery-Knob/js/jquery.knob.min.js"></script>
+    <script src="../../js/jquery_Countdown/countdown.js"></script>
+    <script type="application/javascript">                                                                       
+    </script>
+
     <script>
         jQuery(document).ready(function () {
             App.setPage("Register");  //Set current page
             App.init(); //Initialise plugins and elements
             FormWizard.init();
 
-            $(".knob").knob({
-                width: 250,
-                max: 45,
-                min: 180,
-                //thickness: .3,
-                change: function (value) {
-                    $("#goaldatecount").html(value);
-                    console.log("change : " + value);
-                },
-                release: function (value) {
-                    //console.log(this.$.attr('value'));
-                    console.log("release : " + value);
-                },
-                cancel: function () {
-                    console.log("cancel : ", this);
-                },
-                draw: function () {
 
-                    // "tron" case
-                    if (this.$.data('skin') == 'tron') {
-                        var a = this.angle(this.cv)  // Angle
-                            , sa = this.startAngle          // Previous start angle
-                            , sat = this.startAngle         // Start angle
-                            , ea                            // Previous end angle
-                            , eat = sat + a                 // End angle
-                            , r = 1;
-
-                        this.g.lineWidth = this.lineWidth;
-
-                        this.o.cursor
-                            && (sat = eat - 0.3)
-                            && (eat = eat + 0.3);
-
-                        if (this.o.displayPrevious) {
-                            ea = this.startAngle + this.angle(this.v);
-                            this.o.cursor
-                                && (sa = ea - 0.3)
-                                && (ea = ea + 0.3);
-                            this.g.beginPath();
-                            this.g.strokeStyle = this.pColor;
-                            this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sa, ea, false);
-                            this.g.stroke();
-                        }
-
-                        this.g.beginPath();
-                        this.g.strokeStyle = r ? this.o.fgColor : this.fgColor;
-                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth, sat, eat, false);
-                        this.g.stroke();
-
-                        this.g.lineWidth = 2;
-                        this.g.beginPath();
-                        this.g.strokeStyle = this.o.fgColor;
-                        this.g.arc(this.xy, this.xy, this.radius - this.lineWidth + 1 + this.lineWidth * 2 / 3, 0, 2 * Math.PI, false);
-                        this.g.stroke();
-
-                        return false;
-                    }
-                }
-            });
 
             initPagebyGender($("#gender").val());
             //begin: 初始化所有radio为icheck
