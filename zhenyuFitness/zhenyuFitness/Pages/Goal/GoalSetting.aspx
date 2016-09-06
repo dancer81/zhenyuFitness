@@ -123,6 +123,7 @@
                                         <a class="close" aria-hidden="true" href="#" data-dismiss="alert">×</a>
                                         Your form validation is successful!
                                    
+                                   
                                     </div>
                                     <div class="tab-pane active" id="bodystats">
                                         <%--                                        <input type="radio" name="iCheck">
@@ -850,6 +851,7 @@
                                                     <span id="goaldate_fatD">减少</span>脂肪：<span id="goaldate_fatA">10</span>千克<br />
                                                     <span id="goaldate_leanD">增加</span>瘦体重：<span id="goaldate_leanA">9</span>千克
                                                
+                                               
                                                 </div>
                                             </div>
                                         </div>
@@ -899,6 +901,7 @@
                                                                 <div class="confirm_desc_fieldvalue">
                                                                     <span id="confirm_desc_fieldvalue_fatD">减少</span><span id="confirm_desc_fieldvalue_fatA" style="font-family: 'Times New Roman'">5.1</span>千克脂肪<br />
                                                                     <span id="confirm_desc_fieldvalue_leanD">增加</span><span id="confirm_desc_fieldvalue_leanA" style="font-family: 'Times New Roman'">4.5</span>千克瘦体重
+                                                               
                                                                 </div>
                                                             </div>
                                                             <br />
@@ -921,20 +924,33 @@
                             </div>
                             <div class="wizard-buttons">
                                 <div class="row">
-                                    <div class="col-md-12">
+                                    <%--<div class="col-md-12">
                                         <div class="col-md-offset-3 col-md-9">
-                                            <a href="javascript:;" class="btn btn-default prevBtn">
-                                                <i class="fa fa-arrow-circle-left"></i>上一步
-                                            </a>
-                                            <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
-                                            </a>
-                                            <%--  <input type="hidden" name="__viewstate" />--%>
-                                            <input type="submit" class="btn btn-success submitBtn" value="提 交" />
+                                                <a href="javascript:;" class="btn btn-default prevBtn">
+                                                    <i class="fa fa-arrow-circle-left"></i>上一步
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
+                                                </a>
+                                                <input type="submit" class="btn btn-success submitBtn" value="提 交" />
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
+                                        </div>--%>
+
+
+                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4" id="buttonSection">
+                                                <a href="javascript:;" class="btn btn-default prevBtn">
+                                                    <i class="fa fa-arrow-circle-left"></i>上一步
+                                                </a>
+                                                <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
+                                                </a>
+                                                <input type="submit" class="btn btn-success submitBtn" value="提 交" />
+                                            </div>
+                                        <div class="col-md-4"></div>
+
+
                         </div>
+                        </div>
+                            </div>
                     </form>
                 </div>
             </div>

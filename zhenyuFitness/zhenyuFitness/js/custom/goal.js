@@ -814,7 +814,7 @@ function physiqueDesc(gender, index) {
     $("#goaldate_weight").html(goal_weight.toFixed(1));
     $("#goaldate_bf").html((goal_bf * 100).toFixed(1) + "%");
 
-    var goaldaycount = calGoalDayCount(goal_weight, goal_bf);
+    var goaldaycount = calGoalDayCount(goal_weight, goal_bf); alert(goaldaycount);
     $("#goaldatecount").html(goaldaycount);
     var min = (goaldaycount / 5).toFixed(0);
     //knob初始化，必须按照此循序：最大值，最小值，当前值，调用initKnob(),否则会出错

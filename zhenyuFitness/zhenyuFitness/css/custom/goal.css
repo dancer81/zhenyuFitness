@@ -260,12 +260,14 @@
     background-color:#f9f7f6;
     border:6px solid #0099FF;
     padding-top:30px;
+    margin:0 auto;
 }
 
 #confirm_desc .col-md-7 .confirm_desc_field{
     font-family:微软雅黑;
     font-size:15px;
     color:#999999;
+    /*margin:0 auto;*/
 }
 
 #confirm_desc .col-md-7 .confirm_desc_fieldvalue{
@@ -276,4 +278,8 @@
 
 #confirm_desc .col-md-7 .confirm_desc_fieldvalue span{
     font-family:微软雅黑;
+}
+
+#buttonSection{
+    text-align:center;
 }
