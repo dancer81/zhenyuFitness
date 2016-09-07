@@ -256,11 +256,12 @@
 
 #confirm_desc{
     width:560px;
-    height:600px;
+    height:620px;
     background-color:#f9f7f6;
     border:6px solid #0099FF;
     padding-top:30px;
     margin:0 auto;
+    
 }
 
 #confirm_desc .col-md-7 .confirm_desc_field{

@@ -580,7 +580,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="0">
-                                                                <span style="color: #0099FF">体脂率：5% &nbsp;精干消瘦</span>
+                                                                <span style="color: #0099FF">7.5%&nbsp;精干而犀利</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -595,7 +595,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="1">
-                                                                <span style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</span>
+                                                                <span style="color: #0099FF">8%&nbsp;男性模特</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -609,7 +609,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="2">
-                                                                <span style="color: #0099FF">体脂率：15%&nbsp;强壮健康</span>
+                                                                <span style="color: #0099FF">8%&nbsp;对抗类运动员</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -623,7 +623,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="3">
-                                                                <span style="color: #0099FF">体脂率：20%&nbsp;普通标准</span>
+                                                                <span style="color: #0099FF">6%&nbsp;健身达人</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -713,7 +713,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="4">
-                                                                <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
+                                                                <span style="color: #0099FF">20%&nbsp;大力士</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -727,7 +727,7 @@
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                             <label class="radio-inline">
                                                                 <input type="radio" class="uniform" name="selectphysique" value="5">
-                                                                <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
+                                                                <span style="color: #0099FF">4%&nbsp;健美运动员</span>
                                                             </label>
                                                         </p>
                                                     </div>
@@ -743,7 +743,10 @@
                                                 <div>
                                                     <img id="yourgoalstats_physique_img" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" />
                                                 </div>
-                                                <div><span style="font-size: 15px;">根据您的目标体型、当前的身高、体重和体脂率，计算出您的目标体重和体脂率为：</span></div>
+                                                <div>
+                                                    <span style="font-size: 15px;">根据您的目标体型、当前的身高、体重和体脂率，计算出您的目标体重和体脂率为：</span><br />
+                                                    <span style="font-size: 15px;">（您可以自行调整目标体重和目标体脂率）</span>
+                                                </div>
                                                 <span class="input input--haruki">
                                                     <input class="input__field input__field--haruki" type="text" id="input-5">
                                                     <label class="input__label input__label--haruki" for="input-5">
@@ -887,13 +890,30 @@
                                                             <br />
                                                             <br />
                                                             <div>
+                                                                <div class="confirm_desc_field">当前体重和目标体重：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentweight">50</span>千克 <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">18%</span>千克</div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+                                                            <div>
+                                                                <div class="confirm_desc_field">当前体脂率和目标体脂率：</div>
+                                                            </div>
+                                                            <div>
+                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentbf">30%</span> <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
+                                                            </div>
+                                                            <br />
+                                                            <br />
+
+<%--                                                            <div>
                                                                 <div class="confirm_desc_field">目标体重和体脂率：</div>
                                                             </div>
                                                             <div>
                                                                 <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">50</span>千克 <span style="font-family: 'Times New Roman'">&</span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
                                                             </div>
                                                             <br />
-                                                            <br />
+                                                            <br />--%>
                                                             <div>
                                                                 <div class="confirm_desc_field">身体成分变化：</div>
                                                             </div>
@@ -956,7 +976,7 @@
             </div>
             <!-- /BOX -->
         </div>
-        <input type="hidden" id="gender" value="1" />
+        <input type="hidden" id="gender" value="0" />
         <input type="hidden" id="age" value="35" />
     </div>
     <script src="../../js/inputclassie.js"></script>
