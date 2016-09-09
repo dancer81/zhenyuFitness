@@ -124,6 +124,7 @@
                                         Your form validation is successful!
                                    
                                    
+                                   
                                     </div>
                                     <div class="tab-pane active" id="bodystats">
                                         <%--                                        <input type="radio" name="iCheck">
@@ -855,6 +856,7 @@
                                                     <span id="goaldate_leanD">增加</span>瘦体重：<span id="goaldate_leanA">9</span>千克
                                                
                                                
+                                               
                                                 </div>
                                             </div>
                                         </div>
@@ -866,8 +868,8 @@
                                                 <div>健身目标设置总结</div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-3"></div>
-                                                <div class="col-md-6">
+                                               <%-- <div class="col-md-3"></div>--%>
+                                                <div class="col-md-12">
                                                     <div class="row" id="confirm_desc">
                                                         <div class="col-md-5">
                                                             <img id="confirm_desc_img" src="http://localhost/resources/img/physique/women/swimsuit-large.png" />
@@ -893,7 +895,7 @@
                                                                 <div class="confirm_desc_field">当前体重和目标体重：</div>
                                                             </div>
                                                             <div>
-                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentweight">50</span>千克 <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">18%</span>千克</div>
+                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentweight">50</span>千克 <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">18%</span>千克</div>
                                                             </div>
                                                             <br />
                                                             <br />
@@ -901,19 +903,10 @@
                                                                 <div class="confirm_desc_field">当前体脂率和目标体脂率：</div>
                                                             </div>
                                                             <div>
-                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentbf">30%</span> <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
+                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_currentbf">30%</span> <span style="font-family: 'Times New Roman'"><i class="fa  fa-long-arrow-right "></i></span><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
                                                             </div>
                                                             <br />
                                                             <br />
-
-<%--                                                            <div>
-                                                                <div class="confirm_desc_field">目标体重和体脂率：</div>
-                                                            </div>
-                                                            <div>
-                                                                <div class="confirm_desc_fieldvalue"><span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalweight">50</span>千克 <span style="font-family: 'Times New Roman'">&</span> <span style="font-family: 'Times New Roman'" id="confirm_desc_fieldvalue_goalbf">18%</span></div>
-                                                            </div>
-                                                            <br />
-                                                            <br />--%>
                                                             <div>
                                                                 <div class="confirm_desc_field">身体成分变化：</div>
                                                             </div>
@@ -921,7 +914,6 @@
                                                                 <div class="confirm_desc_fieldvalue">
                                                                     <span id="confirm_desc_fieldvalue_fatD">减少</span><span id="confirm_desc_fieldvalue_fatA" style="font-family: 'Times New Roman'">5.1</span>千克脂肪<br />
                                                                     <span id="confirm_desc_fieldvalue_leanD">增加</span><span id="confirm_desc_fieldvalue_leanA" style="font-family: 'Times New Roman'">4.5</span>千克瘦体重
-                                                               
                                                                 </div>
                                                             </div>
                                                             <br />
@@ -936,7 +928,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-3"></div>
+                                                <%--<div class="col-md-3"></div>--%>
                                             </div>
                                         </div>
                                     </div>
@@ -944,39 +936,25 @@
                             </div>
                             <div class="wizard-buttons">
                                 <div class="row">
-                                    <%--<div class="col-md-12">
-                                        <div class="col-md-offset-3 col-md-9">
-                                                <a href="javascript:;" class="btn btn-default prevBtn">
-                                                    <i class="fa fa-arrow-circle-left"></i>上一步
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4" id="buttonSection">
+                                        <a href="javascript:;" class="btn btn-default prevBtn">
+                                            <i class="fa fa-arrow-circle-left"></i>上一步
                                                 </a>
-                                                <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
-                                                </a>
-                                                <input type="submit" class="btn btn-success submitBtn" value="提 交" />
-                                        </div>
-                                        </div>--%>
-
-
-                                        <div class="col-md-4"></div>
-                                        <div class="col-md-4" id="buttonSection">
-                                                <a href="javascript:;" class="btn btn-default prevBtn">
-                                                    <i class="fa fa-arrow-circle-left"></i>上一步
-                                                </a>
-                                                <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
-                                                </a>
-                                                <input type="submit" class="btn btn-success submitBtn" value="提 交" />
-                                            </div>
-                                        <div class="col-md-4"></div>
-
-
-                        </div>
-                        </div>
+                                        <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
+                                        </a>
+                                        <input type="submit" class="btn btn-success submitBtn" value="提 交" />
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                </div>
                             </div>
+                        </div>
                     </form>
                 </div>
             </div>
             <!-- /BOX -->
         </div>
-        <input type="hidden" id="gender" value="0" />
+        <input type="hidden" id="gender" value="1" />
         <input type="hidden" id="age" value="35" />
     </div>
     <script src="../../js/inputclassie.js"></script>

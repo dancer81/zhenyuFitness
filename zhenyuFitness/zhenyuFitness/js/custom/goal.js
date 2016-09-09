@@ -660,7 +660,7 @@ function bodyfatDesc(gender,index)
                 desc = "虽然您已经处于肥胖行列，但是一切并不算太晚。您的腹部和臀部堆积着相当多的脂肪，您的手臂粗壮而松软，但是没关系，让我们来帮助你。是时候来一场转变了！请记住，人只活一次，所以不要让你唯一的“住所”——身体一团糟！";
                 break;
             case 5://35%
-                desc = "这是一场战争，不成功便成仁！您的健康状况极度危险，您的器官正在遭受损害，您的全身都挂满了定时炸弹！在这场战争中，您正处于极度不利的形式中。但战争还没有结束，因此您必须开始还击！而我们就是您的援军，我们能为您提供改变现状的一切。立刻开始,就是现在！";
+                desc = "您的全身（特别是腹部、臀部、大腿）都包裹着厚厚的脂肪。但很明显，当您访问这个网站的时候，您已经迈出了减脂的第一步。减脂其实没有您想象中的那么难，您需要的仅仅是耐力和时间而已。在这里，我们会给您全方位的指导。"
                 break;
             default:
                 break;
@@ -769,7 +769,7 @@ function physiqueDesc(gender, index) {
                 coefficient = 34;
                 physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
                 yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fitness_model-large.png";
-                $("#goal_physique").html("健身女士");
+                $("#goal_physique").html("健身达人");
                 
                 break;
             case 4:
@@ -777,7 +777,7 @@ function physiqueDesc(gender, index) {
                 coefficient = 38.6;
                 physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
                 yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/bodybuilder-large.png";
-                $("#goal_physique").html("专业女健美运动员");
+                $("#goal_physique").html("健美运动员");
                 
                 break;
             default:
@@ -947,19 +947,19 @@ function goalphysiqueDesc(gender, index) {
     else {//女性
         switch (index) {
             case 0://skinny ripped
-                desc = "这是一个能让女士十分自信的体型，是一具属于舞台的、魅力十足的躯体。身体略微有一丝肌肉线条，但身体每一寸地方都让人觉得既紧致又柔和。这种体型必须在日常健身锻炼中十分注意细节。不要惊讶，这不是天方夜谭，你也可以拥有如此让人着迷的身材。";
+                desc = "这是一个能让女士十分自信的体型，是一具属于舞台的、魅力十足的躯体。身体略微有一丝肌肉线条，但身体每一寸地方都让人觉得既紧致又柔和。这种体型必须在日常健身锻炼中十分注意细节。拥有如此让人着迷的体型你需要的是耐心、恒心以及科学的指导。这是相对较容易获取的体型。不要惊讶，这不是天方夜谭。";
                 break;
             case 1:
-                desc = "这是一种极其适合穿着泳装比基尼的身体形态。身体线条错落有致，但不突兀；苗条柔软，但并不弱不禁风，能与‘热情’、‘健康’、‘魅力’紧紧联系起来。如果你想拥有此种体型，你必须经常进行力量训练，同时有合理的饮食搭配。坚持，日复一日，迟早你就会拥有此种身材。";
+                desc = "这是一种极其适合女士穿着泳装比基尼的身体形态。身体线条错落有致，但不突兀；苗条柔软，但不弱不禁风，体型的视觉效果能与‘热情’、‘健康’、‘魅力’等词紧紧联系起来。如果你想拥有此种体型，强烈的欲望驱动力和大量的力量训练是关键，同时有合理的饮食搭配和高度的自律能力。坚持，日复一日，迟早你就会拥有此种身材。";
                 break;
             case 2:
-                desc = "如果你想拥有这种体型，那么你就必须和懒惰、贪吃、自我放纵说再见了。你的身体肌肉线条清晰，但并不让人望而生畏；相反，如果你有这种体型，相信我，你肯定拥有无数的粉丝。你是健康和性感的代言！当然，这一切并不容易，从现在开始迈出第一步，循序渐进。相信我，你也可以的！";
+                desc = "你是健康和性感的代言！我想这是大多数人的看法。如果你想拥有这种体型，那么你就必须和懒惰、贪吃、自我放纵说再见了。你有一个不错的头脑，因为力量训练需要很强的理解能力；你有强大的心肺功能，能让你在力量训练和有氧训练中游刃有余；你的身体肌肉线条清晰，但并不让人望而生畏；你还拥有无数的粉丝。当然，这一切并不容易。";
                 break;
             case 3:
-                desc = "这是一种‘痛苦指数’很高的体型，意味着你的生活极度自律，而健身房才是你快乐的源泉。健身是你的生活态度，力量训练是你的第一选择。你的体脂肪率已经低于大部分普通男士，所以在某些男士看来，你的体型近乎完美！真是不容易，但这一切都是值得的！";
+                desc = "这是一种‘痛苦指数’很高的体型，这意味着刻苦的训练以及生活的极度自律，而健身房才是你快乐的源泉。健身是你的生活态度，力量训练是你的第一选择。你已经完全掌握了一套适合自己的训练方法。可能在部门女士眼里，你的体型棱角过于分明，那是因为你的体脂肪率已经低于大部分普通男士。真是不容易，但这一切都是值得的！";
                 break;
             case 4:
-                desc = "什么？这是女士的体型吗？你没看错！这是专业女性健美运动员的体型。普通的女士无论怎么进行力量训练都绝无可能练成这种体型！没错！是绝无可能！可能大部分女士都不认同这种体型，但是如果你希望达到这个目标，我们可以帮助你！";
+                desc = "什么？这是女士的体型吗？你没看错！这是专业女性健美运动员的体型，是只属于健美舞台的。普通的女士无论怎么进行力量训练都绝无可能练成这种体型！没错！是绝无可能！可能大部分女士都不认同这种体型，但是如果你希望达到这个目标，我们可以帮助你！";
                 break;
             default:
                 break;
@@ -1104,32 +1104,39 @@ function initBodyfatSelect(gender) {
     }
 }
 
-//初始化女性目标体型选择图片
+//初始化女性目标体型选择图片和图片标题
 function initphysiqueSelect(gender) {
     var imglist = $("#physique .thumbnail img");
+    var titles = $("#physique p span");
     if (gender == 1) {
         $("#last_physique_div").css('display', 'none');
         for (i = 0; i < imglist.length; i++) {
             switch (i) {
                 case 0:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fashion_model-large.png');
+                    titles.eq(i).html("时尚女模特");
                     break;
                 case 1:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/swimsuit-large.png');
+                    titles.eq(i).html("比基尼女郎");
                     break;
                 case 2:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fit_woman-large.png');
+                    titles.eq(i).html("健康女士");
                     break;
                 case 3:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fitness_model-large.png');
+                    titles.eq(i).html("健身达人");
                     break;
                 case 4:
                     imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/bodybuilder-large.png');
+                    titles.eq(i).html("健美运动员");
                     break;
                 default:
                     break;
             }
         }
+        
     }
 }
 

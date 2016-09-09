@@ -254,6 +254,11 @@
     margin-bottom:30px;
 }
 
+#confirm .container> div:nth-child(2){
+    margin:0 auto;
+    /*background-color:red;*/
+}
+
 #confirm_desc{
     width:560px;
     height:620px;
