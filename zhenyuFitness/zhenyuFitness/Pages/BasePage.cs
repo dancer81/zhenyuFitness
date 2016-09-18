@@ -79,6 +79,7 @@ namespace zhenyuFitness.Pages
         /// <returns></returns>
         public string GetID(string key)
         {
+            //get方式进入此页面
             if (Request.QueryString[key] != null)
             {
                 return Request.QueryString[key].ToString();
@@ -99,5 +100,82 @@ namespace zhenyuFitness.Pages
         {
             page.ClientScript.RegisterStartupScript(GetType(), key, "<script>bootbox.alert('" + msg + "')</script>");
         }
+
+        /// <summary>
+        /// 当前用户是否有权访问当前页面
+        /// </summary>
+        public void HasPermission_Page()
+        {
+            string urlAbsolutePath = this.GetAbsolutePath();
+
+            if(this.NotLogin())
+            {
+                this.MessageBox(Page, "您尚未登录！请登录后重试。", "notLogin");
+                return;
+            }
+
+            
+        }
+
+        /// <summary>
+        /// 判断用户是否登录
+        /// </summary>
+        /// <returns>true:尚未登录；false:已经登录</returns>
+        public bool NotLogin()
+        {
+            if (Common.Common.NoneOrEmptyString(Session["UserID"]))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        #region URL Operation
+        //设当前页完整地址是：http://www.jb51.net/aaa/bbb.aspx?id=5&name=kelli
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>http://www.jb51.net/aaa/bbb.aspx?id=5&name=kelli</returns>
+        public string GetFullURL()
+        {
+            return Request.Url.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>/aaa/bbb.aspx?id=5&name=kelli</returns>
+        public string GetRawURL()
+        {
+            return Request.RawUrl.ToString();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>aaa/bbb.aspx</returns>
+        public string GetAbsolutePath()
+        {
+            return HttpContext.Current.Request.Url.AbsolutePath;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>www.jb51.net</returns>
+        public string GetHost()
+        {
+            return Request.Url.Host;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>id=5&name=kelli</returns>
+        public string GetUrlParam()
+        {
+            return Request.Url.Query;
+        }
+        #endregion
     }
 }

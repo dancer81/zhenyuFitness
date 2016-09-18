@@ -71,6 +71,37 @@ namespace zhenyuFitness.Common
             Other,
         };
 
+        /// <summary>
+        /// 权限对象，如：用户、角色、页面等等
+        /// </summary>
+        public enum PrivilegeMaster
+        {
+            [Description("用户")]
+            User,
+            [Description("角色")]
+            Role,
+        };
+
+        /// <summary>
+        /// 权限被操作的对象，如：页面、按钮、菜单等等
+        /// </summary>
+        public enum PrivilegeAccess
+        {
+            [Description("页面")]
+            Page,
+        };
+
+        /// <summary>
+        /// 权限的具体操作
+        /// </summary>
+        public enum PrivilegeOperation
+        {
+            [Description("允许访问")]
+            Enabled,
+            [Description("不允许访问")]
+            Disabled,
+        };
+
 
 
         /// <summary>
@@ -153,7 +184,14 @@ namespace zhenyuFitness.Common
             return string.Empty;
         }
 
-
+        public static bool NoneOrEmptyString(object o)
+        {
+            if(o == null || o.ToString() == string.Empty)
+            {
+                return true;
+            }
+            return false;
+        }
 
     }
 }
