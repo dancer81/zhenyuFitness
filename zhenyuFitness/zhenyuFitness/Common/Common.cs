@@ -23,6 +23,8 @@ namespace zhenyuFitness.Common
         /// </summary>
         public static int minExerciseRateCount = 10;
 
+
+        #region 动作相关
         public enum ForceType
         {
             [Description("推")]
@@ -70,7 +72,9 @@ namespace zhenyuFitness.Common
             [Description("其他")]
             Other,
         };
+        #endregion
 
+        #region 权限相关
         /// <summary>
         /// 权限对象，如：用户、角色、页面等等
         /// </summary>
@@ -101,9 +105,9 @@ namespace zhenyuFitness.Common
             [Description("不允许访问")]
             Disabled,
         };
+        #endregion
 
-
-
+        #region 字符串相关
         /// <summary>
         /// 构造sql语句in过滤条件。如：'AB05D2A1-53BE-41D1-9BC7-C27F1BD8D7D0','BF1F92BB-5BA0-4CD5-A639-935C344C06D8'
         /// </summary>
@@ -192,6 +196,6 @@ namespace zhenyuFitness.Common
             }
             return false;
         }
-
+        #endregion
     }
 }
