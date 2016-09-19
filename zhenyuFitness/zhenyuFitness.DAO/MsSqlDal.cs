@@ -463,5 +463,46 @@ namespace zhenyuFitness.DAO
         }
         #endregion
 
+        #region 存储过程相关
+        /// <summary>
+        /// 构建SqlCommand,没有输出参数
+        /// </summary>
+        /// <param name="storedProcName"></param>
+        /// <param name="parameters"></param>
+        /// <returns></returns>
+        private SqlCommand BuildQueryCommand(string storedProcName, IDataParameter[] parameters)
+        {
+            SqlCommand command = new SqlCommand(storedProcName, F_Conn);
+            command.CommandType = CommandType.StoredProcedure;
+            foreach (SqlParameter parameter in parameters)
+            {
+                if (parameter != null)
+                {
+                    // 检查未分配值的输入参数,将其分配以DBNull.Value.
+                    if ((parameter.Direction == ParameterDirection.InputOutput || parameter.Direction == ParameterDirection.Input) &&
+                        (parameter.Value == null))
+                    {
+                        parameter.Value = DBNull.Value;
+                    }
+                    command.Parameters.Add(parameter);
+                }
+            }
+
+            return command;
+        }
+
+        /// <summary>
+        /// 执行存储过程，返回一个object
+        /// </summary>
+        /// <param name="storedProcName"></param>
+        /// <param name="paramenters"></param>
+        /// <returns></returns>
+        public object RunProcedure(string storedProcName, IDataParameter[] paramenters)
+        {
+            SqlCommand command = BuildQueryCommand(storedProcName, paramenters);
+            return command.ExecuteScalar();
+        }
+        #endregion
+
     }
 }

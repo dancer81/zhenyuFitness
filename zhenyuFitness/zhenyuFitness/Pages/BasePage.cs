@@ -16,14 +16,15 @@ namespace zhenyuFitness.Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(ViewState["test"] != null)
-            {
-                this.MessageBox(Page, ViewState["test"].ToString(), "abc");
-            }
-            
             this.UserLogin();
             this.UserLogout();
-            ViewState["test"] = "hello world!";
+
+            //if(!this.HasPermission_Page())
+            //{
+            //    this.MessageBox(Page, "您尚未登录或者您没有权限访问该页面！", "notPermitted");
+            //    //Response.Write("<script>history.go(-1);</script>");
+            //    return;
+            //}
         }
 
         private void UserLogin()
@@ -104,17 +105,51 @@ namespace zhenyuFitness.Pages
         /// <summary>
         /// 当前用户是否有权访问当前页面
         /// </summary>
-        public void HasPermission_Page()
+        /// <returns>-1:有权限；0：未登录，且没有权限；1：已登录且没有权限</returns>
+        public int HasPermission_Page()
         {
+            //dal.RunProcedure("HasPermission_Page",'')
+            int count;
             string urlAbsolutePath = this.GetAbsolutePath();
 
-            if(this.NotLogin())
+            //初始化为“查询未登录用户是否有权限访问该页面的sql语句”
+            string sql = string.Format(@"SELECT COUNT(*) FROM [zhenyuFitness].[dbo].[Privilege]
+                    where Valid=1 and PrivilegeMaster={0} and PrivilegeAccess={1} and PrivilegeAccessValue='{2}' 
+                    and PrivilegeOperation={3} and PrivilegeMasterValue in(
+                    select [ID] from [zhenyuFitness].[dbo].[Role] where RoleName='{4}')",
+                    (int)Common.Common.PrivilegeMaster.Role, (int)Common.Common.PrivilegeAccess.Page, urlAbsolutePath,
+                    (int)Common.Common.PrivilegeOperation.Enabled, "Guest");
+            count = int.Parse(dal.GetSingle(sql).ToString());
+            //未登录用户
+            if (this.NotLogin())
             {
-                this.MessageBox(Page, "您尚未登录！请登录后重试。", "notLogin");
-                return;
+                if (count <= 0)
+                {
+                    return 0;
+                }
             }
-
-            
+            else//登录用户
+            {
+                if (count > 0)//用户已登录，且页面权限未“允许未登录用户访问该页面”
+                {
+                    return -1;
+                }
+                else//用户已登录，且页面不允许未登录用户访问，则判断已登录用户是否有权限访问该页面
+                {
+                    string userID = Session["UserID"].ToString();
+                    sql =
+                        string.Format(@"select COUNT(ID) from [zhenyuFitness].[dbo].Privilege 
+                    where Valid=1 and PrivilegeMaster={2} and PrivilegeAccess = {3} and PrivilegeAccessValue='{0}' and PrivilegeOperation = {4}
+                    and PrivilegeMasterValue in(select [RoleID] from [zhenyuFitness].[dbo].[UserInRole] where Valid=1 and UserID ='{1}')",
+                        urlAbsolutePath, userID, (int)Common.Common.PrivilegeMaster.Role, (int)Common.Common.PrivilegeAccess.Page, (int)Common.Common.PrivilegeOperation.Enabled);
+                    count = int.Parse(dal.GetSingle(sql).ToString());
+                    if (count <= 0)
+                    {
+                        return 1;
+                    }
+                }
+            }
+            return -1;
         }
 
         /// <summary>

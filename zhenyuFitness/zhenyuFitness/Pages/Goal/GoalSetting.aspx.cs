@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace zhenyuFitness.Pages.Goal
 {
-    public partial class GoalSetting : System.Web.UI.Page
+    public partial class GoalSetting : BasePage
     {
-        protected void Page_Load(object sender, EventArgs e)
+        protected new void Page_Load(object sender, EventArgs e)
         {
-
+            base.Page_Load(sender, e);
         }
     }
 }

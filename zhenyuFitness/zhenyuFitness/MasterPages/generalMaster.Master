@@ -753,14 +753,14 @@
                             <i class="fa fa-home fa-fw"></i><span class="menu-text"><span style="font-style: oblique">fitspace&nbsp;</span>社区</span>
                             <span class="arrow"></span>
                         </a>
-                        <ul class="sub" id="abcd">
+                        <ul class="sub" id="a1">
                             <li class="has-sub-sub">
                                 <a href="javascript:;" class="">
                                     <span class="sub-menu-text">目标</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub" id="abc">
-                                    <li><a class="" href="#"><span class="sub-sub-menu-text">目标制定</span></a></li>
+                                <ul class="sub-sub" id="a11">
+                                    <li><a class="" href="<%=appRootPath %>/Pages/Exercises/ExercisesList.aspx?muscleID=9719E345-913B-4869-AEDA-A732BD884F95&menu=a1-a11"><span class="sub-sub-menu-text">目标制定</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">总体目标</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">了解你的身体</span></a></li>
                                 </ul>
@@ -770,7 +770,7 @@
                                     <span class="sub-menu-text">健身计划</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub">
+                                <ul class="sub-sub" id="a12">
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">计划制定</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">进度跟踪</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">饮食搭配</span></a></li>
@@ -782,7 +782,7 @@
                                     <span class="sub-menu-text">跟踪</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub">
+                                <ul class="sub-sub" id="a13">
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">进度</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">体重和体脂率</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">力量</span></a></li>
@@ -795,7 +795,7 @@
                                     <span class="sub-menu-text">动力</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub">
+                                <ul class="sub-sub" id="a14">
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">来晒一晒</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">我的朋友</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">我的粉丝</span></a></li>
@@ -809,7 +809,7 @@
                                     <span class="sub-menu-text">档案管理</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub">
+                                <ul class="sub-sub" id="a15">
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">个人信息完善</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">照片和视频</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">其他设置</span></a></li>
