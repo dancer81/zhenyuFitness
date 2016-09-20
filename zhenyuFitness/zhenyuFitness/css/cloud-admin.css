@@ -8174,7 +8174,7 @@ div[data-role="editor-toolbar"] {
 }
 /* Login Screen */
 .login {
-  background: url("../img/light_noise_diagonal.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+  background: url("http://localhost/resources/img/light_noise_diagonal.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
   height: 100%;
   min-height: 100%;
 }

@@ -500,7 +500,9 @@ namespace zhenyuFitness.DAO
         public object RunProcedure(string storedProcName, IDataParameter[] paramenters)
         {
             SqlCommand command = BuildQueryCommand(storedProcName, paramenters);
-            return command.ExecuteScalar();
+            command.Parameters.AddWithValue("@RETURN_VALUE", "").Direction = ParameterDirection.ReturnValue;
+            command.ExecuteScalar();
+            return command.Parameters["@RETURN_VALUE"].Value;
         }
         #endregion
 

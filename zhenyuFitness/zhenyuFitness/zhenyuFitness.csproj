@@ -98,6 +98,7 @@
     <Content Include="css\custom\goal.css" />
     <Content Include="css\inputcomponent.css" />
     <Content Include="css\inputstyle.css" />
+    <Content Include="js\custom\generalMaster.js" />
     <Content Include="js\icheck_blue\blue%402x.png" />
     <Content Include="js\icheck_blue\blue.css" />
     <Content Include="js\icheck_blue\blue.png" />
@@ -1138,6 +1139,7 @@
     <Content Include="Pages\Login\Register.aspx" />
     <Content Include="Pages\LoujunjieAdmin\Admin_ExerciseEdit.aspx" />
     <Content Include="Pages\LoujunjieAdmin\Admin_ExerciseList.aspx" />
+    <Content Include="RedirectPages\Login.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Web.config" />
@@ -1204,6 +1206,13 @@
       <DependentUpon>Admin_ExerciseList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RedirectPages\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RedirectPages\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\zhenyuFitness.DAO\zhenyuFitness.DAO.csproj">

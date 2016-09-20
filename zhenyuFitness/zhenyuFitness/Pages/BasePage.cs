@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using zhenyuFitness.DAO;
 using System.Web.UI;
+using System.Data.SqlClient;
 
 namespace zhenyuFitness.Pages
 {
@@ -19,14 +20,45 @@ namespace zhenyuFitness.Pages
             this.UserLogin();
             this.UserLogout();
 
-            //if(!this.HasPermission_Page())
-            //{
-            //    this.MessageBox(Page, "您尚未登录或者您没有权限访问该页面！", "notPermitted");
-            //    //Response.Write("<script>history.go(-1);</script>");
-            //    return;
-            //}
+            int accessType = this.HasPermission_Page();
+
+            if (accessType == 0)//表示该页面允许未登录用户访问
+            {
+
+            }
+            else if (accessType == 1)//该页面允许登录用户访问，且该用户有足够的权限访问该页面
+            {
+
+            }
+            else if (accessType == 2)//该页面拒绝用户访问，原因：用户未登录
+            {
+                string callback = "function(){{ window.location = '../../RedirectPages/Login.aspx'}}";
+                //this.MessageBoxAlertWithCallBack(Page, "您尚未登录！请登录后重试。", "notLogin",callback);
+            }
+            else if (accessType == 3)//该页面允许登录用户访问，但该用户没有足够的权限访问该页面
+            {
+                string callback = "function(){{ window.location = '../../RedirectPages/Login.aspx'}}";
+                //this.MessageBoxAlertWithCallBack(Page, "您所在的用户群没有足够的权限访问该页面！", "notEnoughRight",callback);
+            }
+            else
+            {
+
+            }
         }
 
+        #region 登录相关
+        /// <summary>
+        /// 判断用户是否登录
+        /// </summary>
+        /// <returns>true:尚未登录；false:已经登录</returns>
+        public bool NotLogin()
+        {
+            if (Common.Common.NoneOrEmptyString(Session["UserID"]))
+            {
+                return true;
+            }
+            return false;
+        }
         private void UserLogin()
         {
             if (request.Form["loginHidden"] != null)
@@ -62,7 +94,6 @@ namespace zhenyuFitness.Pages
                 }
             }
         }
-
         private void UserLogout()
         {
             if (request.Form["logoutHidden"] != null)
@@ -72,98 +103,55 @@ namespace zhenyuFitness.Pages
                 Session["UserID"] = null;
             }
         }
+        #endregion
 
-        /// <summary>
-        /// 根据关键字，取得对应实体的ID，比如exerciseID
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public string GetID(string key)
-        {
-            //get方式进入此页面
-            if (Request.QueryString[key] != null)
-            {
-                return Request.QueryString[key].ToString();
-            }
-            //post方式进入此页面
-            else if (request.Form["exerciseID"] != null)
-            {
-                return request.Form[key].ToString();
-            }
-            else
-            {
-                this.MessageBox(Page, "ID 错误！请关闭页面！", "wrongID");
-                return "";
-            }
-        }
-
-        public void MessageBox(Page page, string msg, string key)
-        {
-            page.ClientScript.RegisterStartupScript(GetType(), key, "<script>bootbox.alert('" + msg + "')</script>");
-        }
-
+        #region 权限判定
         /// <summary>
         /// 当前用户是否有权访问当前页面
         /// </summary>
-        /// <returns>-1:有权限；0：未登录，且没有权限；1：已登录且没有权限</returns>
+        /// <returns></returns>
         public int HasPermission_Page()
         {
-            //dal.RunProcedure("HasPermission_Page",'')
-            int count;
-            string urlAbsolutePath = this.GetAbsolutePath();
+            SqlParameter userID = new SqlParameter("@userID", SqlDbType.VarChar, 36);
+            SqlParameter privilegeMaster = new SqlParameter("@privilegeMaster", SqlDbType.TinyInt);
+            SqlParameter privilegeAccess = new SqlParameter("@privilegeAccess", SqlDbType.TinyInt);
+            SqlParameter privilegeAccessValue = new SqlParameter("@privilegeAccessValue", SqlDbType.VarChar, 100);
+            SqlParameter privilegeOperation = new SqlParameter("@privilegeOperation", SqlDbType.TinyInt);
+            if (this.NotLogin()) userID.Value = null;
+            else userID.Value = Session["UserID"].ToString();
+            privilegeMaster.Value = (int)Common.Common.PrivilegeMaster.Role;
+            privilegeAccess.Value = (int)Common.Common.PrivilegeAccess.Page;
+            privilegeAccessValue.Value = this.GetAbsolutePath();
+            privilegeOperation.Value = (int)Common.Common.PrivilegeOperation.Enabled;
+            IDataParameter[] paramenters = new IDataParameter[] { userID, privilegeMaster, privilegeAccess, privilegeAccessValue, privilegeOperation };
 
-            //初始化为“查询未登录用户是否有权限访问该页面的sql语句”
-            string sql = string.Format(@"SELECT COUNT(*) FROM [zhenyuFitness].[dbo].[Privilege]
-                    where Valid=1 and PrivilegeMaster={0} and PrivilegeAccess={1} and PrivilegeAccessValue='{2}' 
-                    and PrivilegeOperation={3} and PrivilegeMasterValue in(
-                    select [ID] from [zhenyuFitness].[dbo].[Role] where RoleName='{4}')",
-                    (int)Common.Common.PrivilegeMaster.Role, (int)Common.Common.PrivilegeAccess.Page, urlAbsolutePath,
-                    (int)Common.Common.PrivilegeOperation.Enabled, "Guest");
-            count = int.Parse(dal.GetSingle(sql).ToString());
-            //未登录用户
-            if (this.NotLogin())
-            {
-                if (count <= 0)
-                {
-                    return 0;
-                }
-            }
-            else//登录用户
-            {
-                if (count > 0)//用户已登录，且页面权限未“允许未登录用户访问该页面”
-                {
-                    return -1;
-                }
-                else//用户已登录，且页面不允许未登录用户访问，则判断已登录用户是否有权限访问该页面
-                {
-                    string userID = Session["UserID"].ToString();
-                    sql =
-                        string.Format(@"select COUNT(ID) from [zhenyuFitness].[dbo].Privilege 
-                    where Valid=1 and PrivilegeMaster={2} and PrivilegeAccess = {3} and PrivilegeAccessValue='{0}' and PrivilegeOperation = {4}
-                    and PrivilegeMasterValue in(select [RoleID] from [zhenyuFitness].[dbo].[UserInRole] where Valid=1 and UserID ='{1}')",
-                        urlAbsolutePath, userID, (int)Common.Common.PrivilegeMaster.Role, (int)Common.Common.PrivilegeAccess.Page, (int)Common.Common.PrivilegeOperation.Enabled);
-                    count = int.Parse(dal.GetSingle(sql).ToString());
-                    if (count <= 0)
-                    {
-                        return 1;
-                    }
-                }
-            }
-            return -1;
+
+            object o = dal.RunProcedure("HasPermission_Page", paramenters);
+            //this.MessageBox(Page, this.GetAbsolutePath() + "&&&存储过程返回值=" + o.ToString(), "asdf1221");
+            return int.Parse(o.ToString());
         }
 
-        /// <summary>
-        /// 判断用户是否登录
-        /// </summary>
-        /// <returns>true:尚未登录；false:已经登录</returns>
-        public bool NotLogin()
+        public int HasPermission_Page(string pageUrlAbsolute)
         {
-            if (Common.Common.NoneOrEmptyString(Session["UserID"]))
-            {
-                return true;
-            }
-            return false;
+            SqlParameter userID = new SqlParameter("@userID", SqlDbType.VarChar, 36);
+            SqlParameter privilegeMaster = new SqlParameter("@privilegeMaster", SqlDbType.TinyInt);
+            SqlParameter privilegeAccess = new SqlParameter("@privilegeAccess", SqlDbType.TinyInt);
+            SqlParameter privilegeAccessValue = new SqlParameter("@privilegeAccessValue", SqlDbType.VarChar, 100);
+            SqlParameter privilegeOperation = new SqlParameter("@privilegeOperation", SqlDbType.TinyInt);
+            if (this.NotLogin()) userID.Value = null;
+            else userID.Value = Session["UserID"].ToString();
+            privilegeMaster.Value = (int)Common.Common.PrivilegeMaster.Role;
+            privilegeAccess.Value = (int)Common.Common.PrivilegeAccess.Page;
+            privilegeAccessValue.Value = pageUrlAbsolute;
+            privilegeOperation.Value = (int)Common.Common.PrivilegeOperation.Enabled;
+            IDataParameter[] paramenters = new IDataParameter[] { userID, privilegeMaster, privilegeAccess, privilegeAccessValue, privilegeOperation };
+
+
+            object o = dal.RunProcedure("HasPermission_Page", paramenters);
+            //this.MessageBox(Page, this.GetAbsolutePath() + "&&&存储过程返回值=" + o.ToString(), "asdf1221");
+            return int.Parse(o.ToString());
         }
+        #endregion
 
         #region URL Operation
         //设当前页完整地址是：http://www.jb51.net/aaa/bbb.aspx?id=5&name=kelli
@@ -202,7 +190,9 @@ namespace zhenyuFitness.Pages
         {
             return Request.Url.Host;
         }
+        #endregion
 
+        #region 弹出框相关
         /// <summary>
         /// 
         /// </summary>
@@ -210,6 +200,56 @@ namespace zhenyuFitness.Pages
         public string GetUrlParam()
         {
             return Request.Url.Query;
+        }
+        
+
+        /// <summary>
+        /// 弹出框消失后，什么都不发生。
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="msg"></param>
+        /// <param name="key"></param>
+        public void MessageBox(Page page, string msg, string key)
+        {
+            page.ClientScript.RegisterStartupScript(GetType(), key, "<script>bootbox.alert('" + msg + "')</script>");
+        }
+
+        /// <summary>
+        /// 带callback的弹出框，弹出框消失后调用callback
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="msg"></param>
+        /// <param name="key"></param>
+        public void MessageBoxAlertWithCallBack(Page page, string msg, string key, string callback)
+        {
+            string alertParam = string.Format("size:'small',message:'{0}',callback:{1}", msg,callback);
+            page.ClientScript.RegisterStartupScript(GetType(), key, "<script>bootbox.alert({" + alertParam + "})</script>");
+        }
+        #endregion
+
+        #region 其他
+        /// <summary>
+        /// 根据关键字，取得对应实体的ID，比如exerciseID
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public string GetID(string key)
+        {
+            //get方式进入此页面
+            if (Request.QueryString[key] != null)
+            {
+                return Request.QueryString[key].ToString();
+            }
+            //post方式进入此页面
+            else if (request.Form["exerciseID"] != null)
+            {
+                return request.Form[key].ToString();
+            }
+            else
+            {
+                this.MessageBox(Page, "ID 错误！请关闭页面！", "wrongID");
+                return "";
+            }
         }
         #endregion
     }
