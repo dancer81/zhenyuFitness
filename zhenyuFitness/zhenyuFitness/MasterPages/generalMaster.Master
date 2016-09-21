@@ -760,8 +760,8 @@
                                     <span class="sub-menu-text">目标</span>
                                     <span class="arrow"></span>
                                 </a>
-                                <ul class="sub-sub" id="a11">
-                                    <li><a class="" href="<%=appRootPath %>/Pages/Goal/GoalSetting.aspx?menu=a1-a11" onclick="ifPagePermitted(this)"><span class="sub-sub-menu-text">目标制定</span></a></li>
+                                <ul class="sub-sub" id="a11"> <%--<%=appRootPath %>/Pages/Goal/GoalSetting.aspx?menu=a1-a11--%>
+                                    <li><a class="" href="#" onclick="ifMenuPermitted(this)"><span class="sub-sub-menu-text">目标制定</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">总体目标</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">了解你的身体</span></a></li>
                                 </ul>

@@ -19,6 +19,8 @@ namespace zhenyuFitness.Pages.Exercises
         public string forceType = "";
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Common.CommonWeb commonWeb = new Common.CommonWeb(HttpContext.Current);
+            //commonWeb.MessageBox(Page, "ashxashxashx", "ashx");
 
             base.Page_Load(sender, e);
             ((generalMaster)this.Master).pagePath = @"<li>动作列表页</li>";

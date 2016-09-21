@@ -11,6 +11,7 @@ namespace zhenyuFitness.Pages.LoujunjieAdmin
 {
     public partial class Admin_ExerciseEdit : BasePage
     {
+        private Common.CommonWeb commonWeb = new Common.CommonWeb(HttpContext.Current);
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -73,7 +74,7 @@ namespace zhenyuFitness.Pages.LoujunjieAdmin
             string id = Common.Common.ObjectToString(ViewState["exerciseID"]);
             if (id == null || id == string.Empty)
             {
-                this.MessageBox(Page, "输入超时，ViewState过期！", "overtime");
+                commonWeb.MessageBox(Page, "输入超时，ViewState过期！", "overtime");
                 return;
             }
             if (dal.GetSingle(sqlselect) != null)

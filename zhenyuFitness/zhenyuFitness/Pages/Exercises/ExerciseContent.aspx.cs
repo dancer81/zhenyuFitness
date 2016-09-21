@@ -59,6 +59,7 @@ namespace zhenyuFitness.Pages.Exercises
 
         private MssqlDal dal;// = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
         private HttpRequest request = HttpContext.Current.Request;
+        private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
 
         protected new void Page_Load(object sender, EventArgs e)
         {
@@ -203,7 +204,7 @@ namespace zhenyuFitness.Pages.Exercises
         /// </summary>
         private void InitPageContent()
         {
-            this.exerciseID = this.GetID("exerciseID");
+            this.exerciseID = commonWeb.GetID("exerciseID",Page);
 
             string sql = string.Format(@" select c.*,d.EquipmentName from 
 	                                            (select a.*, b.MuscleName from 
@@ -515,7 +516,7 @@ namespace zhenyuFitness.Pages.Exercises
         {
             if (this.exerciseID == null)
             {
-                this.MessageBox(Page, "出错了,动作ID为空", "key1");
+                commonWeb.MessageBox(Page, "出错了,动作ID为空", "key1");
                 return;
             }
             if (Session["UserID"] == null)

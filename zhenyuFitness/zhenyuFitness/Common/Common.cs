@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 
 namespace zhenyuFitness.Common
@@ -17,6 +15,14 @@ namespace zhenyuFitness.Common
         public static string appRootPath = System.Configuration.ConfigurationManager.AppSettings["appRootPath"].ToString();
         //resource root path
         public static string resourceRootPath = System.Configuration.ConfigurationManager.AppSettings["resourceRootPath"].ToString();
+        //点击安全退出按钮时默认返回的页面
+        public static string LogOutRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
+        //用户通过地址栏直接输入网址（前台脚本没有执行：不是通过菜单连接点击,或者用户禁用了浏览器脚本），如果页面判定用户没有权限访问时，跳转的地址
+        public static string NotPermittedRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
+        //用户（Guest）点击跳转页面，系统判定该页面需要用户登录,而进行Redirect的页面
+        public static string NotLoginRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
+        //用户有权访问该页面的标识，避免多次调用判定方法，提高性能。
+        public static string HasPermission = "1";
 
         /// <summary>
         /// 最小计分投票人数，小于该值则采用默认得分
