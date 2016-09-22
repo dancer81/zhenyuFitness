@@ -20,36 +20,8 @@ namespace zhenyuFitness.Pages
         {
             this.UserLogin();
             this.UserLogout();
-
-            string url = commonWeb.GetAbsolutePath();
-            //如果Session[url]无法指明用户是否有权限访问该页面，则必须进行判定
-            if (Session[url] == null || Session[url].ToString() != Common.Common.HasPermission)
-            {
-                int accessType = commonWeb.HasPermission_Page(url);
-
-                if (accessType == 0)//表示该页面允许未登录用户访问
-                {
-                    Session[url] = Common.Common.HasPermission;
-                }
-                else if (accessType == 1)//该页面允许登录用户访问，且该用户有足够的权限访问该页面
-                {
-                    Session[url] = Common.Common.HasPermission;
-                }
-                else if (accessType == 2)//该页面拒绝用户访问，原因：用户未登录
-                {
-                    string callback = string.Format("function(){{ window.location = '{0}'}}", Common.Common.NotLoginRedirectPage);
-                    commonWeb.MessageBoxAlertWithCallBack(Page, "您尚未登录！请登录后重试。", "notLogin", callback);
-                }
-                else if (accessType == 3)//该页面允许登录用户访问，但该用户没有足够的权限访问该页面
-                {
-                    string callback = string.Format("function(){{ window.location = '{0}'}}", Common.Common.NotPermittedRedirectPage);
-                    commonWeb.MessageBoxAlertWithCallBack(Page, "您所在的用户群没有足够的权限访问该页面！", "notEnoughRight", callback);
-                }
-                else
-                {
-
-                }
-            }
+            this.UserPermission();
+            
         }
 
         #region 登录相关
@@ -105,7 +77,46 @@ namespace zhenyuFitness.Pages
                     Session[Session.Keys[i].ToString()] = null;
                 }
 
-                Response.Redirect(Common.Common.LogOutRedirectPage);
+                string url = commonWeb.GetAbsolutePath();
+                int accessType = commonWeb.HasPermission_Page(url);
+                if(accessType ==2 || accessType ==3)
+                {
+                    Response.Redirect(Common.Common.LogOutRedirectPage);
+                }
+            }
+        }
+
+        //判断用户是否有权访问此页面
+        private void UserPermission()
+        {
+            string url = commonWeb.GetAbsolutePath();
+            //如果Session[url]无法指明用户是否有权限访问该页面，则必须进行判定
+            if (Session[url] == null || Session[url].ToString() != Common.Common.HasPermission)
+            {
+                int accessType = commonWeb.HasPermission_Page(url);
+
+                if (accessType == 0)//表示该页面允许未登录用户访问
+                {
+                    Session[url] = Common.Common.HasPermission;
+                }
+                else if (accessType == 1)//该页面允许登录用户访问，且该用户有足够的权限访问该页面
+                {
+                    Session[url] = Common.Common.HasPermission;
+                }
+                else if (accessType == 2)//该页面拒绝用户访问，原因：用户未登录
+                {
+                    string callback = string.Format("function(){{ window.location = '{0}'}}", Common.Common.NotLoginRedirectPage);
+                    commonWeb.MessageBoxAlertWithCallBack(Page, "您尚未登录！请登录后重试。", "notLogin", callback);
+                }
+                else if (accessType == 3)//该页面允许登录用户访问，但该用户没有足够的权限访问该页面
+                {
+                    string callback = string.Format("function(){{ window.location = '{0}'}}", Common.Common.NotPermittedRedirectPage);
+                    commonWeb.MessageBoxAlertWithCallBack(Page, "您所在的用户群没有足够的权限访问该页面！", "notEnoughRight", callback);
+                }
+                else
+                {
+
+                }
             }
         }
         #endregion
