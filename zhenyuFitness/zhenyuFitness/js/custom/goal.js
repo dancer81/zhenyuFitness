@@ -206,7 +206,8 @@
 
                         /*初始化step2_part2里的参数*/
                         //设置bodyfat
-                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2)+"%");
+                        $("#step2_part2_bodyfatrate_span").html(bodyfat.toFixed(2) + "%");
+                        //$("#defaultBFR").val(bodyfat.toFixed(2));
                         //设置参数显示
                         if ($("#gender").val() == 0) {
                             $("#step2_part2_gender_span").html("男");
@@ -427,6 +428,12 @@
                         $("#confirm_desc_fieldvalue_goalbf").html((goal_bf * 100).toFixed(1) + "%");
                         $("#confirm_desc_img").attr('src', $("#yourgoalstats_physique_img").attr('src'));
 
+                        //作为startBFR提交到后台
+                        alert("111");
+                        $("#defaultBFR").val((current_bf * 1).toFixed(1));
+                        alert("222");
+                        alert($("#defaultBFR").val());
+                        
                         setFatchangeAndLeanmasschange_Step6_7(goal_weight, goal_bf);
                     }
 
@@ -438,6 +445,8 @@
                         var goalday_count = $("#goaldatecount").html();
                         $("#confirm_desc_daycount").html(goalday_count);
                         initCountdown(goalday_count);
+
+                        $("#goalCostDays").val(goalday_count);
                     }
 
                     //设置步骤标题

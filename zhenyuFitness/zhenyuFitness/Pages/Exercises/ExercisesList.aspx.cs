@@ -19,9 +19,6 @@ namespace zhenyuFitness.Pages.Exercises
         public string forceType = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Common.CommonWeb commonWeb = new Common.CommonWeb(HttpContext.Current);
-            //commonWeb.MessageBox(Page, "ashxashxashx", "ashx");
-
             base.Page_Load(sender, e);
             ((generalMaster)this.Master).pagePath = @"<li>动作列表页</li>";
             if (!IsPostBack)
@@ -54,51 +51,6 @@ namespace zhenyuFitness.Pages.Exercises
                                     FROM [zhenyuFitness].[dbo].[Exercise] where Valid = 1 {1}) a, 
                                     [zhenyuFitness].[dbo].[Equipment] b,[zhenyuFitness].[dbo].[Muscle] c
                                     where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.minExerciseRateCount, whereConditionEqual);
-
-
-                //if (this.muscleID == "")
-                //{
-                //    sql =
-                //    string.Format(@"select a.[MechanicsType],a.ID,a.OfficialName,a.RateScore,a.[Force],a.[Level],b.EquipmentName,c.MuscleName from 
-                //                        (SELECT [ID]
-                //                        ,[OfficialName]
-                //                        ,[MainMuscleID]
-                //                        ,[EquipmentID]
-                //                        ,[MechanicsType]
-                //                        ,[Force],
-                //                        case 
-                //                  when   [RateUserCount] > {0} then [RateOverrall]/[RateUserCount]
-                //                  else [RateDefault]
-                //                     end as RateScore
-                //                        ,[Level]
-                //                        ,[ExerciseValue]
-                //                    FROM [zhenyuFitness].[dbo].[Exercise] where Valid = 0) a, 
-                //                    [zhenyuFitness].[dbo].[Equipment] b,[zhenyuFitness].[dbo].[Muscle] c
-                //                    where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.minExerciseRateCount);
-                //}
-                //else
-                //{
-                //    sql =
-                //    string.Format(@"select a.[MechanicsType],a.ID,a.OfficialName,a.RateScore,a.[Force],a.[Level],b.EquipmentName,c.MuscleName from 
-                //                        (SELECT [ID]
-                //                        ,[OfficialName]
-                //                        ,[MainMuscleID]
-                //                        ,[EquipmentID]
-                //                        ,[MechanicsType]
-                //                        ,[Force],
-                //                        case 
-                //                  when   [RateUserCount] > {0} then [RateOverrall]/[RateUserCount]
-                //                  else [RateDefault]
-                //                     end as RateScore
-                //                        ,[Level]
-                //                        ,[ExerciseValue]
-                //                    FROM [zhenyuFitness].[dbo].[Exercise] where Valid = 0 and [MainMuscleID] = '{1}') a, 
-                //                    [zhenyuFitness].[dbo].[Equipment] b,[zhenyuFitness].[dbo].[Muscle] c
-                //                    where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.minExerciseRateCount,this.muscleID);
-                //}
-
-
-
 
                 MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
 

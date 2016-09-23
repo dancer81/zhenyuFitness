@@ -56,6 +56,8 @@ namespace zhenyuFitness.Pages
                     //登录头像和Session["user"]
                     Session["UserProfile"] = DT_userProfile;
                     Session["UserID"] = DT_userProfile.Rows[0]["ID"].ToString();
+                    Session["Age"] = DT_userProfile.Rows[0]["Age"].ToString();
+                    Session["Gender"] = DT_userProfile.Rows[0]["Gender"].ToString();
                     commonWeb.MessageBox(Page, "登录成功", "loginSuccess");
                 }
                 else//用户名或者密码错误

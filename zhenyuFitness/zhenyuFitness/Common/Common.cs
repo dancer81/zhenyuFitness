@@ -250,5 +250,9 @@ namespace zhenyuFitness.Common
             return false;
         }
         #endregion
+
+        //#region 数学类
+        //public static float 
+        //#endregion
     }
 }

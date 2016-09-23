@@ -132,20 +132,20 @@
                                         <div class="inputcontainer">
                                             <section class="inputcontent bgcolor-1">
                                                 <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-1">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-1" name="startHeight">
                                                     <label class="input__label input__label--haruki" for="input-1">
                                                         <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">身 高&nbsp;<span style="font-size: 18px">cm</span></span></span>
                                                     </label>
                                                 </span>
 
                                                 <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-2">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-2" name="startWeight">
                                                     <label class="input__label input__label--haruki" for="input-2">
                                                         <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">体 重&nbsp;<span style="font-size: 18px">kg</span></span></span>
                                                     </label>
                                                 </span>
                                                 <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-3">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-3" name="startWaist">
                                                     <label class="input__label input__label--haruki" for="input-3">
                                                         <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">腰 围&nbsp;<span style="font-size: 18px">cm</span></span></span>
                                                     </label>
@@ -163,7 +163,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="5">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="0">
                                                                 <span style="color: #0099FF">增肌</span>
                                                             </label>
                                                         </p>
@@ -178,7 +178,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="10">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="1">
                                                                 <span style="color: #0099FF">减脂</span>
                                                             </label>
                                                         </p>
@@ -192,7 +192,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="15">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="2">
                                                                 <span>塑形</span>
                                                             </label>
                                                         </p>
@@ -206,7 +206,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="20">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="3">
                                                                 <span style="color: #0099FF">耐力</span>
                                                             </label>
                                                         </p>
@@ -222,7 +222,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="25">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="4">
                                                                 <span style="color: #0099FF">体育运动</span>
                                                             </label>
                                                         </p>
@@ -236,7 +236,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="30">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="5">
                                                                 <span style="color: #0099FF">柔韧性</span>
                                                             </label>
                                                         </p>
@@ -250,7 +250,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="35">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="6">
                                                                 <span style="color: #0099FF">其他</span>
                                                             </label>
                                                         </p>
@@ -264,7 +264,7 @@
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
                                                             <label class="radio-inline">
-                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="40">
+                                                                <input type="radio" class="uniform" name="selectfitnesstarget" value="7">
                                                                 <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
                                                             </label>
                                                         </p>
@@ -292,7 +292,7 @@
                                             <div class="inputcontainer">
                                                 <section class="inputcontent bgcolor-1">
                                                     <span class="input input--haruki">
-                                                        <input class="input__field input__field--haruki" type="text" id="input-4">
+                                                        <input class="input__field input__field--haruki" type="text" id="input-4" name="startBFR">
                                                         <label class="input__label input__label--haruki" for="input-4">
                                                             <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">已估算您的体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
                                                         </label>
@@ -420,6 +420,7 @@
                                                                         </td>
                                                                     </tr>
                                                                 </table>
+                                                                
                                                             </td>
 
                                                             <tr>
@@ -455,7 +456,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="5">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="0">
                                                                     <span style="color: #0099FF">体脂率：5% &nbsp;精干型男</span>
                                                                 </label>
                                                                 <%-- <input type="radio" id="selectbodyfat-1" name="selectbodyfat" value="5">
@@ -474,7 +475,7 @@
                                                                 <label class="radio-inline">
                                                                     <%--<input type="radio" id="selectbodyfat-2" name="selectbodyfat" value="10">
                                                                     <label for="selectbodyfat-2" style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</label>--%>
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="10">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="1">
                                                                     <span style="color: #0099FF">体脂率：10%&nbsp;敏捷健壮</span>
                                                                 </label>
                                                             </p>
@@ -488,7 +489,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="15">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="2">
                                                                     <span style="color: #0099FF">体脂率：15%&nbsp;强壮健康</span>
                                                                 </label>
                                                             </p>
@@ -502,7 +503,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="20">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="3">
                                                                     <span style="color: #0099FF">体脂率：20%&nbsp;普通型</span>
                                                                 </label>
                                                             </p>
@@ -518,7 +519,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="25">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="4">
                                                                     <span style="color: #0099FF">体脂率：25%&nbsp;有点超重</span>
                                                                 </label>
                                                             </p>
@@ -532,7 +533,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="30">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="5">
                                                                     <span style="color: #0099FF">体脂率：30%&nbsp;轻度肥胖</span>
                                                                 </label>
                                                             </p>
@@ -546,7 +547,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="35">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="6">
                                                                     <span style="color: #0099FF">体脂率：35%&nbsp;肥胖</span>
                                                                 </label>
                                                             </p>
@@ -560,7 +561,7 @@
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
                                                                 <label class="radio-inline">
-                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="40">
+                                                                    <input type="radio" class="uniform" name="selectbodyfat" value="7">
                                                                     <span style="color: #0099FF">体脂率：40%&nbsp;严重肥胖</span>
                                                                 </label>
                                                             </p>
@@ -749,14 +750,14 @@
                                                     <span style="font-size: 15px;">（您可以自行调整目标体重和目标体脂率）</span>
                                                 </div>
                                                 <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-5">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-5" name="goalWeight">
                                                     <label class="input__label input__label--haruki" for="input-5">
                                                         <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的目标体重&nbsp;<span style="font-size: 18px">(千克)</span></span></span>
                                                     </label>
                                                 </span>
 
                                                 <span class="input input--haruki">
-                                                    <input class="input__field input__field--haruki" type="text" id="input-6">
+                                                    <input class="input__field input__field--haruki" type="text" id="input-6" name="goalBFR">
                                                     <label class="input__label input__label--haruki" for="input-6">
                                                         <span class="input__label-content input__label-content--haruki"><span style="font-size: 25px">您的目标体脂率&nbsp;<span style="font-size: 18px">%</span></span></span>
                                                     </label>
@@ -925,6 +926,8 @@
                                                                 <div class="confirm_desc_fieldvalue" id="foo">
                                                                 </div>
                                                             </div>
+                                                            <input type="hidden" name="defaultBFR" id="defaultBFR"/>
+                                                            <input type="hidden" name="goalCostDays" id="goalCostDays" />
                                                         </div>
                                                     </div>
                                                 </div>
