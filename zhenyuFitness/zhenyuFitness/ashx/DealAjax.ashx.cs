@@ -1,26 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
-using System.Web.UI;
 
 namespace zhenyuFitness.ashx
 {
     /// <summary>
-    /// generalMaster 的摘要说明
+    /// DealAjax 的摘要说明
     /// </summary>
-    public class generalMaster : IHttpHandler,IReadOnlySessionState
+    public class DealAjax : IHttpHandler, IReadOnlySessionState
     {
+
         public void ProcessRequest(HttpContext context)
         {
             Common.CommonWeb commonWeb = new Common.CommonWeb(context);
 
             string ajaxType = context.Request.Form["ajaxtype"].ToString();
-            
-            switch(ajaxType)
+
+            switch (ajaxType)
             {
                 case "pagePermission":
                     int permissionType;
@@ -55,12 +53,5 @@ namespace zhenyuFitness.ashx
                 return false;
             }
         }
-
-        private void DealAjax_PagePermission()
-        {
-
-        }
-
-
     }
 }

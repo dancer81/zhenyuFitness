@@ -212,7 +212,7 @@
     <Content Include="js\xcharts\README.md" />
     <Content Include="MasterPages\generalMaster.Master" />
     <Content Include="js\jquery_Countdown\images\.DS_Store" />
-    <Content Include="ashx\generalMaster.ashx" />
+    <Content Include="ashx\DealAjax.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1146,8 +1146,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ashx\generalMaster.ashx.cs">
-      <DependentUpon>generalMaster.ashx</DependentUpon>
+    <Compile Include="ashx\DealAjax.ashx.cs">
+      <DependentUpon>DealAjax.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\CommonWeb.cs" />

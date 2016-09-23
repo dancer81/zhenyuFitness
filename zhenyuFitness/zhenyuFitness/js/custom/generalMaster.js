@@ -6,7 +6,7 @@ function ifMenuPermitted(o) {
     //ajax判断权限
     $.ajax({
         type: "POST",
-        url: "/zhenyuFitness/ashx/generalMaster.ashx",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
         data: { url: urlAbsolute, ajaxtype: "pagePermission" },
         async: false,         
         success: function (data) {
@@ -27,6 +27,7 @@ function ifMenuPermitted(o) {
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("页面权限ajax调用出错了");
+            alert(errorThrown);
             ret = -1
         }
     });

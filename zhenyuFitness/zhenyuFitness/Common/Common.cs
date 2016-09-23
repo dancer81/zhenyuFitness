@@ -29,6 +29,53 @@ namespace zhenyuFitness.Common
         /// </summary>
         public static int minExerciseRateCount = 10;
 
+        #region 目标相关
+        public enum GoalDirection
+        {
+            [Description("增肌")]
+            GainMuscle,
+            [Description("减脂")]
+            LoseFat,
+            [Description("塑形")]
+            Transform,
+            [Description("耐力")]
+            Enduarence,
+            [Description("体育运动")]
+            Sports,
+            [Description("柔韧性")]
+            Flexibility,
+            [Description("其他")]
+            Other,
+        };
+
+        public enum GoalPhysique
+        {
+            [Description("（女）时尚女模特")]
+            Female_Model,
+            [Description("（女）比基尼女郎")]
+            Female_SwimSuit,
+            [Description("（女）健康女士")]
+            Female_FitWomen,
+            [Description("（女）健身达人")]
+            Female_FitnessModel,
+            [Description("（女）健美运动员")]
+            Femal_BodyBuilder,
+            [Description("（男）Skinny Ripped")]
+            Male_SkinnyRipped,
+            [Description("（男）模特")]
+            Male_Model,
+            [Description("（男）运动员")]
+            Male_Athlete,
+            [Description("（男）健身达人")]
+            Male_Bodybuilder,
+            [Description("（男）大力士")]
+            Male_Strongman,
+            [Description("（男）健美运动员")]
+            Male_ProBodybuilder,
+        };
+
+
+        #endregion
 
         #region 动作相关
         public enum ForceType
