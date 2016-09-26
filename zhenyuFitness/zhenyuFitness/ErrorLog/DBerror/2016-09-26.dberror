@@ -1,0 +1,72 @@
+
+ Log Entry :  
+ 下午 3:11:35 2016年9月26日 星期一 
+ 执行SQL语句失败：'1' 附近有语法错误。
+INSERT INTO [zhenyuFitness].[dbo].[UserBFRGoal]
+                           ([ID]
+                           ,[UserID]
+                           ,[Height]
+                           ,[GoalPhysique]
+                           ,[StartWeight]
+                           ,[StartBodyFat]
+                           ,[StartWaistSize]
+                           ,[IsKnowBFR]
+                           ,[GoalDirection]
+                           ,[GoalWeight]
+                           ,[GoalBodyFat]
+                           ,[GoalStartDate]
+                           ,[GoalCostDays]
+                           ,[IsExpired]
+                           ,[IsAchieved]
+                           ,[IsProcessing]
+                           ,[IsCanceled]
+                           ,[CreateUser]
+                           ,[CreateDate]
+                           ,[LastModifiedUser]
+                           ,[LastModifiedDate]
+                           ,[Valid])
+                     VALUES
+                           (NEWID()1
+                           ,'ACF8E4A2-4F21-4277-8F8A-44F496023AE1'
+                           ,159
+                           ,1
+                           ,47.5
+                           ,27.5
+                           ,73
+                           ,1
+                           ,1
+                           ,53.1
+                           ,18
+                           ,GETDATE()
+                           ,1372
+                           ,0
+                           ,0
+                           ,1
+                           ,0
+                           ,'ACF8E4A2-4F21-4277-8F8A-44F496023AE1'
+                           ,GETDATE()
+                           ,'ACF8E4A2-4F21-4277-8F8A-44F496023AE1'
+                           ,GETDATE()
+                           ,1) 
+ ********************************************************************************************* 
+ Log Entry :  
+ 下午 3:13:04 2016年9月26日 星期一 
+ 查询SQL语句失败：'*' 附近有语法错误。
+select1 * from [zhenyuFitness].[dbo].[User] where [Email] = @email and [Password] = @password and Valid = 1 
+ ********************************************************************************************* 
+ Log Entry :  
+ 下午 3:17:00 2016年9月26日 星期一 
+ 查询SQL语句失败：'*' 附近有语法错误。
+se1lect * from [zhenyuFitness].[dbo].[User] where [Email] = @email and [Password] = @password and Valid = 1 
+ ***************************************************************************************************************** 
+ Log Entry :  
+ 下午 3:18:01 2016年9月26日 星期一 
+ 查询SQL语句失败：'*' 附近有语法错误。
+se1lect * from [zhenyuFitness].[dbo].[User] where [Email] = @email and [Password] = @password and Valid = 1 
+ ***************************************************************************************************************** 
+ Log Entry :  
+ 下午 3:19:32 2016年9月26日 星期一 
+ 查询SQL语句失败：'*' 附近有语法错误。
+se1lect * from [zhenyuFitness].[dbo].[User] where [Email] = @email and [Password] = @password and Valid = 1 
+ ***************************************************************************************************************** 
+ 

@@ -957,8 +957,8 @@
             </div>
             <!-- /BOX -->
         </div>
-        <input type="hidden" id="gender" value="1" />
-        <input type="hidden" id="age" value="35" />
+        <input type="hidden" id="gender" value="<%= this.gender%>" />
+        <input type="hidden" id="age" value="<%= this.age %>" />
     </div>
     <script src="../../js/inputclassie.js"></script>
     <script src="../../js/jQuery-Knob/js/jquery.knob.min.js"></script>

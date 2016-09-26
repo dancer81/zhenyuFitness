@@ -91,7 +91,7 @@ namespace zhenyuFitness.DAO
                 catch (System.Data.SqlClient.SqlException ex)
                 {
                     Global.WriteDbLogFile("执行SQL语句失败：" + ex.Message + "\n" + SqlStr, DbLogPath);
-                    return 0;
+                    throw ex;
                 }
             }
         }
@@ -190,7 +190,7 @@ namespace zhenyuFitness.DAO
             catch (System.Data.SqlClient.SqlException ex)
             {
                 Global.WriteDbLogFile("查询SQL语句失败：" + ex.Message + "\n" + SqlStr, DbLogPath);
-                return null;
+                throw;
             }
         }
 
@@ -217,7 +217,7 @@ namespace zhenyuFitness.DAO
                 catch (System.Data.SqlClient.SqlException ex)
                 {
                     Global.WriteDbLogFile("查询SQL语句失败：" + ex.Message + "\n" + SqlStr, DbLogPath);
-                    return null;
+                    throw;
                 }
             }
         }

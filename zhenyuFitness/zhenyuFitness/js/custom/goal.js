@@ -429,10 +429,7 @@
                         $("#confirm_desc_img").attr('src', $("#yourgoalstats_physique_img").attr('src'));
 
                         //作为startBFR提交到后台
-                        alert("111");
                         $("#defaultBFR").val((current_bf * 1).toFixed(1));
-                        alert("222");
-                        alert($("#defaultBFR").val());
                         
                         setFatchangeAndLeanmasschange_Step6_7(goal_weight, goal_bf);
                     }

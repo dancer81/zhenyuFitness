@@ -1136,6 +1136,7 @@
     <Content Include="Pages\Exercises\ExerciseContent.aspx" />
     <Content Include="Pages\Exercises\ExercisesList.aspx" />
     <Content Include="Pages\Goal\GoalSetting.aspx" />
+    <Content Include="Pages\Home\DashBoard.aspx" />
     <Content Include="Pages\Login\forgetPassword.aspx" />
     <Content Include="Pages\Login\Register.aspx" />
     <Content Include="Pages\LoujunjieAdmin\Admin_ExerciseEdit.aspx" />
@@ -1182,6 +1183,13 @@
     <Compile Include="Pages\Goal\GoalSetting.aspx.designer.cs">
       <DependentUpon>GoalSetting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Home\DashBoard.aspx.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home\DashBoard.aspx.designer.cs">
+      <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Login\forgetPassword.aspx.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1225,7 +1233,9 @@
       <Name>zhenyuFitness.DAO</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ErrorLog\DBerror\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

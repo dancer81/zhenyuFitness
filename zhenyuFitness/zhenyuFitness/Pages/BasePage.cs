@@ -47,7 +47,17 @@ namespace zhenyuFitness.Pages
                 MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, Server.MapPath(System.Configuration.ConfigurationManager.AppSettings["DbLog"]));
                 string sql = "select * from [zhenyuFitness].[dbo].[User] where [Email] = @email and [Password] = @password and Valid = 1";
                 Object[] paramers = new object[] { email, password };
-                DataTable DT_userProfile = dal.DoSelectToTable(sql, "userProfile", paramers);
+
+                DataTable DT_userProfile;
+                try
+                {
+                    DT_userProfile = dal.DoSelectToTable(sql, "userProfile", paramers);
+                }
+                catch (System.Data.SqlClient.SqlException ex)
+                {
+                    commonWeb.MessageBox(Page, "登录时数据库出错！", "inserterror1");
+                    return;
+                }
                 if (DT_userProfile != null && DT_userProfile.Rows.Count > 0)
                 {
                     //TO DO: 用户登录成功，初始化模板页中用户相关信息：通知、信息、任务、登录头像、特别关注、Session["User"] = userID、登录次数，最后登录时间、登录IP

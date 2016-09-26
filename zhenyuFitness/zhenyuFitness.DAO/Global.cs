@@ -28,7 +28,7 @@ namespace zhenyuFitness.DAO
         public static void WriteDbLogFile(string input, string DbLogPath)
         {
             ///指定日志文件的目录
-            string fname = DbLogPath + "\\" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".dblog";//.ToShortDateString().ToString();
+            string fname =  DbLogPath + "\\" + DateTime.Now.Date.ToString("yyyy-MM-dd") + ".dberror";//.ToShortDateString().ToString();
                                                                                   ///定义文件信息对象
             FileInfo finfo = new FileInfo(fname);
 
@@ -53,16 +53,16 @@ namespace zhenyuFitness.DAO
 
                 /**/
                 ///写入“Log Entry : ”
-                w.Write("\n\rLog Entry : ");
+                w.Write("Log Entry : ");
 
                 /**/
                 ///写入当前系统时间并换行
-                w.Write("{0} {1} \n\r", DateTime.Now.ToLongTimeString(),
+                w.Write(" \r\n {0} {1} \r\n ", DateTime.Now.ToLongTimeString(),
                     DateTime.Now.ToLongDateString());
 
                 /**/
                 ///写入日志内容并换行
-                w.Write(input + "\n\r------------------------------------\n\r");
+                w.Write(input + " \r\n ***************************************************************************************************************** \r\n ");
                 /**/
                 ///清空缓冲区内容，并把缓冲区内容写入基础流
                 w.Flush();

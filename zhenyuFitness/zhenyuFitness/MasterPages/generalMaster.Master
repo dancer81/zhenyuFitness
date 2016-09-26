@@ -92,7 +92,7 @@
 
 
                 <li class="dropdown">
-                    <a href="index.html" class="dropdown-toggle">
+                    <a href="<%=appRootPath %>/Pages/Home/DashBoard.aspx" class="dropdown-toggle">
                         <i class="fa fa-male"></i>
                         <span class="name">个人主页</span>
                     </a>

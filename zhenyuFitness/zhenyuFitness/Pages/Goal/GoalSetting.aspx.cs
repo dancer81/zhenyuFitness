@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using zhenyuFitness.Common;
 using zhenyuFitness.DAO;
+using zhenyuFitness.MasterPages;
 
 namespace zhenyuFitness.Pages.Goal
 {
@@ -23,6 +24,9 @@ namespace zhenyuFitness.Pages.Goal
         public int goalCostDays;
         public bool isKnowBFR;
 
+        public string gender;
+        public string age;
+
         private MssqlDal dal;
         private HttpRequest request = HttpContext.Current.Request;
         private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
@@ -31,8 +35,8 @@ namespace zhenyuFitness.Pages.Goal
         {
             dal = new MssqlDal(Common.Common.DBConnectionStr, Server.MapPath(Common.Common.DbLog));
             base.Page_Load(sender, e);
-
-            if(request.Form.Count == 0)
+            ((generalMaster)this.Master).pagePath = @"<li>健身目标制定</li>";
+            if (request.Form.Count == 0)
             {
                 this.InitPage();
             }
@@ -48,6 +52,13 @@ namespace zhenyuFitness.Pages.Goal
         private void InitPage()
         {
             //初始化用户的年龄和性别
+            if(Common.Common.NoneOrEmptyString( Session["Age"]) || Common.Common.NoneOrEmptyString(Session["Gender"]))
+            {
+                commonWeb.MessageBox(Page, "获取用户的性别和年龄时出错！", "erroragegender1");
+                return;
+            }
+            this.age = Session["Age"].ToString();
+            this.gender = Session["Gender"].ToString();
         }
 
         //只处理Form Submit。ajax处理请求移至DealAjax.ashx
@@ -68,7 +79,7 @@ namespace zhenyuFitness.Pages.Goal
             }
             else
             {
-                commonWeb.MessageBox(Page, "出错，获取不到用户的年龄！", "errorPhysique1");
+                commonWeb.MessageBox(Page, "出错，获取不到用户的性别！", "errorgender1");
                 return;
             }
             //step 5
@@ -77,14 +88,17 @@ namespace zhenyuFitness.Pages.Goal
             //step 6
             this.goalCostDays = int.Parse(Common.Common.ObjectToString(request.Form["goalCostDays"]));
 
-            string sql = 
+            if(Common.Common.NoneOrEmptyString(Session["UserID"]))
+            {
+                commonWeb.MessageBox(Page, "您尚未登录，请登录后重试。", "erroruserid1");
+                return;
+            }
+            string sql =
                 string.Format(@"INSERT INTO [zhenyuFitness].[dbo].[UserBFRGoal]
                            ([ID]
                            ,[UserID]
                            ,[Height]
                            ,[GoalPhysique]
-                           ,[LiftingExperience]
-                           ,[MotivationLevel]
                            ,[StartWeight]
                            ,[StartBodyFat]
                            ,[StartWaistSize]
@@ -92,13 +106,8 @@ namespace zhenyuFitness.Pages.Goal
                            ,[GoalDirection]
                            ,[GoalWeight]
                            ,[GoalBodyFat]
-                           ,[GoalWaistSize]
                            ,[GoalStartDate]
                            ,[GoalCostDays]
-                           ,[GoalAlertWeight]
-                           ,[GoalAlertBodyFat]
-                           ,[PicBeforeID]
-                           ,[PicCurrentID]
                            ,[IsExpired]
                            ,[IsAchieved]
                            ,[IsProcessing]
@@ -110,34 +119,41 @@ namespace zhenyuFitness.Pages.Goal
                            ,[Valid])
                      VALUES
                            (NEWID()
-                           ,{0}
+                           ,'{0}'
                            ,{1}
-                           ,<GoalPhysique, tinyint,>
-                           ,<LiftingExperience, tinyint,>
-                           ,<MotivationLevel, tinyint,>
-                           ,<StartWeight, float,>
-                           ,<StartBodyFat, float,>
-                           ,<StartWaistSize, float,>
-                           ,<IsKnowBFR, bit,>
-                           ,<GoalDirection, tinyint,>
-                           ,<GoalWeight, float,>
-                           ,<GoalBodyFat, float,>
-                           ,<GoalWaistSize, float,>
-                           ,<GoalStartDate, datetime,>
-                           ,<GoalCostDays, int,>
-                           ,<GoalAlertWeight, tinyint,>
-                           ,<GoalAlertBodyFat, tinyint,>
-                           ,<PicBeforeID, char(36),>
-                           ,<PicCurrentID, char(36),>
-                           ,<IsExpired, bit,>
-                           ,<IsAchieved, bit,>
-                           ,<IsProcessing, bit,>
-                           ,<IsCanceled, bit,>
-                           ,<CreateUser, char(36),>
-                           ,<CreateDate, datetime,>
-                           ,<LastModifiedUser, char(36),>
-                           ,<LastModifiedDate, datetime,>
-                           ,<Valid, bit,>)");
+                           ,{2}
+                           ,{3}
+                           ,{4}
+                           ,{5}
+                           ,{6}
+                           ,{7}
+                           ,{8}
+                           ,{9}
+                           ,GETDATE()
+                           ,{10}
+                           ,0
+                           ,0
+                           ,1
+                           ,0
+                           ,'{11}'
+                           ,GETDATE()
+                           ,'{12}'
+                           ,GETDATE()
+                           ,1)", Session["UserID"].ToString(), this.startHeight,
+                           this.goalPhysique, this.startWeight, this.startBFR, this.startWaistSize,
+                           this.isKnowBFR ? 0 : 1, this.goalDirection, this.goalWeight, this.goalBFR,
+                           this.goalCostDays, Session["UserID"].ToString(), Session["UserID"].ToString());
+            try
+            {
+                dal.ExecSQL(sql);
+            }
+            catch(System.Data.SqlClient.SqlException ex)
+            {
+                commonWeb.MessageBox(Page, "保存数据时出错！", "inserterror1");
+                return;
+            }
+            
+            Response.Redirect("../Home/DashBoard.aspx");
         }
 
         private int translateFitnesstarget(object o)
