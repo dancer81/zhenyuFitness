@@ -1136,6 +1136,7 @@
     <Content Include="Pages\Exercises\ExerciseContent.aspx" />
     <Content Include="Pages\Exercises\ExercisesList.aspx" />
     <Content Include="Pages\Goal\GoalSetting.aspx" />
+    <Content Include="Pages\Goal\MyGoal.aspx" />
     <Content Include="Pages\Home\DashBoard.aspx" />
     <Content Include="Pages\Login\forgetPassword.aspx" />
     <Content Include="Pages\Login\Register.aspx" />
@@ -1182,6 +1183,13 @@
     </Compile>
     <Compile Include="Pages\Goal\GoalSetting.aspx.designer.cs">
       <DependentUpon>GoalSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Goal\MyGoal.aspx.cs">
+      <DependentUpon>MyGoal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Goal\MyGoal.aspx.designer.cs">
+      <DependentUpon>MyGoal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Home\DashBoard.aspx.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>

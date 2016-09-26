@@ -44,9 +44,6 @@ namespace zhenyuFitness.Pages.Goal
             {
                 this.DealWithForm();
             }
-
-
-
         }
 
         private void InitPage()
@@ -59,6 +56,8 @@ namespace zhenyuFitness.Pages.Goal
             }
             this.age = Session["Age"].ToString();
             this.gender = Session["Gender"].ToString();
+
+
         }
 
         //只处理Form Submit。ajax处理请求移至DealAjax.ashx

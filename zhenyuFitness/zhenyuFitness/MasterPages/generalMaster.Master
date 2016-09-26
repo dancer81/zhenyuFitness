@@ -92,7 +92,7 @@
 
 
                 <li class="dropdown">
-                    <a href="<%=appRootPath %>/Pages/Home/DashBoard.aspx" class="dropdown-toggle">
+                    <a href="#" class="dropdown-toggle" onclick="ifMenuPermitted(this)">
                         <i class="fa fa-male"></i>
                         <span class="name">个人主页</span>
                     </a>
@@ -120,7 +120,7 @@
                         <li class="dropdown-title">
                             <span><i class="fa fa-leaf"></i>个人设置</span>
                         </li>
-                        <li><a href="#" data-skin="default">目标制定</a></li>
+                        <li><a href="#" data-skin="default" onclick="ifMenuPermitted(this)">我的目标</a></li>
                         <li><a href="#" data-skin="night">计划制定</a></li>
                         <li><a href="#" data-skin="earth">照片视频</a></li>
                     </ul>
@@ -761,6 +761,7 @@
                                     <span class="arrow"></span>
                                 </a>
                                 <ul class="sub-sub" id="a11"> <%--<%=appRootPath %>/Pages/Goal/GoalSetting.aspx?menu=a1-a11--%>
+                                    <li><a class="" href="#" onclick="ifMenuPermitted(this)"><span class="sub-sub-menu-text">我的目标</span></a></li>
                                     <li><a class="" href="#" onclick="ifMenuPermitted(this)"><span class="sub-sub-menu-text">目标制定</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">总体目标</span></a></li>
                                     <li><a class="" href="#"><span class="sub-sub-menu-text">了解你的身体</span></a></li>

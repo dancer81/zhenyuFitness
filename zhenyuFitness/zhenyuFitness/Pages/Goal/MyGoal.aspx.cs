@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace zhenyuFitness.Pages.Home
+namespace zhenyuFitness.Pages.Goal
 {
-    public partial class DashBoard : BasePage
+    public partial class MyGoal : BasePage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

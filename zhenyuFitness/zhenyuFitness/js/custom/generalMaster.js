@@ -13,14 +13,14 @@ function ifMenuPermitted(o) {
             if (data == "2") {
                 bootbox.alert({
                     size: 'small',
-                    message: "您尚未登录，请登录后重试。(menu)"
+                    message: "您尚未登录，请登录后重试。"
                 });
                 ret = 2;
             }
             if (data == "3") {
                 bootbox.alert({
                     size: 'small',
-                    message: "对不起，您没有足够的权限访问此页面。(menu)"
+                    message: "对不起，您没有足够的权限访问此页面。"
                 });
                 ret = 3;
             }
@@ -55,7 +55,14 @@ function getUrlAbsolute(url) {
 function initMenuUrl(o)
 {
     var oJquery = $(o);
-    if(oJquery.find("span").html() == "目标制定")
+    if (oJquery.find("span").html() == "个人主页") {
+        return "/zhenyuFitness/Pages/Home/DashBoard.aspx";
+    }
+
+    if (oJquery.find("span").html() == "我的目标") {
+        return "/zhenyuFitness/Pages/Goal/MyGoal.aspx";
+    }
+    else if(oJquery.find("span").html() == "目标制定")
     {
         return "/zhenyuFitness/Pages/Goal/GoalSetting.aspx?menu=a1-a11";
     }
