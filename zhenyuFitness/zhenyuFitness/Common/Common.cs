@@ -29,6 +29,38 @@ namespace zhenyuFitness.Common
         /// </summary>
         public static int minExerciseRateCount = 10;
 
+        #region 追踪相关
+        public enum ActivityTracked
+        {
+            [Description("A和B成为了朋友")]
+            BeFriendsWith,
+            [Description("A关注了B")]
+            Follow,
+            [Description("A在fitboard上发布信息")]
+            MessageOnBoard,
+            [Description("A上传照片")]
+            UploadPhotos,
+            [Description("A新建了健身目标")]
+            AddFitnessGoal,
+            [Description("A删除了健身目标")]
+            DeleteFitnessGoal,
+            [Description("A浏览了B的健身目标")]
+            ViewFitnessGoal,
+            [Description("A制定了健身计划")]
+            AddWorkoutPlan,
+            [Description("A更新了健身计划")]
+            UpdateWorkoutPlan,
+            [Description("A删除了健身计划")]
+            DeleteWorkoutPlan,
+            [Description("A激励了B")]
+            Motivate,
+            [Description("A更新了身体数据")]
+            UpdateBodyStatus,
+            [Description("其他")]
+            Other,
+        };
+        #endregion
+
         #region 目标相关
         public enum GoalDirection
         {

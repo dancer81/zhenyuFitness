@@ -1,0 +1,96 @@
+Log Entry :  
+ 上午 11:00:06 2016年9月27日 星期二 
+ 执行SQL语句失败：'a' 附近有语法错误。
+INSERT INTO [zhenyuFitness].[dbo].[UserBFRGoal]
+                           ([ID]
+                           ,[UserID]
+                           ,[Height]
+                           ,[GoalPhysique]
+                           ,[StartWeight]
+                           ,[StartBodyFat]
+                           ,[StartWaistSize]
+                           ,[IsKnowBFR]
+                           ,[GoalDirection]
+                           ,[GoalWeight]
+                           ,[GoalBodyFat]
+                           ,[GoalStartDate]
+                           ,[GoalCostDays]
+                           ,[IsExpired]
+                           ,[IsAchieved]
+                           ,[IsProcessing]
+                           ,[IsCanceled]
+                           ,[CreateUser]
+                           ,[CreateDate]
+                           ,[LastModifiedUser]
+                           ,[LastModifiedDate]
+                           ,[Valid])
+                     VALUES
+                           (d8e16bfc-207a-4569-a934-939c95c147a2
+                           ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                           ,170
+                           ,6
+                           ,73
+                           ,18.3
+                           ,85
+                           ,1
+                           ,1
+                           ,76.7
+                           ,8
+                           ,GETDATE()
+                           ,868
+                           ,0
+                           ,0
+                           ,1
+                           ,0
+                           ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                           ,GETDATE()
+                           ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                           ,GETDATE()
+                           ,1) 
+ ***************************************************************************************************************** 
+ Log Entry :  
+ 上午 11:01:13 2016年9月27日 星期二 
+ 执行SQL语句失败：'D6' 附近有语法错误。
+INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                   ([ID]
+                   ,[UserID_Master]
+                   ,[Type]
+                   ,[CreateUser]
+                   ,[CreateDate]
+                   ,[LastModifiedUser]
+                   ,[LastModifiedDate]
+                   ,[Valid])
+             VALUES
+                   (NEWID()
+                   ,E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE
+                   ,4
+                   ,E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE
+                   ,GETDATE()
+                   ,E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE
+                   ,GETDATE()
+                   ,1) 
+ ***************************************************************************************************************** 
+ Log Entry :  
+ 上午 11:03:50 2016年9月27日 星期二 
+ 执行SQL语句失败：不能将值 NULL 插入列 'ActivityID'，表 'zhenyuFitness.dbo.TrackActivity'；列不允许有 Null 值。INSERT 失败。
+语句已终止。
+INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                   ([ID]
+                   ,[UserID_Master]
+                   ,[Type]
+                   ,[CreateUser]
+                   ,[CreateDate]
+                   ,[LastModifiedUser]
+                   ,[LastModifiedDate]
+                   ,[Valid])
+             VALUES
+                   (NEWID()
+                   ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                   ,4
+                   ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                   ,GETDATE()
+                   ,'E3EA8D4B-54D6-4DF4-B651-2F45AB4409BE'
+                   ,GETDATE()
+                   ,1) 
+ ***************************************************************************************************************** 
+ 

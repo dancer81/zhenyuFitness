@@ -92,6 +92,7 @@ namespace zhenyuFitness.Pages.Goal
                 commonWeb.MessageBox(Page, "您尚未登录，请登录后重试。", "erroruserid1");
                 return;
             }
+            string guid = Guid.NewGuid().ToString();
             string sql =
                 string.Format(@"INSERT INTO [zhenyuFitness].[dbo].[UserBFRGoal]
                            ([ID]
@@ -117,7 +118,7 @@ namespace zhenyuFitness.Pages.Goal
                            ,[LastModifiedDate]
                            ,[Valid])
                      VALUES
-                           (NEWID()
+                           ('{13}'
                            ,'{0}'
                            ,{1}
                            ,{2}
@@ -141,17 +142,49 @@ namespace zhenyuFitness.Pages.Goal
                            ,1)", Session["UserID"].ToString(), this.startHeight,
                            this.goalPhysique, this.startWeight, this.startBFR, this.startWaistSize,
                            this.isKnowBFR ? 0 : 1, this.goalDirection, this.goalWeight, this.goalBFR,
-                           this.goalCostDays, Session["UserID"].ToString(), Session["UserID"].ToString());
+                           this.goalCostDays, Session["UserID"].ToString(), Session["UserID"].ToString(),guid);
             try
             {
                 dal.ExecSQL(sql);
             }
             catch(System.Data.SqlClient.SqlException ex)
             {
-                commonWeb.MessageBox(Page, "保存数据时出错！", "inserterror1");
+                commonWeb.MessageBox(Page, "保存健身目标时出错！", "inserterror1");
                 return;
             }
-            
+
+            #region track
+            string sqlTrackActivity = 
+                string.Format(@"INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                   ([ID]
+                   ,[UserID_Master]
+                   ,[Type]
+                   ,[CreateUser]
+                   ,[CreateDate]
+                   ,[LastModifiedUser]
+                   ,[LastModifiedDate]
+                   ,[Valid])
+             VALUES
+                   (NEWID()
+                   ,'{0}'
+                   ,{1}
+                   ,'{2}'
+                   ,GETDATE()
+                   ,'{3}'
+                   ,GETDATE()
+                   ,1)", Session["UserID"].ToString(),(int)Common.Common.ActivityTracked.AddFitnessGoal,
+                   Session["UserID"].ToString(), Session["UserID"].ToString());
+
+            try
+            {
+                dal.ExecSQL(sqlTrackActivity);
+            }
+            catch (System.Data.SqlClient.SqlException ex)
+            {
+                commonWeb.MessageBox(Page, "保存Track健身目标制定时出错！", "inserterror2");
+            }
+            #endregion
+
             Response.Redirect("../Home/DashBoard.aspx");
         }
 
