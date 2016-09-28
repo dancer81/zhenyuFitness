@@ -7,16 +7,16 @@
     <div class="container">
         <div class="row">
             <div class="col-md-9 content">
-                <div class="row">
+                <div class="row topdiv">
                     <div class="col-md-12">
-                        <a href="#" class="pull-right ">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" style="width:18px;"/>
+                        <a href="#" class="pull-right topimg">
+                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
-                        <a href="#" class="pull-right">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" style="width:18px;"/>
+                        <a href="#" class="pull-right topimg">
+                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
-                        <a href="#" class="pull-right">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" style="width:18px;"/>
+                        <a href="#" class="pull-right topimg">
+                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
                     </div>
                 </div>

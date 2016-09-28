@@ -6,3 +6,17 @@
     border:1px solid #e1e1e1;
     padding-top:10px;
 }
+.topdiv{
+    margin-bottom:10px;
+}
+
+.topdiv .col-md-12{
+    padding-right:30px;
+}
+.topimg img{
+    width:20px;
+    height:12px;
+    background-color:#00a1de;
+    border-radius:3px;
+    margin:auto 3px;
+}
