@@ -20,3 +20,148 @@
     border-radius:3px;
     margin:auto 3px;
 }
+
+.currentbodycompositionmenu .box-body .container{
+    height:300px;
+}
+
+.currentbodycompositionmenu .box-body .col-md-6{
+    text-align:center;
+}
+
+.currentdesc{
+    font-size:18px;
+    color: #919191;
+}
+
+.currentvalue{
+    color:#00aeef;
+    font-size:52px;
+    font-family:'Times New Roman';
+}
+
+.currentunit{
+    font-size:20px;
+    color:black;
+}
+
+.piechartBF {
+  position: relative;
+  display: inline-block;
+  width: 150px;
+  height: 150px;
+  text-align: center;
+
+  padding-top:18px;
+}
+.piechartBF canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.piechartBF .percent {
+  /*font-size: 1.2em;
+  font-weight: 600;
+  display: inline-block;
+  line-height: 110px;*/
+  z-index: 2;
+}
+
+.leanbar{
+    width:8px;
+    height:65px;
+    background-color:#00aeef;
+    border-radius:10px;
+}
+
+.leandesc{
+    color: #919191;
+    font-size:16px;
+}
+
+.leanvalue{
+    font-family:'Times New Roman';
+    font-size:28px;
+    color:black;
+}
+
+.leanunit{
+    color:black;
+    font-size:16px;
+}
+
+
+
+
+.BFbar{
+    width:8px;
+    height:65px;
+    background-color:black;
+    border-radius:10px;
+}
+
+.BFdesc{
+    color: #919191;
+    font-size:16px;
+}
+
+.BFvalue{
+    font-family:'Times New Roman';
+    font-size:28px;
+    color:black;
+}
+
+.BFunit{
+    color:black;
+    font-size:16px;
+}
+
+.goaldiv .col-md-3{
+    padding-top:50px;
+    padding-left:0;
+}
+
+.goaldiv .col-md-3 img{
+    width:100px;
+}
+
+.goaldate{
+    margin-bottom:20px;
+}
+
+.goaldatediv{
+    margin-bottom:5px;
+}
+.goaldatedesc{
+    font-size:16px;
+    color: #919191;
+}
+
+.goalstatusdesc{
+    font-size:16px;
+    color: #919191;
+}
+
+.goalstatusvalue{
+    font-size:14px;
+    color: #00aeef;
+}
+
+.goalstatusvalue_num{
+    font-family:'Times New Roman';
+    font-size:30px;
+    color: #00aeef;
+}
+
+.goalstatusvalue_unit{
+    font-size:16px;
+    color:black;
+}
+
+.goalstatusvaluepercent{
+    font-family:'Times New Roman';
+    font-size:16px;
+    color:black;
+}
+
+
