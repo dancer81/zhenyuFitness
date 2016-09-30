@@ -45,7 +45,7 @@
                                     </div>
                                 </div>
                                 <div class="box-body">
-                                    <div class="container">
+                                    <div class="container" style="height: 310px;">
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div><span class="currentdesc">当前体重</span></div>
@@ -73,11 +73,11 @@
                                                             <td rowspan="2">
                                                                 <div class="leanbar"></div>
                                                             </td>
-                                                            <td colspan="2" class="leandesc"><span>瘦体重</span></td>
+                                                            <td colspan="2" class="leandesc"><span>&nbsp;&nbsp;瘦体重</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span class="leanvalue">54.6</span>
+                                                                <span class="leanvalue">&nbsp;54.6</span>
                                                             </td>
                                                             <td>
                                                                 <span class="leanunit">千克</span>
@@ -91,11 +91,11 @@
                                                             <td rowspan="2">
                                                                 <div class="BFbar"></div>
                                                             </td>
-                                                            <td colspan="2" class="BFdesc"><span>体脂肪</span></td>
+                                                            <td colspan="2" class="BFdesc"><span>&nbsp;&nbsp;体脂肪</span></td>
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span class="BFvalue">15.4</span>
+                                                                <span class="BFvalue">&nbsp;15.4</span>
                                                             </td>
                                                             <td>
                                                                 <span class="BFunit">千克</span>
@@ -110,7 +110,7 @@
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <div class="box border currentbodycompositionmenu">
+                            <div class="box border goalsection">
                                 <div class="box-title" style="background-color: #f5f6f6">
                                     <span style="color: #919191; font-weight: bold;">目标体重和体脂率</span>
                                     <div class="btn-group dropdown pull-right">
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="box-body goaldiv">
-                                    <div class="container">
+                                    <div class="container" <%--style="height: 300px;--%>">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <img src="http://localhost/resources/img/physique/women/fit_woman-large.png" alt="" />
@@ -154,7 +154,7 @@
                                                         <div class="col-md-12 goalstatus">
                                                             <table>
                                                                 <tr>
-                                                                    <td style="width: 108px;height: 80px;">
+                                                                    <td style="width: 108px; height: 70px;">
                                                                         <div><span class="goalstatusdesc">目标体型</span></div>
                                                                         <div><span class="goalstatusvalue">健康女士</span></div>
                                                                     </td>
@@ -163,8 +163,15 @@
                                                                         <div><span class="goalstatusvalue">塑形</span></div>
                                                                     </td>
                                                                 </tr>
+
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-12 goalstatus">
+                                                            <table>
                                                                 <tr>
-                                                                    <td style="width: 108px;height: 45px;">
+                                                                    <td style="width: 108px; height: 45px;">
                                                                         <div><span class="goalstatusdesc">目标体重</span></div>
                                                                         <div><span class="goalstatusvalue_num">65.5</span><span class="goalstatusvalue_unit">千克</span></div>
                                                                     </td>
@@ -179,10 +186,152 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-12"><span>体重：体重：体重：体重：</span></div>
-                                            
+                                        <div class="row goalprogress">
+                                            <table style="width: 95%">
+                                                <tr>
+                                                    <td style="width: 15%; color: #919191;">体重&nbsp;</td>
+                                                    <td style="width: 55%;">
+                                                        <div class="progress progress-striped active" style="margin: 10px;">
+
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="width: 30%; text-align: center;">
+                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">55%</span><a class="collapsed" data-toggle="collapse" href="#weightprogressstatus" aria-expanded="false" aria-controls="collapseTwo" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div id="weightprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                            <div class="panel-body">
+                                                                <table style="width:99%;text-align:center;font-family:KaiTi;font-size:16px;color:black;">
+                                                                    <tr>
+                                                                        <td style="width:25%;">起始数值</td>
+                                                                        <td>起始日期</td>
+                                                                        <td>目标数值</td>
+                                                                        <td>剩余天数</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><span style="font-family:'Times New Roman';">70</span><span>千克</span></td>
+                                                                        <td style="font-family:'Times New Roman';">2016-9-1</td>
+                                                                        <td><span style="font-family:'Times New Roman';">75</span><span>千克</span></td>
+                                                                        <td><span style="font-family:'Times New Roman';">386</span><span>天</span></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="width: 15%; color: #919191;">体脂率&nbsp;</td>
+                                                    <td style="width: 55%;">
+                                                        <div class="progress progress-striped active" style="margin: 10px;">
+
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="width: 30%; text-align: center;">
+                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">35%</span><a class="collapsed" data-toggle="collapse" href="#BFprogressstatus" aria-expanded="false" aria-controls="collapseThree" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td colspan="3">
+                                                        <div id="BFprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                            <div class="panel-body">
+                                                                <table style="width:99%;text-align:center;font-family:KaiTi;font-size:16px;color:black;">
+                                                                    <tr>
+                                                                        <td>起始数值</td>
+                                                                        <td>起始日期</td>
+                                                                        <td>目标数值</td>
+                                                                        <td>剩余天数</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td><span style="font-family:'Times New Roman';">25</span><span style="font-family:'Times New Roman';">%</span></td>
+                                                                        <td style="font-family:'Times New Roman';">2016-9-1</td>
+                                                                        <td style="font-family:'Times New Roman';"><span>15</span><span style="font-family:'Times New Roman';">%</span></td>
+                                                                        <td style="font-family:'Times New Roman';"><span>386</span><span style="font-family:KaiTi;">天</span></td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="row bodychangedivleft">
+                                <div class="col-md-6">
+                                    <div class="changediv">
+                                        <table>
+                                            <tr>
+                                                <td class="changedivtitle">体重变化</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivvalue">1.5</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivunit">千克.增加</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="changediv">
+                                        <table>
+                                            <tr>
+                                                <td class="changedivtitle">体脂率变化</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivvalue">3</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivunit">%.增加</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row bodychangedivright">
+                                <div class="col-md-6">
+                                    <div class="changediv">
+                                        <table>
+                                            <tr>
+                                                <td class="changedivtitle">已实现目标数</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivvalue">2</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivunit">已实现</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="changediv">
+                                        <table>
+                                            <tr>
+                                                <td class="changedivtitle">实现目标比例</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivvalue">12%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="changedivunit">共8个</td>
+                                            </tr>
+                                        </table>
                                     </div>
                                 </div>
                             </div>

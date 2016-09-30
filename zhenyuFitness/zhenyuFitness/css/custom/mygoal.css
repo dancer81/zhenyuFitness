@@ -1,167 +1,212 @@
 ﻿body {
 }
 
-.content{
-    background-color:white;
-    border:1px solid #e1e1e1;
-    padding-top:10px;
-}
-.topdiv{
-    margin-bottom:10px;
+.content {
+    background-color: white;
+    border: 1px solid #e1e1e1;
+    padding-top: 10px;
 }
 
-.topdiv .col-md-12{
-    padding-right:30px;
-}
-.topimg img{
-    width:20px;
-    height:12px;
-    background-color:#00a1de;
-    border-radius:3px;
-    margin:auto 3px;
+.topdiv {
+    margin-bottom: 10px;
 }
 
-.currentbodycompositionmenu .box-body .container{
-    height:300px;
+    .topdiv .col-md-12 {
+        padding-right: 30px;
+    }
+
+.topimg img {
+    width: 20px;
+    height: 12px;
+    background-color: #00a1de;
+    border-radius: 3px;
+    margin: auto 3px;
 }
 
-.currentbodycompositionmenu .box-body .col-md-6{
-    text-align:center;
+.currentbodycompositionmenu .box-body .col-md-6 {
+    text-align: center;
 }
 
-.currentdesc{
-    font-size:18px;
+.currentdesc {
+    font-size: 18px;
     color: #919191;
 }
 
-.currentvalue{
-    color:#00aeef;
-    font-size:52px;
-    font-family:'Times New Roman';
+.currentvalue {
+    color: #00aeef;
+    font-size: 52px;
+    font-family: 'Times New Roman';
 }
 
-.currentunit{
-    font-size:20px;
-    color:black;
+.currentunit {
+    font-size: 20px;
+    color: black;
 }
 
 .piechartBF {
-  position: relative;
-  display: inline-block;
-  width: 150px;
-  height: 150px;
-  text-align: center;
+    position: relative;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    padding-top: 18px;
+}
 
-  padding-top:18px;
-}
-.piechartBF canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-.piechartBF .percent {
-  /*font-size: 1.2em;
+    .piechartBF canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .piechartBF .percent {
+        /*font-size: 1.2em;
   font-weight: 600;
   display: inline-block;
   line-height: 110px;*/
-  z-index: 2;
+        z-index: 2;
+    }
+
+.leanbar {
+    width: 8px;
+    height: 65px;
+    background-color: #00aeef;
+    border-radius: 10px;
 }
 
-.leanbar{
-    width:8px;
-    height:65px;
-    background-color:#00aeef;
-    border-radius:10px;
-}
-
-.leandesc{
+.leandesc {
     color: #919191;
-    font-size:16px;
+    font-size: 16px;
 }
 
-.leanvalue{
-    font-family:'Times New Roman';
-    font-size:28px;
-    color:black;
+.leanvalue {
+    font-family: 'Times New Roman';
+    font-size: 28px;
+    color: black;
 }
 
-.leanunit{
-    color:black;
-    font-size:16px;
+.leanunit {
+    color: black;
+    font-size: 16px;
 }
 
 
 
 
-.BFbar{
-    width:8px;
-    height:65px;
-    background-color:black;
-    border-radius:10px;
+.BFbar {
+    width: 8px;
+    height: 65px;
+    background-color: black;
+    border-radius: 10px;
 }
 
-.BFdesc{
+.BFdesc {
     color: #919191;
-    font-size:16px;
+    font-size: 16px;
 }
 
-.BFvalue{
-    font-family:'Times New Roman';
-    font-size:28px;
-    color:black;
+.BFvalue {
+    font-family: 'Times New Roman';
+    font-size: 28px;
+    color: black;
 }
 
-.BFunit{
-    color:black;
-    font-size:16px;
+.BFunit {
+    color: black;
+    font-size: 16px;
 }
 
-.goaldiv .col-md-3{
-    padding-top:50px;
-    padding-left:0;
+.goaldiv .col-md-3 {
+    padding-top: 50px;
+    padding-left: 0;
 }
 
-.goaldiv .col-md-3 img{
-    width:100px;
+    .goaldiv .col-md-3 img {
+        width: 100px;
+    }
+
+.goaldate {
+    margin-bottom: 20px;
 }
 
-.goaldate{
-    margin-bottom:20px;
+.goaldatediv {
+    margin-bottom: 5px;
 }
 
-.goaldatediv{
-    margin-bottom:5px;
-}
-.goaldatedesc{
-    font-size:16px;
-    color: #919191;
-}
-
-.goalstatusdesc{
-    font-size:16px;
+.goaldatedesc {
+    font-size: 16px;
     color: #919191;
 }
 
-.goalstatusvalue{
-    font-size:14px;
+.goalstatusdesc {
+    font-size: 16px;
+    color: #919191;
+}
+
+.goalstatusvalue {
+    font-size: 14px;
     color: #00aeef;
 }
 
-.goalstatusvalue_num{
+.goalstatusvalue_num {
+    font-family: 'Times New Roman';
+    font-size: 30px;
+    color: #00aeef;
+}
+
+.goalstatusvalue_unit {
+    font-size: 16px;
+    color: black;
+}
+
+.goalstatusvaluepercent {
+    font-family: 'Times New Roman';
+    font-size: 16px;
+    color: black;
+}
+
+.bodychangedivright{
+    background: -webkit-gradient(linear, 0% 50%, 100% 50%,from(#e5e5e5), to(white));
+}
+
+.bodychangedivleft{
+    /*d2d5d5*/
+    background: -webkit-gradient(linear, 100% 50%, 0% 50%,from(#e5e5e5), to(white));/*谷歌*/
+}
+.bodychangediv { 
+    /*background: -ms-linear-gradient(top, #fff000, #0000ff);*/ /* IE 10 */
+    /*background: -moz-linear-gradient(top,#b8c4cb,#f6f6f8);*/ /*火狐*/
+    /*background: -webkit-gradient(linear, 50% 50%, 0% 0%,from(#f5f6f6), to(white));*/ /*谷歌*/
+    /*background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#0000ff));*/ /* Safari 4-5, Chrome 1-9*/
+    /*background: -webkit-linear-gradient(top, #fff, #0000ff);*/ /*Safari5.1 Chrome 10+*/
+    /*background: -o-linear-gradient(top, #fff, #0000ff);*/ /*Opera 11.10+*/
+}
+
+.changediv {
+    margin: 6px;
+    border: 1px solid #e1e1e1;
+    height: 150px;
+    background:linear-gradient(to bottom,#fff,#f4f4f4);
+    border-radius:3px;
+    border:1px solid #dfdfdf;
+}
+
+.changediv table{
+    width:100%;
+    height:100%;
+    text-align:center;
+}
+
+.changedivtitle{
+    color:#919191;
+    font-size:16px;
+}
+
+.changedivvalue{
     font-family:'Times New Roman';
     font-size:30px;
-    color: #00aeef;
 }
 
-.goalstatusvalue_unit{
-    font-size:16px;
-    color:black;
+.changedivunit{
+    color:#919191;
+    font-size:13px;
 }
-
-.goalstatusvaluepercent{
-    font-family:'Times New Roman';
-    font-size:16px;
-    color:black;
-}
-
-
