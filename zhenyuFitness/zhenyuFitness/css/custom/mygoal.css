@@ -210,3 +210,25 @@
     color:#919191;
     font-size:13px;
 }
+
+#progresschartssection{
+    margin-top:20px;
+    /*background-color:red;*/
+}
+
+#progresschartssection .box-body{
+    margin-left:0;
+    padding-left:0;
+    padding-top:0;
+    padding-right:0;
+    /*background-color:red;*/
+}
+
+#canvasDiv{
+    margin:0 0;
+    border:none;
+    width:100%;
+    padding-left:0;
+    padding-top:0;
+    padding-right:0;
+}

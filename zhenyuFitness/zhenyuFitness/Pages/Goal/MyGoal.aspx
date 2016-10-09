@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="box-body goaldiv">
-                                    <div class="container" <%--style="height: 300px;--%>">
+                                    <div class="container">
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <img src="http://localhost/resources/img/physique/women/fit_woman-large.png" alt="" />
@@ -205,18 +205,18 @@
                                                     <td colspan="3">
                                                         <div id="weightprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                             <div class="panel-body">
-                                                                <table style="width:99%;text-align:center;font-family:KaiTi;font-size:16px;color:black;">
+                                                                <table style="width: 99%; text-align: center; font-family: KaiTi; font-size: 16px; color: black;">
                                                                     <tr>
-                                                                        <td style="width:25%;">起始数值</td>
+                                                                        <td style="width: 25%;">起始数值</td>
                                                                         <td>起始日期</td>
                                                                         <td>目标数值</td>
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family:'Times New Roman';">70</span><span>千克</span></td>
-                                                                        <td style="font-family:'Times New Roman';">2016-9-1</td>
-                                                                        <td><span style="font-family:'Times New Roman';">75</span><span>千克</span></td>
-                                                                        <td><span style="font-family:'Times New Roman';">386</span><span>天</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                                        <td style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                                        <td><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';">386</span><span>天</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -240,7 +240,7 @@
                                                     <td colspan="3">
                                                         <div id="BFprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
                                                             <div class="panel-body">
-                                                                <table style="width:99%;text-align:center;font-family:KaiTi;font-size:16px;color:black;">
+                                                                <table style="width: 99%; text-align: center; font-family: KaiTi; font-size: 16px; color: black;">
                                                                     <tr>
                                                                         <td>起始数值</td>
                                                                         <td>起始日期</td>
@@ -248,10 +248,10 @@
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family:'Times New Roman';">25</span><span style="font-family:'Times New Roman';">%</span></td>
-                                                                        <td style="font-family:'Times New Roman';">2016-9-1</td>
-                                                                        <td style="font-family:'Times New Roman';"><span>15</span><span style="font-family:'Times New Roman';">%</span></td>
-                                                                        <td style="font-family:'Times New Roman';"><span>386</span><span style="font-family:KaiTi;">天</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';">25</span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                                        <td style="font-family: 'Times New Roman';"><span>15</span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td style="font-family: 'Times New Roman';"><span>386</span><span style="font-family: KaiTi;">天</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -338,18 +338,76 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="container" id="progresschartssection">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box border">
+                                <div class="box-title" style="background-color: #f5f6f6">
+                                    <span style="color: #919191; font-weight: bold;">进度追踪</span>
+                                    <div class="btn-group dropdown pull-right">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-gear"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">更新体重数据</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">更新体脂率数据</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body">
+                                        <div class="panel-group" id="accordion">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Group Item #1 </a></h3>
+                                                </div>
+                                                <div id="collapseOne" class="panel-collapse collapse in">
+                                                    <div id="chart1" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Group Item #2 </a></h3>
+                                                </div>
+                                                <div id="collapseTwo" class="panel-collapse collapse">
+                                                    <div id="chart2" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                </div>
+                                            </div>
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Group Item #3 </a></h3>
+                                                </div>
+                                                <div id="collapseThree" class="panel-collapse collapse">
+                                                    <div id="chart3" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-2">插入推荐文章</div>
         </div>
     </div>
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
+
+    <script src="../../js/icharts.js/dist/ichartjs.base.js"></script>
+    <script src="../../js/icharts.js/dist/ichart.coordinate.js"></script>
+    <script src="../../js/icharts.js/dist/ichartjs.line.js"></script>
+    <script src="../../js/icharts.js/ichart.linebasic2d.minify.js"></script>
+    <%--    <script src='http://www.ichartjs.com/ichart.latest.min.js'></script>--%>
     <script>
         jQuery(document).ready(function () {
             App.init();
             initMyGoal();
-
         });
     </script>
 </asp:Content>

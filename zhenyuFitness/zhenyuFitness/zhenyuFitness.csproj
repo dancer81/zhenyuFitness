@@ -101,6 +101,12 @@
     <Content Include="css\inputstyle.css" />
     <Content Include="js\custom\generalMaster.js" />
     <Content Include="js\custom\mygoal.js" />
+    <Content Include="js\icharts.js\dist\ichart.coordinate.js" />
+    <Content Include="js\icharts.js\dist\ichartjs.base.js" />
+    <Content Include="js\icharts.js\dist\ichartjs.column.js" />
+    <Content Include="js\icharts.js\dist\ichartjs.line.js" />
+    <Content Include="js\icharts.js\dist\ichartjs.pie.js" />
+    <Content Include="js\icharts.js\ichart.linebasic2d.minify.js" />
     <Content Include="js\icheck_blue\blue%402x.png" />
     <Content Include="js\icheck_blue\blue.css" />
     <Content Include="js\icheck_blue\blue.png" />
