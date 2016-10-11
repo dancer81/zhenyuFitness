@@ -1146,6 +1146,7 @@
     <Content Include="Pages\Goal\GoalSetting.aspx" />
     <Content Include="Pages\Goal\MyGoal.aspx" />
     <Content Include="Pages\Home\DashBoard.aspx" />
+    <Content Include="Pages\Home\FitSpaceHome.aspx" />
     <Content Include="Pages\Login\forgetPassword.aspx" />
     <Content Include="Pages\Login\Register.aspx" />
     <Content Include="Pages\LoujunjieAdmin\Admin_ExerciseEdit.aspx" />
@@ -1205,6 +1206,13 @@
     </Compile>
     <Compile Include="Pages\Home\DashBoard.aspx.designer.cs">
       <DependentUpon>DashBoard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Home\FitSpaceHome.aspx.cs">
+      <DependentUpon>FitSpaceHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home\FitSpaceHome.aspx.designer.cs">
+      <DependentUpon>FitSpaceHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login\forgetPassword.aspx.cs">
       <DependentUpon>forgetPassword.aspx</DependentUpon>

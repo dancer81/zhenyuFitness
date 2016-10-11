@@ -27,15 +27,15 @@ namespace zhenyuFitness.Pages.Goal
         public string gender;
         public string age;
 
-        private MssqlDal dal;
-        private HttpRequest request = HttpContext.Current.Request;
-        private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
+        //private MssqlDal dal;
+        //private HttpRequest request = HttpContext.Current.Request;
+        //private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
 
         protected new void Page_Load(object sender, EventArgs e)
         {
-            dal = new MssqlDal(Common.Common.DBConnectionStr, Server.MapPath(Common.Common.DbLog));
+            //dal = new MssqlDal(Common.Common.DBConnectionStr, Server.MapPath(Common.Common.DbLog));
             base.Page_Load(sender, e);
-            ((generalMaster)this.Master).pagePath = @"<li>健身目标制定</li>";
+            ((generalMaster)this.Master).pagePath = @"<li><a href='../Home/FitSpaceHome.aspx'>FitSpace社区</a></li><li>目标</li><li>健身目标制定</li>";
             if (request.Form.Count == 0)
             {
                 this.InitPage();

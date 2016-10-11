@@ -60,7 +60,7 @@ function initMenuUrl(o)
     }
 
     if (oJquery.find("span").html() == "我的目标") {
-        return "/zhenyuFitness/Pages/Goal/MyGoal.aspx";
+        return "/zhenyuFitness/Pages/Goal/MyGoal.aspx?menu=a1-a11";
     }
     else if(oJquery.find("span").html() == "目标制定")
     {

@@ -224,11 +224,138 @@
     /*background-color:red;*/
 }
 
-#canvasDiv{
-    margin:0 0;
+#chart1{
+    margin:0 auto;
     border:none;
     width:100%;
     padding-left:0;
     padding-top:0;
     padding-right:0;
+    /*background-color:red;*/
 }
+
+.othergoalboxbody{
+}
+
+.othergoalcontainer{
+    height: 400px; 
+    overflow-y: auto; 
+    overflow-x: hidden;
+}
+
+.othergoaltitle{
+    color:#919191;
+    font-size:16px;
+}
+
+.othergoalfield{
+    color:#919191;
+    font-size:14px;
+}
+
+.othergoalvalue{
+    color:#919191;
+}
+
+.othergoalprogressdesc{
+    font-family:KaiTi;
+    height:28px;
+}
+
+.othergoaloperation{
+    padding-bottom:10px;
+    border-bottom:solid 1px #555555;
+}
+
+.othergoalseperator{
+    height:12px;
+}
+
+
+.progressphotobefore{
+    /*text-align:center;*/
+    width:196px;
+    height:196px;
+    background-image:url(http://localhost/resources/img/d42c65949cce4799b0c40009562b646b-196x196.jpg);
+   
+}
+
+.progressphotocurrent{
+    /*text-align:center;*/
+    width:196px;
+    height:196px;
+    background-image:url(http://localhost/resources/img/89ef486aed63462a84745ca62dc0f847-196x196.jpg);
+}
+
+/*.progressPhototext{
+    position:absolute;
+    width:190px;
+    left:0px;
+    top:145px;
+    width:190px;
+    color:white;
+    margin-top:160px;
+}*/
+
+.beforetexttable{
+    height:180px;
+    margin-left:10px;
+    width:94%;
+    color:white;
+    padding-top:150px;
+}
+
+.beforeorcurrenttext{
+    height:170px;
+    padding-top:150px;
+    font-family:KaiTi;
+    font-size:15px;
+}
+
+.phototimestamp{
+    width:35%;
+    text-align:left;
+    font-size:7px;
+    font-family:'Times New Roman';
+}
+
+.progressphotoweight{
+    width:50%;
+    text-align:right;
+    padding-right:5px;
+    font-size:7px;
+    font-family:KaiTi;
+}
+
+.progressphotoBF{
+    width:15%;
+    text-align:right;
+    font-size:7px;
+    font-family:'Times New Roman';
+}
+
+.otherprogressphototable{
+    margin-left:16px;
+}
+
+.progressphotocount{
+    color:#00aeef;
+    font-size:40px;
+    font-family:'Times New Roman';
+}
+
+.progressphotocountdesc{
+    color:#919191;
+    font-size:10px;
+    font-family:微软雅黑;
+}
+
+.otherprogressphoto{
+    width:65px;
+    height:65px;
+    background-color:#C8C8C8;
+}
+
+
+
+

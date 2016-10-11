@@ -20,7 +20,7 @@ namespace zhenyuFitness.Pages.Exercises
         protected void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
-            ((generalMaster)this.Master).pagePath = @"<li>动作列表页</li>";
+            ((generalMaster)this.Master).pagePath = @"<li>训练大厅</li><li>健身动作库</li><li>动作列表页</li>";
             if (!IsPostBack)
             {
 

@@ -72,9 +72,9 @@ namespace zhenyuFitness.Common
         /// <param name="msg">弹出框里的信息</param>
         /// <param name="key">脚本标识，随意</param>
         /// <param name="callback">弹出框消失后执行的方法（前台脚本）</param>
-        public void MessageBoxAlertWithCallBack(Page page, string msg, string key, string callback)
+        public void MessageBoxAlertWithCallBack(Page page, string msg, string key, string jscallback)
         {
-            string alertParam = string.Format("size:'small',message:'{0}',callback:{1}", msg, callback);
+            string alertParam = string.Format("size:'small',message:'{0}',callback:{1}", msg, jscallback);
             page.ClientScript.RegisterStartupScript(GetType(), key, "<script>bootbox.alert({" + alertParam + "})</script>");
         }
         #endregion

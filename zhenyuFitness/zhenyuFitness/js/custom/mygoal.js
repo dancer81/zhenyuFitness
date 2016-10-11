@@ -55,27 +55,30 @@ function initchart() {
 
 function initchart1() {
 
-        var pv = [], ip = [], t;
-        for (var i = 0; i < 8; i++) {
+    var goalweight = [], weighthistory = [], t;
+        for (var i = 0; i < 3; i++) {
             t = i + 10;
             //t = Math.floor(Math.random() * (30 + ((i % 12) * 5))) + 10;
-            pv.push(t);
+            weighthistory.push(t);
+        }
+
+        for (var i = 0; i < 8; i++) {
             //t = Math.floor(t * 0.5);
             //t = t - Math.floor((Math.random() * t) / 2);
             t = 50;
-            ip.push(t);
+            goalweight.push(t);
         }
 
         var data = [
                     {
-                        name: 'PV',
-                        value: pv,
+                        name: '目标体重',
+                        value: goalweight,
                         color: '#0d8ecf',
                         line_width: 2
                     },
                     {
-                        name: 'IP',
-                        value: ip,
+                        name: '历史体重',
+                        value: weighthistory,
                         color: '#ef7707',
                         line_width: 2
                     }
@@ -86,11 +89,11 @@ function initchart1() {
             render: 'chart1',
             data: data,
             align: 'center',
-            title: 'ichartjs官方网站最近5天流量趋势',
-            subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-            footnote: '数据来源：模拟数据',
+            title: '您的体重变化曲线',
+            //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
+            //footnote: '数据来源：模拟数据',
             width: 760,
-            height: 400,
+            height: 350,
             border:{
 				width:[0,0,0,0]
 			},
@@ -123,12 +126,12 @@ function initchart1() {
                     color: '#9f9f9f',
                     width: [0, 0, 2, 2]
                 },
-                grids: {
-                    vertical: {
-                        way: 'share_alike',
-                        value: 5
-                    }
-                },
+                //grids: {
+                //    vertical: {
+                //        way: 'share_alike',
+                //        value: 5
+                //    }
+                //},
                 scale: [{
                     position: 'left',
                     start_scale: 0,
@@ -166,13 +169,13 @@ function initchart2() {
 
     var data = [
                 {
-                    name: 'PV',
+                    name: '目标体脂率',
                     value: pv,
                     color: '#0d8ecf',
                     line_width: 2
                 },
                 {
-                    name: 'IP',
+                    name: '历史体脂率',
                     value: ip,
                     color: '#ef7707',
                     line_width: 2
@@ -184,9 +187,9 @@ function initchart2() {
         render: 'chart2',
         data: data,
         align: 'center',
-        title: 'ichartjs官方网站最近5天流量趋势',
-        subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-        footnote: '数据来源：模拟数据',
+        title: '您的体脂率变化曲线',
+        //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
+        //footnote: '数据来源：模拟数据',
         width: 760,
         height: 400,
         border: {
@@ -264,13 +267,13 @@ function initchart3() {
 
     var data = [
                 {
-                    name: 'PV',
+                    name: '目标净体重',
                     value: pv,
                     color: '#0d8ecf',
                     line_width: 2
                 },
                 {
-                    name: 'IP',
+                    name: '历史净体重',
                     value: ip,
                     color: '#ef7707',
                     line_width: 2
@@ -282,9 +285,9 @@ function initchart3() {
         render: 'chart3',
         data: data,
         align: 'center',
-        title: 'ichartjs官方网站最近5天流量趋势',
-        subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-        footnote: '数据来源：模拟数据',
+        title: '您的净体重变化曲线',
+        //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
+        //footnote: '数据来源：模拟数据',
         width: 760,
         height: 400,
         border: {

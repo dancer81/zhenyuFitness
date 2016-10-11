@@ -57,13 +57,13 @@ namespace zhenyuFitness.Pages.Exercises
         public string Html_morethanoneOtherMuscle = "";
         public string Html_Comment = string.Empty;
 
-        private MssqlDal dal;// = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
-        private HttpRequest request = HttpContext.Current.Request;
-        private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
+        //private MssqlDal dal;// = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
+        //private HttpRequest request = HttpContext.Current.Request;
+        //private CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
 
         protected new void Page_Load(object sender, EventArgs e)
         {
-            dal = new MssqlDal(Common.Common.DBConnectionStr, Server.MapPath(Common.Common.DbLog));
+            //dal = new MssqlDal(Common.Common.DBConnectionStr, Server.MapPath(Common.Common.DbLog));
             base.Page_Load(sender, e);
 
             this.InitPageContent();
@@ -245,7 +245,7 @@ namespace zhenyuFitness.Pages.Exercises
                 if (dt.Rows[0]["OfficialName"] != null)
                 {
                     this.officalName = dt.Rows[0]["OfficialName"].ToString();
-                    ((generalMaster)this.Master).pagePath = "<li><a href='ExercisesList.aspx'>动作列表页</a></li><li>" + this.officalName + "</li>";
+                    ((generalMaster)this.Master).pagePath = "<li>训练大厅</li><li>健身动作库</li><li><a href='ExercisesList.aspx'>动作列表页</a></li><li>" + this.officalName + "</li>";
                 }
                 //动作别名
                 if (dt.Rows[0]["OtherName"] != null)

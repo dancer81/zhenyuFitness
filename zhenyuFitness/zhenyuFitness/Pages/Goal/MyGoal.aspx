@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/generalMaster.Master" AutoEventWireup="true" CodeBehind="MyGoal.aspx.cs" Inherits="zhenyuFitness.Pages.Goal.MyGoal" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <title>健身目标总览</title>
     <link href="../../css/custom/mygoal.css" rel="stylesheet" />
 
     <script src="../../js/jquery-easing/jquery.easing.min.js"></script>
@@ -363,26 +364,764 @@
                                         <div class="panel-group" id="accordion">
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Group Item #1 </a></h3>
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="color: #919191">体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse in">
-                                                    <div id="chart1" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                    <div id="chart1" class="panel-body"></div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Group Item #2 </a></h3>
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span style="color: #919191">体脂率追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseTwo" class="panel-collapse collapse">
-                                                    <div id="chart2" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                    <div id="chart2" class="panel-body"></div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Group Item #3 </a></h3>
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="color: #919191">净体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse">
-                                                    <div id="chart3" class="panel-body">Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS. </div>
+                                                    <div id="chart3" class="panel-body"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="box border">
+                                <div class="box-title" style="background-color: #f5f6f6">
+                                    <span style="color: #919191; font-weight: bold;">力量型目标</span>
+                                </div>
+                                <div class="box-body othergoalboxbody">
+                                    <div class="container othergoalcontainer">
+                                        <table style="width: 100%" id="squatstable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">自由杠铃深蹲</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="deadlifttable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">杠铃传统硬拉</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="barbellpresstable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">杠铃平板卧推</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="shoulderpresstable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">杠铃肩上推举</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="barbellrowtable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">杠铃划船</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="barbellcurltable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle"><a href="#">杠铃二头弯举</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="box border goalsection">
+                                <div class="box-title" style="background-color: #f5f6f6">
+                                    <span style="color: #919191; font-weight: bold;">测量型目标</span>
+                                </div>
+                                <div class="box-body goaldiv">
+                                    <div class="container" style="height: 400px; overflow-y: auto; overflow-x: hidden;">
+                                        <table style="width: 100%" id="chesttable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">胸围</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="armtable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">上臂围度</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="waisttable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">腰围</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="thighstable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">大腿围度</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="calvestable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">小腿围度</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="forearmstable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">前臂围度</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="shouldertable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">肩膀围度</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                        <table style="width: 100%" id="hiptable">
+                                            <tr>
+                                                <td colspan="4" class="othergoaltitle">臀围</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
+                                                    <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalfield">起始数值</td>
+                                                <td class="othergoalfield">起始日期</td>
+                                                <td class="othergoalfield">目标数值</td>
+                                                <td class="othergoalfield">达成日期</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>101<span>千克</span></span>
+                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
+                                                    <span>状态：<span>进行中</span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标编辑</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a>目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="othergoalseperator"></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container" id="progressPhotossection">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="box border">
+                                <div class="box-title" style="background-color: #f5f6f6">
+                                    <span style="color: #919191; font-weight: bold;">您的进展照片</span>
+                                    <div class="btn-group dropdown pull-right">
+                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                            <i class="fa fa-gear"></i>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="#">上传您的进展照片</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="box-body">
+                                    <div class="box-body" style="height: 240px;">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <div class="progressphotobefore">
+                                                        <div class="progressPhototext">
+                                                            <table class="beforetexttable">
+                                                                <tr>
+                                                                    <td colspan="3" class="beforeorcurrenttext">以前：</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="phototimestamp">2015-9-1</td>
+                                                                    <td class="progressphotoweight">61千克</td>
+                                                                    <td class="progressphotoBF">31%</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <div class="progressphotocurrent">
+                                                        <div class="progressPhototext">
+                                                            <table class="beforetexttable">
+                                                                <tr>
+                                                                    <td colspan="3" class="beforeorcurrenttext">现在：</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="phototimestamp">2016-11-1</td>
+                                                                    <td class="progressphotoweight">52千克</td>
+                                                                    <td class="progressphotoBF">23.5%</td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <table class="otherprogressphototable">
+                                                        <tr>
+                                                            <td colspan="3"><a href="#" class="progressphotocount">0</a><span class="progressphotocountdesc">张进展相关照片</span></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td><div class="otherprogressphoto"></div></td>
+                                                        </tr>
+                                                    </table>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,3 +1150,41 @@
         });
     </script>
 </asp:Content>
+
+
+
+<%--<tr>
+                                                <td style="width: 15%; color: #919191;">体脂率&nbsp;</td>
+                                                <td style="width: 55%;">
+                                                    <div class="progress progress-striped active" style="margin: 10px;">
+
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td style="width: 30%; text-align: center;">
+                                                    <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">35%</span><a class="collapsed" data-toggle="collapse" href="#BFprogressstatus" aria-expanded="false" aria-controls="collapseThree" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3">
+                                                    <div id="BFprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                                        <div class="panel-body">
+                                                            <table style="width: 99%; text-align: center; font-family: KaiTi; font-size: 16px; color: black;">
+                                                                <tr>
+                                                                    <td>起始数值</td>
+                                                                    <td>起始日期</td>
+                                                                    <td>目标数值</td>
+                                                                    <td>剩余天数</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td><span style="font-family: 'Times New Roman';">25</span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                    <td style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                                    <td style="font-family: 'Times New Roman';"><span>15</span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                    <td style="font-family: 'Times New Roman';"><span>386</span><span style="font-family: KaiTi;">天</span></td>
+                                                                </tr>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>--%>
