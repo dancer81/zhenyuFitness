@@ -33,7 +33,7 @@
     <!-- JQUERY UI-->
     <script src="<%=appRootPath %>/js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
     <!-- BOOTSTRAP -->
-    <script src="<%=appRootPath %>/js/bootstrap-dist/js/bootstrap.min.js"></script>
+    <script src="<%=appRootPath %>/js/bootstrap-dist/js/bootstrap.js"></script>
 
     <!-- DATE RANGE PICKER -->
     <script src="<%=appRootPath %>/js/bootstrap-daterangepicker/moment.min.js"></script>

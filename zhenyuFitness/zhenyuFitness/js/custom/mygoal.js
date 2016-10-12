@@ -349,3 +349,23 @@ function initchart3() {
 
 
 }
+
+
+//function deleteCurrentBFRGoal()
+//{
+//    bootbox.confirm({
+//        title: "删除目标",
+//        message: "<span style=\"font-size:16px;\">您确定要删除当前健身目标吗？</span>",
+//        buttons: {
+//            cancel: {
+//                label: '<i class="fa fa-times"></i> 取消'
+//            },
+//            confirm: {
+//                label: '<i class="fa fa-check"></i> 确定'
+//            }
+//        },
+//        callback: function (result) {
+//            //console.log('This was logged in the callback: ' + result);
+//        }
+//    });
+//}

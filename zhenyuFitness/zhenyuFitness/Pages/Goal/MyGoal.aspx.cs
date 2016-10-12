@@ -11,6 +11,7 @@ namespace zhenyuFitness.Pages.Goal
 {
     public partial class MyGoal : BasePage
     {
+        private string userID;
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
@@ -48,7 +49,6 @@ namespace zhenyuFitness.Pages.Goal
         }
 
         #region 本页面特有
-        private string userID;
         //UserBFRGoal
         private float height;
         private int goalPhysique;
@@ -111,7 +111,7 @@ namespace zhenyuFitness.Pages.Goal
                   ,[IsProcessing]
                   ,[IsCanceled]
               FROM [zhenyuFitness].[dbo].[UserBFRGoal] where Valid = 1 and UserID='{0}
-              order by IsProcessing desc, IsAchieved desc, IsCanceled desc, IsExpired desc'", this.userID);
+              order by CreateDate desc,IsProcessing desc, IsAchieved desc, IsCanceled desc, IsExpired desc'", this.userID);
 
             DataTable dtBFRGoal = dal.DoSelectToTable(sql,"");
             if (dtBFRGoal != null && dtBFRGoal.Rows.Count > 0)

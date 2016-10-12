@@ -32,15 +32,18 @@
                                 <div class="box-title" style="background-color: #f5f6f6">
                                     <span style="color: #919191; font-weight: bold;">当前身体成分</span>
                                     <div class="btn-group dropdown pull-right">
-                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                             <i class="fa fa-gear"></i>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="#">更新体重数据</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentWeight">更新体重数据</a>
                                             </li>
                                             <li>
-                                                <a href="#">更新体脂率数据</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentBF">更新体脂率数据</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-toggle="modal" data-target="#deleteCurrentGoal">删除当前目标</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -115,24 +118,25 @@
                                 <div class="box-title" style="background-color: #f5f6f6">
                                     <span style="color: #919191; font-weight: bold;">目标体重和体脂率</span>
                                     <div class="btn-group dropdown pull-right">
-                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                             <i class="fa fa-gear"></i>
                                         </a>
                                         <ul class="dropdown-menu">
+                                            <%--<li>
+                                                <a href="GoalSetting.aspx">新建健身目标</a>
+                                            </li>--%>
+                                            
                                             <li>
-                                                <a href="#">新建健身目标</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentWeight">更新体重数据</a>
                                             </li>
                                             <li>
-                                                <a href="#">删除当前目标</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">更新体重数据</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">更新体脂率数据</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentBF">更新体脂率数据</a>
                                             </li>
                                             <li>
                                                 <a href="#">查看历史数据</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" data-toggle="modal" data-target="#deleteCurrentGoal">删除当前目标</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -346,15 +350,15 @@
                                 <div class="box-title" style="background-color: #f5f6f6">
                                     <span style="color: #919191; font-weight: bold;">进度追踪</span>
                                     <div class="btn-group dropdown pull-right">
-                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                             <i class="fa fa-gear"></i>
                                         </a>
                                         <ul class="dropdown-menu">
                                             <li>
-                                                <a href="#">更新体重数据</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentWeight">更新体重数据</a>
                                             </li>
                                             <li>
-                                                <a href="#">更新体脂率数据</a>
+                                                <a href="#" data-toggle="modal" data-target="#updateCurrentBF">更新体脂率数据</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -1060,7 +1064,7 @@
                                 <div class="box-title" style="background-color: #f5f6f6">
                                     <span style="color: #919191; font-weight: bold;">您的进展照片</span>
                                     <div class="btn-group dropdown pull-right">
-                                        <a class="dropdown-toggle" data-toggle="dropdown">
+                                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                             <i class="fa fa-gear"></i>
                                         </a>
                                         <ul class="dropdown-menu">
@@ -1112,14 +1116,26 @@
                                                             <td colspan="3"><a href="#" class="progressphotocount">0</a><span class="progressphotocountdesc">张进展相关照片</span></td>
                                                         </tr>
                                                         <tr>
-                                                            <td><div class="otherprogressphoto"></div></td>
-                                                            <td><div class="otherprogressphoto"></div></td>
-                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
                                                         </tr>
                                                         <tr>
-                                                            <td><div class="otherprogressphoto"></div></td>
-                                                            <td><div class="otherprogressphoto"></div></td>
-                                                            <td><div class="otherprogressphoto"></div></td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
+                                                            <td>
+                                                                <div class="otherprogressphoto"></div>
+                                                            </td>
                                                         </tr>
                                                     </table>
                                                 </div>
@@ -1133,6 +1149,147 @@
                 </div>
             </div>
             <div class="col-md-2">插入推荐文章</div>
+        </div>
+
+
+        <div class="modal fade" id="updateCurrentWeight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel"><span class="updateweightmodaltitle">更新您的体重数据</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_calendartable">
+                                        <tr>
+                                            <td>
+                                                <img class="updateCurrentWeight_calendarimg" src="http://localhost/resources/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_weighttable">
+                                        <tr>
+                                            <td>
+                                                <input class="updateCurrentWeight_weightinput" type="number"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_weighttext">千克</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="updateCurrentWeight_weightdesctable">
+                                        <tr>
+                                            <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
+                                            <td class="updateCurrentWeight_weightdescdirection">增加了</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';">0.9</span>千克</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescdaycount">在10天之内</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">更新</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="updateCurrentBF" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel1"><span class="updateweightmodaltitle">更新您的体脂率数据</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_calendartable">
+                                        <tr>
+                                            <td>
+                                                <img class="updateCurrentWeight_calendarimg" src="http://localhost/resources/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_weighttable">
+                                        <tr>
+                                            <td>
+                                                <input class="updateCurrentWeight_weightinput" type="number"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_weighttext">%</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="updateCurrentWeight_weightdesctable">
+                                        <tr>
+                                            <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
+                                            <td class="updateCurrentWeight_weightdescdirection">增加了</td>
+                                            
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';">0.9</span>千克</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescdaycount">在10天之内</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary">更新</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteCurrentGoal" tabindex="-1" role="dialog" aria-labelledby="myModalLabeldelete" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabeldelete"><span class="updateweightmodaltitle">删除健身目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <span class="deleteCurrentGoal_message">您确定要删除当前正在进行的健身目标吗？<span class="deleteCurrentGoal_createdatetime">【该目标制定于2015年8月24日 21点23分】</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-primary">继续</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1153,38 +1310,4 @@
 
 
 
-<%--<tr>
-                                                <td style="width: 15%; color: #919191;">体脂率&nbsp;</td>
-                                                <td style="width: 55%;">
-                                                    <div class="progress progress-striped active" style="margin: 10px;">
 
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td style="width: 30%; text-align: center;">
-                                                    <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">35%</span><a class="collapsed" data-toggle="collapse" href="#BFprogressstatus" aria-expanded="false" aria-controls="collapseThree" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="3">
-                                                    <div id="BFprogressstatus" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                                        <div class="panel-body">
-                                                            <table style="width: 99%; text-align: center; font-family: KaiTi; font-size: 16px; color: black;">
-                                                                <tr>
-                                                                    <td>起始数值</td>
-                                                                    <td>起始日期</td>
-                                                                    <td>目标数值</td>
-                                                                    <td>剩余天数</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td><span style="font-family: 'Times New Roman';">25</span><span style="font-family: 'Times New Roman';">%</span></td>
-                                                                    <td style="font-family: 'Times New Roman';">2016-9-1</td>
-                                                                    <td style="font-family: 'Times New Roman';"><span>15</span><span style="font-family: 'Times New Roman';">%</span></td>
-                                                                    <td style="font-family: 'Times New Roman';"><span>386</span><span style="font-family: KaiTi;">天</span></td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>--%>

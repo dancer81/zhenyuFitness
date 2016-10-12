@@ -46,10 +46,24 @@ namespace zhenyuFitness.Pages.Goal
             }
         }
 
+        private void HasProcessingGoal()
+        {
+            string sql = string.Format(@"
+                SELECT [ID] FROM [zhenyuFitness].[dbo].[UserBFRGoal] 
+                where Valid = 1 and IsProcessing = 1 and UserID = '{0}'", Session["UserID"].ToString());
+            DataTable dtIDs = dal.DoSelectToTable(sql, "");
+            if (dtIDs != null && dtIDs.Rows.Count > 0)
+            {
+                string callback = string.Format("function(){{ window.location = '{0}'}}", "MyGoal.aspx");
+                commonWeb.MessageBoxAlertWithCallBack(Page, "您已有正在进行的健身目标，点击确定跳转至“我的目标”页面。", "hasgoal", callback);
+            }
+        }
+
         private void InitPage()
         {
+            this.HasProcessingGoal();
             //初始化用户的年龄和性别
-            if(Common.Common.NoneOrEmptyString( Session["Age"]) || Common.Common.NoneOrEmptyString(Session["Gender"]))
+            if (Common.Common.NoneOrEmptyString( Session["Age"]) || Common.Common.NoneOrEmptyString(Session["Gender"]))
             {
                 commonWeb.MessageBox(Page, "获取用户的性别和年龄时出错！", "erroragegender1");
                 return;
@@ -185,7 +199,7 @@ namespace zhenyuFitness.Pages.Goal
             }
             #endregion
 
-            Response.Redirect("../Home/DashBoard.aspx");
+            Response.Redirect("MyGoal.aspx");
         }
 
         private int translateFitnesstarget(object o)
