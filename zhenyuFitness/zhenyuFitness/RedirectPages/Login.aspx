@@ -7,7 +7,7 @@
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 	<meta charset="utf-8">
-	<title>Cloud Admin | Login</title>
+	<title>用户登录</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
@@ -29,7 +29,7 @@
 					<div class="row">
 						<div class="col-md-4 col-md-offset-4">
 							<div id="logo">
-								<a href="index.html"><img src="http://localhost/resources/img/logo/logo-alt.png" height="40" alt="logo name" /></a>
+								<a href="index.html"><img src="<%=resourceRootPath %>/img/logo/logo-alt.png" height="40" alt="logo name" /></a>
 							</div>
 						</div>
 					</div>

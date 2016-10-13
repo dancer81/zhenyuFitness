@@ -158,7 +158,7 @@
                                         <div class="row" id="select_img_fitnesstarget1">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img id="sss" src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.png" alt="...">
+                                                    <img id="sss" src="<%=resourceRootPath %>/img/fitnesstarget/man/buildmuscle.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -173,7 +173,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/losefat.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/losefat.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -187,7 +187,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/transform.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/transform.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -201,7 +201,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/enduration.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/enduration.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -217,7 +217,7 @@
                                         <div class="row" id="select_img_fitnesstarget2">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/sport.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/sport.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -231,7 +231,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/flexibility.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/flexibility.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -245,7 +245,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/others.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/others.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -259,7 +259,7 @@
                                             </div>
                                             <div class="col-md-3" id="step3_last1" style="display: none">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/fitnesstarget/man/buildmuscle.jpg" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/fitnesstarget/man/buildmuscle.jpg" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p class="caption_p">
@@ -322,9 +322,9 @@
                                                             <table style="margin-left: 25px;">
                                                                 <tr>
                                                                     <td rowspan="3">
-                                                                        <img src="http://localhost/resources/img/对比/male_lean.jpg" id="step2_part2_img_constrast_lean" /></td>
+                                                                        <img src="<%=resourceRootPath %>/img/对比/male_lean.jpg" id="step2_part2_img_constrast_lean" /></td>
                                                                     <td>
-                                                                        <img src="http://localhost/resources/img/对比/male_lean_chart.png" id="step2_part2_img_constrast_lean_chart" /></td>
+                                                                        <img src="<%=resourceRootPath %>/img/对比/male_lean_chart.png" id="step2_part2_img_constrast_lean_chart" /></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="step2_part2_constrast_height_lean">身高：1.8米</td>
@@ -343,9 +343,9 @@
                                                             <table style="margin-left: 25px;">
                                                                 <tr>
                                                                     <td rowspan="3">
-                                                                        <img src="http://localhost/resources/img/对比/male_large.jpg" id="step2_part2_img_constrast_large" /></td>
+                                                                        <img src="<%=resourceRootPath %>/img/对比/male_large.jpg" id="step2_part2_img_constrast_large" /></td>
                                                                     <td>
-                                                                        <img src="http://localhost/resources/img/对比/male_large_chart.png" id="step2_part2_img_constrast_large_chart" /></td>
+                                                                        <img src="<%=resourceRootPath %>/img/对比/male_large_chart.png" id="step2_part2_img_constrast_large_chart" /></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td id="step2_part2_constrast_height_large">身高：1.8米</td>
@@ -383,7 +383,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td rowspan="2" style="height: 100px; width: 200px;">
-                                                                <img src="http://localhost/resources/img/bodyfatpercentage/15_shadow.jpg" id="step2_part2_img" />
+                                                                <img src="<%=resourceRootPath %>/img/bodyfatpercentage/15_shadow.jpg" id="step2_part2_img" />
 
                                                             </td>
                                                             <td>
@@ -451,7 +451,7 @@
                                             <div class="row" id="select_img_bodyfat1">
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img id="step2_part3_img1" src="http://localhost/resources/img/bodyfatpercentage/5_man.jpg" alt="...">
+                                                        <img id="step2_part3_img1" src="<%=resourceRootPath %>/img/bodyfatpercentage/5_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -468,7 +468,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/10_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/10_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -484,7 +484,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/15_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/15_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -498,7 +498,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/20_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/20_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -514,7 +514,7 @@
                                             <div class="row" id="select_img_bodyfat2">
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/25_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/25_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -528,7 +528,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/30_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/30_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -542,7 +542,7 @@
                                                 </div>
                                                 <div class="col-md-3" id="step2_part3_last2">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/35_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/35_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -556,7 +556,7 @@
                                                 </div>
                                                 <div class="col-md-3" id="step2_part3_last1">
                                                     <div class="thumbnail">
-                                                        <img src="http://localhost/resources/img/bodyfatpercentage/40_man.jpg" alt="...">
+                                                        <img src="<%=resourceRootPath %>/img/bodyfatpercentage/40_man.jpg" alt="...">
                                                         <div class="caption">
                                                             <p class="bf_desc"></p>
                                                             <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -576,7 +576,7 @@
                                         <div class="row" id="select_img_physique1">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img id="sss" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" alt="...">
+                                                    <img id="sss" src="<%=resourceRootPath %>/img/physique/man/skinny_ripped-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -591,7 +591,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/male_model-large.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/male_model-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -605,7 +605,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/athlete-large.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/athlete-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -619,7 +619,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/bodybuilder-large .png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/bodybuilder-large .png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -641,7 +641,7 @@
                                                         </div>
                                                         <div class="row" style="margin-top: 20px;">
                                                             <div class="col-md-5" style="text-align: center;">
-                                                                <img src="http://localhost/resources/img/physique/man/bk/BODYBUILDER.png" alt="...">
+                                                                <img src="<%=resourceRootPath %>/img/physique/man/bk/BODYBUILDER.png" alt="...">
                                                             </div>
                                                             <div class="col-md-7">
                                                                 <div>
@@ -709,7 +709,7 @@
                                         <div class="row" id="select_img_physique2">
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/strongman-large.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/strongman-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -723,7 +723,7 @@
                                             </div>
                                             <div class="col-md-3" id="last_physique_div">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="http://localhost/resources/img/physique/man/pro_bodybuilder-large.png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/pro_bodybuilder-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">
@@ -743,7 +743,7 @@
                                             <section class="inputcontent bgcolor-1">
                                                 <div><span style="font-size: 15px;">您的目标体型：<span id="yourgoalstats_physiquetext"></span></span></div>
                                                 <div>
-                                                    <img id="yourgoalstats_physique_img" src="http://localhost/resources/img/physique/man/skinny_ripped-large.png" />
+                                                    <img id="yourgoalstats_physique_img" src="<%=resourceRootPath %>/img/physique/man/skinny_ripped-large.png" />
                                                 </div>
                                                 <div>
                                                     <span style="font-size: 15px;">根据您的目标体型、当前的身高、体重和体脂率，计算出您的目标体重和体脂率为：</span><br />
@@ -873,7 +873,7 @@
                                                 <div class="col-md-12">
                                                     <div class="row" id="confirm_desc">
                                                         <div class="col-md-5">
-                                                            <img id="confirm_desc_img" src="http://localhost/resources/img/physique/women/swimsuit-large.png" />
+                                                            <img id="confirm_desc_img" src="<%=resourceRootPath %>/img/physique/women/swimsuit-large.png" />
                                                         </div>
                                                         <div class="col-md-7">
                                                             <div>
@@ -941,12 +941,12 @@
                                 <div class="row">
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4" id="buttonSection">
-                                        <a href="javascript:;" class="btn btn-default prevBtn">
+                                        <a href="javascript:;" class="btn btn-default prevBtn modalButtonStyle" style="color:white;">
                                             <i class="fa fa-arrow-circle-left"></i>上一步
                                                 </a>
-                                        <a href="javascript:;" class="btn btn-primary nextBtn">下一步 <i class="fa fa-arrow-circle-right"></i>
+                                        <a href="javascript:;" class="btn btn-primary nextBtn modalButtonStyle">下一步 <i class="fa fa-arrow-circle-right"></i>
                                         </a>
-                                        <input type="submit" class="btn btn-success submitBtn" value="提 交" />
+                                        <input type="submit" class="btn btn-success submitBtn modalButtonStyle" value="提 交" />
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>

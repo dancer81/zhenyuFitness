@@ -26,6 +26,7 @@ namespace zhenyuFitness.Pages.Goal
 
         public string gender;
         public string age;
+        public string resourceRootPath = Common.Common.ResourceRootPath;
 
         //private MssqlDal dal;
         //private HttpRequest request = HttpContext.Current.Request;

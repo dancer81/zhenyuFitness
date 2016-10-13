@@ -15,13 +15,13 @@
                 <div class="row topdiv">
                     <div class="col-md-12">
                         <a href="#" class="pull-right topimg">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
+                            <img src="<%=resourceRootPath %>/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
                         <a href="#" class="pull-right topimg">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
+                            <img src="<%=resourceRootPath %>/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
                         <a href="#" class="pull-right topimg">
-                            <img src="http://localhost/resources/img/logo/bodyspace_logo_small.png" alt="" />
+                            <img src="<%=resourceRootPath %>/img/logo/bodyspace_logo_small.png" alt="" />
                         </a>
                     </div>
                 </div>
@@ -64,7 +64,7 @@
                                             <div class="col-md-6">
                                                 <div id="pie_fatrate" class="piechartBF" data-percent="75">
                                                     <span class="percent">
-                                                        <img src="http://localhost/resources/img/maleback.png" /></span>
+                                                        <img src="<%=resourceRootPath %>/img/maleback.png" /></span>
                                                 </div>
                                                 <%--                                                <div id="pie_fatrate" class="piechart" data-percent="80">
                                                     <span class="percent">20%</span>
@@ -145,7 +145,7 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="http://localhost/resources/img/physique/women/fit_woman-large.png" alt="" />
+                                                <img src="<%=resourceRootPath %>/img/physique/women/fit_woman-large.png" alt="" />
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="container">
@@ -1079,7 +1079,7 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <div class="progressphotobefore">
+                                                    <div class="progressphotobefore" style="background-image:url(<%=resourceRootPath %>/img/d42c65949cce4799b0c40009562b646b-196x196.jpg)">
                                                         <div class="progressPhototext">
                                                             <table class="beforetexttable">
                                                                 <tr>
@@ -1095,7 +1095,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="progressphotocurrent">
+                                                    <div class="progressphotocurrent" style="background-image:url(<%=resourceRootPath %>/img/89ef486aed63462a84745ca62dc0f847-196x196.jpg)">
                                                         <div class="progressPhototext">
                                                             <table class="beforetexttable">
                                                                 <tr>
@@ -1166,7 +1166,7 @@
                                     <table class="updateCurrentWeight_calendartable">
                                         <tr>
                                             <td>
-                                                <img class="updateCurrentWeight_calendarimg" src="http://localhost/resources/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
+                                                <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
                                         </tr>
                                         <tr>
                                             <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>
@@ -1224,7 +1224,7 @@
                                     <table class="updateCurrentWeight_calendartable">
                                         <tr>
                                             <td>
-                                                <img class="updateCurrentWeight_calendarimg" src="http://localhost/resources/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
+                                                <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
                                         </tr>
                                         <tr>
                                             <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>

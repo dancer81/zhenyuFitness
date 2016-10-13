@@ -12,6 +12,7 @@ namespace zhenyuFitness.Pages.Goal
     public partial class MyGoal : BasePage
     {
         private string userID;
+        public string resourceRootPath = Common.Common.ResourceRootPath;
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);

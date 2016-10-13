@@ -9,6 +9,7 @@ namespace zhenyuFitness.RedirectPages
 {
     public partial class Login : System.Web.UI.Page
     {
+        public string resourceRootPath = Common.Common.ResourceRootPath;
         protected void Page_Load(object sender, EventArgs e)
         {
 
