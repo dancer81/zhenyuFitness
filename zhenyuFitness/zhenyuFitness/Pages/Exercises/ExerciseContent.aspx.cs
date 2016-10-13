@@ -93,7 +93,7 @@ namespace zhenyuFitness.Pages.Exercises
         /// <returns></returns>
         private float CalculateRateScore(object rateDefault, object rateOverrall, object rateCount)
         {
-            if (rateCount == null || rateCount.ToString() == "0" || int.Parse(rateCount.ToString()) <= Common.Common.minExerciseRateCount)
+            if (rateCount == null || rateCount.ToString() == "0" || int.Parse(rateCount.ToString()) <= Common.Common.MinExerciseRateCount)
             {
                 return float.Parse(rateDefault.ToString());
             }

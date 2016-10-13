@@ -11,8 +11,8 @@ namespace zhenyuFitness.MasterPages
 {
     public partial class generalMaster : System.Web.UI.MasterPage
     {
-        public string appRootPath = Common.Common.appRootPath;
-        public string resourceRootPath = Common.Common.resourceRootPath;
+        public string appRootPath = Common.Common.AppRootPath;
+        public string resourceRootPath = Common.Common.ResourceRootPath;
         public string pagePath = string.Empty;
 
         public string htmlUserLogin = "";

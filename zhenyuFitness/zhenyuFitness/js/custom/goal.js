@@ -1,4 +1,6 @@
-﻿var FormWizard = function () {
+﻿var resourcePath = "http://localhost/resources";
+
+var FormWizard = function () {
     return {
         init: function () {
             if (!jQuery().bootstrapWizard) {
@@ -230,35 +232,35 @@
                         {
                             //对比
                             $("#step2_part2_constract_desc").html("下图两位女士同年龄(30)、同身高(165cm)、同体重(65kg)，但是身体形态差异却十分巨大！");
-                            $("#step2_part2_img_constrast_lean").attr('src', "http://localhost/resources/img/对比/female_lean.jpg");
-                            $("#step2_part2_img_constrast_lean_chart").attr('src', "http://localhost/resources/img/对比/female_lean_chart.png");
+                            $("#step2_part2_img_constrast_lean").attr('src', resourcePath + "/img/对比/female_lean.jpg");
+                            $("#step2_part2_img_constrast_lean_chart").attr('src', resourcePath + "/img/对比/female_lean_chart.png");
                             $("#step2_part2_constrast_height_lean").html("身高：1.65米");
                             $("#step2_part2_constrast_weight_lean").html("体重：65千克");
                             $("#step2_part2_constrast_bodyfat_lean").html("体脂率：13%");
-                            $("#step2_part2_img_constrast_large").attr('src', "http://localhost/resources/img/对比/female_large.jpg");
-                            $("#step2_part2_img_constrast_large_chart").attr('src', "http://localhost/resources/img/对比/female_large_chart.png");
+                            $("#step2_part2_img_constrast_large").attr('src', resourcePath + "/img/对比/female_large.jpg");
+                            $("#step2_part2_img_constrast_large_chart").attr('src', resourcePath + "/img/对比/female_large_chart.png");
                             $("#step2_part2_constrast_height_large").html("身高：1.65米");
                             $("#step2_part2_constrast_weight_large").html("体重：65千克");
                             $("#step2_part2_constrast_bodyfat_large").html("体脂率：33%");
 
 
                             if (bodyfat <= 0.1) {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/10_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/10_women_shadow.jpg");
                             }
                             else if (bodyfat > 0.1 && bodyfat <= 0.15) {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/15_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/15_women_shadow.jpg");
                             }
                             else if (bodyfat > 0.15 && bodyfat <= 0.2) {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/20_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/20_women_shadow.jpg");
                             }
                             else if (bodyfat > 0.2 && bodyfat <= 0.25) {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/25_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/25_women_shadow.jpg");
                             }
                             else if (bodyfat > 0.25 && bodyfat <= 0.3) {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/30_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/30_women_shadow.jpg");
                             }
                             else {
-                                $("#step2_part2_img").attr('src', "http://localhost/resources/img/bodyfatpercentage/35_women_shadow.jpg");
+                                $("#step2_part2_img").attr('src', resourcePath + "/img/bodyfatpercentage/35_women_shadow.jpg");
                             }
                         }                       
                     }
@@ -531,6 +533,7 @@
 
 
 
+
 //设置步骤标题
 function showStepTitle(index) {//选择健身目标
     if (index == 0) {
@@ -691,48 +694,48 @@ function physiqueDesc(gender, index) {
             case 0:
                 goal_bf = 0.075;
                 coefficient = 42.7;
-                physique_img = "http://localhost/resources/img/physique/man/bk/SKINNY_RIPPED.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/skinny_ripped-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/SKINNY_RIPPED.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/skinny_ripped-large.png";
                 $("#goal_physique").html("精干而犀利");
                 
                 break;
             case 1:
                 goal_bf = 0.08;
                 coefficient = 45.1;
-                physique_img = "http://localhost/resources/img/physique/man/bk/MALE_MODEL.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/male_model-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/MALE_MODEL.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/male_model-large.png";
                 $("#goal_physique").html("男性模特");
                 
                 break;
             case 2:
                 goal_bf = 0.08;
                 coefficient = 47.8;
-                physique_img = "http://localhost/resources/img/physique/man/bk/ATHLETE.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/athlete-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/ATHLETE.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/athlete-large.png";
                 $("#goal_physique").html("对抗类运动员");
                 
                 break;
             case 3:
                 goal_bf = 0.06;
                 coefficient = 53.4;
-                physique_img = "http://localhost/resources/img/physique/man/bk/BODYBUILDER.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/bodybuilder-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/BODYBUILDER.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/bodybuilder-large.png";
                 $("#goal_physique").html("健身达人");
                 
                 break;
             case 4:
                 goal_bf = 0.2;
                 coefficient = 71.1;
-                physique_img = "http://localhost/resources/img/physique/man/bk/STRONGMAN.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/strongman-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/STRONGMAN.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/strongman-large.png";
                 $("#goal_physique").html("大力士");
                 
                 break;
             case 5:
                 goal_bf = 0.04;
                 coefficient = 64.4;
-                physique_img = "http://localhost/resources/img/physique/man/bk/PRO_BODYBUILDER.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/man/pro_bodybuilder-large.png";
+                physique_img = resourcePath + "/img/physique/man/bk/PRO_BODYBUILDER.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/man/pro_bodybuilder-large.png";
                 $("#goal_physique").html("健美运动员");
                 
                 break;
@@ -746,40 +749,40 @@ function physiqueDesc(gender, index) {
             case 0:
                 goal_bf = 0.20;
                 coefficient = 31.8;
-                physique_img = "http://localhost/resources/img/physique/women/bk/FASHION_MODEL.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fashion_model-large.png";
+                physique_img = resourcePath + "/img/physique/women/bk/FASHION_MODEL.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/women/fashion_model-large.png";
                 $("#goal_physique").html("时尚女模特");
                 
                 break;
             case 1:
                 goal_bf = 0.18;
                 coefficient = 33.4;
-                physique_img = "http://localhost/resources/img/physique/women/bk/SWIMSUIT.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/swimsuit-large.png";
+                physique_img = resourcePath + "/img/physique/women/bk/SWIMSUIT.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/women/swimsuit-large.png";
                 $("#goal_physique").html("比基尼女郎");
                 
                 break;
             case 2:
                 goal_bf = 0.16;
                 coefficient = 33.9;
-                physique_img = "http://localhost/resources/img/physique/women/bk/FIT_WOMAN.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fit_woman-large.png";
+                physique_img = resourcePath + "/img/physique/women/bk/FIT_WOMAN.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/women/fit_woman-large.png";
                 $("#goal_physique").html("健康女士");
                 
                 break;
             case 3:
                 goal_bf = 0.13;
                 coefficient = 34;
-                physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/fitness_model-large.png";
+                physique_img = resourcePath + "/img/physique/women/bk/FITNESS_MODEL.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/women/fitness_model-large.png";
                 $("#goal_physique").html("健身达人");
                 
                 break;
             case 4:
                 goal_bf = 0.09;
                 coefficient = 38.6;
-                physique_img = "http://localhost/resources/img/physique/women/bk/FITNESS_MODEL.png";
-                yourgoalstats_physique_img = "http://localhost/resources/img/physique/women/bodybuilder-large.png";
+                physique_img = resourcePath + "/img/physique/women/bk/FITNESS_MODEL.png";
+                yourgoalstats_physique_img = resourcePath + "/img/physique/women/bodybuilder-large.png";
                 $("#goal_physique").html("健美运动员");
                 
                 break;
@@ -977,16 +980,16 @@ function setSimilargoalMember(gender,index) {
     var imglist = new Array();
     
     //ajax取得数据源(用到参数index),并赋值给imglist,imglist最大长度为12（3行）
-    imglist[0] = "http://localhost/resources/img/avatars/avatar1.jpg";
-    imglist[1] = "http://localhost/resources/img/avatars/avatar2.jpg";
-    imglist[2] = "http://localhost/resources/img/avatars/avatar3.jpg";
-    imglist[3] = "http://localhost/resources/img/avatars/avatar4.jpg";
-    imglist[4] = "http://localhost/resources/img/avatars/avatar5.jpg";
-    imglist[5] = "http://localhost/resources/img/avatars/avatar6.jpg";
-    imglist[6] = "http://localhost/resources/img/avatars/avatar7.jpg";
-    imglist[7] = "http://localhost/resources/img/avatars/avatar8.jpg";
-    imglist[8] = "http://localhost/resources/img/avatars/avatar3.jpg";
-    imglist[9] = "http://localhost/resources/img/avatars/avatar4.jpg";
+    imglist[0] = resourcePath + "/img/avatars/avatar1.jpg";
+    imglist[1] = resourcePath + "/img/avatars/avatar2.jpg";
+    imglist[2] = resourcePath + "/img/avatars/avatar3.jpg";
+    imglist[3] = resourcePath + "/img/avatars/avatar4.jpg";
+    imglist[4] = resourcePath + "/img/avatars/avatar5.jpg";
+    imglist[5] = resourcePath + "/img/avatars/avatar6.jpg";
+    imglist[6] = resourcePath + "/img/avatars/avatar7.jpg";
+    imglist[7] = resourcePath + "/img/avatars/avatar8.jpg";
+    imglist[8] = resourcePath + "/img/avatars/avatar3.jpg";
+    imglist[9] = resourcePath + "/img/avatars/avatar4.jpg";
 
     //将imglist赋值给对应的table
     var htmlTD;
@@ -1003,16 +1006,16 @@ function setSamephysiqueTopInspirationMemberImgs(gender, index) {
     var imglist = new Array();
 
     //ajax取得数据源(用到参数index),并赋值给imglist,imglist最大长度为12（2行）
-    imglist[0] = "http://localhost/resources/img/avatars/avatar1.jpg";
-    imglist[1] = "http://localhost/resources/img/avatars/avatar2.jpg";
-    imglist[2] = "http://localhost/resources/img/avatars/avatar3.jpg";
-    imglist[3] = "http://localhost/resources/img/avatars/avatar4.jpg";
-    imglist[4] = "http://localhost/resources/img/avatars/avatar5.jpg";
-    imglist[5] = "http://localhost/resources/img/avatars/avatar6.jpg";
-    imglist[6] = "http://localhost/resources/img/avatars/avatar7.jpg";
-    imglist[7] = "http://localhost/resources/img/avatars/avatar8.jpg";
-    imglist[8] = "http://localhost/resources/img/avatars/avatar3.jpg";
-    imglist[9] = "http://localhost/resources/img/avatars/avatar4.jpg";
+    imglist[0] = resourcePath + "/img/avatars/avatar1.jpg";
+    imglist[1] = resourcePath + "/img/avatars/avatar2.jpg";
+    imglist[2] = resourcePath + "/img/avatars/avatar3.jpg";
+    imglist[3] = resourcePath + "/img/avatars/avatar4.jpg";
+    imglist[4] = resourcePath + "/img/avatars/avatar5.jpg";
+    imglist[5] = resourcePath + "/img/avatars/avatar6.jpg";
+    imglist[6] = resourcePath + "/img/avatars/avatar7.jpg";
+    imglist[7] = resourcePath + "/img/avatars/avatar8.jpg";
+    imglist[8] = resourcePath + "/img/avatars/avatar3.jpg";
+    imglist[9] = resourcePath + "/img/avatars/avatar4.jpg";
 
     //将imglist赋值给对应的table
     var htmlTD;
@@ -1033,25 +1036,25 @@ function initFitnessTarget(gender) {
             switch(i)
             {
                 case 0:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/buildmuscle.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/buildmuscle.png');
                     break;
                 case 1:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/losefat.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/losefat.png');
                     break;
                 case 2:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/transform.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/transform.png');
                     break;
                 case 3:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/endurance.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/endurance.png');
                     break;
                 case 4:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/sport.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/sport.png');
                     break;
                 case 5:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/stretch.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/stretch.png');
                     break;
                 case 6:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/fitnesstarget/women/probodybuilder.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/fitnesstarget/women/probodybuilder.png');
                     break;
             } 
         }
@@ -1063,7 +1066,7 @@ function initBodyfatSelect(gender) {
     var imglist = $("#yourbodyfat #step2_part3 img");
     if (gender == 1) {
         for (i = 0; i < imglist.length; i++) {
-            var imgsrc = "http://localhost/resources/img/bodyfatpercentage/" + (i + 2) * 5 + "_women.jpg";
+            var imgsrc = resourcePath + "/img/bodyfatpercentage/" + (i + 2) * 5 + "_women.jpg";
             imglist.eq(i).attr('src', imgsrc);
         }
         $("#step2_part3_last1").css('display', 'none');
@@ -1115,23 +1118,23 @@ function initphysiqueSelect(gender) {
         for (i = 0; i < imglist.length; i++) {
             switch (i) {
                 case 0:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fashion_model-large.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/physique/women/fashion_model-large.png');
                     titles.eq(i).html("时尚女模特");
                     break;
                 case 1:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/swimsuit-large.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/physique/women/swimsuit-large.png');
                     titles.eq(i).html("比基尼女郎");
                     break;
                 case 2:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fit_woman-large.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/physique/women/fit_woman-large.png');
                     titles.eq(i).html("健康女士");
                     break;
                 case 3:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/fitness_model-large.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/physique/women/fitness_model-large.png');
                     titles.eq(i).html("健身达人");
                     break;
                 case 4:
-                    imglist.eq(i).attr('src', 'http://localhost/resources/img/physique/women/bodybuilder-large.png');
+                    imglist.eq(i).attr('src', resourcePath + '/img/physique/women/bodybuilder-large.png');
                     titles.eq(i).html("健美运动员");
                     break;
                 default:

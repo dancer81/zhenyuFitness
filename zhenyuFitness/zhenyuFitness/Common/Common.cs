@@ -7,27 +7,26 @@ namespace zhenyuFitness.Common
 {
     public static class Common
     {
-        //连接字符串
+        #region Global Config
         public static string DBConnectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
-        //数据库出错日志
         public static string DbLog = System.Configuration.ConfigurationManager.AppSettings["DbLog"];
-        //application root path
-        public static string appRootPath = System.Configuration.ConfigurationManager.AppSettings["appRootPath"].ToString();
-        //resource root path
-        public static string resourceRootPath = System.Configuration.ConfigurationManager.AppSettings["resourceRootPath"].ToString();
-        //点击安全退出按钮时默认返回的页面
-        public static string LogOutRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
-        //用户通过地址栏直接输入网址（前台脚本没有执行：不是通过菜单连接点击,或者用户禁用了浏览器脚本），如果页面判定用户没有权限访问时，跳转的地址
-        public static string NotPermittedRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
-        //用户（Guest）点击跳转页面，系统判定该页面需要用户登录,而进行Redirect的页面
-        public static string NotLoginRedirectPage = "/zhenyuFitness/RedirectPages/Login.aspx";
-        //用户有权访问该页面的标识，避免多次调用判定方法，提高性能。
-        public static string HasPermission = "1";
+        public static string AppRootPath = System.Configuration.ConfigurationManager.AppSettings["appRootPath"].ToString();
+        public static string ResourceRootPath = System.Configuration.ConfigurationManager.AppSettings["resourceRootPath"].ToString();
+        public static string LogOutRedirectPage = System.Configuration.ConfigurationManager.AppSettings["logOutRedirectPage"].ToString();
+        public static string NotPermittedRedirectPage = System.Configuration.ConfigurationManager.AppSettings["notPermittedRedirectPage"].ToString();
+        public static string NotLoginRedirectPage = System.Configuration.ConfigurationManager.AppSettings["notLoginRedirectPage"].ToString();
+        #endregion
 
-        /// <summary>
-        /// 最小计分投票人数，小于该值则采用默认得分
-        /// </summary>
-        public static int minExerciseRateCount = 10;
+        #region Test相关的页面控制
+        //是否打开权限验证
+        public static bool OpenPrivilege = false;
+        //不管是否有正在进行的健身计划，均可访问此页面
+        public static bool OpenGoalSettingPrivilege = false;
+        #endregion
+        // 最小计分投票人数，小于该值则采用默认得分
+        public static int MinExerciseRateCount = 10;
+        //指示页面是否已经登录过，跳过权限认证，提高效率
+        public static string HasPermission = "1";
 
         #region 追踪相关
         public enum ActivityTracked
@@ -269,7 +268,7 @@ namespace zhenyuFitness.Common
         public static string CombineFullResourcePath(string path)
         {
             if (path != string.Empty)
-                return resourceRootPath + "/" + path;
+                return ResourceRootPath + "/" + path;
             return string.Empty;
         }
 

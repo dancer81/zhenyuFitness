@@ -23,7 +23,10 @@ namespace zhenyuFitness.Common
         //用户是否有访问该页面的权限
         public int HasPermission_Page(string pageUrlAbsolute)
         {
-
+            if (!Common.OpenPrivilege)
+            {
+                return 0;//所有页面允许所有人访问
+            }
 
             SqlParameter userID = new SqlParameter("@userID", SqlDbType.VarChar, 36);
             SqlParameter privilegeMaster = new SqlParameter("@privilegeMaster", SqlDbType.TinyInt);

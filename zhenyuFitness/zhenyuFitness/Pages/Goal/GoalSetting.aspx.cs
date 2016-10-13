@@ -48,6 +48,11 @@ namespace zhenyuFitness.Pages.Goal
 
         private void HasProcessingGoal()
         {
+            if(!Common.Common.OpenGoalSettingPrivilege)
+            {
+                return;
+            }
+
             string sql = string.Format(@"
                 SELECT [ID] FROM [zhenyuFitness].[dbo].[UserBFRGoal] 
                 where Valid = 1 and IsProcessing = 1 and UserID = '{0}'", Session["UserID"].ToString());

@@ -50,7 +50,7 @@ namespace zhenyuFitness.Pages.Exercises
                                         ,[ExerciseValue]
                                     FROM [zhenyuFitness].[dbo].[Exercise] where Valid = 1 {1}) a, 
                                     [zhenyuFitness].[dbo].[Equipment] b,[zhenyuFitness].[dbo].[Muscle] c
-                                    where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.minExerciseRateCount, whereConditionEqual);
+                                    where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.MinExerciseRateCount, whereConditionEqual);
 
                 MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
 
