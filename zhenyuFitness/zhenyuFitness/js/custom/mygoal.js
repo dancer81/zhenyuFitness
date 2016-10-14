@@ -350,6 +350,35 @@ function initchart3() {
 
 }
 
+function updateCurrentWeight()
+{
+    var goalid = $("#goalid").val();
+    var currentweight = $("#updateCurrentWeight_weightinput").val();
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "updateCurrentWeight", goalID: goalid, currentWeight:currentweight },
+        async: true,
+        success: function (data) {
+            if (data == "0") {//更新失败
+                bootbox.alert({
+                    size: 'small',
+                    message: "更新当前体重失败。请重试！"
+                });
+                $('#updateCurrentWeight').modal('hide')
+            }
+            if (data == "1") {//更新成功
+                $("#currentweight").html(currentweight);
+                $('#updateCurrentWeight').modal('hide')
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("更新体重时ajax调用出错了");
+            alert(errorThrown);
+            ret = -1
+        }
+    });
+}
 
 //function deleteCurrentBFRGoal()
 //{

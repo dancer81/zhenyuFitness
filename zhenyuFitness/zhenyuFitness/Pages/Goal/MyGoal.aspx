@@ -53,11 +53,11 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div><span class="currentdesc">当前体重</span></div>
-                                                <div><span class="currentvalue">70</span><span class="currentunit">千克</span></div>
+                                                <div><span id="currentweight" class="currentvalue">70</span><span class="currentunit">千克</span></div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div><span class="currentdesc">当前体脂率</span></div>
-                                                <div><span class="currentvalue">22</span><span class="currentunit">%</span></div>
+                                                <div><span id="currentBFR" class="currentvalue">22</span><span class="currentunit">%</span></div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top: 30px;">
@@ -81,7 +81,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span class="leanvalue">&nbsp;54.6</span>
+                                                                <span id="leanbodyweight" class="leanvalue">&nbsp;54.6</span>
                                                             </td>
                                                             <td>
                                                                 <span class="leanunit">千克</span>
@@ -99,7 +99,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span class="BFvalue">&nbsp;15.4</span>
+                                                                <span id="bodyfatweight" class="BFvalue">&nbsp;15.4</span>
                                                             </td>
                                                             <td>
                                                                 <span class="BFunit">千克</span>
@@ -282,7 +282,7 @@
                                                 <td class="changedivtitle">体重变化</td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivvalue">1.5</td>
+                                                <td id="weightchange" class="changedivvalue">1.5</td>
                                             </tr>
                                             <tr>
                                                 <td class="changedivunit">千克.增加</td>
@@ -297,7 +297,7 @@
                                                 <td class="changedivtitle">体脂率变化</td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivvalue">3</td>
+                                                <td id="BFRchange" class="changedivvalue">3</td>
                                             </tr>
                                             <tr>
                                                 <td class="changedivunit">%.增加</td>
@@ -316,7 +316,7 @@
                                                 <td class="changedivtitle">已实现目标数</td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivvalue">2</td>
+                                                <td id="achievedgoalcount" class="changedivvalue">2</td>
                                             </tr>
                                             <tr>
                                                 <td class="changedivunit">已实现</td>
@@ -331,7 +331,7 @@
                                                 <td class="changedivtitle">实现目标比例</td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivvalue">12%</td>
+                                                <td id="achievedgoalspercent" class="changedivvalue">12%</td>
                                             </tr>
                                             <tr>
                                                 <td class="changedivunit">共8个</td>
@@ -1177,7 +1177,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input class="updateCurrentWeight_weightinput" type="number"/>
+                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1205,7 +1205,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary">更新</button>
+                        <button type="button" class="btn btn-primary" onclick="updateCurrentWeight()">更新</button>
                     </div>
                 </div>
             </div>
@@ -1292,6 +1292,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" id="goalid" />
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
 

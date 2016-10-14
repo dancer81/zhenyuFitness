@@ -7,7 +7,7 @@ namespace zhenyuFitness.Common
 {
     public static class Common
     {
-        #region Global Config
+        #region 部署类的配置
         public static string DBConnectionStr = System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString;
         public static string DbLog = System.Configuration.ConfigurationManager.AppSettings["DbLog"];
         public static string AppRootPath = System.Configuration.ConfigurationManager.AppSettings["appRootPath"].ToString();
@@ -17,12 +17,13 @@ namespace zhenyuFitness.Common
         public static string NotLoginRedirectPage = System.Configuration.ConfigurationManager.AppSettings["notLoginRedirectPage"].ToString();
         #endregion
 
-        #region Test相关的页面控制
+        #region Test相关的页面访问开关
         //是否打开权限验证
         public static bool OpenPrivilege = false;
         //不管是否有正在进行的健身计划，均可访问此页面
         public static bool OpenGoalSettingPrivilege = false;
         #endregion
+
         // 最小计分投票人数，小于该值则采用默认得分
         public static int MinExerciseRateCount = 10;
         //指示页面是否已经登录过，跳过权限认证，提高效率

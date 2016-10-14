@@ -51,6 +51,7 @@ namespace zhenyuFitness.Pages.Goal
 
         #region 本页面特有
         //UserBFRGoal
+        private string goalID;
         private float height;
         private int goalPhysique;
         private int liftingExperience;
@@ -117,6 +118,11 @@ namespace zhenyuFitness.Pages.Goal
             DataTable dtBFRGoal = dal.DoSelectToTable(sql,"");
             if (dtBFRGoal != null && dtBFRGoal.Rows.Count > 0)
             {
+                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["ID"]))
+                {
+                    this.goalID = dtBFRGoal.Rows[0]["ID"].ToString();
+                }
+
                 if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["Height"]))
                 {
                     this.height = float.Parse(dtBFRGoal.Rows[0]["Height"].ToString());
