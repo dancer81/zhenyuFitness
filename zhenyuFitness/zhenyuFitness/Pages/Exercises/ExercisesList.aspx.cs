@@ -52,7 +52,7 @@ namespace zhenyuFitness.Pages.Exercises
                                     [zhenyuFitness].[dbo].[Equipment] b,[zhenyuFitness].[dbo].[Muscle] c
                                     where a.EquipmentID = b.ID and a.MainMuscleID = c.ID order by RateScore desc", Common.Common.MinExerciseRateCount, whereConditionEqual);
 
-                MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
+                //MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
 
                 DataTable dt = dal.DoSelectToTable(sql, "list");
 

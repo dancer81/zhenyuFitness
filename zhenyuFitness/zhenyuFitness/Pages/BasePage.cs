@@ -12,9 +12,10 @@ namespace zhenyuFitness.Pages
 {
     public class BasePage : System.Web.UI.Page
     {
-        protected MssqlDal dal = new MssqlDal(System.Configuration.ConfigurationManager.ConnectionStrings["conn"].ConnectionString, System.Configuration.ConfigurationManager.AppSettings["DbLog"]);
+        protected MssqlDal dal = new MssqlDal(Common.Common.DBConnectionStr, Common.Common.DbLog);
         protected HttpRequest request = HttpContext.Current.Request;
         protected CommonWeb commonWeb = new CommonWeb(HttpContext.Current);
+        public string resourceRootPath = Common.Common.ResourceRootPath;
 
         protected void Page_Load(object sender, EventArgs e)
         {
