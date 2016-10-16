@@ -53,16 +53,16 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div><span class="currentdesc">当前体重</span></div>
-                                                <div><span id="currentweight" class="currentvalue">70</span><span class="currentunit">千克</span></div>
+                                                <div><span id="currentweight" class="currentvalue"><%=CurrentWeight %></span><span class="currentunit">千克</span></div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div><span class="currentdesc">当前体脂率</span></div>
-                                                <div><span id="currentBFR" class="currentvalue">22</span><span class="currentunit">%</span></div>
+                                                <div><span id="currentBFR" class="currentvalue"><%=CurrentBFR %></span><span class="currentunit">%</span></div>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top: 30px;">
                                             <div class="col-md-6">
-                                                <div id="pie_fatrate" class="piechartBF" data-percent="75">
+                                                <div id="pie_fatrate" class="piechartBF" data-percent="<%=(100.0 -float.Parse(CurrentBFR)) %>">
                                                     <span class="percent">
                                                         <img src="<%=resourceRootPath %>/img/maleback.png" /></span>
                                                 </div>
@@ -81,7 +81,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span id="leanbodyweight" class="leanvalue">&nbsp;54.6</span>
+                                                                <span id="leanbodyweight" class="leanvalue">&nbsp;<%=CurrentLeanBodyWeight %></span>
                                                             </td>
                                                             <td>
                                                                 <span class="leanunit">千克</span>
@@ -99,7 +99,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>
-                                                                <span id="bodyfatweight" class="BFvalue">&nbsp;15.4</span>
+                                                                <span id="bodyfatweight" class="BFvalue">&nbsp;<%=CurrentBodyFatWeight %></span>
                                                             </td>
                                                             <td>
                                                                 <span class="BFunit">千克</span>
@@ -145,13 +145,13 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <img src="<%=resourceRootPath %>/img/physique/women/fit_woman-large.png" alt="" />
+                                                <img src="<%=GoalPhysiqueImg %>" alt="" />
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="container">
                                                     <div class="row goaldate">
                                                         <div class="col-md-12">
-                                                            <div class="goaldatediv"><span class="goaldatedesc">目标在<span id="goaldatespan">400</span>天后过期：</span></div>
+                                                            <div class="goaldatediv"><span class="goaldatedesc">目标在<span id="goaldatespan"><%=GoalDaysLeft %></span>天后过期：</span></div>
                                                             <div id="foo1"></div>
                                                         </div>
                                                     </div>
@@ -161,11 +161,11 @@
                                                                 <tr>
                                                                     <td style="width: 108px; height: 70px;">
                                                                         <div><span class="goalstatusdesc">目标体型</span></div>
-                                                                        <div><span class="goalstatusvalue">健康女士</span></div>
+                                                                        <div><span class="goalstatusvalue"><%=GoalPhysiqueDesc %></span></div>
                                                                     </td>
                                                                     <td>
                                                                         <div><span class="goalstatusdesc">目标方向</span></div>
-                                                                        <div><span class="goalstatusvalue">塑形</span></div>
+                                                                        <div><span class="goalstatusvalue"><%=GoalDirectionDesc %></span></div>
                                                                     </td>
                                                                 </tr>
 
@@ -178,11 +178,11 @@
                                                                 <tr>
                                                                     <td style="width: 108px; height: 45px;">
                                                                         <div><span class="goalstatusdesc">目标体重</span></div>
-                                                                        <div><span class="goalstatusvalue_num">65.5</span><span class="goalstatusvalue_unit">千克</span></div>
+                                                                        <div><span class="goalstatusvalue_num"><%=GoalWeight %></span><span class="goalstatusvalue_unit">千克</span></div>
                                                                     </td>
                                                                     <td>
                                                                         <div><span class="goalstatusdesc">目标体脂率</span></div>
-                                                                        <div><span class="goalstatusvalue_num">16</span>&nbsp;<span class="goalstatusvaluepercent">%</span></div>
+                                                                        <div><span class="goalstatusvalue_num"><%=GoalBFR %></span>&nbsp;<span class="goalstatusvaluepercent">%</span></div>
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -198,12 +198,12 @@
                                                     <td style="width: 55%;">
                                                         <div class="progress progress-striped active" style="margin: 10px;">
 
-                                                            <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100" style="width: 55%">
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="<%=WeightGoalAchievedPercent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%=WeightGoalAchievedPercent %>%">
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td style="width: 30%; text-align: center;">
-                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">55%</span><a class="collapsed" data-toggle="collapse" href="#weightprogressstatus" aria-expanded="false" aria-controls="collapseTwo" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
+                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;"><span><%=WeightGoalAchievedPercent %></span>%</span><a class="collapsed" data-toggle="collapse" href="#weightprogressstatus" aria-expanded="false" aria-controls="collapseTwo" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -218,10 +218,10 @@
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                                        <td style="font-family: 'Times New Roman';">2016-9-1</td>
-                                                                        <td><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
-                                                                        <td><span style="font-family: 'Times New Roman';">386</span><span>天</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';"><%=StartWeight %></span><span>千克</span></td>
+                                                                        <td style="font-family: 'Times New Roman';"><%=GoalStartDate %></td>
+                                                                        <td><span style="font-family: 'Times New Roman';"><%=GoalWeight %></span><span>千克</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';"><%=GoalDaysLeft %></span><span>天</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -233,12 +233,12 @@
                                                     <td style="width: 55%;">
                                                         <div class="progress progress-striped active" style="margin: 10px;">
 
-                                                            <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                            <div class="progress-bar" role="progressbar" aria-valuenow="<%=BFRGoalAchievedPercent %>" aria-valuemin="0" aria-valuemax="100" style="width: <%=BFRGoalAchievedPercent %>%">
                                                             </div>
                                                         </div>
                                                     </td>
                                                     <td style="width: 30%; text-align: center;">
-                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;">35%</span><a class="collapsed" data-toggle="collapse" href="#BFprogressstatus" aria-expanded="false" aria-controls="collapseThree" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
+                                                        <span style="color: #5e87b0; font-family: 'Times New Roman'; font-size: 15px;"><span><%=BFRGoalAchievedPercent %></span>%</span><a class="collapsed" data-toggle="collapse" href="#BFprogressstatus" aria-expanded="false" aria-controls="collapseThree" style="color: #919191;">&nbsp;已完成&nbsp;<i style="color: #5e87b0" class="fa fa-angle-down"></i></a>
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -253,10 +253,10 @@
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family: 'Times New Roman';">25</span><span style="font-family: 'Times New Roman';">%</span></td>
-                                                                        <td style="font-family: 'Times New Roman';">2016-9-1</td>
-                                                                        <td style="font-family: 'Times New Roman';"><span>15</span><span style="font-family: 'Times New Roman';">%</span></td>
-                                                                        <td style="font-family: 'Times New Roman';"><span>386</span><span style="font-family: KaiTi;">天</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';"><%=StartBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td style="font-family: 'Times New Roman';"><%=GoalStartDate %></td>
+                                                                        <td style="font-family: 'Times New Roman';"><span><%=GoalBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td style="font-family: 'Times New Roman';"><span><%=GoalDaysLeft %></span><span style="font-family: KaiTi;">天</span></td>
                                                                     </tr>
                                                                 </table>
                                                             </div>
@@ -282,10 +282,10 @@
                                                 <td class="changedivtitle">体重变化</td>
                                             </tr>
                                             <tr>
-                                                <td id="weightchange" class="changedivvalue">1.5</td>
+                                                <td id="weightchange" class="changedivvalue"><%=WeightChangeTotal %></td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivunit">千克.增加</td>
+                                                <td class="changedivunit">千克.<span id="weightChangeDirection"><%=WeightChangeDirection %></span></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -297,10 +297,10 @@
                                                 <td class="changedivtitle">体脂率变化</td>
                                             </tr>
                                             <tr>
-                                                <td id="BFRchange" class="changedivvalue">3</td>
+                                                <td id="BFRchange" class="changedivvalue"><%=BFRChangeTotal %></td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivunit">%.增加</td>
+                                                <td class="changedivunit">%.<span id="BFRChangeDirection"><%=BFRChangeDirection %></span></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -313,13 +313,13 @@
                                     <div class="changediv">
                                         <table>
                                             <tr>
-                                                <td class="changedivtitle">已实现目标数</td>
+                                                <td class="changedivtitle">瘦体重变化</td>
                                             </tr>
                                             <tr>
-                                                <td id="achievedgoalcount" class="changedivvalue">2</td>
+                                                <td id="leanbodyweightchange" class="changedivvalue"><%=LeanBodyWeightChangeTotal %></td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivunit">已实现</td>
+                                                <td class="changedivunit">千克.<span id="leanBodyWeightChangeDirection"><%=LeanBodyWeightChangeDirection %></span></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -328,13 +328,13 @@
                                     <div class="changediv">
                                         <table>
                                             <tr>
-                                                <td class="changedivtitle">实现目标比例</td>
+                                                <td class="changedivtitle">体脂肪变化</td>
                                             </tr>
                                             <tr>
-                                                <td id="achievedgoalspercent" class="changedivvalue">12%</td>
+                                                <td id="bodyfatweightchange" class="changedivvalue"><%=BodyfatChangeTotal %></td>
                                             </tr>
                                             <tr>
-                                                <td class="changedivunit">共8个</td>
+                                                <td class="changedivunit">千克.<span id="bodyfatWeightChangeDirection"><%=BodyfatChangeDirection %></span></td>
                                             </tr>
                                         </table>
                                     </div>
@@ -1169,7 +1169,7 @@
                                                 <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
                                         </tr>
                                         <tr>
-                                            <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>
+                                            <td><span class="updateCurrentWeight_calendartext"><%=DateTime.Now.ToString("yyyy-MM-dd") %></span></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -1177,7 +1177,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number"/>
+                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentWeight_weightinput(this.value)"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1189,14 +1189,14 @@
                                     <table class="updateCurrentWeight_weightdesctable">
                                         <tr>
                                             <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
-                                            <td class="updateCurrentWeight_weightdescdirection">增加了</td>
+                                            <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentWeight_weightdesctable_changeDirection">没有变化</span></td>
                                             
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';">0.9</span>千克</td>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';" id="updateCurrentWeight_weightdesctable_changeAmount">0</span>千克</td>
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescdaycount">在10天之内</td>
+                                            <td class="updateCurrentWeight_weightdescdaycount">在<span id="updateCurrentWeight_weightdesctable_changeDayCount"><%=LastWeightMeasuredDayInterval %></span>天之内</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -1227,7 +1227,7 @@
                                                 <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
                                         </tr>
                                         <tr>
-                                            <td><span class="updateCurrentWeight_calendartext">2016-10-11</span></td>
+                                            <td><span class="updateCurrentWeight_calendartext"><%=DateTime.Now.ToString("yyyy-MM-dd") %></span></td>
                                         </tr>
                                     </table>
                                 </div>
@@ -1235,7 +1235,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input class="updateCurrentWeight_weightinput" type="number"/>
+                                                <input class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentBFR_bfrinput(this.value)"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1247,14 +1247,14 @@
                                     <table class="updateCurrentWeight_weightdesctable">
                                         <tr>
                                             <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
-                                            <td class="updateCurrentWeight_weightdescdirection">增加了</td>
+                                            <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentBFR_bfrdesctable_changeDirection">没有变化</span></td>
                                             
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';">0.9</span>千克</td>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';" id="updateCurrentBFR_bfrdesctable_changeAmount">0.0</span>%</td>
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescdaycount">在10天之内</td>
+                                            <td class="updateCurrentWeight_weightdescdaycount">在<%=LastBFRMeasuredDayInterval %>天之内</td>
                                         </tr>
                                     </table>
                                 </div>
@@ -1263,7 +1263,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary">更新</button>
+                        <button type="button" class="btn btn-primary" onclick="updateCurrentBFR()">更新</button>
                     </div>
                 </div>
             </div>
@@ -1292,7 +1292,9 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="goalid" />
+    <input type="hidden" id="goalid" value="<%=GoalID %>"/>
+    <input type="hidden" id="startWeight" value="<%=StartWeight %>" />
+    <input type="hidden" id="startBodyFat" value="<%=StartBFR %>" />
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
 

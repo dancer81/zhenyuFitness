@@ -80,6 +80,14 @@ namespace zhenyuFitness.Common
             Other,
         };
 
+        public static string GainMuscleDesc = "增肌";
+        public static string LoseFatDesc = "减脂";
+        public static string TransformDesc = "塑形";
+        public static string EnduarenceDesc = "耐力";
+        public static string SportsDesc = "体育运动";
+        public static string FlexibilityDesc = "柔韧性";
+        public static string OtherDesc = "其他";
+
         public enum GoalPhysique
         {
             [Description("（女）时尚女模特")]
@@ -106,6 +114,17 @@ namespace zhenyuFitness.Common
             Male_ProBodybuilder,
         };
 
+        public static string Male_SkinnyRippedDesc = "精干而犀利";
+        public static string Male_ModelDesc = "男性模特";
+        public static string Male_AthleteDesc = "对抗类运动员";
+        public static string Male_BodybuilderDesc = "健身达人";
+        public static string Male_StrongmanDesc = "大力士";
+        public static string Male_ProBodybuilderDesc = "健美运动员";
+        public static string Female_ModelDesc = "时尚女模特";
+        public static string Female_SwimSuitDesc = "比基尼女郎";
+        public static string Female_FitWomenDesc = "健康女士";
+        public static string Female_FitnessModel = "健身达人";
+        public static string Female_Bodybuilder = "健美运动员";
 
         #endregion
 
