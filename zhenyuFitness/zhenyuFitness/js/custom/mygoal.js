@@ -439,6 +439,13 @@ function updateCurrentWeight() {
     });
 }
 
+function initSelect2()
+{
+    $("#weightCurveInterval").select2({
+        tags: true,
+    });
+}
+
 //更新当前体脂率
 function updateCurrentBFR()
 {

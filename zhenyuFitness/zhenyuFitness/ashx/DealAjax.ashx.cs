@@ -175,10 +175,18 @@ namespace zhenyuFitness.ashx
             }
             else
             {
-                string sqlDeleteCurrentBFRGoal = string.Format(@"
-                DELETE FROM [zhenyuFitness].[dbo].[UserBFRGoal] where [ID] = '{0}'", goalID);
+                string sqlDeleteCurrentBFRGoal = string.Format(@"UPDATE [zhenyuFitness].[dbo].[UserBFRGoal] SET [Valid] = 0 WHERE ID = '{0}'", goalID);
+                string sqlDeleteTrackWeight = string.Format(@"UPDATE [zhenyuFitness].[dbo].[TrackWeight] SET [Valid] = 0 WHERE GoalID = '{0}'", goalID);
+                string sqlDeleteTrackBFR = string.Format(@"UPDATE [zhenyuFitness].[dbo].[TrackBFR] SET [Valid] = 0 WHERE GoalID = '{0}'", goalID);
 
-                retType = dal.ExecSQL(sqlDeleteCurrentBFRGoal);
+                try
+                {
+                    dal.ExecuteSqlTran(new List<string> { sqlDeleteTrackWeight, sqlDeleteTrackBFR, sqlDeleteCurrentBFRGoal });
+                }
+                catch
+                {
+                    retType = 0;
+                }
             }
             return retType;
         }

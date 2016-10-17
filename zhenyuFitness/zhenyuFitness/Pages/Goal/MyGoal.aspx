@@ -125,7 +125,7 @@
                                             <%--<li>
                                                 <a href="GoalSetting.aspx">新建健身目标</a>
                                             </li>--%>
-                                            
+
                                             <li>
                                                 <a href="#" data-toggle="modal" data-target="#updateCurrentWeight">更新体重数据</a>
                                             </li>
@@ -371,6 +371,14 @@
                                                     <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="color: #919191">体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse in">
+                                                    <div>
+                                                        <select name="interval" id="weightCurveInterval" class="col-md-12 full-width-fix">
+                                                            <option value="30" selected>每隔30天</option>
+                                                            <option value="15">每隔15天</option>
+                                                            <option value="7">每隔7天</option>
+                                                            <option value="60">每隔60天</option>
+                                                        </select>
+                                                    </div>
                                                     <div id="chartWeightCurve" class="panel-body"></div>
                                                 </div>
                                             </div>
@@ -1079,7 +1087,7 @@
                                         <div class="container">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <div class="progressphotobefore" style="background-image:url(<%=resourceRootPath %>/img/d42c65949cce4799b0c40009562b646b-196x196.jpg)">
+                                                    <div class="progressphotobefore" style="background-image: url(<%=resourceRootPath %>/img/d42c65949cce4799b0c40009562b646b-196x196.jpg)">
                                                         <div class="progressPhototext">
                                                             <table class="beforetexttable">
                                                                 <tr>
@@ -1095,7 +1103,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4">
-                                                    <div class="progressphotocurrent" style="background-image:url(<%=resourceRootPath %>/img/89ef486aed63462a84745ca62dc0f847-196x196.jpg)">
+                                                    <div class="progressphotocurrent" style="background-image: url(<%=resourceRootPath %>/img/89ef486aed63462a84745ca62dc0f847-196x196.jpg)">
                                                         <div class="progressPhototext">
                                                             <table class="beforetexttable">
                                                                 <tr>
@@ -1156,7 +1164,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel"><span class="updateweightmodaltitle">更新您的体重数据</span></h4>
                     </div>
                     <div class="modal-body">
@@ -1177,7 +1185,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentWeight_weightinput(this.value)"/>
+                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentWeight_weightinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1190,10 +1198,10 @@
                                         <tr>
                                             <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentWeight_directionstyle"></i></td>
                                             <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentWeight_weightdesctable_changeDirection">没有变化</span></td>
-                                            
+
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';" id="updateCurrentWeight_weightdesctable_changeAmount">0</span>千克</td>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family: 'Times New Roman';" id="updateCurrentWeight_weightdesctable_changeAmount">0</span>千克</td>
                                         </tr>
                                         <tr>
                                             <td class="updateCurrentWeight_weightdescdaycount">在<span id="updateCurrentWeight_weightdesctable_changeDayCount"><%=LastWeightMeasuredDayInterval %></span>天之内</td>
@@ -1214,7 +1222,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabel1"><span class="updateweightmodaltitle">更新您的体脂率数据</span></h4>
                     </div>
                     <div class="modal-body">
@@ -1235,7 +1243,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentBFR_bfrinput(this.value)"/>
+                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentBFR_bfrinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1248,10 +1256,10 @@
                                         <tr>
                                             <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentBFR_directionstyle"></i></td>
                                             <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentBFR_bfrdesctable_changeDirection">没有变化</span></td>
-                                            
+
                                         </tr>
                                         <tr>
-                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family:'Times New Roman';" id="updateCurrentBFR_bfrdesctable_changeAmount">0.0</span>%</td>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family: 'Times New Roman';" id="updateCurrentBFR_bfrdesctable_changeAmount">0.0</span>%</td>
                                         </tr>
                                         <tr>
                                             <td class="updateCurrentWeight_weightdescdaycount">在<%=LastBFRMeasuredDayInterval %>天之内</td>
@@ -1272,7 +1280,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" style="color:white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                         <h4 class="modal-title" id="myModalLabeldelete"><span class="updateweightmodaltitle">删除健身目标</span></h4>
                     </div>
                     <div class="modal-body">
@@ -1292,7 +1300,7 @@
             </div>
         </div>
     </div>
-    <input type="hidden" id="goalid" value="<%=GoalID %>"/>
+    <input type="hidden" id="goalid" value="<%=GoalID %>" />
     <input type="hidden" id="startWeight" value="<%=StartWeight %>" />
     <input type="hidden" id="startBodyFat" value="<%=StartBFR %>" />
 
