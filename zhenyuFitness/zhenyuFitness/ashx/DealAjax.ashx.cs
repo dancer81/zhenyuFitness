@@ -33,7 +33,20 @@ namespace zhenyuFitness.ashx
                     context.Response.Write(updateCurrentWeight_retType);
                     context.Response.End();
                     break;
-                    
+                case "updateCurrentBFR":
+                    int updateCurrentBFR_retType = this.UpdateCurrentBFR(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(updateCurrentBFR_retType);
+                    context.Response.End();
+                    break;
+                case "deleteCurrentBFRGoal":
+                    int deleteCurrentBFRGoal_retType = this.DeleteCurrentBFRGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(deleteCurrentBFRGoal_retType);
+                    context.Response.End();
+                    break; 
                 default:
                     break;
             }
@@ -109,6 +122,64 @@ namespace zhenyuFitness.ashx
                 retType = dal.ExecSQL(sqlUpdateCurrentWeight);
             }
 
+            return retType;
+        }
+
+        private int UpdateCurrentBFR(HttpContext context)
+        {
+            int retType = 1;
+            string goalID = context.Request.Form["goalID"].ToString();
+            string currentBFR = context.Request.Form["currentBFR"].ToString();
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                retType = 0;
+            }
+            else
+            {
+                string sqlUpdateCurrentBFR = string.Format(@"
+                        INSERT INTO [zhenyuFitness].[dbo].[TrackBFR]
+                                   ([ID]
+                                   ,[UserID]
+                                   ,[GoalID]
+                                   ,[BodyfatRate]
+                                   ,[CreateUser]
+                                   ,[CreateDate]
+                                   ,[LastModifiedUser]
+                                   ,[LastModifiedDate]
+                                   ,[Valid])
+                             VALUES
+                                   (NEWID()
+                                   ,'{0}'
+                                   ,'{1}'
+                                   ,{2}
+                                   ,'{0}'
+                                   ,GETDATE()
+                                   ,'{0}'
+                                   ,GETDATE()
+                                   ,1)", context.Session["UserID"].ToString(), goalID, currentBFR);
+                retType = dal.ExecSQL(sqlUpdateCurrentBFR);
+            }
+
+            return retType;
+        }
+
+        private int DeleteCurrentBFRGoal(HttpContext context)
+        {
+            int retType = 1;
+            string goalID = context.Request.Form["goalID"].ToString();
+
+
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                retType = 0;
+            }
+            else
+            {
+                string sqlDeleteCurrentBFRGoal = string.Format(@"
+                DELETE FROM [zhenyuFitness].[dbo].[UserBFRGoal] where [ID] = '{0}'", goalID);
+
+                retType = dal.ExecSQL(sqlDeleteCurrentBFRGoal);
+            }
             return retType;
         }
     }

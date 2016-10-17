@@ -371,7 +371,7 @@
                                                     <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="color: #919191">体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse in">
-                                                    <div id="chart1" class="panel-body"></div>
+                                                    <div id="chartWeightCurve" class="panel-body"></div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -379,7 +379,7 @@
                                                     <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span style="color: #919191">体脂率追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseTwo" class="panel-collapse collapse">
-                                                    <div id="chart2" class="panel-body"></div>
+                                                    <div id="chartBodyfatRateCurve" class="panel-body"></div>
                                                 </div>
                                             </div>
                                             <div class="panel panel-default">
@@ -387,7 +387,7 @@
                                                     <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="color: #919191">净体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse">
-                                                    <div id="chart3" class="panel-body"></div>
+                                                    <div id="chartLeanBodyWeightCurve" class="panel-body"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1188,7 +1188,7 @@
                                 <div class="col-md-6">
                                     <table class="updateCurrentWeight_weightdesctable">
                                         <tr>
-                                            <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
+                                            <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentWeight_directionstyle"></i></td>
                                             <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentWeight_weightdesctable_changeDirection">没有变化</span></td>
                                             
                                         </tr>
@@ -1235,7 +1235,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentBFR_bfrinput(this.value)"/>
+                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onKeyUp="CheckUpdateCurrentBFR_bfrinput(this.value)"/>
                                             </td>
                                         </tr>
                                         <tr>
@@ -1246,7 +1246,7 @@
                                 <div class="col-md-6">
                                     <table class="updateCurrentWeight_weightdesctable">
                                         <tr>
-                                            <td rowspan="3"><i class="fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle"></i></td>
+                                            <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentBFR_directionstyle"></i></td>
                                             <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentBFR_bfrdesctable_changeDirection">没有变化</span></td>
                                             
                                         </tr>
@@ -1286,7 +1286,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
-                        <button type="button" class="btn btn-primary">继续</button>
+                        <button type="button" class="btn btn-primary" onclick="deleteCurrentBFRGoal()">继续</button>
                     </div>
                 </div>
             </div>

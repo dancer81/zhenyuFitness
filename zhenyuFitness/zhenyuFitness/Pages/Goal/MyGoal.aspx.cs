@@ -53,13 +53,13 @@ namespace zhenyuFitness.Pages.Goal
         //UserBFRGoal
         private string goalID;
         private float height;
-        private int goalPhysique;
+        private int goalPhysique = -1;
         private int liftingExperience;
         private int motivationLevel;
         private float startWeight;
         private float startBodyFat;
         private float startWaistSize;
-        private int goalDirection;
+        private int goalDirection = -1;
         private float goalWeight;
         private float goalBodyFat;
         private float goalWaistSize;
@@ -75,9 +75,9 @@ namespace zhenyuFitness.Pages.Goal
         private bool isCanceled;
 
         private float lastMeasuredWeight = 0;
-        private DateTime lastWeightMeasuredDate;
+        private DateTime lastWeightMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
         private float lastMeasuredBFR = 0;
-        private DateTime lastBFRMeasuredDate;
+        private DateTime lastBFRMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
 
         public string GoalID
         {
@@ -117,6 +117,7 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
+                if (string.IsNullOrEmpty(this.goalID)) return "0";
                 return ((float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight))).ToString("0");
             }
         }
@@ -167,6 +168,7 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
+                if (string.IsNullOrEmpty(this.goalID)) return "0";
                 return ((float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR))).ToString("0");
             }
         }
@@ -248,7 +250,7 @@ namespace zhenyuFitness.Pages.Goal
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_SkinnyRipped) return Common.Common.ResourceRootPath + "/img/physique/man/skinny_ripped-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_Model) return Common.Common.ResourceRootPath + "/img/physique/man/male_model-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_Athlete) return Common.Common.ResourceRootPath + "/img/physique/man/athlete-large.png";
-                if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_Bodybuilder) return Common.Common.ResourceRootPath + "/img/physique/man/bodybuilder-large .png";
+                if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_Bodybuilder) return Common.Common.ResourceRootPath + "/img/physique/man/bodybuilder-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_Strongman) return Common.Common.ResourceRootPath + "/img/physique/man/strongman-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Male_ProBodybuilder) return Common.Common.ResourceRootPath + "/img/physique/man/pro_bodybuilder-large.png";
 
@@ -258,15 +260,15 @@ namespace zhenyuFitness.Pages.Goal
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Female_FitnessModel) return Common.Common.ResourceRootPath + "/img/physique/women/fitness_model-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Femal_BodyBuilder) return Common.Common.ResourceRootPath + "/img/physique/women/bodybuilder-large.png";
 
-                if(Common.Common.NoneOrEmptyString(Session["Gender"]))
+                if(!Common.Common.NoneOrEmptyString(Session["Gender"]))
                 {
                     if(Session["Gender"].ToString() == "0")
                     {
-                        return Common.Common.ResourceRootPath + "/img/physique/man/MALE_MODEL.png.png";
+                        return Common.Common.ResourceRootPath + "/img/physique/man/skinny_ripped-large.png";
                     }
                     else
                     {
-                        return Common.Common.ResourceRootPath + "/img/physique/women/FASHION_MODEL.png.png";
+                        return Common.Common.ResourceRootPath + "/img/physique/women/fashion_model-large.png";
                     }
                 }
                 return "";
@@ -291,7 +293,7 @@ namespace zhenyuFitness.Pages.Goal
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Female_FitnessModel) return Common.Common.Female_FitnessModel;
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Femal_BodyBuilder) return Common.Common.Female_Bodybuilder;
 
-                return "";
+                return "尚未制定";
             }
         }
 
@@ -307,7 +309,7 @@ namespace zhenyuFitness.Pages.Goal
                 if (this.goalDirection == (int)Common.Common.GoalDirection.Enduarence) return Common.Common.EnduarenceDesc;
                 if (this.goalDirection == (int)Common.Common.GoalDirection.Other) return Common.Common.OtherDesc;
 
-                return "";
+                return "尚未制定";
             }
         }
 
@@ -403,8 +405,16 @@ namespace zhenyuFitness.Pages.Goal
                   ,[IsCanceled]
               FROM [zhenyuFitness].[dbo].[UserBFRGoal] where Valid = 1 and UserID='{0}'
               order by IsProcessing desc, IsAchieved desc, IsExpired desc, CreateDate desc", this.userID);
-
-            DataTable dtBFRGoal = dal.DoSelectToTable(sql, "");
+            DataTable dtBFRGoal;
+            try
+            {
+                dtBFRGoal = dal.DoSelectToTable(sql, "");
+            }
+            catch
+            {
+                commonWeb.MessageBox(Page, "健身目标加载失败！", "failureLoadGoalData");
+                return false;
+            }
             if (dtBFRGoal != null && dtBFRGoal.Rows.Count > 0)
             {
                 if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["ID"]))
@@ -519,7 +529,7 @@ namespace zhenyuFitness.Pages.Goal
             }
             else
             {
-                return false;
+                commonWeb.MessageBox(Page, "您尚未制定健身目标！", "nofitnessgoal");
             }
             return true;
         }
@@ -563,7 +573,7 @@ namespace zhenyuFitness.Pages.Goal
                 }
                 
             }
-
+            this.lastWeightMeasuredDate = this.goalStartDate;
             return true;
         }
 
@@ -573,7 +583,7 @@ namespace zhenyuFitness.Pages.Goal
                 SELECT [ID]
                   ,[UserID]
                   ,[GoalID]
-                  ,[BFR]
+                  ,[BodyfatRate]
                   ,[CreateUser]
                   ,[CreateDate]
                   ,[LastModifiedUser]
@@ -596,16 +606,16 @@ namespace zhenyuFitness.Pages.Goal
 
             if (dtTrackBFR != null && dtTrackBFR.Rows.Count > 0)
             {
-                if (!Common.Common.NoneOrEmptyString(dtTrackBFR.Rows[0]["BFR"]))
+                if (!Common.Common.NoneOrEmptyString(dtTrackBFR.Rows[0]["BodyfatRate"]))
                 {
-                    this.lastMeasuredBFR = float.Parse(dtTrackBFR.Rows[0]["BFR"].ToString());
+                    this.lastMeasuredBFR = float.Parse(dtTrackBFR.Rows[0]["BodyfatRate"].ToString());
                 }
                 if (!Common.Common.NoneOrEmptyString(dtTrackBFR.Rows[0]["LastModifiedDate"]))
                 {
                     this.lastBFRMeasuredDate = DateTime.Parse(dtTrackBFR.Rows[0]["LastModifiedDate"].ToString());
                 }
             }
-
+            this.lastBFRMeasuredDate = this.goalStartDate;
             return true;
         }
 

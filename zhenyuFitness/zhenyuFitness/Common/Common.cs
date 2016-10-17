@@ -28,6 +28,8 @@ namespace zhenyuFitness.Common
         public static int MinExerciseRateCount = 10;
         //指示页面是否已经登录过，跳过权限认证，提高效率
         public static string HasPermission = "1";
+        //肯定比网站上线时间要早的时间，用于初始化DateTime类型的变量
+        public static string DateTiemPassedForCertain = "2000-1-1";
 
         #region 追踪相关
         public enum ActivityTracked

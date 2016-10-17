@@ -1,11 +1,12 @@
-﻿function initMyGoal() {
+﻿//初始化页面
+function initMyGoal() {
     initEasyPie();
     initCountdown($("#goaldatespan").html());
 
     initchart();
 }
 
-
+//初始化EasyPie插件
 function initEasyPie() {
     $('#pie_fatrate').easyPieChart({
         easing: 'easeOutBounce',
@@ -46,17 +47,16 @@ function initCountdown(days) {
     });
 }
 
-
+//初始化坐标图插件
 function initchart() {
-    initchart1();
-    initchart2();
-    initchart3();
+    initchart_weight();
+    initchart_bodyfatrate();
+    initchart_leanbodyweight();
 }
-
-function initchart1() {
+function initchart_weight() {
 
     var goalweight = [], weighthistory = [], t;
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 13; i++) {
         t = i + 10;
         //t = Math.floor(Math.random() * (30 + ((i % 12) * 5))) + 10;
         weighthistory.push(t);
@@ -74,19 +74,19 @@ function initchart1() {
                     name: '目标体重',
                     value: goalweight,
                     color: '#0d8ecf',
-                    line_width: 2
+                    line_width: 4
                 },
                 {
                     name: '历史体重',
                     value: weighthistory,
                     color: '#ef7707',
-                    line_width: 2
+                    line_width: 1
                 }
     ];
 
-    var labels = ["2012-08-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
+    var labels = ["2012-06-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
-        render: 'chart1',
+        render: 'chartWeightCurve',
         data: data,
         align: 'center',
         title: '您的体重变化曲线',
@@ -141,7 +141,7 @@ function initchart1() {
                 scale_color: '#9f9f9f'
             }, {
                 position: 'bottom',
-                labels: labels
+                //labels: labels
             }]
         }
     });
@@ -153,8 +153,7 @@ function initchart1() {
 
 
 }
-
-function initchart2() {
+function initchart_bodyfatrate() {
 
     var pv = [], ip = [], t;
     for (var i = 0; i < 8; i++) {
@@ -184,7 +183,7 @@ function initchart2() {
 
     var labels = ["2012-08-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
-        render: 'chart2',
+        render: 'chartBodyfatRateCurve',
         data: data,
         align: 'center',
         title: '您的体脂率变化曲线',
@@ -251,8 +250,7 @@ function initchart2() {
 
 
 }
-
-function initchart3() {
+function initchart_leanbodyweight() {
 
     var pv = [], ip = [], t;
     for (var i = 0; i < 8; i++) {
@@ -282,7 +280,7 @@ function initchart3() {
 
     var labels = ["2012-08-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
-        render: 'chart3',
+        render: 'chartLeanBodyWeightCurve',
         data: data,
         align: 'center',
         title: '您的净体重变化曲线',
@@ -350,8 +348,22 @@ function initchart3() {
 
 }
 
+//更新当前体重
 function updateCurrentWeight() {
     var goalid = $("#goalid").val();
+    if (goalid == "")
+    {
+        bootbox.alert({
+            size: 'small',
+            message: "请先制定一个健身目标。"
+        });
+        return;
+    }
+    //to do:判断距离上一次更新是否超过了7天
+
+
+
+
     var startWeight = $("#startWeight").val();
     var startBFR = $("#startBodyFat").val();
     var currentweight = $("#updateCurrentWeight_weightinput").val();
@@ -423,60 +435,203 @@ function updateCurrentWeight() {
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             alert("更新体重时ajax调用出错了");
             alert(errorThrown);
+        }
+    });
+}
+
+//更新当前体脂率
+function updateCurrentBFR()
+{
+    var goalid = $("#goalid").val();
+    if (goalid == "") {
+        bootbox.alert({
+            size: 'small',
+            message: "请先制定一个健身目标。"
+        });
+        return;
+    }
+
+
+    var startWeight = $("#startWeight").val();
+    var startBFR = $("#startBodyFat").val();
+    var currentbfr = $("#updateCurrentBFR_bfrinput").val();
+    var lastBFRMesured = $("#currentBFR").html();
+    var currentWeight = $("#currentweight").html();
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "updateCurrentBFR", goalID: goalid, currentBFR: currentbfr },
+        async: true,
+        success: function (data) {
+            if (data == "0") {//更新失败
+                bootbox.alert({
+                    size: 'small',
+                    message: "更新当前体脂率失败。请重试！"
+                });
+                $('#updateCurrentBF').modal('hide')
+            }
+            if (data == "1") {//数据库更新成功，更新前台数据
+                $('#updateCurrentBF').modal('hide')
+
+                $("#currentBFR").html(currentbfr);//更新当前体脂率
+                $("#leanbodyweight").html(((1 - currentbfr / 100) * currentWeight).toFixed(1));//更新当前瘦体重
+                $("#bodyfatweight").html((currentbfr / 100 * currentWeight).toFixed(1));//更新当前体脂肪重量
+
+                //更新体脂率变化
+                var totalbfrChange = currentbfr - startBFR;
+                if (totalbfrChange > 0) {
+                    $("#BFRchange").html((totalbfrChange).toFixed(1));
+                    $("#BFRChangeDirection").html("总共增加");
+                    
+                }
+                else {
+                    $("#BFRchange").html((0 - totalbfrChange).toFixed(1));
+                    $("#BFRChangeDirection").html("总共减少");
+                }
+
+                //更新瘦体重变化
+                var totalLeanBodyWeightChange = currentWeight * (100 - currentbfr) / 100 - startWeight * (100 - startBFR) / 100;
+                if (totalLeanBodyWeightChange > 0) {
+                    $("#leanbodyweightchange").html(totalLeanBodyWeightChange.toFixed(1));
+                    $("#leanBodyWeightChangeDirection").html("总共增加");
+                }
+                else {
+                    $("#leanbodyweightchange").html(0 - totalLeanBodyWeightChange.toFixed(1));
+                    $("#leanBodyWeightChangeDirection").html("总共减少");
+                }
+
+                //更新体脂肪变化
+                var totalBodyfatWeightChange = currentWeight * currentbfr / 100 - startWeight * startBFR / 100;
+                if (totalBodyfatWeightChange > 0) {
+                    $("#bodyfatweightchange").html(totalBodyfatWeightChange.toFixed(1));
+                    $("bodyfatWeightChangeDirection").html("总共增加");
+                }
+                else {
+                    $("#bodyfatweightchange").html(0 - totalBodyfatWeightChange.toFixed(1));
+                    $("bodyfatWeightChangeDirection").html("总共减少");
+                }
+
+                //to do:更新三个图表
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("更新体脂率ajax调用出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+//删除当前“体重、体脂率”健身目标
+function deleteCurrentBFRGoal() {
+    var goalid = $("#goalid").val();
+    if (goalid == "") {
+        bootbox.alert({
+            size: 'small',
+            message: "请先制定一个健身目标。"
+        });
+        return;
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "deleteCurrentBFRGoal", goalID:goalid },
+        async: true,
+        success: function (data) {
+            if (data == "0") {//删除失败
+                bootbox.alert({
+                    size: 'small',
+                    message: "删除当前健身目标失败。请重试！"
+                });
+                $('#deleteCurrentGoal').modal('hide')
+            }
+            if (data == "1") {//数据库更新成功，更新前台数据
+                $('#deleteCurrentGoal').modal('hide')
+
+                location.reload(true);
+
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("删除当前目标ajax调用出错了");
+            alert(errorThrown);
             ret = -1
         }
     });
 }
 
-function updateCurrentBFR()
-{
-
-}
-
-function CheckUpdateCurrentWeight_weightinput(inputValue)
-{
+//根据输入的体重值，更新页面数据
+function CheckUpdateCurrentWeight_weightinput(inputValue) {
+    if (inputValue * 1 >= 500) {
+        $("#updateCurrentWeight_weightinput").val("");
+        bootbox.alert({
+            size: 'small',
+            message: "您的体重似乎不太可能超过500公斤！请您重新输入。"
+        });
+        return;
+    }
     var lastWeightMeasured = $("#currentweight").html();
-    if (inputValue >= 10) {
-        if (inputValue > lastWeightMeasured)
-        {
+    if (inputValue > 10) {
+        if (inputValue * 1 > lastWeightMeasured * 1) {
+
             $("#updateCurrentWeight_weightdesctable_changeDirection").html("增加了");
             $("#updateCurrentWeight_weightdesctable_changeAmount").html((inputValue - lastWeightMeasured).toFixed(1));
+            $(".updateCurrentWeight_directionstyle").attr("class", "fa fa-long-arrow-up fa-5x updateCurrentWeight_directionstyle");
+            $(".updateCurrentWeight_directionstyle").css("color", "#F00000");
             //$("#updateCurrentWeight_weightdesctable_changeDayCount").html();
         }
-        else if(inputValue < lastWeightMeasured)
-        {
+        else if (inputValue * 1 < lastWeightMeasured * 1) {
             $("#updateCurrentWeight_weightdesctable_changeDirection").html("减少了");
             $("#updateCurrentWeight_weightdesctable_changeAmount").html((lastWeightMeasured - inputValue).toFixed(1));
+            $(".updateCurrentWeight_directionstyle").attr("class", "fa fa-long-arrow-down fa-5x updateCurrentWeight_directionstyle");
+            $(".updateCurrentWeight_directionstyle").css("color", "#003399");
+
             //$("#updateCurrentWeight_weightdesctable_changeDayCount").html();
         }
-        else
-        {
+        else {
             $("#updateCurrentWeight_weightdesctable_changeDirection").html("没有变化");
             $("#updateCurrentWeight_weightdesctable_changeAmount").html((lastWeightMeasured - inputValue).toFixed(1));
+            $(".updateCurrentWeight_directionstyle").attr("class", "fa fa-arrows-h fa-5x updateCurrentWeight_directionstyle");
+            $(".updateCurrentWeight_directionstyle").css("color", "#CCCCCC");
             //$("#updateCurrentWeight_weightdesctable_changeDayCount").html();
         }
     }
 }
 
-function CheckUpdateCurrentBFR_bfrinput(inputValue)
-{
+//根据输入的体脂率，更新页面数据
+function CheckUpdateCurrentBFR_bfrinput(inputValue) {
+    if (inputValue * 1 > 60) {
+        $("#updateCurrentBFR_bfrinput").val("");
+        bootbox.alert({
+            size: 'small',
+            message: "您的体脂率似乎不太可能超过60%！请您重新输入。"
+        });
+        return;
+    }
+
     var lastBFRMeasured = $("#currentBFR").html();
-    if(inputValue > lastBFRMeasured)
-    {
+    if (inputValue * 1 > lastBFRMeasured * 1) {
         $("#updateCurrentBFR_bfrdesctable_changeDirection").html("增加了");
         $("#updateCurrentBFR_bfrdesctable_changeAmount").html((inputValue - lastBFRMeasured).toFixed(1));
+        $(".updateCurrentBFR_directionstyle").attr("class", "fa fa-long-arrow-up fa-5x updateCurrentBFR_directionstyle");
+        $(".updateCurrentBFR_directionstyle").css("color", "#F00000");
     }
-    else if(inputValue < lastBFRMeasured)
-    {
+    else if (inputValue * 1 < lastBFRMeasured * 1) {
         $("#updateCurrentBFR_bfrdesctable_changeDirection").html("减少了");
         $("#updateCurrentBFR_bfrdesctable_changeAmount").html((lastBFRMeasured - inputValue).toFixed(1));
+        $(".updateCurrentBFR_directionstyle").attr("class", "fa fa-long-arrow-down fa-5x updateCurrentBFR_directionstyle");
+        $(".updateCurrentBFR_directionstyle").css("color", "#003399");
     }
-    else
-    {
+    else {
         $("#updateCurrentBFR_bfrdesctable_changeDirection").html("没有变化");
         $("#updateCurrentBFR_bfrdesctable_changeAmount").html((lastBFRMeasured - inputValue).toFixed(1));
+        $(".updateCurrentBFR_directionstyle").attr("class", "fa fa-arrows-h fa-5x updateCurrentBFR_directionstyle");
+        $(".updateCurrentBFR_directionstyle").css("color", "#CCCCCC");
     }
 }
+
+
 
 //function deleteCurrentBFRGoal()
 //{

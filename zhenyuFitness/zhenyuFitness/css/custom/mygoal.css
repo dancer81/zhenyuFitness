@@ -449,7 +449,12 @@
 }
 
 .updateCurrentWeight_directionstyle{
-    color:#919191;/*#00aeef;*/
+    color:#CCCCCC;/*#00aeef;*/
+    margin-top:10px;
+}
+
+.updateCurrentBFR_directionstyle{
+    color:#CCCCCC;/*#00aeef;*/
     margin-top:10px;
 }
 
