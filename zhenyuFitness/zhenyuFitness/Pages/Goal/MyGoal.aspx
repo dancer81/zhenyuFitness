@@ -1185,7 +1185,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentWeight_weightinput(this.value)" />
+                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onchange="CheckUpdateCurrentWeight_weightinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1243,7 +1243,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentBFR_bfrinput(this.value)" />
+                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onchange="CheckUpdateCurrentBFR_bfrinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>

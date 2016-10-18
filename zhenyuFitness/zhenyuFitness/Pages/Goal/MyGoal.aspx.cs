@@ -12,11 +12,11 @@ namespace zhenyuFitness.Pages.Goal
     public partial class MyGoal : BasePage
     {
         private string userID;
-        
+
         protected new void Page_Load(object sender, EventArgs e)
         {
             base.Page_Load(sender, e);
-            
+
             if (request.Form.Count == 0)
             {
                 this.InitPage();
@@ -35,7 +35,7 @@ namespace zhenyuFitness.Pages.Goal
             //页面路径
             ((generalMaster)this.Master).pagePath = @"<li><a href='../Home/FitSpaceHome.aspx'>FitSpace社区</a></li><li>目标</li><li>我的目标</li>";
 
-            if(!this.InitPageData())
+            if (!this.InitPageData())
             {
                 commonWeb.MessageBox(Page, "数据加载失败！请重试。", "loaddatafail");
                 return;
@@ -95,7 +95,7 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
-                return this.startWeight.ToString("0.0");;
+                return this.startWeight.ToString("0.0"); ;
             }
         }
 
@@ -121,7 +121,8 @@ namespace zhenyuFitness.Pages.Goal
             get
             {
                 if (string.IsNullOrEmpty(this.goalID)) return "0";
-                return ((float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight))).ToString("0");
+                float changePercent = (100 * (float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight)));
+                return changePercent > 0 ? changePercent.ToString("0.0") : (0 - changePercent).ToString("0.0");
             }
         }
 
@@ -130,7 +131,7 @@ namespace zhenyuFitness.Pages.Goal
             get
             {
                 float weightchange = float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight);
-                return weightchange > 0 ? weightchange.ToString("0.0") : (0 - weightchange).ToString("0.0"); 
+                return weightchange > 0 ? weightchange.ToString("0.0") : (0 - weightchange).ToString("0.0");
             }
         }
 
@@ -189,7 +190,8 @@ namespace zhenyuFitness.Pages.Goal
             get
             {
                 if (string.IsNullOrEmpty(this.goalID)) return "0";
-                return ((float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR))).ToString("0");
+                float changePercent = (100 * (float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR)));
+                return changePercent > 0 ? changePercent.ToString("0") : (0 - changePercent).ToString("0.0");
             }
         }
 
@@ -215,7 +217,7 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
-                return (float.Parse(this.CurrentWeight) * (100 - float.Parse(this.CurrentBFR)) / 100).ToString("0.0");;
+                return (float.Parse(this.CurrentWeight) * (100 - float.Parse(this.CurrentBFR)) / 100).ToString("0.0"); ;
             }
         }
 
@@ -280,9 +282,10 @@ namespace zhenyuFitness.Pages.Goal
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Female_FitnessModel) return Common.Common.ResourceRootPath + "/img/physique/women/fitness_model-large.png";
                 if (this.goalPhysique == (int)Common.Common.GoalPhysique.Femal_BodyBuilder) return Common.Common.ResourceRootPath + "/img/physique/women/bodybuilder-large.png";
 
-                if(!Common.Common.NoneOrEmptyString(Session["Gender"]))
+                //登录了，但没设定目标
+                if (!Common.Common.NoneOrEmptyString(Session["Gender"]))
                 {
-                    if(Session["Gender"].ToString() == "0")
+                    if (Session["Gender"].ToString() == "0")
                     {
                         return Common.Common.ResourceRootPath + "/img/physique/man/skinny_ripped-large.png";
                     }
@@ -291,9 +294,10 @@ namespace zhenyuFitness.Pages.Goal
                         return Common.Common.ResourceRootPath + "/img/physique/women/fashion_model-large.png";
                     }
                 }
-                return "";
+                //没有登录
+                return Common.Common.ResourceRootPath + "/img/physique/man/skinny_ripped-large.png";
             }
-            
+
         }
 
         public string GoalPhysiqueDesc
@@ -354,11 +358,7 @@ namespace zhenyuFitness.Pages.Goal
         {//当前时间距离上次体重测量日期已经有多少天了
             get
             {
-                if(this.lastWeightMeasuredDate != null)
-                {
-                    return DateTime.Today.Subtract(this.lastWeightMeasuredDate).Days;
-                }
-                return DateTime.Today.Subtract(this.goalStartDate).Days;
+                return DateTime.Today.Subtract(this.lastWeightMeasuredDate).Days;
             }
         }
 
@@ -366,11 +366,7 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
-                if(this.lastBFRMeasuredDate != null)
-                {
-                    return DateTime.Today.Subtract(this.lastBFRMeasuredDate).Days;
-                }
-                return DateTime.Today.Subtract(this.goalStartDate).Days;
+                return DateTime.Today.Subtract(this.lastBFRMeasuredDate).Days;
             }
         }
         #endregion
@@ -381,18 +377,18 @@ namespace zhenyuFitness.Pages.Goal
         /// <returns>0：初始化数据失败；1：初始化成功</returns>
         private bool InitPageData()
         {
-            if(Common.Common.NoneOrEmptyString(Session["UserID"]))
+            if (Common.Common.NoneOrEmptyString(Session["UserID"]))
             {
                 return false;
             }
             this.userID = Session["UserID"].ToString();
 
-            if(this.LoadUserBFRGoalData() && this.LoadUserWeightTrack() && this.LoadUserBFRTrack())
+            if (this.LoadUserBFRGoalData() && this.LoadUserWeightTrack() && this.LoadUserBFRTrack())
             {
                 return true;
             }
             return false;
-            
+
 
         }
 
@@ -568,7 +564,7 @@ namespace zhenyuFitness.Pages.Goal
                   ,[Valid]
               FROM [zhenyuFitness].[dbo].[TrackWeight]
               where Valid = 1 and UserID='{0}' and GoalID='{1}' 
-              order by LastModifiedDate desc", this.userID,this.goalID);
+              order by LastModifiedDate desc", this.userID, this.goalID);
 
             DataTable dtTrackWeight;
             try
@@ -581,9 +577,9 @@ namespace zhenyuFitness.Pages.Goal
                 return false;
             }
 
-            if(dtTrackWeight != null && dtTrackWeight.Rows.Count > 0)
+            if (dtTrackWeight != null && dtTrackWeight.Rows.Count > 0)
             {
-                if(!Common.Common.NoneOrEmptyString(dtTrackWeight.Rows[0]["Weight"]))
+                if (!Common.Common.NoneOrEmptyString(dtTrackWeight.Rows[0]["Weight"]))
                 {
                     this.lastMeasuredWeight = float.Parse(dtTrackWeight.Rows[0]["Weight"].ToString());
                 }
@@ -591,16 +587,19 @@ namespace zhenyuFitness.Pages.Goal
                 {
                     this.lastWeightMeasuredDate = DateTime.Parse(dtTrackWeight.Rows[0]["LastModifiedDate"].ToString());
                 }
-                
+
             }
-            this.lastWeightMeasuredDate = this.goalStartDate;
+            else
+            {
+                this.lastWeightMeasuredDate = this.goalStartDate;
+            }
 
             //设置weightHistory
-            foreach(DataRow dr in dtTrackWeight.Rows)
+            foreach (DataRow dr in dtTrackWeight.Rows)
             {
                 if (!Common.Common.NoneOrEmptyString(dr["Weight"]) && !Common.Common.NoneOrEmptyString(dr["LastModifiedDate"]))
                 {
-                    this.weightHistory = dr["Weight"].ToString() + ","+ this.weightHistory;
+                    this.weightHistory = dr["Weight"].ToString() + "," + this.weightHistory;
                     this.weightHistoryDate = dr["LastModifiedDate"].ToString() + "," + this.weightHistoryDate;
                 }
             }
@@ -662,7 +661,10 @@ namespace zhenyuFitness.Pages.Goal
                     this.lastBFRMeasuredDate = DateTime.Parse(dtTrackBFR.Rows[0]["LastModifiedDate"].ToString());
                 }
             }
-            this.lastBFRMeasuredDate = this.goalStartDate;
+            else
+            {
+                this.lastBFRMeasuredDate = this.goalStartDate;
+            }
             return true;
         }
 
@@ -713,6 +715,6 @@ namespace zhenyuFitness.Pages.Goal
 
         #endregion
 
-       
+
     }
 }

@@ -125,7 +125,13 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
         render: 'chartWeightCurve',
         data: data,
         align: 'center',
-        title: '您的体重变化曲线',
+        title: {
+            text: '您的体重变化曲线',
+            color: '#254d70',
+            font: '微软雅黑',
+            size:'10px'
+        },
+        shadow:true,
         //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
         //footnote: '共' + totalRecords + '个体重记录',
         width: 760,
