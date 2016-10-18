@@ -218,9 +218,9 @@
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family: 'Times New Roman';"><%=StartWeight %></span><span>千克</span></td>
-                                                                        <td style="font-family: 'Times New Roman';"><%=GoalStartDate %></td>
-                                                                        <td><span style="font-family: 'Times New Roman';"><%=GoalWeight %></span><span>千克</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';" id="startWeight"><%=StartWeight %></span><span>千克</span></td>
+                                                                        <td style="font-family: 'Times New Roman';" id="goalStartDate"><%=GoalStartDate %></td>
+                                                                        <td><span style="font-family: 'Times New Roman';" id="goalWeight"><%=GoalWeight %></span><span>千克</span></td>
                                                                         <td><span style="font-family: 'Times New Roman';"><%=GoalDaysLeft %></span><span>天</span></td>
                                                                     </tr>
                                                                 </table>
@@ -253,9 +253,9 @@
                                                                         <td>剩余天数</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td><span style="font-family: 'Times New Roman';"><%=StartBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td><span style="font-family: 'Times New Roman';" id="startBodyFat"><%=StartBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
                                                                         <td style="font-family: 'Times New Roman';"><%=GoalStartDate %></td>
-                                                                        <td style="font-family: 'Times New Roman';"><span><%=GoalBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
+                                                                        <td style="font-family: 'Times New Roman';"><span id="goalBFR"><%=GoalBFR %></span><span style="font-family: 'Times New Roman';">%</span></td>
                                                                         <td style="font-family: 'Times New Roman';"><span><%=GoalDaysLeft %></span><span style="font-family: KaiTi;">天</span></td>
                                                                     </tr>
                                                                 </table>
@@ -371,14 +371,14 @@
                                                     <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span style="color: #919191">体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseOne" class="panel-collapse collapse in">
-                                                    <div>
+                                                    <%--<div>
                                                         <select name="interval" id="weightCurveInterval" class="col-md-12 full-width-fix">
                                                             <option value="30" selected>每隔30天</option>
                                                             <option value="15">每隔15天</option>
                                                             <option value="7">每隔7天</option>
                                                             <option value="60">每隔60天</option>
                                                         </select>
-                                                    </div>
+                                                    </div>--%>
                                                     <div id="chartWeightCurve" class="panel-body"></div>
                                                 </div>
                                             </div>
@@ -1301,8 +1301,9 @@
         </div>
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
-    <input type="hidden" id="startWeight" value="<%=StartWeight %>" />
-    <input type="hidden" id="startBodyFat" value="<%=StartBFR %>" />
+    <input type="hidden" id ="weightHistory" value="<%=WeightHistory %>" />
+    <input type="hidden" id="weightHistoryDate" value="<%=WeightHistoryDate %>" />
+    
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
 

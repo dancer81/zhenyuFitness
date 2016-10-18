@@ -78,6 +78,9 @@ namespace zhenyuFitness.Pages.Goal
         private DateTime lastWeightMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
         private float lastMeasuredBFR = 0;
         private DateTime lastBFRMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
+        private string weightHistory = string.Empty;
+        private string weightHistoryDate = string.Empty;
+        //private List<Pair> weightHistory = new List<Pair>();
 
         public string GoalID
         {
@@ -139,6 +142,23 @@ namespace zhenyuFitness.Pages.Goal
                 return weightchange > 0 ? "总共增加" : weightchange == 0 ? "没有变化" : "总共减少";
             }
         }
+
+        public string WeightHistory
+        {
+            get
+            {
+                return this.weightHistory;
+            }
+        }
+
+        public string WeightHistoryDate
+        {
+            get
+            {
+                return this.weightHistoryDate;
+            }
+        }
+
         public string StartBFR
         {
             get
@@ -548,7 +568,7 @@ namespace zhenyuFitness.Pages.Goal
                   ,[Valid]
               FROM [zhenyuFitness].[dbo].[TrackWeight]
               where Valid = 1 and UserID='{0}' and GoalID='{1}' 
-              order by CreateDate desc", this.userID,this.goalID);
+              order by LastModifiedDate desc", this.userID,this.goalID);
 
             DataTable dtTrackWeight;
             try
@@ -574,6 +594,33 @@ namespace zhenyuFitness.Pages.Goal
                 
             }
             this.lastWeightMeasuredDate = this.goalStartDate;
+
+            //设置weightHistory
+            foreach(DataRow dr in dtTrackWeight.Rows)
+            {
+                if (!Common.Common.NoneOrEmptyString(dr["Weight"]) && !Common.Common.NoneOrEmptyString(dr["LastModifiedDate"]))
+                {
+                    this.weightHistory = dr["Weight"].ToString() + ","+ this.weightHistory;
+                    this.weightHistoryDate = dr["LastModifiedDate"].ToString() + "," + this.weightHistoryDate;
+                }
+            }
+            if (this.weightHistory.Length >= 1)
+            {
+                this.weightHistory = this.weightHistory.Substring(0, this.weightHistory.Length - 1);
+            }
+            else
+            {
+                this.weightHistory = string.Empty;
+            }
+            if (this.weightHistoryDate.Length >= 1)
+            {
+                this.weightHistoryDate = this.weightHistoryDate.Substring(0, this.weightHistoryDate.Length - 1);
+            }
+            else
+            {
+                this.weightHistoryDate = string.Empty;
+            }
+
             return true;
         }
 
@@ -665,5 +712,7 @@ namespace zhenyuFitness.Pages.Goal
         }
 
         #endregion
+
+       
     }
 }

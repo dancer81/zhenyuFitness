@@ -2,7 +2,6 @@
 function initMyGoal() {
     initEasyPie();
     initCountdown($("#goaldatespan").html());
-
     initchart();
 }
 
@@ -53,22 +52,59 @@ function initchart() {
     initchart_bodyfatrate();
     initchart_leanbodyweight();
 }
-function initchart_weight() {
-
-    var goalweight = [], weighthistory = [], t;
-    for (var i = 0; i < 13; i++) {
-        t = i + 10;
-        //t = Math.floor(Math.random() * (30 + ((i % 12) * 5))) + 10;
-        weighthistory.push(t);
+function initchart_weight() {//weighthistory形如：72,74,75,72
+    //var interval = $("#weightCurveInterval").val();
+    var weightHistory = $("#weightHistory").val().split(",");
+    var weightHistoryDate = $("#weightHistoryDate").val().split(",");
+    if (weightHistory.length != weightHistoryDate.length)
+    {
+        bootbox.alert({
+            size: 'small',
+            message: "历史体重记录和历史体重记录值不匹配。("+weightHistory.length+","+weightHistoryDate.length +")"
+        });
+        return;
     }
 
-    for (var i = 0; i < 8; i++) {
-        //t = Math.floor(t * 0.5);
-        //t = t - Math.floor((Math.random() * t) / 2);
-        t = 50;
-        goalweight.push(t);
-    }
+    var goalWeight = $("#goalWeight").html();
+    var startWeight = $("#startWeight").html();
+    var startDate = $("#goalStartDate").html();
+    //goalweight：目标体重曲线；weighthistory：用户记录的体重记录；
+    var goalweight = [], weighthistory = [], dateRecords = [],xlabels =[],xs = [];
+    //加入起始点
+    goalweight.push(goalWeight);
+    weighthistory.push(startWeight);
+    dateRecords.push(startDate);
+    var totalRecords = weightHistory.length;
 
+    if (totalRecords >= 25) {
+        //初始化记录值
+        for (var i = 0; i < totalRecords; i++) {
+            goalweight.push(goalWeight);
+            weighthistory.push(weightHistory[i]);
+            dateRecords.push(weightHistoryDate[i]);
+
+            xs.push(i + 1);
+            if (i % 3 == 0)
+                xlabels.push(i + 1);
+
+                
+        }
+    }
+    else
+    {
+        for(var i = 0;i<25;i++)
+        {
+            goalweight.push(goalWeight);
+            if(i<totalRecords)
+            {
+                weighthistory.push(weightHistory[i]);
+                dateRecords.push(weightHistoryDate[i]);
+                xlabels.push(i);
+                xs.push(i+1);
+            }
+        }
+        
+    }
     var data = [
                 {
                     name: '目标体重',
@@ -84,14 +120,14 @@ function initchart_weight() {
                 }
     ];
 
-    var labels = ["2012-06-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
+    //var labels = ["2012-06-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
         render: 'chartWeightCurve',
         data: data,
         align: 'center',
         title: '您的体重变化曲线',
         //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-        //footnote: '数据来源：模拟数据',
+        //footnote: '共' + totalRecords + '个体重记录',
         width: 760,
         height: 350,
         border: {
@@ -99,7 +135,26 @@ function initchart_weight() {
         },
         tip: {
             enable: true,
-            shadow: true
+            shadow: true,
+            listeners: {
+                //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+                parseText: function (tip, name, value, text, i) {
+                    if (name == '历史体重') {
+                        if (i == 0) {
+                            return "<span style='color:#005268;font-size:12px;'>目标开始时的体重：<br/>" +
+                        "</span><span style='color:#005268;font-size:12px;'>记录时间：" + dateRecords[i] + "<br/>" +
+                        "</span><span style='color:#005268;font-size:20px;'>" + value + "千克</span>";
+                        }
+                        return "<span style='color:#005268;font-size:12px;'>第" + xs[i - 1] + "次记录：<br/>" +
+                        "</span><span style='color:#005268;font-size:12px;'>记录时间：" + dateRecords[i] + "<br/>" +
+                        "</span><span style='color:#005268;font-size:20px;'>" + value + "千克</span>";
+                    }
+                    else
+                    {
+                        return "<span>目标体重：</span></span><span style='color:#005268;font-size:20px;'>" + value + "千克</span>";
+                    }
+                }
+            }
         },
         legend: {
             enable: true,
@@ -134,17 +189,37 @@ function initchart_weight() {
             //},
             scale: [{
                 position: 'left',
-                start_scale: 0,
-                end_scale: 100,
-                scale_space: 10,
+                start_scale: startWeight * 0.45,
+                end_scale: startWeight * 1.45,
+                scale_space: 5,
                 scale_size: 2,
                 scale_color: '#9f9f9f'
             }, {
                 position: 'bottom',
-                //labels: labels
+                labels: xlabels
             }]
         }
     });
+
+    //利用自定义组件构造左侧说明文本
+    line.plugin(new iChart.Custom({
+        drawFn: function () {
+            //计算位置
+            var coo = line.getCoordinate(),
+                x = coo.get('originx'),
+                y = coo.get('originy'),
+                w = coo.width,
+                h = coo.height;
+            //在左上侧的位置，渲染一个单位的文字
+            line.target.textAlign('start')
+            .textBaseline('bottom')
+            .textFont('600 11px 微软雅黑')
+            .fillText('体重(千克)', x - 40, y - 12, false, '#9d987a')
+            .textBaseline('top')
+            .fillText('(序号)', x + w + 12, y + h + 10, false, '#9d987a');
+
+        }
+    }));
 
     //开始画图
     line.draw();
@@ -364,8 +439,8 @@ function updateCurrentWeight() {
 
 
 
-    var startWeight = $("#startWeight").val();
-    var startBFR = $("#startBodyFat").val();
+    var startWeight = $("#startWeight").html();
+    var startBFR = $("#startBodyFat").html();
     var currentweight = $("#updateCurrentWeight_weightinput").val();
     var lastWeightMesured = $("#currentweight").html();
     var currentBFR = $("#currentBFR").html();
@@ -459,8 +534,8 @@ function updateCurrentBFR()
     }
 
 
-    var startWeight = $("#startWeight").val();
-    var startBFR = $("#startBodyFat").val();
+    var startWeight = $("#startWeight").html();
+    var startBFR = $("#startBodyFat").html();
     var currentbfr = $("#updateCurrentBFR_bfrinput").val();
     var lastBFRMesured = $("#currentBFR").html();
     var currentWeight = $("#currentweight").html();

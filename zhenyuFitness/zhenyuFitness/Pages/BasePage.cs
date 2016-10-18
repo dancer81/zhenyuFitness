@@ -70,6 +70,9 @@ namespace zhenyuFitness.Pages
                     Session["Age"] = DT_userProfile.Rows[0]["Age"].ToString();
                     Session["Gender"] = DT_userProfile.Rows[0]["Gender"].ToString();
                     commonWeb.MessageBox(Page, "登录成功", "loginSuccess");
+                    //刷新当前页面
+                    //Response.Write("<script>location.replace(document.referrer);</script>");
+                    //Response.Write("<script>document.URL = location.href</script>");
                 }
                 else//用户名或者密码错误
                 {
