@@ -9,6 +9,7 @@
     <script src="../../js/custom/mygoal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    </script>
     <div class="container">
         <div class="row">
             <div class="col-md-10 content">
@@ -396,7 +397,6 @@
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse">
                                                     <div id="chartGoalAchieveRateCurve" class="panel-body">
-                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -1362,11 +1362,11 @@
 
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
-    <input type="hidden" id ="weightHistory" value="<%=WeightHistory %>" />
+    <input type="hidden" id="weightHistory" value="<%=WeightHistory %>" />
     <input type="hidden" id="weightHistoryDate" value="<%=WeightHistoryDate %>" />
     <input type="hidden" id="bfrHistory" value="<%=BFRHistory %>" />
     <input type="hidden" id="bfrHistoryDate" value="<%=BFRHistoryDate %>" />
-    
+
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
 
