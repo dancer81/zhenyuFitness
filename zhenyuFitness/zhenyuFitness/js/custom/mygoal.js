@@ -576,7 +576,7 @@ function initchart_goalAchievePercent() {
         data: data,
         align: 'center',
         title: {
-            text: '体重和体脂率目标完成率变化曲线',
+            text: '健身目标完成率变化曲线',
             color: '#254d70',
             font: '微软雅黑',
             size: '10px'
@@ -640,7 +640,7 @@ function initchart_goalAchievePercent() {
             //},
             scale: [{
                 position: 'left',
-                start_scale: 0,
+                start_scale: -10,
                 end_scale: 100,
                 scale_space: 10,
                 scale_size: 2,

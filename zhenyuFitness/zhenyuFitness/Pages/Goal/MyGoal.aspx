@@ -450,11 +450,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteSquatsGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -1187,7 +1187,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onchange="CheckUpdateCurrentWeight_weightinput(this.value)" />
+                                                <input id="updateCurrentWeight_weightinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentWeight_weightinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1245,7 +1245,7 @@
                                     <table class="updateCurrentWeight_weighttable">
                                         <tr>
                                             <td>
-                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onchange="CheckUpdateCurrentBFR_bfrinput(this.value)" />
+                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentBFR_bfrinput(this.value)" />
                                             </td>
                                         </tr>
                                         <tr>
@@ -1301,6 +1301,65 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="squatsGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="squatsGoalLabel"><span class="updateweightmodaltitle">自由杠铃深蹲-目标设定</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_calendartable">
+                                        <tr>
+                                            <td>
+                                                <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_calendartext"><%=DateTime.Now.ToString("yyyy-MM-dd") %></span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-3">
+                                    <table class="updateCurrentWeight_weighttable">
+                                        <tr>
+                                            <td>
+                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentBFR_bfrinput(this.value)" />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="updateCurrentWeight_weighttext">%</span></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="updateCurrentWeight_weightdesctable">
+                                        <tr>
+                                            <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentBFR_directionstyle"></i></td>
+                                            <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentBFR_bfrdesctable_changeDirection">没有变化</span></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family: 'Times New Roman';" id="updateCurrentBFR_bfrdesctable_changeAmount">0.0</span>%</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="updateCurrentWeight_weightdescdaycount">在<%=LastBFRMeasuredDayInterval %>天之内</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" onclick="updateCurrentBFR()">更新</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
     <input type="hidden" id ="weightHistory" value="<%=WeightHistory %>" />
