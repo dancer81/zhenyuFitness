@@ -11,6 +11,7 @@ namespace zhenyuFitness.Pages.Goal
 {
     public partial class MyGoal : BasePage
     {
+        //未完成：TrackActivity、更新后刷新图标、第三个图表
         private string userID;
 
         protected new void Page_Load(object sender, EventArgs e)
@@ -80,6 +81,8 @@ namespace zhenyuFitness.Pages.Goal
         private DateTime lastBFRMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
         private string weightHistory = string.Empty;
         private string weightHistoryDate = string.Empty;
+        private string bfrHistory = string.Empty;
+        private string bfrHistoryDate = string.Empty;
         //private List<Pair> weightHistory = new List<Pair>();
 
         public string GoalID
@@ -210,6 +213,22 @@ namespace zhenyuFitness.Pages.Goal
             {
                 float bfrchange = float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR);
                 return bfrchange > 0 ? "总共增加" : (bfrchange == 0 ? "没有变化" : "总共减少");
+            }
+        }
+
+        public string BFRHistory
+        {
+            get
+            {
+                return this.bfrHistory;
+            }
+        }
+
+        public string BFRHistoryDate
+        {
+            get
+            {
+                return this.bfrHistoryDate;
             }
         }
 
@@ -665,6 +684,32 @@ namespace zhenyuFitness.Pages.Goal
             {
                 this.lastBFRMeasuredDate = this.goalStartDate;
             }
+
+            foreach (DataRow dr in dtTrackBFR.Rows)
+            {
+                if (!Common.Common.NoneOrEmptyString(dr["BodyfatRate"]) && !Common.Common.NoneOrEmptyString(dr["LastModifiedDate"]))
+                {
+                    this.bfrHistory = dr["BodyfatRate"].ToString() + "," + this.bfrHistory;
+                    this.bfrHistoryDate = dr["LastModifiedDate"].ToString() + "," + this.bfrHistoryDate;
+                }
+            }
+            if (this.bfrHistory.Length >= 1)
+            {
+                this.bfrHistory = this.bfrHistory.Substring(0, this.bfrHistory.Length - 1);
+            }
+            else
+            {
+                this.bfrHistory = string.Empty;
+            }
+            if (this.bfrHistoryDate.Length >= 1)
+            {
+                this.bfrHistoryDate = this.bfrHistoryDate.Substring(0, this.bfrHistoryDate.Length - 1);
+            }
+            else
+            {
+                this.bfrHistoryDate = string.Empty;
+            }
+
             return true;
         }
 

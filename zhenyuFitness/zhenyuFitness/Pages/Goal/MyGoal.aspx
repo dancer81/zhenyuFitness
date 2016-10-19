@@ -392,10 +392,12 @@
                                             </div>
                                             <div class="panel panel-default">
                                                 <div class="panel-heading">
-                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="color: #919191">净体重追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
+                                                    <h3 class="panel-title"><a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span style="color: #919191">目标完成进度追踪&nbsp;</span><i style="color: #5e87b0" class="fa fa-angle-down"></i></a></h3>
                                                 </div>
                                                 <div id="collapseThree" class="panel-collapse collapse">
-                                                    <div id="chartLeanBodyWeightCurve" class="panel-body"></div>
+                                                    <div id="chartGoalAchieveRateCurve" class="panel-body">
+                                                        
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -1303,6 +1305,8 @@
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
     <input type="hidden" id ="weightHistory" value="<%=WeightHistory %>" />
     <input type="hidden" id="weightHistoryDate" value="<%=WeightHistoryDate %>" />
+    <input type="hidden" id="bfrHistory" value="<%=BFRHistory %>" />
+    <input type="hidden" id="bfrHistoryDate" value="<%=BFRHistoryDate %>" />
     
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>

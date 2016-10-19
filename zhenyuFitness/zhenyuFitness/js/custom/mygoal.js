@@ -50,12 +50,21 @@ function initCountdown(days) {
 function initchart() {
     initchart_weight();
     initchart_bodyfatrate();
-    initchart_leanbodyweight();
+    initchart_goalAchievePercent();
 }
 function initchart_weight() {//weighthistory形如：72,74,75,72
     //var interval = $("#weightCurveInterval").val();
     var weightHistory = $("#weightHistory").val().split(",");
     var weightHistoryDate = $("#weightHistoryDate").val().split(",");
+
+    if (weightHistory.length == 1 || weightHistoryDate.length == 1) {
+        if (weightHistory == "") {
+            $("#chartWeightCurve").css("height", "350");
+            $("#chartWeightCurve").html("<div style=\"margin-top:110px;margin-left:80px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体重！</div>");
+            return;
+        }
+    }
+
     if (weightHistory.length != weightHistoryDate.length)
     {
         bootbox.alert({
@@ -76,7 +85,7 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
     dateRecords.push(startDate);
     var totalRecords = weightHistory.length;
 
-    if (totalRecords >= 25) {
+    if (totalRecords >= 26) {
         //初始化记录值
         for (var i = 0; i < totalRecords; i++) {
             goalweight.push(goalWeight);
@@ -92,14 +101,15 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
     }
     else
     {
-        for(var i = 0;i<25;i++)
+        for(var i = 0;i<26;i++)
         {
             goalweight.push(goalWeight);
+            xlabels.push(i);
             if(i<totalRecords)
             {
                 weighthistory.push(weightHistory[i]);
                 dateRecords.push(weightHistoryDate[i]);
-                xlabels.push(i);
+                
                 xs.push(i+1);
             }
         }
@@ -196,7 +206,7 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
             scale: [{
                 position: 'left',
                 start_scale: startWeight * 0.45,
-                end_scale: startWeight * 1.45,
+                end_scale: startWeight * 1.50,
                 scale_space: 5,
                 scale_size: 2,
                 scale_color: '#9f9f9f'
@@ -235,49 +245,119 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
 
 }
 function initchart_bodyfatrate() {
+    var bfrHistory = $("#bfrHistory").val().split(",");
+    var bfrHistoryDate = $("#bfrHistoryDate").val().split(",");
+    if (bfrHistory.length == 1 || bfrHistoryDate.length == 1)
+    {
+        if (bfrHistory == "") {
+            $("#chartBodyfatRateCurve").css("height", "350");
+            $("#chartBodyfatRateCurve").html("<div style=\"margin-top:110px;margin-left:70px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体脂率！</div>");
+            return;
+        }
+    }
 
-    var pv = [], ip = [], t;
-    for (var i = 0; i < 8; i++) {
-        t = i + 10;
-        //t = Math.floor(Math.random() * (30 + ((i % 12) * 5))) + 10;
-        pv.push(t);
-        //t = Math.floor(t * 0.5);
-        //t = t - Math.floor((Math.random() * t) / 2);
-        t = 50;
-        ip.push(t);
+
+    if (bfrHistory.length != bfrHistoryDate.length) {
+        bootbox.alert({
+            size: 'small',
+            message: "历史体脂率记录和历史体脂率记录值不匹配。(" + bfrHistory.length + "," + bfrHistoryDate.length + ")"
+        });
+        return;
+    }
+
+    var goalBFR = $("#goalBFR").html();
+    var startBodyFat = $("#startBodyFat").html();
+    var startDate = $("#goalStartDate").html();
+    //goalbfr：目标体脂率曲线；bfrhistory：用户记录的体脂率记录；
+    var goalbfr = [], bfrhistory = [], dateRecords = [], xlabels = [], xs = [];
+    //加入起始点
+    goalbfr.push(goalBFR);
+    bfrhistory.push(startBodyFat);
+    dateRecords.push(startDate);
+    var totalRecords = bfrHistory.length;
+    if (totalRecords >= 26) {
+
+        //初始化记录值
+        for (var i = 0; i < totalRecords; i++) {
+            goalbfr.push(goalBFR);
+            bfrhistory.push(bfrHistory[i]);
+            dateRecords.push(bfrHistoryDate[i]);
+
+            xs.push(i + 1);
+            if (i % 3 == 0)
+                xlabels.push(i + 1);
+
+
+        }
+    }
+    else {
+        for (var i = 0; i < 26; i++) {
+            goalbfr.push(goalBFR);
+            xlabels.push(i);
+            if (i < totalRecords) {
+                bfrhistory.push(bfrHistory[i]);
+                dateRecords.push(bfrHistoryDate[i]);
+                
+                xs.push(i + 1);
+            }
+        }
+
     }
 
     var data = [
                 {
                     name: '目标体脂率',
-                    value: pv,
+                    value: goalbfr,
                     color: '#0d8ecf',
-                    line_width: 2
+                    line_width: 4
                 },
                 {
                     name: '历史体脂率',
-                    value: ip,
+                    value: bfrhistory,
                     color: '#ef7707',
-                    line_width: 2
+                    line_width: 1
                 }
     ];
-
-    var labels = ["2012-08-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
+    //var labels = ["2012-06-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
         render: 'chartBodyfatRateCurve',
         data: data,
         align: 'center',
-        title: '您的体脂率变化曲线',
+        title: {
+            text: '您的体脂率变化曲线',
+            color: '#254d70',
+            font: '微软雅黑',
+            size: '10px'
+        },
+        shadow: true,
         //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-        //footnote: '数据来源：模拟数据',
+        //footnote: '共' + totalRecords + '个体重记录',
         width: 760,
-        height: 400,
+        height: 350,
         border: {
             width: [0, 0, 0, 0]
         },
         tip: {
             enable: true,
-            shadow: true
+            shadow: true,
+            listeners: {
+                //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+                parseText: function (tip, name, value, text, i) {
+                    if (name == '历史体脂率') {
+                        if (i == 0) {
+                            return "<span style='color:#005268;font-size:12px;'>目标开始时的体脂率：<br/>" +
+                        "</span><span style='color:#005268;font-size:12px;'>记录时间：" + dateRecords[i] + "<br/>" +
+                        "</span><span style='color:#005268;font-size:20px;'>" + value + "%</span>";
+                        }
+                        return "<span style='color:#005268;font-size:12px;'>第" + xs[i - 1] + "次记录：<br/>" +
+                        "</span><span style='color:#005268;font-size:12px;'>记录时间：" + dateRecords[i] + "<br/>" +
+                        "</span><span style='color:#005268;font-size:20px;'>" + value + "%</span>";
+                    }
+                    else {
+                        return "<span>目标体脂率：</span></span><span style='color:#005268;font-size:20px;'>" + value + "%</span>";
+                    }
+                }
+            }
         },
         legend: {
             enable: true,
@@ -304,77 +384,228 @@ function initchart_bodyfatrate() {
                 color: '#9f9f9f',
                 width: [0, 0, 2, 2]
             },
-            grids: {
-                vertical: {
-                    way: 'share_alike',
-                    value: 5
-                }
-            },
+            //grids: {
+            //    vertical: {
+            //        way: 'share_alike',
+            //        value: 5
+            //    }
+            //},
             scale: [{
                 position: 'left',
                 start_scale: 0,
-                end_scale: 100,
-                scale_space: 10,
+                end_scale: startBodyFat * 1 + 10,
+                scale_space: 3,
                 scale_size: 2,
                 scale_color: '#9f9f9f'
             }, {
                 position: 'bottom',
-                labels: labels
+                labels: xlabels
             }]
         }
     });
 
+    //利用自定义组件构造左侧说明文本
+    line.plugin(new iChart.Custom({
+        drawFn: function () {
+            //计算位置
+            var coo = line.getCoordinate(),
+                x = coo.get('originx'),
+                y = coo.get('originy'),
+                w = coo.width,
+                h = coo.height;
+            //在左上侧的位置，渲染一个单位的文字
+            line.target.textAlign('start')
+            .textBaseline('bottom')
+            .textFont('600 11px 微软雅黑')
+            .fillText('体脂率(%)', x - 40, y - 12, false, '#9d987a')
+            .textBaseline('top')
+            .fillText('(序号)', x + w + 12, y + h + 10, false, '#9d987a');
+
+        }
+    }));
+
     //开始画图
     line.draw();
-
-
-
-
 }
-function initchart_leanbodyweight() {
+function initchart_goalAchievePercent() {
+    var weightHistory = $("#weightHistory").val().split(",");
+    var weightHistoryDate = $("#weightHistoryDate").val().split(",");
+    var bfrHistory = $("#bfrHistory").val().split(",");
+    var bfrHistoryDate = $("#bfrHistoryDate").val().split(",");
+    var goalWeight = $("#goalWeight").html();
+    var startWeight = $("#startWeight").html();
+    var goalBFR = $("#goalBFR").html();
+    var startBodyFat = $("#startBodyFat").html();
+    var startDate = $("#goalStartDate").html();
 
-    var pv = [], ip = [], t;
-    for (var i = 0; i < 8; i++) {
-        t = i + 10;
-        //t = Math.floor(Math.random() * (30 + ((i % 12) * 5))) + 10;
-        pv.push(t);
-        //t = Math.floor(t * 0.5);
-        //t = t - Math.floor((Math.random() * t) / 2);
-        t = 50;
-        ip.push(t);
+    if (weightHistory.length == 1 || weightHistoryDate.length == 1) {
+        if (weightHistory == "") {
+            $("#chartWeightCurve").css("height", "350");
+            $("#chartWeightCurve").html("<div style=\"margin-top:110px;margin-left:80px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体重！</div>");
+            return;
+        }
     }
+
+    if (weightHistory.length != weightHistoryDate.length) {
+        bootbox.alert({
+            size: 'small',
+            message: "历史体重记录和历史体重记录值不匹配。(" + weightHistory.length + "," + weightHistoryDate.length + ")"
+        });
+        return;
+    }
+
+    if (bfrHistory.length == 1 && weightHistory==1) {
+        if (bfrHistory == "") {
+            $("#chartBodyfatRateCurve").css("height", "350");
+            $("#chartBodyfatRateCurve").html("<div style=\"margin-top:110px;margin-left:70px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体脂率！</div>");
+            return;
+        }
+    }
+
+
+    if (bfrHistory.length != bfrHistoryDate.length) {
+        bootbox.alert({
+            size: 'small',
+            message: "历史体脂率记录和历史体脂率记录值不匹配。(" + bfrHistory.length + "," + bfrHistoryDate.length + ")"
+        });
+        return;
+    }
+
+    var weightAchievePercentHistory = [], bfrAchievePercent = [], weightDateRecords = [], bfrDateRecords = [], xlabels = [], xs = [];
+    weightAchievePercentHistory.push(0);
+    bfrAchievePercent.push(0);
+    weightDateRecords.push(startDate);
+    bfrDateRecords.push(startDate);
+
+    var weightChangeDireciton = goalWeight * 1 - startWeight * 1;
+    if (weightChangeDireciton > 0) weightChangeDireciton = 1;//增重
+    else weightChangeDireciton = -1;//减重
+
+    var bfrChangeDireciton = goalBFR * 1 - startBodyFat;
+    if (bfrChangeDireciton > 0) bfrChangeDireciton = 1;//增脂肪（基本不可能）
+    else bfrChangeDireciton = -1;//减重
+
+    for(var i = 0;i<weightHistory.length;i++)
+    {
+        if (weightChangeDireciton > 0) {
+            if (weightHistory[i] * 1 - startWeight < 0) {
+                weightAchievePercentHistory.push(0);
+            }
+            else {
+                weightAchievePercentHistory.push((((weightHistory[i] * 1 - startWeight) / (goalWeight * 1 - startWeight))*100).toFixed(1));
+            }
+        }
+        else
+        {
+            if (weightHistory[i] * 1 - startWeight > 0)
+            {
+                weightAchievePercentHistory.push(0);
+            }
+            else {
+                weightAchievePercentHistory.push((((weightHistory[i] * 1 - startWeight) / (goalWeight * 1 - startWeight))*100).toFixed(1));
+            }
+        }
+        weightDateRecords.push(weightHistoryDate[i]);
+    }
+    //alert(weightDateRecords[1]);
+
+    for (var i = 0; i < bfrHistory.length; i++) {
+        if (bfrChangeDireciton > 0) {
+            if (bfrHistory[i] * 1 - startBodyFat < 0) {
+                bfrAchievePercent.push(0);
+            }
+            else {
+                bfrAchievePercent.push((((bfrHistory[i] * 1 - startBodyFat) / (goalBFR * 1 - startBodyFat))*100).toFixed(1));
+            }
+        }
+        else
+        {
+            if (bfrHistory[i] * 1 - startBodyFat > 0) {
+                bfrAchievePercent.push(0);
+            }
+            else {
+                bfrAchievePercent.push((((bfrHistory[i] * 1 - startBodyFat) / (goalBFR * 1 - startBodyFat))*100).toFixed(3));
+            }
+        }
+        bfrDateRecords.push(bfrHistoryDate[i]);
+    }
+
+    var longerListCount;
+    if (weightHistory.length > bfrHistory.length) longerListCount = weightHistory.length;
+    else longerListCount = bfrHistory.length;
+
+    
+
+    var longX = [];//
+    if (longerListCount < 26) {
+        for (var i = 0; i < 26; i++) {
+            longX.push(i);
+            xlabels.push(i);
+        }
+    }
+    else {
+        for (var i = 0; i < longerListCount; i++) {
+            xlabels.push(i);
+        }
+    }
+
 
     var data = [
                 {
-                    name: '目标净体重',
-                    value: pv,
+                    name: '体重指标完成率',
+                    value: weightAchievePercentHistory,
                     color: '#0d8ecf',
-                    line_width: 2
+                    line_width: 1
                 },
                 {
-                    name: '历史净体重',
-                    value: ip,
+                    name: '体脂率指标完成率',
+                    value: bfrAchievePercent,
                     color: '#ef7707',
-                    line_width: 2
+                    line_width: 1
+                },
+                {
+                    name: '',
+                    value: longX,
+                    color: 'rgba(0,0,0,0)',
                 }
     ];
 
-    var labels = ["2012-08-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
+    //var labels = ["2012-06-01", "2012-08-02", "2012-08-03", "2012-08-04", "2012-08-05", "2012-08-06", "2012-08-05", "2012-08-06"];
     var line = new iChart.LineBasic2D({
-        render: 'chartLeanBodyWeightCurve',
+        render: 'chartGoalAchieveRateCurve',
         data: data,
         align: 'center',
-        title: '您的净体重变化曲线',
+        title: {
+            text: '体重和体脂率目标完成率变化曲线',
+            color: '#254d70',
+            font: '微软雅黑',
+            size: '10px'
+        },
+        shadow: true,
         //subtitle: '平均每个人访问2-3个页面(访问量单位：万)',
-        //footnote: '数据来源：模拟数据',
+        //footnote: '共' + totalRecords + '个体重记录',
         width: 760,
-        height: 400,
+        height: 350,
         border: {
             width: [0, 0, 0, 0]
         },
         tip: {
             enable: true,
-            shadow: true
+            shadow: true,
+            listeners: {
+                //tip:提示框对象、name:数据名称、value:数据值、text:当前文本、i:数据点的索引
+                parseText: function (tip, name, value, text, i) {
+                    if (name == '体重指标完成率') {
+                        return "<span style='color:#005268;font-size:12px;'>记录时间：" + weightDateRecords[i] + "<br/>" +
+                        "<span>体重指标完成率：</span></span><span style='color:#005268;font-size:20px;'>" + value.toFixed(1) + "%</span>";
+                    }
+                    else if (name == '体脂率指标完成率') {
+                        return "<span style='color:#005268;font-size:12px;'>记录时间：" + weightDateRecords[i] + "<br/>" +
+                            "<span>体脂率指标完成率：</span></span><span style='color:#005268;font-size:20px;'>" + value.toFixed(1) + "%</span>";
+                    }
+                    else return "<span style='display:none;height:2px;width:2px;border:none;background-color:transparent;color:transparent'></span>";
+                }
+            }
         },
         legend: {
             enable: true,
@@ -401,12 +632,12 @@ function initchart_leanbodyweight() {
                 color: '#9f9f9f',
                 width: [0, 0, 2, 2]
             },
-            grids: {
-                vertical: {
-                    way: 'share_alike',
-                    value: 5
-                }
-            },
+            //grids: {
+            //    vertical: {
+            //        way: 'share_alike',
+            //        value: 5
+            //    }
+            //},
             scale: [{
                 position: 'left',
                 start_scale: 0,
@@ -416,16 +647,33 @@ function initchart_leanbodyweight() {
                 scale_color: '#9f9f9f'
             }, {
                 position: 'bottom',
-                labels: labels
+                labels: xlabels
             }]
         }
     });
 
+    //利用自定义组件构造左侧说明文本
+    line.plugin(new iChart.Custom({
+        drawFn: function () {
+            //计算位置
+            var coo = line.getCoordinate(),
+                x = coo.get('originx'),
+                y = coo.get('originy'),
+                w = coo.width,
+                h = coo.height;
+            //在左上侧的位置，渲染一个单位的文字
+            line.target.textAlign('start')
+            .textBaseline('bottom')
+            .textFont('600 11px 微软雅黑')
+            .fillText('完成进度(%)', x - 40, y - 12, false, '#9d987a')
+            .textBaseline('top')
+            .fillText('(序号)', x + w + 12, y + h + 10, false, '#9d987a');
+
+        }
+    }));
+
     //开始画图
     line.draw();
-
-
-
 
 }
 
