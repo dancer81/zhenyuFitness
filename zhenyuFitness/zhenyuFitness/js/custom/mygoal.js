@@ -1,8 +1,13 @@
 ﻿//初始化页面
 function initMyGoal() {
+    initDatePicker();
     initEasyPie();
     initCountdown($("#goaldatespan").html());
     initchart();
+}
+
+function initDatePicker() {
+    $("#goalDaysCount").datepicker();;
 }
 
 //初始化EasyPie插件

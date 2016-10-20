@@ -5,33 +5,24 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <%--<link href="../js/bootstrap-dist/css/bootstrap.min.css" rel="stylesheet" />--%><link href="../css/cloud-admin.css" rel="stylesheet" />
-    <script src="../js/bootstrap-dist/js/bootstrap.js"></script>
+    <title></title><link href="../js/datepicker/themes/default.date.min.css" rel="stylesheet" />
+    <link href="../css/cloud-admin.css" rel="stylesheet" />
+    <script src="../js/jquery/jquery-2.0.3.min.js"></script>
+    <link href="../js/datepicker/themes/default.date.min.css" rel="stylesheet" />
+    <script src="../js/datepicker/picker.js"></script>
+    <script src="../js/datepicker/picker.date.js"></script>
+
+            
+    <script src="../js/datepicker/picker.date.js"></script>
 </head>
 <body>
     <div>
-        <form role="form">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email"/>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
-  </div>
-  <div class="form-group">
-    <label for="exampleInputFile">File input</label>
-    <input type="file" id="exampleInputFile"/>
-    <p class="help-block">Example block-level help text here.</p>
-  </div>
-  <div class="checkbox">
-    <label>
-      <input type="checkbox"/> Check me out
-    </label>
-  </div>
-  <button type="submit" class="btn btn-default">Submit</button>
-</form>
+        <input id="goalDaysCount" class="form-control datepicker goalDaysCount" type="text" name="regular" size="10" />
+    <script>
+        jQuery(document).ready(function () {
+            $("#goalDaysCount").datepicker();;
+        });
+    </script>
     </div>
 </body>
 </html>

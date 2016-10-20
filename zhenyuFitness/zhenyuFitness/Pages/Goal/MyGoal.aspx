@@ -3,7 +3,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <title>健身目标总览</title>
     <link href="../../css/custom/mygoal.css" rel="stylesheet" />
-
     <script src="../../js/jquery-easing/jquery.easing.min.js"></script>
     <script type="text/javascript" src="../../js/easypiechart/jquery.easypiechart.min.js"></script>
     <script src="../../js/custom/mygoal.js"></script>
@@ -1317,33 +1316,61 @@
                                             <div class="currentLiftWeightDesc">当前您可以蹲起</div>
                                             <div class="currentLiftWeightWrap">
                                                 <div>
-                                                    <input class="currentLiftWeightAmount" type="number" />
+                                                    <input id="currentLiftWeightAmount" class="currentLiftWeightAmount" type="number" />
                                                 </div>
                                                 <div class="currentLiftWeightUnit">千克</div>
                                             </div>
                                         </td>
                                         <td>
-                                            <div class="currentLiftWeightRepsDesc">次数</div>
-                                            <div>
-                                                <input class="currentLiftWeightRepsAmount" type="number" /></div>
-                                            <td></td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount"><span>【<span id="currentLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" />
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <div class="goalLiftWeightDesc">目标最大蹲起重量</div>
-                                            <div>
-                                                <input class="goalLiftWeightAmount" type="text" /></div>
-                                            <div><span class="goalLiftWeightUnit">千克</span></div>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标蹲起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input id="goalLiftWeightAmount" class="goalLiftWeightAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
                                         </td>
                                         <td>
-                                            <div class="goalLiftWeightRepsDesc">次数</div>
-                                            <div>
-                                                <input class="goalLiftWeightRepsAmount" type="text" /></div>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount"><span>【<span id="goalLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" />
+                                                </div>
+                                            </div>
                                         </td>
                                         <td>
-                                            <div class="goalDaysCountDesc">达成目标天数</div>
-                                            <div>
-                                                <input class="goalDaysCount" type="number" /></div>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input id="goalLiftWeightDaysCountAmount" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">千克</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
                                         </td>
                                     </tr>
                                 </table>
@@ -1351,8 +1378,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button type="button" class="btn btn-primary" onclick="updateCurrentBFR()">更新</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                            <button style="margin-right:18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
                     </div>
                 </div>
             </div>

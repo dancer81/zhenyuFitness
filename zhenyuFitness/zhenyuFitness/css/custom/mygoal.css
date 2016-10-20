@@ -636,11 +636,25 @@
     border:1px solid #cacaca;
     padding-top:15px;
     padding-left:12px;
+    box-shadow:inset 0 15px 10px -17px #000,0 1px 0 #fff;
+    height:250px;
 }
 
 .currentLiftWeightWrap{
-    border:1px solid #cacaca;
+    /*border:1px solid #cacaca;
     height:60px;
+    width:120px;
+    padding-left:1px;
+    padding-top:1px;*/
+    box-shadow:inset 0 15px 10px -17px #000,0 1px 0 #fff;
+    border:1px solid #BCBDBC;
+    border-radius:3px;
+    display:inline-block;
+    font-size:24px;
+    padding:3px 0 2px;
+    zoom:1;
+    margin-left:7px;
+    height:65px;
 }
 
 .currentLiftWeightDesc{
@@ -655,8 +669,10 @@
     background-color:#e9e9e9;
     height:40px;
     color:#00a1de;
-    font-size:22px;
+    font-family:'Times New Roman';
+    font-size:23px;
     text-align:center;
+    width:117px;
     /*background:radial-gradient(50% 15px at center top,rgba(0,0,0,.2) 0,rgba(0,0,0,0) 100%),radial-gradient(42% 10px at center bottom,rgba(0,0,0,.2) 0,rgba(0,0,0,0) 100%);*/
 }
 
@@ -668,8 +684,170 @@
 
 .currentLiftWeightUnit{
     background-color:#e9e9e9;
-    width:100%;
+    text-align:center;
+    font-family:微软雅黑;
+    font-size:14px;
+}
+
+.currentLiftWeightRepsWrap{
+        height:85px;
+        margin-left:40px;
+        margin-top:-10px;
+}
+
+.currentLiftWeightRepsDesc{
+    font-family:KaiTi;
+    font-style:oblique;
+    font-size:17px;
     text-align:center;
 }
+
+.currentLiftWeightRepsAmount{
+    font-family:'Times New Roman';
+    font-size:23px;
+    text-align:center;
+    color:#00a1de;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+.goalLiftWeightDesc{
+    text-align:center;
+    font-family:KaiTi;
+    font-size:17px;
+    color:black;
+}
+
+.goalLiftWeightWrap{
+    box-shadow:inset 0 15px 10px -17px #000,0 1px 0 #fff;
+    border:1px solid #BCBDBC;
+    border-radius:3px;
+    display:inline-block;
+    font-size:24px;
+    padding:3px 0 2px;
+    zoom:1;
+    margin-left:7px;
+    height:65px;
+}
+
+.goalLiftWeightAmount{
+    border:none;
+    background-color:#e9e9e9;
+    height:40px;
+    color:#00a1de;
+    font-family:'Times New Roman';
+    font-size:23px;
+    text-align:center;
+    width:117px;
+}
+
+.goalLiftWeightAmount:focus{
+    border:1px solid #00a1de;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.goalLiftWeightUnit{
+    background-color:#e9e9e9;
+    text-align:center;
+    font-family:微软雅黑;
+    font-size:14px;
+}
+
+.goalLiftWeightRepsWrap{
+        height:85px;
+        margin-left:40px;
+        margin-top:-10px;
+}
+
+.goalLiftWeightRepsDesc{
+    font-family:KaiTi;
+    font-style:oblique;
+    font-size:17px;
+    text-align:center;
+}
+
+.goalLiftWeightRepsAmount{
+    font-family:'Times New Roman';
+    font-size:23px;
+    text-align:center;
+    color:#00a1de;
+    padding-top:0;
+    padding-bottom:0;
+}
+
+
+
+
+
+
+.goalLiftWeightDaysCountDesc{
+    text-align:center;
+    font-family:KaiTi;
+    font-size:17px;
+    color:black;
+        padding-left:25px;
+}
+
+.goalLiftWeightDaysCountWrap{
+    box-shadow:inset 0 15px 10px -17px #000,0 1px 0 #fff;
+    border:1px solid #BCBDBC;
+    border-radius:3px;
+    display:inline-block;
+    font-size:24px;
+    padding:3px 0 2px;
+    zoom:1;
+    margin-left:7px;
+    height:65px;
+
+        margin-left:30px;
+}
+
+.goalLiftWeightDaysCountAmount{
+    border:none;
+    background-color:#e9e9e9;
+    height:40px;
+    color:#00a1de;
+    font-family:'Times New Roman';
+    font-size:23px;
+    text-align:center;
+    width:117px;
+}
+
+.goalLiftWeightDaysCountAmount:focus{
+    border:1px solid #00a1de;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.goalLiftWeightDaysCountUnit{
+    background-color:#e9e9e9;
+    text-align:center;
+    font-family:微软雅黑;
+    font-size:14px;
+}
+
+.liftWeightOneRepMax{
+    font-size:10px;
+    font-family:微软雅黑;
+}
+
+.currentLiftWeightOneRepsMax{
+    font-family:'Times New Roman';
+    font-size:17px;
+    font-style:oblique;
+    color:darkred;
+}
+
+.goalLiftWeightOneRepsMax{
+    font-family:'Times New Roman';
+    font-size:17px;
+    font-style:oblique;
+    color:darkred;
+}
+
+.repsCountInput{
+    margin-left:7px;
+}
+
+
 
 
