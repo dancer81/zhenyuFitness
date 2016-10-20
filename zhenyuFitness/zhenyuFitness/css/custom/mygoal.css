@@ -190,7 +190,7 @@
     margin: 6px;
     border: 1px solid #e1e1e1;
     height: 150px;
-    background:linear-gradient(to bottom,#fff,#f4f4f4);
+    background:linear-gradient(to bottom,#fff,#E9E9E9);
     border-radius:3px;
     border:1px solid #dfdfdf;
 }
@@ -372,7 +372,7 @@
 }
 
 #updateCurrentWeight .modal-body{
-    background-color:#f4f4f4;
+    background-color:#E9E9E9;
 }
 
 #updateCurrentWeight .modal-footer{
@@ -487,7 +487,7 @@
 }
 
 #updateCurrentBF .modal-body{
-    background-color:#f4f4f4;
+    background-color:#E9E9E9;
 }
 
 #updateCurrentBF .modal-footer{
@@ -525,7 +525,7 @@
 }
 
 #deleteCurrentGoal .modal-body{
-    background-color:#f4f4f4;
+    background-color:#E9E9E9;
 }
 
 #deleteCurrentGoal .modal-footer{
@@ -574,30 +574,31 @@
 }
 
 
-#squatsGoal .modal-content{
+/*力量型目标*/
+.strengthGoal .modal-content{
     background-color:black;
 }
 
 
-#squatsGoal .modal-content{
+.strengthGoal .modal-content{
     background-color:black;
 }
 
-#squatsGoal .modal-head{
+.strengthGoal .modal-head{
     background-color:black;
-    height:200px;
+    height:400px;
 }
 
-#squatsGoal .modal-body{
-    background-color:#f4f4f4;
+.strengthGoal .modal-body{
+    background-color:#E9E9E9;
 }
 
-#squatsGoal .modal-footer{
+.strengthGoal .modal-footer{
     background-color:/*#555555;*/#C8C8C8;
     margin-top:0;
 }
 
-#squatsGoal .modal-footer .btn-default {
+.strengthGoal .modal-footer .btn-default {
 
     background-image:radial-gradient(ellipse farthest-corner at center top,rgba(28,172,225,1) 0,rgba(28,172,225,.6) 50%,rgba(0,65,101,0) 100%),linear-gradient(to bottom,#00a1de 0,#004165 100%);
     border:1px solid #0e6088;
@@ -607,7 +608,7 @@
     font-size:18px;
 }
 
-#squatsGoal .modal-footer .btn-primary{
+.strengthGoal .modal-footer .btn-primary{
     background-image:radial-gradient(ellipse farthest-corner at center top,rgba(28,172,225,1) 0,rgba(28,172,225,.6) 50%,rgba(0,65,101,0) 100%),linear-gradient(to bottom,#00a1de 0,#004165 100%);
     border:1px solid #0e6088;
     box-shadow:inset 0 1px 0 0 #2fd0ff;
@@ -615,3 +616,60 @@
     font-family:微软雅黑;
     font-size:18px;
 }
+
+.strengthTitle{
+    font-family:微软雅黑;
+    font-weight:100;
+    font-size:30px;
+    color:white;/*#5e87b0;*/
+}
+
+.strengthSubTitle{
+    color:black;
+    font-family:微软雅黑;
+    font-size:24px;
+    font-weight:300;
+}
+
+.strengthGoalContent{
+    background-color:#f4f4f4;
+    border:1px solid #cacaca;
+    padding-top:15px;
+    padding-left:12px;
+}
+
+.currentLiftWeightWrap{
+    border:1px solid #cacaca;
+    height:60px;
+}
+
+.currentLiftWeightDesc{
+    text-align:center;
+    font-family:KaiTi;
+    font-size:17px;
+    color:black;
+}
+
+.currentLiftWeightAmount{
+    border:none;
+    background-color:#e9e9e9;
+    height:40px;
+    color:#00a1de;
+    font-size:22px;
+    text-align:center;
+    /*background:radial-gradient(50% 15px at center top,rgba(0,0,0,.2) 0,rgba(0,0,0,0) 100%),radial-gradient(42% 10px at center bottom,rgba(0,0,0,.2) 0,rgba(0,0,0,0) 100%);*/
+}
+
+.currentLiftWeightAmount:focus{
+    /*box-shadow:inset 0 1px 1px rgba(0,0,0,.075);*/
+    border:1px solid #00a1de;
+    transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.currentLiftWeightUnit{
+    background-color:#e9e9e9;
+    width:100%;
+    text-align:center;
+}
+
+

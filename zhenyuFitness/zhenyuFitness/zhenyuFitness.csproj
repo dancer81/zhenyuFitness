@@ -221,6 +221,9 @@
     <Content Include="MasterPages\generalMaster.Master" />
     <Content Include="js\jquery_Countdown\images\.DS_Store" />
     <Content Include="ashx\DealAjax.ashx" />
+    <Content Include="TestPages\WebForm1.aspx" />
+    <Content Include="TestPages\WebForm2.aspx" />
+    <Content Include="问题\TextFile1.txt" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1249,6 +1252,20 @@
     </Compile>
     <Compile Include="RedirectPages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPages\WebForm2.aspx.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPages\WebForm2.aspx.designer.cs">
+      <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

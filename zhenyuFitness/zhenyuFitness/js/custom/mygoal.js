@@ -969,13 +969,11 @@ function CheckUpdateCurrentBFR_bfrinput(inputValue) {
 
 
 
-//function deleteCurrentBFRGoal()
-//{
-//    bootbox.alert({
-//        title: "删除目标",
-//        message: "<span style=\"font-size:16px;\">您确定要删除当前健身目标吗？</span>",
-//        callback: function (result) {
-//            //console.log('This was logged in the callback: ' + result);
-//        }
-//    });
-//}
+
+
+
+
+//估算Rep Max
+function EstimateRepMax(weightUsed, numberOfRepetitions) {
+    return weightUsed / (1.0278 - (0.0278 - numberOfRepetitions));
+}

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/generalMaster.Master" AutoEventWireup="true" CodeBehind="MyGoal.aspx.cs" Inherits="zhenyuFitness.Pages.Goal.MyGoal" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/generalMaster.Master" AutoEventWireup="true" CodeBehind="MyGoal.aspx.cs" Inherits="zhenyuFitness.Pages.Goal.MyGoal" EnableViewState="false" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <title>健身目标总览</title>
@@ -9,7 +9,6 @@
     <script src="../../js/custom/mygoal.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    </script>
     <div class="container">
         <div class="row">
             <div class="col-md-10 content">
@@ -1301,54 +1300,53 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="squatsGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+        <div class="modal fade strengthGoal" id="squatsGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="squatsGoalLabel"><span class="updateweightmodaltitle">自由杠铃深蹲-目标设定</span></h4>
+                        <h4 class="modal-title" id="squatsGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <div class="row">
-                                <div class="col-md-3">
-                                    <table class="updateCurrentWeight_calendartable">
-                                        <tr>
-                                            <td>
-                                                <img class="updateCurrentWeight_calendarimg" src="<%=resourceRootPath %>/img/calendaricon1.png" style="height: 77px; width: 77px" /></td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="updateCurrentWeight_calendartext"><%=DateTime.Now.ToString("yyyy-MM-dd") %></span></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-3">
-                                    <table class="updateCurrentWeight_weighttable">
-                                        <tr>
-                                            <td>
-                                                <input id="updateCurrentBFR_bfrinput" class="updateCurrentWeight_weightinput" type="number" onkeyup="CheckUpdateCurrentBFR_bfrinput(this.value)" />
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span class="updateCurrentWeight_weighttext">%</span></td>
-                                        </tr>
-                                    </table>
-                                </div>
-                                <div class="col-md-6">
-                                    <table class="updateCurrentWeight_weightdesctable">
-                                        <tr>
-                                            <td rowspan="3"><i class="fa fa-arrows-h fa-5x updateCurrentBFR_directionstyle"></i></td>
-                                            <td class="updateCurrentWeight_weightdescdirection"><span id="updateCurrentBFR_bfrdesctable_changeDirection">没有变化</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td class="updateCurrentWeight_weightdescvalue"><span style="font-family: 'Times New Roman';" id="updateCurrentBFR_bfrdesctable_changeAmount">0.0</span>%</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="updateCurrentWeight_weightdescdaycount">在<%=LastBFRMeasuredDayInterval %>天之内</td>
-                                        </tr>
-                                    </table>
-                                </div>
+                            <div><span class="strengthSubTitle">自由杠铃深蹲</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以蹲起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input class="currentLiftWeightAmount" type="number" />
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsDesc">次数</div>
+                                            <div>
+                                                <input class="currentLiftWeightRepsAmount" type="number" /></div>
+                                            <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标最大蹲起重量</div>
+                                            <div>
+                                                <input class="goalLiftWeightAmount" type="text" /></div>
+                                            <div><span class="goalLiftWeightUnit">千克</span></div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsDesc">次数</div>
+                                            <div>
+                                                <input class="goalLiftWeightRepsAmount" type="text" /></div>
+                                        </td>
+                                        <td>
+                                            <div class="goalDaysCountDesc">达成目标天数</div>
+                                            <div>
+                                                <input class="goalDaysCount" type="number" /></div>
+                                        </td>
+                                    </tr>
+                                </table>
                             </div>
                         </div>
                     </div>
