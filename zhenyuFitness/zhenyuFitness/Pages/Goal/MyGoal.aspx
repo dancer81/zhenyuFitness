@@ -450,7 +450,7 @@
                                                 <td colspan="4" class="othergoaloperation">
                                                     <a href="#" data-toggle="modal" data-target="#squatsGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">目标编辑</a>
+                                                    <a onclick="initModal_squats()" href="#" data-toggle="modal" data-target="#squatsGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteSquatsGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -538,11 +538,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellPressGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -583,11 +583,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteShoulderPressGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -628,11 +628,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellRowGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -673,11 +673,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellCurlGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -1159,7 +1159,7 @@
             <div class="col-md-2">插入推荐文章</div>
         </div>
 
-
+        <%--start：弹出窗口--%>
         <div class="modal fade" id="updateCurrentWeight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1299,6 +1299,7 @@
                 </div>
             </div>
         </div>
+
         <div class="modal fade strengthGoal" id="squatsGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1316,7 +1317,7 @@
                                             <div class="currentLiftWeightDesc">当前您可以蹲起</div>
                                             <div class="currentLiftWeightWrap">
                                                 <div>
-                                                    <input id="currentLiftWeightAmount_squats" class="currentLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" />
+                                                    <input min="1" id="currentLiftWeightAmount_squats" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" onchange="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                                 <div class="currentLiftWeightUnit">千克</div>
                                             </div>
@@ -1325,10 +1326,10 @@
                                             <div class="currentLiftWeightRepsWrap">
                                                 <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
                                                 <div class="currentLiftWeightRepsAmount">
-                                                    <span>【<span id="currentLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
+                                                    <span>【<span id="currentLiftWeightRepsCount_squats">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_squats">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_squats" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_squats" onchange="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1344,7 +1345,7 @@
                                             <div class="goalLiftWeightDesc">目标蹲起重量</div>
                                             <div class="goalLiftWeightWrap">
                                                 <div>
-                                                    <input id="goalLiftWeightAmount_squats" class="goalLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input min="1" id="goalLiftWeightAmount_squats" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" onchange="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                                 <div class="goalLiftWeightUnit">千克</div>
                                             </div>
@@ -1353,10 +1354,10 @@
                                             <div class="goalLiftWeightRepsWrap">
                                                 <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
                                                 <div class="goalLiftWeightRepsAmount">
-                                                    <span>【<span id="goalLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
+                                                    <span>【<span id="goalLiftWeightRepsCount_squats">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_squats">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_squats" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_squats" onchange="updateModel_squats($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1364,7 +1365,7 @@
                                             <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
                                             <div class="goalLiftWeightDaysCountWrap">
                                                 <div>
-                                                    <input id="goalLiftWeightDaysCountAmount" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount" class="goalLiftWeightDaysCountAmount" type="number" />
                                                 </div>
                                                 <div class="goalLiftWeightDaysCountUnit">天</div>
                                             </div>
@@ -1403,7 +1404,7 @@
                                             <div class="currentLiftWeightDesc">当前您可以拉起</div>
                                             <div class="currentLiftWeightWrap">
                                                 <div>
-                                                    <input id="currentLiftWeightAmount_deadLift" class="currentLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" />
+                                                    <input min="1" id="currentLiftWeightAmount_deadLift" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());" onchange="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());"/>
                                                 </div>
                                                 <div class="currentLiftWeightUnit">千克</div>
                                             </div>
@@ -1412,10 +1413,10 @@
                                             <div class="currentLiftWeightRepsWrap">
                                                 <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
                                                 <div class="currentLiftWeightRepsAmount">
-                                                    <span>【<span id="currentLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
+                                                    <span>【<span id="currentLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_deadLift">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_deadLift" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_deadLift" onchange="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1431,7 +1432,7 @@
                                             <div class="goalLiftWeightDesc">目标拉起重量</div>
                                             <div class="goalLiftWeightWrap">
                                                 <div>
-                                                    <input id="goalLiftWeightAmount_deadLift" class="goalLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input min="1" id="goalLiftWeightAmount_deadLift" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());" onchange="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());"/>
                                                 </div>
                                                 <div class="goalLiftWeightUnit">千克</div>
                                             </div>
@@ -1440,10 +1441,10 @@
                                             <div class="goalLiftWeightRepsWrap">
                                                 <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
                                                 <div class="goalLiftWeightRepsAmount">
-                                                    <span>【<span id="goalLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
+                                                    <span>【<span id="goalLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_deadLift">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_deadLift" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_deadLift" onchange="updateModel_deadLift($('#currentLiftWeightAmount_deadLift').val(),$('#currentRepsCountInput_deadLift').val(),$('#goalLiftWeightAmount_deadLift').val(),$('#goalRepsCountInput_deadLift').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1451,7 +1452,355 @@
                                             <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
                                             <div class="goalLiftWeightDaysCountWrap">
                                                 <div>
-                                                    <input id="goalLiftWeightDaysCountAmount_deadLift" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount_deadLift" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade strengthGoal" id="barbellPressGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="barbellPressGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">杠铃平板卧推</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以推起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="currentLiftWeightAmount_barbellPress" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());" onchange="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());"/>
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount_barbellPress">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_barbellPress">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_barbellPress" onchange="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标推起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightAmount_barbellPress" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());" onchange="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount_barbellPress">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_barbellPress">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input min="1" type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_barbellPress" onchange="updateModel_barbellPress($('#currentLiftWeightAmount_barbellPress').val(),$('#currentRepsCountInput_barbellPress').val(),$('#goalLiftWeightAmount_barbellPress').val(),$('#goalRepsCountInput_barbellPress').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input id="goalLiftWeightDaysCountAmount_barbellPress" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade strengthGoal" id="shoulderPressGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="shoulderPressGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">杠铃肩上推举</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以推起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="currentLiftWeightAmount_shoulderPress" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());" onchange="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());"/>
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount_shoulderPress">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_shoulderPress">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_shoulderPress" onchange="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标推起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightAmount_shoulderPress" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());" onchange="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount_shoulderPress">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_shoulderPress">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_shoulderPress" onchange="updateModel_shoulderPress($('#currentLiftWeightAmount_shoulderPress').val(),$('#currentRepsCountInput_shoulderPress').val(),$('#goalLiftWeightAmount_shoulderPress').val(),$('#goalRepsCountInput_shoulderPress').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount_shoulderPress" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade strengthGoal" id="barbellRowGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="barbellRowGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">杠铃划船</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以拉起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="currentLiftWeightAmount_barbellRow" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());" onchange="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());"/>
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount_barbellRow">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_barbellRow">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_barbellRow" onchange="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标拉起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightAmount_barbellRow" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());" onchange="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount_barbellRow">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_barbellRow">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_barbellRow" onchange="updateModel_barbellRow($('#currentLiftWeightAmount_barbellRow').val(),$('#currentRepsCountInput_barbellRow').val(),$('#goalLiftWeightAmount_barbellRow').val(),$('#goalRepsCountInput_barbellRow').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount_barbellRow" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade strengthGoal" id="barbellCurlGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="barbellCurlGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">杠铃划船</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以拉起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="currentLiftWeightAmount_barbellCurl" class="currentLiftWeightAmount" type="number" onkeyup="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());" onchange="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());"/>
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount_barbellCurl">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax_barbellCurl">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_barbellCurl" onchange="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标拉起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightAmount_barbellCurl" class="goalLiftWeightAmount" type="number" onkeyup="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());" onchange="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount_barbellCurl">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax_barbellCurl">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_barbellCurl" onchange="updateModel_barbellCurl($('#currentLiftWeightAmount_barbellCurl').val(),$('#currentRepsCountInput_barbellCurl').val(),$('#goalLiftWeightAmount_barbellCurl').val(),$('#goalRepsCountInput_barbellCurl').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount_barbellCurl" class="goalLiftWeightDaysCountAmount" type="number" />
                                                 </div>
                                                 <div class="goalLiftWeightDaysCountUnit">天</div>
                                             </div>
