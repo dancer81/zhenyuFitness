@@ -574,7 +574,7 @@
 }
 
 
-/*力量型目标*/
+/*开始--力量型目标*/
 .strengthGoal .modal-content{
     background-color:black;
 }
@@ -847,6 +847,8 @@
 .repsCountInput{
     margin-left:7px;
 }
+
+/*结束--力量型目标*/
 
 
 

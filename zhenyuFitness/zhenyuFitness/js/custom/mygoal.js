@@ -985,13 +985,27 @@ function EstimateRepMax(weightUsed, numberOfRepetitions) {
 
 function getOneRepsMax(currentLiftWeightAmount, currentRepsCount, goalLiftWeightAmount, goalRepsCount)
 {
-    //alert(currentLiftWeightAmount + "," + currentRepsCount + "," + goalLiftWeightAmount + "," + goalRepsCount);
-    if (currentLiftWeightAmount != "" && currentLiftWeightAmount != "undefined") {
-        $('#currentLiftWeightRepsCount').html(currentRepsCount);
-        $("#currentLiftWeightOneRepsMax").html(EstimateRepMax(currentLiftWeightAmount, currentRepsCount).toFixed(0));
+    if (currentLiftWeightAmount.length > 3) {
+        $("#currentLiftWeightAmount_squats").val(parseInt(currentLiftWeightAmount / 10));
+        $("#currentLiftWeightOneRepsMax").html((EstimateRepMax(currentLiftWeightAmount, currentRepsCount) / 10).toFixed(0));
     }
-    if (goalLiftWeightAmount != "" && goalLiftWeightAmount != "undefined") {
-        $('#goalLiftWeightRepsCount').html(goalRepsCount);
+
+    else
+    {
+        $("#currentLiftWeightOneRepsMax").html(parseInt(currentLiftWeightAmount));
+        $("#currentLiftWeightAmount_squats").val(parseInt(currentLiftWeightAmount));
+        $("#currentLiftWeightOneRepsMax").html((EstimateRepMax(currentLiftWeightAmount, currentRepsCount)).toFixed(0));
+    }
+    $('#currentLiftWeightRepsCount').html(currentRepsCount);
+
+    if (goalLiftWeightAmount.length > 3) {
+        $("#goalLiftWeightAmount_squats").val(parseInt(goalLiftWeightAmount / 10));
+        $("#goalLiftWeightOneRepsMax").html((EstimateRepMax(goalLiftWeightAmount, goalRepsCount) / 10).toFixed(0));
+    }
+    else {
+        $("#goalLiftWeightAmount_squats").val(parseInt(goalLiftWeightAmount));
         $("#goalLiftWeightOneRepsMax").html(EstimateRepMax(goalLiftWeightAmount, goalRepsCount).toFixed(0));
     }
+    $('#goalLiftWeightRepsCount').html(goalRepsCount);
 }
+

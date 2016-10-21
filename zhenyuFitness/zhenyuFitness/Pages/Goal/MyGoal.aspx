@@ -493,11 +493,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">目标编辑</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a>目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteDeadLiftGoal">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                 </td>
                                             </tr>
@@ -1366,7 +1366,94 @@
                                                 <div>
                                                     <input id="goalLiftWeightDaysCountAmount" class="goalLiftWeightDaysCountAmount" type="number" />
                                                 </div>
-                                                <div class="goalLiftWeightDaysCountUnit">千克</div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade strengthGoal" id="deadLiftGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="deadLiftGoalLabel"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">杠铃传统硬拉</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div class="currentLiftWeightDesc">当前您可以拉起</div>
+                                            <div class="currentLiftWeightWrap">
+                                                <div>
+                                                    <input id="currentLiftWeightAmount_deadLift" class="currentLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" />
+                                                </div>
+                                                <div class="currentLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="currentLiftWeightRepsWrap">
+                                                <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_deadLift" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="goalLiftWeightDesc">目标拉起重量</div>
+                                            <div class="goalLiftWeightWrap">
+                                                <div>
+                                                    <input id="goalLiftWeightAmount_deadLift" class="goalLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount_deadLift">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_deadLift" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input id="goalLiftWeightDaysCountAmount_deadLift" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">天</div>
                                             </div>
                                         </td>
                                     </tr>
