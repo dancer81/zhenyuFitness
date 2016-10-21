@@ -980,5 +980,18 @@ function CheckUpdateCurrentBFR_bfrinput(inputValue) {
 
 //估算Rep Max
 function EstimateRepMax(weightUsed, numberOfRepetitions) {
-    return weightUsed / (1.0278 - (0.0278 - numberOfRepetitions));
+    return weightUsed / (1.0278 - (0.0278 * numberOfRepetitions));
+}
+
+function getOneRepsMax(currentLiftWeightAmount, currentRepsCount, goalLiftWeightAmount, goalRepsCount)
+{
+    //alert(currentLiftWeightAmount + "," + currentRepsCount + "," + goalLiftWeightAmount + "," + goalRepsCount);
+    if (currentLiftWeightAmount != "" && currentLiftWeightAmount != "undefined") {
+        $('#currentLiftWeightRepsCount').html(currentRepsCount);
+        $("#currentLiftWeightOneRepsMax").html(EstimateRepMax(currentLiftWeightAmount, currentRepsCount).toFixed(0));
+    }
+    if (goalLiftWeightAmount != "" && goalLiftWeightAmount != "undefined") {
+        $('#goalLiftWeightRepsCount').html(goalRepsCount);
+        $("#goalLiftWeightOneRepsMax").html(EstimateRepMax(goalLiftWeightAmount, goalRepsCount).toFixed(0));
+    }
 }

@@ -1316,7 +1316,7 @@
                                             <div class="currentLiftWeightDesc">当前您可以蹲起</div>
                                             <div class="currentLiftWeightWrap">
                                                 <div>
-                                                    <input id="currentLiftWeightAmount" class="currentLiftWeightAmount" type="number" />
+                                                    <input id="currentLiftWeightAmount_squats" class="currentLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());" />
                                                 </div>
                                                 <div class="currentLiftWeightUnit">千克</div>
                                             </div>
@@ -1324,10 +1324,11 @@
                                         <td>
                                             <div class="currentLiftWeightRepsWrap">
                                                 <div class="currentLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique;">#</span>次数</div>
-                                                <div class="currentLiftWeightRepsAmount"><span>【<span id="currentLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
+                                                <div class="currentLiftWeightRepsAmount">
+                                                    <span>【<span id="currentLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="currentLiftWeightOneRepsMax" id="currentLiftWeightOneRepsMax">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" />
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="currentRepsCountInput_squats" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1343,7 +1344,7 @@
                                             <div class="goalLiftWeightDesc">目标蹲起重量</div>
                                             <div class="goalLiftWeightWrap">
                                                 <div>
-                                                    <input id="goalLiftWeightAmount" class="goalLiftWeightAmount" type="number" />
+                                                    <input id="goalLiftWeightAmount_squats" class="goalLiftWeightAmount" type="number" onkeyup="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                                 <div class="goalLiftWeightUnit">千克</div>
                                             </div>
@@ -1351,10 +1352,11 @@
                                         <td>
                                             <div class="goalLiftWeightRepsWrap">
                                                 <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
-                                                <div class="goalLiftWeightRepsAmount"><span>【<span id="goalLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
+                                                <div class="goalLiftWeightRepsAmount">
+                                                    <span>【<span id="goalLiftWeightRepsCount">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax" id="goalLiftWeightOneRepsMax">0</span>千克)</div>
                                                 </div>
                                                 <div>
-                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" />
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput" id="goalRepsCountInput_squats" onchange="getOneRepsMax($('#currentLiftWeightAmount_squats').val(),$('#currentRepsCountInput_squats').val(),$('#goalLiftWeightAmount_squats').val(),$('#goalRepsCountInput_squats').val());"/>
                                                 </div>
                                             </div>
                                         </td>
@@ -1378,8 +1380,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                            <button style="margin-right:18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
                     </div>
                 </div>
             </div>
