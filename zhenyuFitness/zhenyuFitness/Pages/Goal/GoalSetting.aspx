@@ -619,7 +619,7 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="thumbnail" style="background-color: #f9f7f6; border: none;">
-                                                    <img src="<%=resourceRootPath %>/img/physique/man/bodybuilder-large .png" alt="...">
+                                                    <img src="<%=resourceRootPath %>/img/physique/man/bodybuilder-large.png" alt="...">
                                                     <div class="caption">
                                                         <%--<p>...</p>--%>
                                                         <p style="text-align: center; background-color: white; box-shadow: 0 3px 3px 0 #7E7E7E;">

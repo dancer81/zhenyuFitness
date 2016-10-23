@@ -11,7 +11,7 @@ namespace zhenyuFitness.Pages.Goal
 {
     public partial class MyGoal : BasePage
     {
-        //未完成：TrackActivity、更新后刷新图标、第三个图表
+        //未完成：TrackActivity、更新后刷新图标、第三个图表、（已完成、已过期、已取消3种状态页面上的不同显示）、状态的更新判断
         private string userID;
 
         protected new void Page_Load(object sender, EventArgs e)
@@ -70,10 +70,7 @@ namespace zhenyuFitness.Pages.Goal
         private int goalAlertBodyFat;
         private string picBeforeID;
         private string picCurrentID;
-        private bool isExpired;
-        private bool isAchieved;
-        private bool isProcessing;
-        private bool isCanceled;
+        private int status;
 
         private float lastMeasuredWeight = 0;
         private DateTime lastWeightMeasuredDate = DateTime.Parse(Common.Common.DateTiemPassedForCertain);
@@ -123,9 +120,28 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
-                if (string.IsNullOrEmpty(this.goalID)) return "0";
-                float changePercent = (100 * (float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight)));
-                return changePercent > 0 ? changePercent.ToString("0.0") : (0 - changePercent).ToString("0.0");
+                if(this.goalWeight < this.startWeight)
+                {
+                    if (float.Parse(this.CurrentWeight) < this.startWeight)
+                    {
+                        if (string.IsNullOrEmpty(this.goalID)) return "0";
+                        float changePercent = (100 * (float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight)));
+                        return changePercent > 0 ? changePercent.ToString("0.0") : (0 - changePercent).ToString("0.0");
+                    }
+                    else
+                        return "0";
+                }
+                else
+                {
+                    if (float.Parse(this.CurrentWeight) >= this.startWeight)
+                    {
+                        if (string.IsNullOrEmpty(this.goalID)) return "0";
+                        float changePercent = (100 * (float.Parse(this.CurrentWeight) - float.Parse(this.StartWeight)) / (float.Parse(this.GoalWeight) - float.Parse(this.StartWeight)));
+                        return changePercent > 0 ? changePercent.ToString("0.0") : (0 - changePercent).ToString("0.0");
+                    }
+                    else
+                        return "0";
+                }
             }
         }
 
@@ -188,13 +204,36 @@ namespace zhenyuFitness.Pages.Goal
             }
         }
 
-        public string BFRGoalAchievedPercent
+        public string BFRGoalAchievedPercent      //有问题，需根据方向判断完成率
         {
             get
             {
-                if (string.IsNullOrEmpty(this.goalID)) return "0";
-                float changePercent = (100 * (float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR)));
-                return changePercent > 0 ? changePercent.ToString("0") : (0 - changePercent).ToString("0.0");
+                if (this.goalBodyFat < this.startBodyFat)
+                {
+                    if (float.Parse(this.CurrentBFR) < this.startBodyFat)
+                    {
+                        if (string.IsNullOrEmpty(this.goalID)) return "0";
+                        float changePercent = (100 * (float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR)));
+                        return changePercent > 0 ? changePercent.ToString("0") : (0 - changePercent).ToString("0.0");
+                    }
+                    return "0";
+                }
+                else
+                {
+                    if (float.Parse(this.CurrentBFR) >= this.startBodyFat)
+                    {
+                        if (string.IsNullOrEmpty(this.goalID)) return "0";
+                        float changePercent = (100 * (float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR)));
+                        return changePercent > 0 ? changePercent.ToString("0") : (0 - changePercent).ToString("0.0");
+                    }
+
+                    return "0";
+                }
+
+
+                //if (string.IsNullOrEmpty(this.goalID)) return "0";
+                //float changePercent = (100 * (float.Parse(this.CurrentBFR) - float.Parse(this.StartBFR)) / (float.Parse(this.GoalBFR) - float.Parse(this.StartBFR)));
+                //return changePercent > 0 ? changePercent.ToString("0") : (0 - changePercent).ToString("0.0");
             }
         }
 
@@ -388,6 +427,14 @@ namespace zhenyuFitness.Pages.Goal
                 return DateTime.Today.Subtract(this.lastBFRMeasuredDate).Days;
             }
         }
+
+        public string Status
+        {
+            get
+            {
+                return this.status.ToString();
+            }
+        }
         #endregion
 
         /// <summary>
@@ -434,12 +481,9 @@ namespace zhenyuFitness.Pages.Goal
                   ,[GoalAlertBodyFat]
                   ,[PicBeforeID]
                   ,[PicCurrentID]
-                  ,[IsExpired]
-                  ,[IsAchieved]
-                  ,[IsProcessing]
-                  ,[IsCanceled]
+                  ,[Status]
               FROM [zhenyuFitness].[dbo].[UserBFRGoal] where Valid = 1 and UserID='{0}'
-              order by IsProcessing desc, IsAchieved desc, IsExpired desc, CreateDate desc", this.userID);
+              order by Status asc, CreateDate desc", this.userID);
             DataTable dtBFRGoal;
             try
             {
@@ -542,24 +586,9 @@ namespace zhenyuFitness.Pages.Goal
                     this.picCurrentID = dtBFRGoal.Rows[0]["PicCurrentID"].ToString();
                 }
 
-                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["IsExpired"]))
+                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["Status"]))
                 {
-                    this.isExpired = dtBFRGoal.Rows[0]["IsExpired"].ToString() == "1" ? true : false;
-                }
-
-                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["IsAchieved"]))
-                {
-                    this.isAchieved = dtBFRGoal.Rows[0]["IsAchieved"].ToString() == "1" ? true : false;
-                }
-
-                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["IsProcessing"]))
-                {
-                    this.isProcessing = dtBFRGoal.Rows[0]["IsProcessing"].ToString() == "1" ? true : false;
-                }
-
-                if (!Common.Common.NoneOrEmptyString(dtBFRGoal.Rows[0]["IsCanceled"]))
-                {
-                    this.isCanceled = dtBFRGoal.Rows[0]["IsCanceled"].ToString() == "1" ? true : false;
+                    this.status = int.Parse(dtBFRGoal.Rows[0]["Status"].ToString());
                 }
             }
             else

@@ -1,5 +1,6 @@
 ﻿body {
 }
+
 .modalButtonStyle {
     background-image: radial-gradient(ellipse farthest-corner at center top,rgba(28,172,225,1) 0,rgba(28,172,225,.6) 50%,rgba(0,65,101,0) 100%),linear-gradient(to bottom,#00a1de 0,#004165 100%);
     border: 1px solid #0e6088;
@@ -9,4 +10,9 @@
     font-size: 18px;
 }
 
-
+/*//使前台控件失效*/ 
+.disableCss {
+    pointer-events: none;
+    color: #afafaf;
+    cursor: default;
+}

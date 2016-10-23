@@ -128,10 +128,7 @@ namespace zhenyuFitness.Pages.Goal
                            ,[GoalBodyFat]
                            ,[GoalStartDate]
                            ,[GoalCostDays]
-                           ,[IsExpired]
-                           ,[IsAchieved]
-                           ,[IsProcessing]
-                           ,[IsCanceled]
+                           ,[Status]
                            ,[CreateUser]
                            ,[CreateDate]
                            ,[LastModifiedUser]
@@ -151,10 +148,7 @@ namespace zhenyuFitness.Pages.Goal
                            ,{9}
                            ,GETDATE()
                            ,{10}
-                           ,0
-                           ,0
-                           ,1
-                           ,0
+                           ,{14}
                            ,'{11}'
                            ,GETDATE()
                            ,'{12}'
@@ -162,7 +156,7 @@ namespace zhenyuFitness.Pages.Goal
                            ,1)", Session["UserID"].ToString(), this.startHeight,
                            this.goalPhysique, this.startWeight, this.startBFR, this.startWaistSize,
                            this.isKnowBFR ? 0 : 1, this.goalDirection, this.goalWeight, this.goalBFR,
-                           this.goalCostDays, Session["UserID"].ToString(), Session["UserID"].ToString(),guid);
+                           this.goalCostDays, Session["UserID"].ToString(), Session["UserID"].ToString(),guid,(int)Common.Common.BFRGoalStatus.Processing);
             try
             {
                 dal.ExecSQL(sql);

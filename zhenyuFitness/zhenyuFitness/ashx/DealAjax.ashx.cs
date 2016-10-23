@@ -12,6 +12,7 @@ namespace zhenyuFitness.ashx
     /// </summary>
     public class DealAjax : IHttpHandler, IReadOnlySessionState
     {
+        //删除时，更新LastModifiedDate
         MssqlDal dal = new MssqlDal(Common.Common.DBConnectionStr, Common.Common.DbLog);
         public void ProcessRequest(HttpContext context)
         {
@@ -46,7 +47,19 @@ namespace zhenyuFitness.ashx
                     context.Response.Clear();
                     context.Response.Write(deleteCurrentBFRGoal_retType);
                     context.Response.End();
-                    break; 
+                    break;
+                case "addOtherGoal_squats":
+                case "addOtherGoal_deadLift":
+                case "addOtherGoal_barbellPress":
+                case "addOtherGoal_shoulderPress":
+                case "addOtherGoal_barbellRow":
+                case "addOtherGoal_barbellCurl":
+                    int addOtherGoal_retType = this.AddOtherGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(addOtherGoal_retType);
+                    context.Response.End();
+                    break;
                 default:
                     break;
             }
@@ -189,6 +202,114 @@ namespace zhenyuFitness.ashx
                 }
             }
             return retType;
+        }
+
+        private int AddOtherGoal(HttpContext context)
+        {
+            int retType = 0;
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                retType = 1;
+            }
+            else
+            {
+                string type = context.Request.Form["type"].ToString();
+                string startValue = context.Request.Form["startValue"].ToString();
+                string goalValue = context.Request.Form["goalValue"].ToString();
+                string goalDaysCount = context.Request.Form["goalDaysCount"].ToString();
+                string userID = context.Session["UserID"].ToString();
+                string startLiftWeight = context.Request.Form["startLiftWeight"].ToString();
+                string startRepsCount = context.Request.Form["startRepsCount"].ToString();
+                string goalLiftWeight = context.Request.Form["goalLiftWeight"].ToString();
+                string goalRepsCount = context.Request.Form["goalRepsCount"].ToString();
+
+                List<string> listType = this.getOtherGoalType(type);
+                string sqlAddOtherGoal = string.Format(@"
+                INSERT INTO [zhenyuFitness].[dbo].[UserOtherGoal]
+                    ([ID]
+                    ,[UserID]
+                    ,[TypeMain]
+                    ,[TypeSub]
+                    ,[StartValue]
+                    ,[GoalValue]
+                    ,[GoalDaysCount]
+                    ,[GoalStatus]
+                    ,[CreateDate]
+                    ,[CreateUser]
+                    ,[LastModifiedDate]
+                    ,[LastModifiedUser]
+                    ,[Valid]
+                    ,[StartLiftWeightAmount]
+                    ,[StartLiftWeightReps]
+                    ,[GoalLiftWeightAmount]
+                    ,[GoalLiftWeightReps])
+                VALUES
+                    (NEWID()
+                    ,'{0}'
+                    ,{1}
+                    ,{2}
+                    ,{3}
+                    ,{4}
+                    ,{5}
+                    ,{6}
+                    ,GETDATE()
+                    ,'{0}'
+                    ,GETDATE()
+                    ,'{0}'
+                    ,1
+                    ,{7}
+                    ,{8}
+                    ,{9}
+                    ,{10})", userID,listType[0],listType[1],startValue,goalValue, goalDaysCount,(int)Common.Common.OtherGoalStatus.Processing, startLiftWeight, startRepsCount, goalLiftWeight, goalRepsCount);
+
+                try
+                {
+                    dal.ExecSQL(sqlAddOtherGoal);
+                    retType = 2;
+                }
+                catch
+                {
+                    retType = 3;
+                }
+            }
+            return retType;
+        }
+
+        private List<string> getOtherGoalType(string type)
+        {
+            List<string> listType = new List<string>();
+            if(type == "squats")
+            {
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.Squats).ToString());
+            }
+            else if(type == "deadLift"){
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.DeadLift).ToString());
+            }
+            else if(type == "barbellPress")
+            {
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.BarbellPress).ToString());
+            }
+            else if(type == "shoulderPress")
+            {
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.ShoulderPress).ToString());
+            }
+            else if(type == "barbellRow")
+            {
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.BarbellRow).ToString());
+            }
+            else if(type == "barbellCurl")
+            {
+                listType.Add(((int)Common.Common.GoalTypeBasic.Strength).ToString());
+                listType.Add(((int)Common.Common.GoalTypeStrength.BarbellCurl).ToString());
+            }
+            else
+            { }
+            return listType;
         }
     }
 }

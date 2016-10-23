@@ -65,7 +65,7 @@ function initchart_weight() {//weighthistory形如：72,74,75,72
     if (weightHistory.length == 1 || weightHistoryDate.length == 1) {
         if (weightHistory == "") {
             $("#chartWeightCurve").css("height", "350");
-            $("#chartWeightCurve").html("<div style=\"margin-top:110px;margin-left:80px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体重！</div>");
+            $("#chartWeightCurve").html("<div style=\"margin-top:110px;margin-left:90px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体重！</div>");
             return;
         }
     }
@@ -445,9 +445,15 @@ function initchart_goalAchievePercent() {
 
     if (weightHistory.length == 1 || weightHistoryDate.length == 1) {
         if (weightHistory == "") {
-            $("#chartWeightCurve").css("height", "350");
-            $("#chartWeightCurve").html("<div style=\"margin-top:110px;margin-left:80px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过您的体重！</div>");
-            return;
+            if (bfrHistory.length == 1 || bfrHistoryDate.length == 1)
+            {
+                if(bfrHistory == "")
+                {
+                    $("#chartGoalAchieveRateCurve").css("height", "350");
+                    $("#chartGoalAchieveRateCurve").html("<div style=\"margin-top:110px;margin-left:47px;color:#919191;font-family:微软雅黑;font-size:50px;\">您从未更新过体重和体脂率！</div>");
+                    return;
+                }
+            }
         }
     }
 
@@ -1130,6 +1136,497 @@ function updateModel_barbellCurl(currentLiftWeightAmount, currentRepsCount, goal
     $('#goalLiftWeightRepsCount_barbellCurl').html(goalRepsCount);
 }
 //end:在力量型目标框里操作时的变化
+
+//start：添加力量型目标
+function addOtherGoal_squats() {
+    var startLiftWeight = $("#currentLiftWeightAmount_squats").val();
+    var startRepsCount = $("#currentRepsCountInput_squats").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_squats").val();
+    var goalRepsCount = $("#goalRepsCountInput_squats").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_squats").val();
+    if(startLiftWeight == "" || startLiftWeight == "undefined")
+    {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+
+
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_squats", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "squats", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if(date == "3"){
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#squatsGoal").modal("hide");
+                $("#startValueHtml_squats").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_squats").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_squats").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_squats").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_squats").html(0);
+                $("#progress_currentLiftWeightStatus_squats").html("进行中");
+
+                $("#addOtherGoal_squats").addClass("disableCss");
+                $("#deleteOtherGoal_squats").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+function addOtherGoal_deadLift() {
+    var startLiftWeight = $("#currentLiftWeightAmount_deadLift").val();
+    var startRepsCount = $("#currentRepsCountInput_deadLift").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_deadLift").val();
+    var goalRepsCount = $("#goalRepsCountInput_deadLift").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_deadLift").val();
+    if (startLiftWeight == "" || startLiftWeight == "undefined") {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_deadLift", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "deadLift", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#deadLiftGoal").modal("hide");
+                $("#startValueHtml_deadLift").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_deadLift").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_deadLift").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_deadLift").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_deadLift").html(0);
+                $("#progress_currentLiftWeightStatus_deadLift").html("进行中");
+
+                $("#addOtherGoal_deadLift").addClass("disableCss");
+                $("#deleteOtherGoal_deadLift").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+function addOtherGoal_barbellPress() {
+    var startLiftWeight = $("#currentLiftWeightAmount_barbellPress").val();
+    var startRepsCount = $("#currentRepsCountInput_barbellPress").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_barbellPress").val();
+    var goalRepsCount = $("#goalRepsCountInput_barbellPress").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_barbellPress").val();
+    if (startLiftWeight == "" || startLiftWeight == "undefined") {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_barbellPress", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellPress", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#barbellPressGoal").modal("hide");
+                $("#startValueHtml_barbellPress").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_barbellPress").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_barbellPress").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_barbellPress").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_barbellPress").html(0);
+                $("#progress_currentLiftWeightStatus_barbellPress").html("进行中");
+
+                $("#addOtherGoal_barbellPress").addClass("disableCss");
+                $("#deleteOtherGoal_barbellPress").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+function addOtherGoal_shoulderPress() {
+    var startLiftWeight = $("#currentLiftWeightAmount_shoulderPress").val();
+    var startRepsCount = $("#currentRepsCountInput_shoulderPress").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_shoulderPress").val();
+    var goalRepsCount = $("#goalRepsCountInput_shoulderPress").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_shoulderPress").val();
+    if (startLiftWeight == "" || startLiftWeight == "undefined") {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_shoulderPress", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "shoulderPress", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#shoulderPressGoal").modal("hide");
+                $("#startValueHtml_shoulderPress").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_shoulderPress").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_shoulderPress").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_shoulderPress").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_shoulderPress").html(0);
+                $("#progress_currentLiftWeightStatus_shoulderPress").html("进行中");
+
+                $("#addOtherGoal_shoulderPress").addClass("disableCss");
+                $("#deleteOtherGoal_shoulderPress").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+function addOtherGoal_barbellRow() {
+    var startLiftWeight = $("#currentLiftWeightAmount_barbellRow").val();
+    var startRepsCount = $("#currentRepsCountInput_barbellRow").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_barbellRow").val();
+    var goalRepsCount = $("#goalRepsCountInput_barbellRow").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_barbellRow").val();
+    if (startLiftWeight == "" || startLiftWeight == "undefined") {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_barbellRow", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellRow", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#barbellRowGoal").modal("hide");
+                $("#startValueHtml_barbellRow").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_barbellRow").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_barbellRow").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_barbellRow").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_barbellRow").html(0);
+                $("#progress_currentLiftWeightStatus_barbellRow").html("进行中");
+
+                $("#addOtherGoal_barbellRow").addClass("disableCss");
+                $("#deleteOtherGoal_barbellRow").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+function addOtherGoal_barbellCurl() {
+    var startLiftWeight = $("#currentLiftWeightAmount_barbellCurl").val();
+    var startRepsCount = $("#currentRepsCountInput_barbellCurl").val();
+    var goalLiftWeight = $("#goalLiftWeightAmount_barbellCurl").val();
+    var goalRepsCount = $("#goalRepsCountInput_barbellCurl").val();
+    var goalDaysCount = $("#goalLiftWeightDaysCountAmount_barbellCurl").val();
+    if (startLiftWeight == "" || startLiftWeight == "undefined") {
+        AlertBasic("当前能蹲起的重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalLiftWeight == "" || goalLiftWeight == "undefined") {
+        AlertBasic("目标蹲起重量不能为空，请填写。");
+        return;
+    }
+
+    if (goalDaysCount == "" || goalDaysCount == "undefined") {
+        AlertBasic("目标达成日期不能为空，请填写。");
+        return;
+    }
+
+    var startLiftWeightMax = EstimateRepMax(startLiftWeight, startRepsCount).toFixed(0);
+    var goalLiftWeightMax = EstimateRepMax(goalLiftWeight, goalRepsCount).toFixed(0);
+
+    if (goalLiftWeightMax * 1 <= startLiftWeightMax * 1) {
+        AlertBasic("目标重量必须大于起始重量！");
+        return;
+    }
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addOtherGoal_barbellCurl", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellCurl", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
+        async: true,
+        success: function (data) {
+            if (data != "2") {//更新失败
+                if (date == "1") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                $("#barbellCurlGoal").modal("hide");
+                $("#startValueHtml_barbellCurl").html(startLiftWeightMax);
+                var nowDate = new Date();
+                $("#startDateHtml_barbellCurl").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                $("#goalValueHtml_barbellCurl").html(goalLiftWeightMax);
+                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#progress_currentLiftWeightAmount_barbellCurl").html(startLiftWeightMax);
+                $("#progress_currentLiftWeightAchievedPercent_barbellCurl").html(0);
+                $("#progress_currentLiftWeightStatus_barbellCurl").html("进行中");
+
+                $("#addOtherGoal_barbellCurl").addClass("disableCss");
+                $("#deleteOtherGoal_barbellCurl").removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+//end：添加力量型目标
+
+//初始化力量型目标删除框
+function initDeleteOtherGoalmodal(type) {
+    if (type == "squats") {
+        $(".strengthSubTitlName").html("自由杠铃深蹲");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_squats").html());
+    }
+    else if (type == "deadLift") {
+        $(".strengthSubTitlName").html("传统杠铃硬拉");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_deadLift").html());
+    }
+    else if (type == "barbellPress") {
+        $(".strengthSubTitlName").html("杠铃平板卧推");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_barbellPress").html());
+    }
+    else if (type == "shoulderPress") {
+        $(".strengthSubTitlName").html("杠铃肩上推举");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_shoulderPress").html());
+    }
+    else if (type == "barbellRow") {
+        $(".strengthSubTitlName").html("杠铃划船");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_barbellRow").html());
+    }
+    else if (type == "barbellCurl") {
+        $(".strengthSubTitlName").html("杠铃二头弯举");
+        $(".strengthSubTitleCreateDate").html($("#startDateHtml_barbellCurl").html());
+    }
+    else {
+
+    }
+}
+
+
+
+
+
+
+
+//删除力量型目标
+function deleteOtherGoal() {
+    if ($(".strengthSubTitlName").html() == '自由杠铃深蹲') {
+        $.ajax({
+            type: "POST",
+            url: "/zhenyuFitness/ashx/DealAjax.ashx",
+            data: { ajaxtype: "deleteOtherGoal", type: "squats" },
+            async: true,
+            success: function (data) {
+                if (data != "2") {//更新失败
+                   
+                }
+                else {//数据库更新成功，更新前台数据
+                   
+                }
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("删除目标时出错了");
+                alert(errorThrown);
+            }
+        });
+    }
+    else if ($(".strengthSubTitlName").html() == '杠铃传统硬拉') {
+
+    }
+    else if ($(".strengthSubTitlName").html() == '杠铃平板卧推') {
+
+    }
+    else if ($(".strengthSubTitlName").html() == '杠铃肩上推举') {
+
+    }
+    else if ($(".strengthSubTitlName").html() == '杠铃划船') {
+
+    }
+    else if ($(".strengthSubTitlName").html() == '杠铃二头弯举') {
+
+    }
+    else {
+
+    }
+}
 
 //start:点击编辑后初始化力量型目标模态框
 function initModal_squats()

@@ -11,6 +11,7 @@
     <meta name="author" content="">
     <!-- STYLESHEETS -->
     <!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+    <link href="<%=appRootPath %>/css/custom/common.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/css/cloud-admin.css">
     <!--<link rel="stylesheet" type="text/css"  href="css/themes/default.css" id="skin-switcher" >-->
     <link rel="stylesheet" type="text/css" href="<%=appRootPath %>/css/themes/night.css">
@@ -57,8 +58,9 @@
 
     <script src="<%=appRootPath %>/js/custom/generalMaster.js"></script>
     <!-- /JAVASCRIPTS -->
-
+    <script src="<%=appRootPath %>/js/custom/common.js"></script>
     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+
         <title>none</title>
     </asp:ContentPlaceHolder>
 </head>

@@ -128,9 +128,58 @@ namespace zhenyuFitness.Common
         public static string Female_FitnessModel = "健身达人";
         public static string Female_Bodybuilder = "健美运动员";
 
+        public enum GoalTypeBasic
+        {
+            [Description("体重体脂率目标")]
+            BodyComposition,
+            [Description("力量型目标")]
+            Strength,
+            [Description("测量型目标")]
+            Measurement,
+        }
+
+        public enum GoalTypeStrength
+        {
+            [Description("深蹲")]
+            Squats,
+            [Description("硬拉")]
+            DeadLift,
+            [Description("卧推")]
+            BarbellPress,
+            [Description("肩上推举")]
+            ShoulderPress,
+            [Description("杠铃划船")]
+            BarbellRow,
+            [Description("二头弯举")]
+            BarbellCurl,
+        }
+
+        public enum BFRGoalStatus
+        {
+            [Description("进行中")]
+            Processing,
+            [Description("完成")]
+            Achieved,
+            [Description("过期")]
+            Expired,
+            [Description("取消")]
+            Canceled,
+        }
+
+        public enum OtherGoalStatus
+        {
+            [Description("进行中")]
+            Processing,
+            [Description("完成")]
+            Achieved,
+            [Description("过期")]
+            Expired,
+            [Description("取消")]
+            Canceled,
+        }
         #endregion
 
-        #region 动作相关
+            #region 动作相关
         public enum ForceType
         {
             [Description("推")]

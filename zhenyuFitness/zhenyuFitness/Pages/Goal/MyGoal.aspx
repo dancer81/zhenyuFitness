@@ -422,7 +422,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -434,26 +434,26 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_squats">0</span><span>千克</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_squats"></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_squats">0</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span>当前</span>
+                                                    <span id="progress_currentLiftWeightAmount_squats">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_squats">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_squats">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal" id="addOtherGoal_squats">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a onclick="initModal_squats()" href="#" data-toggle="modal" data-target="#squatsGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_squats" onclick="initDeleteOtherGoalmodal('squats')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteSquatsGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -480,12 +480,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_deadLift">2016-10-1</td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
                                                     <span>101<span>千克</span></span>
                                                     <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
                                                     <span>状态：<span>进行中</span></span>
@@ -493,12 +494,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal" id="addOtherGoal_deadLift">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_deadLift" onclick="initDeleteOtherGoalmodal('deadLift')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteDeadLiftGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -525,12 +525,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellPress">2016-9-9</td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
                                                     <span>101<span>千克</span></span>
                                                     <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
                                                     <span>状态：<span>进行中</span></span>
@@ -538,12 +539,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal" id="addOtherGoal_barbellPress">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellPress" onclick="initDeleteOtherGoalmodal('barbellPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellPressGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -570,12 +570,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_shoulderPress">2016-9-1</td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
                                                     <span>101<span>千克</span></span>
                                                     <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
                                                     <span>状态：<span>进行中</span></span>
@@ -583,12 +584,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal" id="addOtherGoal_shoulderPress">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_shoulderPress" onclick="initDeleteOtherGoalmodal('shoulderPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteShoulderPressGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -615,12 +615,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellRow">2016-9-1</td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
                                                     <span>101<span>千克</span></span>
                                                     <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
                                                     <span>状态：<span>进行中</span></span>
@@ -628,12 +629,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal" id="addOtherGoal_barbellRow">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellRow" onclick="initDeleteOtherGoalmodal('barbellRow')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellRowGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -660,12 +660,13 @@
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';">2016-9-1</td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellCurl">2016-9-1</td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
                                                     <span>101<span>千克</span></span>
                                                     <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
                                                     <span>状态：<span>进行中</span></span>
@@ -673,12 +674,11 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal" id="addOtherGoal_barbellCurl">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">目标编辑</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellCurl" onclick="initDeleteOtherGoalmodal('barbellCurl')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteBarbellCurlGoal">目标删除</a>
-                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1365,7 +1365,7 @@
                                             <div class="goalLiftWeightDaysCountDesc">目标达成天数</div>
                                             <div class="goalLiftWeightDaysCountWrap">
                                                 <div>
-                                                    <input min="1" id="goalLiftWeightDaysCountAmount" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                    <input min="1" id="goalLiftWeightDaysCountAmount_squats" class="goalLiftWeightDaysCountAmount" type="number" />
                                                 </div>
                                                 <div class="goalLiftWeightDaysCountUnit">天</div>
                                             </div>
@@ -1382,7 +1382,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_squats()">提交</button>
                     </div>
                 </div>
             </div>
@@ -1469,7 +1469,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_deadLift()">提交</button>
                     </div>
                 </div>
             </div>
@@ -1556,7 +1556,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_barbellPress()">提交</button>
                     </div>
                 </div>
             </div>
@@ -1643,7 +1643,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_shoulderPress()">提交</button>
                     </div>
                 </div>
             </div>
@@ -1730,7 +1730,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_barbellRow()">提交</button>
                     </div>
                 </div>
             </div>
@@ -1744,7 +1744,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <div><span class="strengthSubTitle">杠铃划船</span></div>
+                            <div><span class="strengthSubTitle">二头弯举</span></div>
                             <div class="strengthGoalContent">
                                 <table>
                                     <tr>
@@ -1817,18 +1817,42 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
-                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateCurrentBFR()">提交</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="addOtherGoal_barbellCurl()">提交</button>
                     </div>
                 </div>
             </div>
         </div>
 
+
+        <div class="modal fade strengthGoal" id="deleteOtherGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle" >删除目标：<span class="strengthSubTitlName">自由杠铃深蹲</span></span></div>
+                            <div class="deleteStrengthGoalContent">
+                                <span class="deleteCurrentGoal_message">请确定要删除力量型目标：<span class="strengthSubTitlName">自由杠铃深蹲</span>吗？</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate">2016-10-10</span>】</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="deleteOtherGoal()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
     <input type="hidden" id="weightHistory" value="<%=WeightHistory %>" />
     <input type="hidden" id="weightHistoryDate" value="<%=WeightHistoryDate %>" />
     <input type="hidden" id="bfrHistory" value="<%=BFRHistory %>" />
     <input type="hidden" id="bfrHistoryDate" value="<%=BFRHistoryDate %>" />
+    <input type="hidden" id="goalStatus" value="<%=Status %>" />
 
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
