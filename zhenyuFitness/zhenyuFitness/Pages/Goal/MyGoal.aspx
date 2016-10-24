@@ -453,7 +453,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_squats" onclick="initDeleteOtherGoalmodal('squats')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal">更新数据</a>
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('squats')">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -498,7 +498,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_deadLift" onclick="initDeleteOtherGoalmodal('deadLift')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal">更新数据</a>
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('deadLift')">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -543,7 +543,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellPress" onclick="initDeleteOtherGoalmodal('barbellPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellPress')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -588,7 +588,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_shoulderPress" onclick="initDeleteOtherGoalmodal('shoulderPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('shoulderPress')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -633,7 +633,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellRow" onclick="initDeleteOtherGoalmodal('barbellRow')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellRow')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -678,7 +678,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellCurl" onclick="initDeleteOtherGoalmodal('barbellCurl')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellCurl')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1822,8 +1822,6 @@
                 </div>
             </div>
         </div>
-
-
         <div class="modal fade strengthGoal" id="deleteOtherGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -1834,7 +1832,7 @@
                     <div class="modal-body">
                         <div class="container">
                             <div><span class="strengthSubTitle" >删除目标：<span class="strengthSubTitlName">自由杠铃深蹲</span></span></div>
-                            <div class="deleteStrengthGoalContent">
+                            <div class="strengthGoalContent" style="height:100px;">
                                 <span class="deleteCurrentGoal_message">请确定要删除力量型目标：<span class="strengthSubTitlName">自由杠铃深蹲</span>吗？</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate">2016-10-10</span>】</span>
                             </div>
                         </div>
@@ -1846,6 +1844,62 @@
                 </div>
             </div>
         </div>
+        <div class="modal fade strengthGoal" id="updateLiftWeightStats" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><span class="strengthTitle">力量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle" >更新数据：<span class="strengthSubTitlName">自由杠铃深蹲</span><span class="deleteCurrentGoal_createdatetime">【当前时间：<span class="strengthSubTitleCreateDate">2016-10-24</span>】</span></span></div>
+                            <div class="strengthGoalContent" style="height:170px;">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="width:50%">
+                                            <div class="goalLiftWeightDesc">当前能<span class="UpdateLiftWeightStats_moveDirectionDesc">蹲起</span>重量</div>
+                                            <div class="goalLiftWeightWrap" style="margin-left:30px;">
+                                                <div>
+                                                    <input min="1" class="goalLiftWeightAmount UpdateLiftWeightStats_goalLiftWeightAmount" type="number" onkeyup="updateModel_updateLiftWeightStats($('.UpdateLiftWeightStats_goalLiftWeightAmount').val(),$('.UpdateLiftWeightStats_goalRepsCountInput_squats').val());" onchange="updateModel_updateLiftWeightStats($('.UpdateLiftWeightStats_goalLiftWeightAmount').val(),$('.UpdateLiftWeightStats_goalRepsCountInput_squats').val());"/>
+                                                </div>
+                                                <div class="goalLiftWeightUnit">千克</div>
+                                            </div>
+                                        </td>
+                                        <td style="width:50%">
+                                            <div class="goalLiftWeightRepsWrap">
+                                                <div class="goalLiftWeightRepsDesc"><span style="font-family: 'Times New Roman'; font-style: oblique">#</span>次数</div>
+                                                <div class="goalLiftWeightRepsAmount" >
+                                                    <span>【<span class="UpdateLiftWeightStats_goalLiftWeightRepsCount_squats">8</span>】</span><div class="liftWeightOneRepMax">(单次最大重量：<span class="goalLiftWeightOneRepsMax UpdateLiftWeightStats_goalLiftWeightOneRepsMax_squats">0</span>千克)</div>
+                                                </div>
+                                                <div>
+                                                    <input type="range" min="1" max="20" value="8" class="repsCountInput UpdateLiftWeightStats_goalRepsCountInput_squats" onchange="updateModel_updateLiftWeightStats($('.UpdateLiftWeightStats_goalLiftWeightAmount').val(),$('.UpdateLiftWeightStats_goalRepsCountInput_squats').val());"/>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <%--<tr>
+                                        <td>
+                                            <div style="height: 15px;"></div>
+                                        </td>
+                                    </tr>--%>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="updateLiftWeightStats()">更新</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />
     <input type="hidden" id="weightHistory" value="<%=WeightHistory %>" />
