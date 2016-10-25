@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using zhenyuFitness.MasterPages;
+using static zhenyuFitness.Common.Common;
 
 namespace zhenyuFitness.Pages.Goal
 {
@@ -81,6 +82,20 @@ namespace zhenyuFitness.Pages.Goal
         private string bfrHistory = string.Empty;
         private string bfrHistoryDate = string.Empty;
         //private List<Pair> weightHistory = new List<Pair>();
+        private string squatsID = string.Empty;
+        private string deadLiftID = string.Empty;
+        private string barbellPress = string.Empty;
+        private string shoulderPress = string.Empty;
+        private string barbellRow = string.Empty;
+        private string barbellCurl = string.Empty;
+
+        public string SquatsID
+        {
+            get
+            {
+                return "55FFF643-8EA6-4DF5-BCB8-44EF3DC78E22";
+            }
+        }
 
         public string GoalID
         {
@@ -742,6 +757,34 @@ namespace zhenyuFitness.Pages.Goal
             return true;
         }
 
+        private bool LoadUserOtherGoalData()
+        {
+            string sql = string.Format(@"SELECT [ID],[TypeMain],[TypeSub] FROM [zhenyuFitness].[dbo].[UserOtherGoal] where [Valid] = 1 and [UserID] = '{0}'", Session["UserID"].ToString());
+            DataTable dt;
+            try
+            {
+                dt = dal.DoSelectToTable(sql,"");
+            }
+            catch
+            {
+                commonWeb.MessageBox(Page,"加载其他类型目标的数据时出错！","failLoadOtherGoalData");
+                return false;
+            }
+            if(dt != null && dt.Rows.Count > 0)
+            {
+                for(int i = 0;i<dt.Rows.Count;i++)
+                {
+                    if(!Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeMain"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeSub"]))
+                    {
+                        int typeBasic = int.Parse(dt.Rows[i]["TypeMain"].ToString());
+                        int typeSub = int.Parse(dt.Rows[i]["TypeSub"].ToString());
+                    }
+                }
+            }
+
+            //return true;
+        }
+
         private void InitPageSections()
         {
             this.InitGoalWeightAndBFSection();
@@ -789,6 +832,34 @@ namespace zhenyuFitness.Pages.Goal
 
         #endregion
 
+        private void setStrengthGoalID(int typeMain,int typeSub, string value)
+        {
+            if ((GoalTypeBasic)typeMain != GoalTypeBasic.Strength) return;
 
+            GoalTypeStrength typesub = (GoalTypeStrength)typeSub;
+            switch(typesub)
+            {
+                case GoalTypeStrength.Squats:
+                    this.squatsID = value;
+                    break;
+                case GoalTypeStrength.DeadLift:
+                    this.deadLiftID = value;
+                    break;
+                case GoalTypeStrength.BarbellPress:
+                    this.barbellPress = value;
+                    break;
+                case GoalTypeStrength.ShoulderPress:
+                    this.shoulderPress = value;
+                    break;
+                case GoalTypeStrength.BarbellRow:
+                    this.barbellRow = value;
+                    break;
+                case GoalTypeStrength.BarbellCurl:
+                    this.barbellCurl = value;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

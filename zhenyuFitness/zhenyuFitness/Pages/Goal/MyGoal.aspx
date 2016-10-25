@@ -1832,8 +1832,8 @@
                     <div class="modal-body">
                         <div class="container">
                             <div><span class="strengthSubTitle" >删除目标：<span class="strengthSubTitlName">自由杠铃深蹲</span></span></div>
-                            <div class="strengthGoalContent" style="height:100px;">
-                                <span class="deleteCurrentGoal_message">请确定要删除力量型目标：<span class="strengthSubTitlName">自由杠铃深蹲</span>吗？</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate">2016-10-10</span>】</span>
+                            <div class="strengthGoalContent" style="height:150px;padding-top:20px;">
+                                <span class="deleteCurrentGoal_message">确定要删除力量型目标：<span class="strengthSubTitlName">自由杠铃深蹲</span>吗？</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate">2016-10-10</span>】</span>
                             </div>
                         </div>
                     </div>
@@ -1908,6 +1908,7 @@
     <input type="hidden" id="bfrHistoryDate" value="<%=BFRHistoryDate %>" />
     <input type="hidden" id="goalStatus" value="<%=Status %>" />
 
+    <input type="hidden" id="currentUpdateLiftWeightStats_ModalType" />
 
     <script src="../../js/jquery_Countdown/countdown.js"></script>
 
@@ -1918,8 +1919,10 @@
     <%--    <script src='http://www.ichartjs.com/ichart.latest.min.js'></script>--%>
     <script>
         jQuery(document).ready(function () {
+            var v = [];
+            v.push('<%=SquatsID %>');
             App.init();
-            initMyGoal();
+            initMyGoal(v);
         });
     </script>
 </asp:Content>

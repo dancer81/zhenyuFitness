@@ -34,6 +34,54 @@ namespace zhenyuFitness.Common
         #region 追踪相关
         public enum ActivityTracked
         {
+            #region 目标模块用户操作的跟踪
+            [Description("A新建了BFR健身目标")]
+            AddBFRGoal,
+            [Description("A更新了体重数据")]
+            UpdateCurrentWeight,
+            [Description("A更新了体脂率数据")]
+            UpdateCurrentBFR,
+            [Description("A删除了BFR健身目标")]
+            DeleteBFRGoal,
+            [Description("A新建了力量型健身目标：自由杠铃深蹲")]
+            AddStrengthGoal_Squats,
+            [Description("A新建了力量型健身目标：杠铃传统硬拉")]
+            AddStrengthGoal_DeadLift,
+            [Description("A新建了力量型健身目标：杠铃平板卧推")]
+            AddStrengthGoal_BarbellPress,
+            [Description("A新建了力量型健身目标：杠铃肩上推举")]
+            AddStrengthGoal_ShoulderPress,
+            [Description("A新建了力量型健身目标：杠铃划船")]
+            AddStrengthGoal_BarbellRow,
+            [Description("A新建了力量型健身目标：杠铃二头弯举")]
+            AddStrengthGoal_BarbellCurl,
+            [Description("A删除了力量型健身目标：自由杠铃深蹲")]
+            DeleteStrengthGoal_Squats,
+            [Description("A删除了力量型健身目标：杠铃传统硬拉")]
+            DeleteStrengthGoal_DeadLift,
+            [Description("A删除了力量型健身目标：杠铃平板卧推")]
+            DeleteStrengthGoal_BarbellPress,
+            [Description("A删除了力量型健身目标：杠铃肩上推举")]
+            DeleteStrengthGoal_ShoulderPress,
+            [Description("A删除了力量型健身目标：杠铃划船")]
+            DeleteStrengthGoal_BarbellRow,
+            [Description("A删除了力量型健身目标：杠铃二头弯举")]
+            DeleteStrengthGoal_BarbellCurl,
+            [Description("A更新了力量型健身目标：自由杠铃深蹲的当前重量")]
+            UpdateStrengthGoal_Squats_CurrentStatus,
+            [Description("A更新了力量型健身目标：杠铃传统硬拉的当前重量")]
+            UpdateStrengthGoal_DeadLift_CurrentStatus,
+            [Description("A更新了力量型健身目标：杠铃平板卧推的当前重量")]
+            UpdateStrengthGoal_BarbellPress_CurrentStatus,
+            [Description("A更新了力量型健身目标：杠铃肩上推举的当前重量")]
+            UpdateStrengthGoal_ShoulderPress_CurrentStatus,
+            [Description("A更新了力量型健身目标：杠铃划船的当前重量")]
+            UpdateStrengthGoal_BarbellRow_CurrentStatus,
+            [Description("A更新了力量型健身目标：杠铃二头弯举的当前重量")]
+            UpdateStrengthGoal_BarbellCurl_CurrentStatus,
+            #endregion
+
+
             [Description("A和B成为了朋友")]
             BeFriendsWith,
             [Description("A关注了B")]

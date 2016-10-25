@@ -1,4 +1,6 @@
-﻿function AlertBasic(msg) {
+﻿var squatsID;
+
+function AlertBasic(msg) {
     bootbox.alert({
         size: 'small',
         message: msg

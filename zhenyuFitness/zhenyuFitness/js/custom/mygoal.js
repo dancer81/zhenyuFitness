@@ -1,9 +1,14 @@
 ﻿//初始化页面
-function initMyGoal() {
+function initMyGoal(v) {
+    initVariable(v);
     initDatePicker();
     initEasyPie();
     initCountdown($("#goaldatespan").html());
     initchart();
+}
+
+function initVariable(value) {
+    squatsID = value[0];
 }
 
 function initDatePicker() {
@@ -519,8 +524,9 @@ function initchart_goalAchievePercent() {
         weightDateRecords.push(weightHistoryDate[i]);
     }
     //alert(weightDateRecords[1]);
-
     for (var i = 0; i < bfrHistory.length; i++) {
+        if (bfrHistory[i] == "") break;
+
         if (bfrChangeDireciton > 0) {
             if (bfrHistory[i] * 1 - startBodyFat < 0) {
                 bfrAchievePercent.push(0);
@@ -1644,26 +1650,32 @@ function initUpdateLiftWeightStats(type)
     if (type == "squats") {
         $(".strengthSubTitlName").html("自由杠铃深蹲");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("蹲起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("squats");
     }
     else if (type == "deadLift") {
         $(".strengthSubTitlName").html("传统杠铃硬拉");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("拉起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("deadLift");
     }
     else if (type == "barbellPress") {
         $(".strengthSubTitlName").html("杠铃平板卧推");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("推起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("barbellPress");
     }
     else if (type == "shoulderPress") {
         $(".strengthSubTitlName").html("杠铃肩上推举");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("推起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("shoulderPress");
     }
     else if (type == "barbellRow") {
         $(".strengthSubTitlName").html("杠铃划船");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("拉起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("barbellRow");
     }
     else if (type == "barbellCurl") {
         $(".strengthSubTitlName").html("杠铃二头弯举");
         $(".UpdateLiftWeightStats_moveDirectionDesc").html("举起");
+        $("#currentUpdateLiftWeightStats_ModalType").val("barbellCurl");
     }
     else {
 
@@ -1683,7 +1695,78 @@ function updateModel_updateLiftWeightStats(goalLiftWeightAmount, goalRepsCount)
     $('.UpdateLiftWeightStats_goalLiftWeightRepsCount_squats').html(goalRepsCount);
 }
 
+function updateLiftWeightStats()
+{
+    //alert(squatsID);
+    var currentWeight = $(".UpdateLiftWeightStats_goalLiftWeightAmount").val();
+    var currentReps = $(".UpdateLiftWeightStats_goalRepsCountInput_squats").val();
+    var oneRepsMax = EstimateRepMax(currentWeight, currentReps);
+    if (currentWeight == "" || currentWeight == "undefined")
+    {
+        AlertBasic("重量不能为空！请输入。")
+        return;
+    }
+    if (currentReps == "" || currentReps == "undefined") {
+        AlertBasic("重复次数不能为空！请输入。")
+        return;
+    }
 
+    var typedesc = $("#updateLiftWeightStats .strengthSubTitlName").html();
+    var type;
+    var strengthGoalID;
+    if (typedesc == "自由杠铃深蹲") {
+        if (squatsID == "" || squatsID == "undefined") {
+            AlertBasic("必须先建立该力量型目标，然后更新数据。")
+            return;
+        }
+        else {
+            strengthGoalID = squatsID;
+        }
+        type = "squats";
+    }
+    else if (typedesc == "传统杠铃硬拉") {
+        type = "deadLift";
+    }
+    else if (typedesc == "杠铃平板卧推") {
+        type = "barbellPress";
+    }
+    else if (typedesc == "杠铃肩上推举") {
+        type = "shoulderPress";
+    }
+    else if (typedesc == "杠铃划船") {
+        type = "barbellRow";
+    }
+    else if (typedesc == "杠铃二头弯举") {
+        type = "barbellCurl";
+    }
+    else {
+
+    }
+
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "updateLiftWeightStats", currentWeight: currentWeight, currentReps: currentReps, type: type, oneRepsMax: oneRepsMax, strengthGoalID: strengthGoalID },
+        async: true,
+        success: function (data) {
+            if (data != "1") {//更新失败
+                AlertBasic("更新数据失败，请重试。");
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                AlertBasic("更新数据成功。");
+                $("#updateLiftWeightStats").modal("hide");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加深蹲目标时出错了");
+            alert(errorThrown);
+        }
+    });
+
+
+
+}
 
 
 

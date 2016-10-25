@@ -54,10 +54,17 @@ namespace zhenyuFitness.ashx
                 case "addOtherGoal_shoulderPress":
                 case "addOtherGoal_barbellRow":
                 case "addOtherGoal_barbellCurl":
-                    int addOtherGoal_retType = this.AddOtherGoal(context);
+                    int addOtherGoal_retType = this.AddStrengthGoal(context);
 
                     context.Response.Clear();
                     context.Response.Write(addOtherGoal_retType);
+                    context.Response.End();
+                    break;
+                case "updateLiftWeightStats":
+                    int updateLiftWeightStats_retType = this.UpdateLiftWeightStats(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(updateLiftWeightStats_retType);
                     context.Response.End();
                     break;
                 default:
@@ -138,6 +145,7 @@ namespace zhenyuFitness.ashx
             return retType;
         }
 
+        //更新当前体脂率
         private int UpdateCurrentBFR(HttpContext context)
         {
             int retType = 1;
@@ -176,6 +184,7 @@ namespace zhenyuFitness.ashx
             return retType;
         }
 
+        //删除当前BFR健身目标
         private int DeleteCurrentBFRGoal(HttpContext context)
         {
             int retType = 1;
@@ -204,7 +213,8 @@ namespace zhenyuFitness.ashx
             return retType;
         }
 
-        private int AddOtherGoal(HttpContext context)
+        //增加力量型健身目标
+        private int AddStrengthGoal(HttpContext context)
         {
             int retType = 0;
             if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
@@ -275,6 +285,93 @@ namespace zhenyuFitness.ashx
             return retType;
         }
 
+        //更新力量型目标的当前数据
+        private int UpdateLiftWeightStats(HttpContext context)
+        {
+            int retType = 0;
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                retType = 1;
+            }
+
+            string type = context.Request.Form["type"].ToString();
+            List<string> listType = this.getOtherGoalType(type);
+
+            string currentWeight = context.Request.Form["currentWeight"].ToString();
+            string currentReps = context.Request.Form["currentReps"].ToString();
+            string oneRepsMax = context.Request.Form["oneRepsMax"].ToString();
+            string strengthGoalID = context.Request.Form["strengthGoalID"].ToString();
+
+
+            string idTrackStrengthGoal = Guid.NewGuid().ToString();
+            string sqlInsertTrackStrengthGoal = string.Format(@"
+                INSERT INTO [zhenyuFitness].[dbo].[TrackStrengthGoal]
+                   ([ID]
+                   ,[UserID]
+                   ,[TypeMain]
+                   ,[TypeSub]
+                   ,[LiftWeightAmount]
+                   ,[LiftWeightReps]
+                   ,[OneRepsMax]
+                   ,[CreateDate]
+                   ,[CreateUser]
+                   ,[LastModifiedDate]
+                   ,[LastModifedUser]
+                   ,[Valid]
+                   ,[StrengthGoalID])
+             VALUES
+                   ('{6}'
+                   ,'{0}'
+                   ,{1}
+                   ,{2}
+                   ,{3}
+                   ,{4}
+                   ,{5}
+                   ,GETDATE()
+                   ,'{0}'
+                   ,GETDATE()
+                   ,'{0}'
+                   ,1
+                   ,'{7}')", context.Session["UserID"].ToString(), listType[0], listType[1], currentWeight, currentReps, oneRepsMax, idTrackStrengthGoal,strengthGoalID);
+
+            string insertIntoTrackActivity = string.Format(@"
+                    INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                           ([ID]
+                           ,[UserID_Master]
+                           ,[Type]
+                           ,[ActivityID]
+                           ,[CreateUser]
+                           ,[CreateDate]
+                           ,[LastModifiedUser]
+                           ,[LastModifiedDate]
+                           ,[Valid])
+                     VALUES
+                           (NEWID()
+                           ,'{0}'
+                           ,{1}
+                           ,'{2}'
+                           ,'{0}'
+                           ,GETDATE()
+                           ,'{0}'
+                           ,GETDATE()
+                           ,1)", context.Session["UserID"].ToString()
+                           , this.getTrackActivityType("update", type), idTrackStrengthGoal);
+
+            List<string> listSql = new List<string>() { sqlInsertTrackStrengthGoal, insertIntoTrackActivity };
+            try
+            {
+                dal.ExecuteSqlTran(listSql);
+                retType = 1;
+            }
+            catch
+            {
+                retType = 2;
+            }
+            return retType;
+        }
+
+
+        //根据type(ajax过来)字段获取目标的类型
         private List<string> getOtherGoalType(string type)
         {
             List<string> listType = new List<string>();
@@ -310,6 +407,99 @@ namespace zhenyuFitness.ashx
             else
             { }
             return listType;
+        }
+
+        private int getTrackActivityType(string opType,string type)
+        {
+            int trackActivityType = -1;
+            if (opType=="add" && type == "squats")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_Squats;
+            }
+            else if (opType == "update" && type == "squats")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_Squats_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "squats")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_Squats;
+            }
+
+            else if (opType == "add" && type == "deadLift")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_DeadLift;
+            }
+            else if (opType == "update" && type == "deadLift")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_DeadLift_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "deadLift")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_DeadLift;
+            }
+
+            else if (opType == "add" && type == "barbellPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_BarbellPress;
+            }
+            else if (opType == "update" && type == "barbellPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_BarbellPress_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "barbellPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_BarbellPress;
+            }
+
+            else if (opType == "add" && type == "shoulderPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_ShoulderPress;
+            }
+            else if (opType == "update" && type == "shoulderPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_ShoulderPress_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "shoulderPress")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_ShoulderPress;
+            }
+
+            else if (opType == "add" && type == "barbellRow")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_BarbellRow;
+            }
+            else if (opType == "update" && type == "barbellRow")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_BarbellRow_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "barbellRow")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_BarbellRow;
+            }
+
+
+            else if (opType == "add" && type == "barbellCurl")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.AddStrengthGoal_BarbellCurl;
+            }
+            else if (opType == "update" && type == "barbellCurl")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.UpdateStrengthGoal_BarbellCurl_CurrentStatus;
+            }
+            else if (opType == "delete" && type == "barbellCurl")
+            {
+                trackActivityType = (int)Common.Common.ActivityTracked.DeleteStrengthGoal_BarbellCurl;
+            }
+
+
+
+
+
+
+            else
+            { }
+
+            return trackActivityType;
         }
     }
 }
