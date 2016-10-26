@@ -67,6 +67,13 @@ namespace zhenyuFitness.ashx
                     context.Response.Write(updateLiftWeightStats_retType);
                     context.Response.End();
                     break;
+                case "deleteOtherGoal":
+                    int deleteStrengthGoal_retType = this.DeleteStrengthGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(deleteStrengthGoal_retType);
+                    context.Response.End();
+                    break;
                 default:
                     break;
             }
@@ -233,6 +240,7 @@ namespace zhenyuFitness.ashx
                 string goalLiftWeight = context.Request.Form["goalLiftWeight"].ToString();
                 string goalRepsCount = context.Request.Form["goalRepsCount"].ToString();
 
+                string guid = Guid.NewGuid().ToString();
                 List<string> listType = this.getOtherGoalType(type);
                 string sqlAddOtherGoal = string.Format(@"
                 INSERT INTO [zhenyuFitness].[dbo].[UserOtherGoal]
@@ -254,7 +262,7 @@ namespace zhenyuFitness.ashx
                     ,[GoalLiftWeightAmount]
                     ,[GoalLiftWeightReps])
                 VALUES
-                    (NEWID()
+                    ('{11}'
                     ,'{0}'
                     ,{1}
                     ,{2}
@@ -270,12 +278,35 @@ namespace zhenyuFitness.ashx
                     ,{7}
                     ,{8}
                     ,{9}
-                    ,{10})", userID,listType[0],listType[1],startValue,goalValue, goalDaysCount,(int)Common.Common.OtherGoalStatus.Processing, startLiftWeight, startRepsCount, goalLiftWeight, goalRepsCount);
+                    ,{10})", userID,listType[0],listType[1],startValue,goalValue, goalDaysCount,(int)Common.Common.OtherGoalStatus.Processing, startLiftWeight, startRepsCount, goalLiftWeight, goalRepsCount,guid);
 
+                string insertIntoTrackActivity = string.Format(@"
+                    INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                           ([ID]
+                           ,[UserID_Master]
+                           ,[Type]
+                           ,[ActivityID]
+                           ,[CreateUser]
+                           ,[CreateDate]
+                           ,[LastModifiedUser]
+                           ,[LastModifiedDate]
+                           ,[Valid])
+                     VALUES
+                           (NEWID()
+                           ,'{0}'
+                           ,{1}
+                           ,'{2}'
+                           ,'{0}'
+                           ,GETDATE()
+                           ,'{0}'
+                           ,GETDATE()
+                           ,1)", context.Session["UserID"].ToString()
+                           , this.getTrackActivityType("add", type), guid);
+                List<string> listSql = new List<string>() { sqlAddOtherGoal, insertIntoTrackActivity };
                 try
                 {
-                    dal.ExecSQL(sqlAddOtherGoal);
-                    retType = 2;
+                    dal.ExecuteSqlTran(listSql);
+                    retType = guid;
                 }
                 catch
                 {
@@ -291,7 +322,8 @@ namespace zhenyuFitness.ashx
             int retType = 0;
             if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
             {
-                retType = 1;
+                return retType;
+
             }
 
             string type = context.Request.Form["type"].ToString();
@@ -369,6 +401,85 @@ namespace zhenyuFitness.ashx
             }
             return retType;
         }
+
+        //删除力量型目标
+        private int DeleteStrengthGoal(HttpContext context)
+        {
+            int retType = 0;
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                return retType;
+
+            }
+
+            string guid = Guid.NewGuid().ToString();
+            string strengthGoalID = context.Request.Form["strengthGoalID"].ToString();
+            string type = context.Request.Form["type"].ToString();
+            string userID = context.Session["UserID"].ToString();
+
+            string sql_deleteTrackStrengthGoal = string.Format(@"
+                UPDATE [zhenyuFitness].[dbo].[TrackStrengthGoal]
+                   SET 
+                      [Valid] = 0
+                 WHERE [Valid]=1 and [UserID] = '{0}' and [StrengthGoalID] = '{1}'", userID,strengthGoalID);
+
+            string sql_deleteUserOtherGoal = string.Format(@"
+                UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
+                   SET 
+                      [Valid] = 0
+                 WHERE [Valid] = 1 and [UserID]='{0}' and [ID]='{1}'",userID,strengthGoalID);
+
+            string sql_insertIntoTrackActivity = string.Format(@"
+                INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]
+                           ([ID]
+                           ,[UserID_Master]
+                           ,[Type]
+                           ,[ActivityID]
+                           ,[CreateUser]
+                           ,[CreateDate]
+                           ,[LastModifiedUser]
+                           ,[LastModifiedDate]
+                           ,[Valid])
+                     VALUES
+                           (NEWID()
+                           ,'{0}'
+                           ,{1}
+                           ,'{2}'
+                           ,'{0}'
+                           ,GETDATE()
+                           ,'{0}'
+                           ,GETDATE()
+                           ,1)", userID
+                           , this.getTrackActivityType("delete", type), strengthGoalID);
+
+            List<string> listSql = new List<string>() { sql_deleteTrackStrengthGoal, sql_deleteUserOtherGoal, sql_insertIntoTrackActivity };
+            try
+            {
+                dal.ExecuteSqlTran(listSql);
+                retType = 1;
+            }
+            catch
+            {
+                retType = 2;
+            }
+            return retType;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         //根据type(ajax过来)字段获取目标的类型

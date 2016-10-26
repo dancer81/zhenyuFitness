@@ -93,7 +93,47 @@ namespace zhenyuFitness.Pages.Goal
         {
             get
             {
-                return "55FFF643-8EA6-4DF5-BCB8-44EF3DC78E22";
+                return this.squatsID;
+            }
+        }
+
+        public string DeadLiftID
+        {
+            get
+            {
+                return this.deadLiftID;
+            }
+        }
+
+        public string BarbellPress
+        {
+            get
+            {
+                return this.barbellPress;
+            }
+        }
+
+        public string ShoulderPress
+        {
+            get
+            {
+                return this.shoulderPress;
+            }
+        }
+
+        public string BarbellRow
+        {
+            get
+            {
+                return this.barbellRow;
+            }
+        }
+
+        public string BarbellCurl
+        {
+            get
+            {
+                return this.barbellCurl;
             }
         }
 
@@ -464,13 +504,11 @@ namespace zhenyuFitness.Pages.Goal
             }
             this.userID = Session["UserID"].ToString();
 
-            if (this.LoadUserBFRGoalData() && this.LoadUserWeightTrack() && this.LoadUserBFRTrack())
+            if (this.LoadUserBFRGoalData() && this.LoadUserOtherGoalData() && this.LoadUserWeightTrack() && this.LoadUserBFRTrack())
             {
                 return true;
             }
             return false;
-
-
         }
 
         private bool LoadUserBFRGoalData()
@@ -774,15 +812,18 @@ namespace zhenyuFitness.Pages.Goal
             {
                 for(int i = 0;i<dt.Rows.Count;i++)
                 {
-                    if(!Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeMain"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeSub"]))
+                    if(!Common.Common.NoneOrEmptyString(dt.Rows[i]["ID"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeMain"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeSub"]))
                     {
                         int typeBasic = int.Parse(dt.Rows[i]["TypeMain"].ToString());
                         int typeSub = int.Parse(dt.Rows[i]["TypeSub"].ToString());
+                        string idValue = dt.Rows[i]["ID"].ToString();
+
+                        this.setOtherGoalID(typeBasic, typeSub, idValue);
                     }
                 }
             }
 
-            //return true;
+            return true;
         }
 
         private void InitPageSections()
@@ -832,7 +873,7 @@ namespace zhenyuFitness.Pages.Goal
 
         #endregion
 
-        private void setStrengthGoalID(int typeMain,int typeSub, string value)
+        private void setOtherGoalID(int typeMain,int typeSub, string value)
         {
             if ((GoalTypeBasic)typeMain != GoalTypeBasic.Strength) return;
 

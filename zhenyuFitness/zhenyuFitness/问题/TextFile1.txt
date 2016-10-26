@@ -1,3 +1,4 @@
 ﻿1. 退出、登录后的跳转页
 2. mygoal:新增力量型目标后，common.js里的全局变量设置，和有效性
 3. mygoal:exTransction 异常捕捉
+4. mygoal: 力量型目标标题的链接

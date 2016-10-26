@@ -453,7 +453,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_squats" onclick="initDeleteOtherGoalmodal('squats')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('squats')">更新数据</a>
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_squats" onclick="initUpdateLiftWeightStats('squats')">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1919,9 +1919,15 @@
     <%--    <script src='http://www.ichartjs.com/ichart.latest.min.js'></script>--%>
     <script>
         jQuery(document).ready(function () {
+            App.init();
+
             var v = [];
             v.push('<%=SquatsID %>');
-            App.init();
+            v.push('<%=DeadLiftID %>');
+            v.push('<%=BarbellPress %>');
+            v.push('<%=ShoulderPress %>');
+            v.push('<%=BarbellPress %>');
+            v.push('<%=BarbellPress %>');
             initMyGoal(v);
         });
     </script>

@@ -1,4 +1,4 @@
-﻿var squatsID;
+﻿var squatsID, deadLiftID, barbellPressID, shoulderPressID, barbellRowID, barbellCurlID;
 
 function AlertBasic(msg) {
     bootbox.alert({
