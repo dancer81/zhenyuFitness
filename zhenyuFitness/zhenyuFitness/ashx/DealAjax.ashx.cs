@@ -54,7 +54,7 @@ namespace zhenyuFitness.ashx
                 case "addOtherGoal_shoulderPress":
                 case "addOtherGoal_barbellRow":
                 case "addOtherGoal_barbellCurl":
-                    int addOtherGoal_retType = this.AddStrengthGoal(context);
+                    string addOtherGoal_retType = this.AddStrengthGoal(context);
 
                     context.Response.Clear();
                     context.Response.Write(addOtherGoal_retType);
@@ -221,12 +221,12 @@ namespace zhenyuFitness.ashx
         }
 
         //增加力量型健身目标
-        private int AddStrengthGoal(HttpContext context)
+        private string AddStrengthGoal(HttpContext context)
         {
-            int retType = 0;
+            string retType = "0";
             if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
             {
-                retType = 1;
+                retType = "1";
             }
             else
             {
@@ -310,7 +310,7 @@ namespace zhenyuFitness.ashx
                 }
                 catch
                 {
-                    retType = 3;
+                    retType = "2";
                 }
             }
             return retType;

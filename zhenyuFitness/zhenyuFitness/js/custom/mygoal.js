@@ -1186,11 +1186,11 @@ function addOtherGoal_squats() {
         data: { ajaxtype: "addOtherGoal_squats", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "squats", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if(date == "3"){
+                else if(date == "2"){
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1257,11 +1257,11 @@ function addOtherGoal_deadLift() {
         data: { ajaxtype: "addOtherGoal_deadLift", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "deadLift", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "3") {
+                else if (date == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1328,11 +1328,11 @@ function addOtherGoal_barbellPress() {
         data: { ajaxtype: "addOtherGoal_barbellPress", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellPress", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "3") {
+                else if (date == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1399,11 +1399,11 @@ function addOtherGoal_shoulderPress() {
         data: { ajaxtype: "addOtherGoal_shoulderPress", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "shoulderPress", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "3") {
+                else if (date == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1470,11 +1470,11 @@ function addOtherGoal_barbellRow() {
         data: { ajaxtype: "addOtherGoal_barbellRow", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellRow", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "3") {
+                else if (date == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1541,11 +1541,11 @@ function addOtherGoal_barbellCurl() {
         data: { ajaxtype: "addOtherGoal_barbellCurl", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "barbellCurl", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data == "2" || data == "1" || data == "0") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "3") {
+                else if (date == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -1591,7 +1591,7 @@ function initDeleteOtherGoalmodal(type) {
         $(".strengthSubTitleCreateDate").html($("#startDateHtml_squats").html());
     }
     else if (type == "deadLift") {
-        $(".strengthSubTitlName").html("传统杠铃硬拉");
+        $(".strengthSubTitlName").html("杠铃传统硬拉");
         $(".strengthSubTitleCreateDate").html($("#startDateHtml_deadLift").html());
     }
     else if (type == "barbellPress") {
@@ -1628,7 +1628,6 @@ function deleteOtherGoal() {
         }
         else {
             strengthGoalID = squatsID;
-            alert(strengthGoalID);
         }
     }
     else if ($("#deleteOtherGoal .strengthSubTitlName").html() == '杠铃传统硬拉') {
@@ -1638,7 +1637,7 @@ function deleteOtherGoal() {
             return;
         }
         else {
-            strengthGoalID = deadLiftID;
+            strengthGoalID = deadLiftID; 
         }
     }
     else if ($("#deleteOtherGoal .strengthSubTitlName").html() == '杠铃平板卧推') {
@@ -1690,41 +1689,53 @@ function deleteOtherGoal() {
         data: { ajaxtype: "deleteOtherGoal", type: type, strengthGoalID: strengthGoalID },
         async: true,
         success: function (data) {
-            if (data != "2") {//更新失败
+            if (data != "1") {//更新失败
 
             }
             else {//数据库更新成功，更新前台数据
+                $("#deleteOtherGoal").modal("hide");
                 AlertBasic("删除成功");
 
                 if (type == "squats") {
                     $("#addOtherGoal_squats").removeClass("disableCss");
                     $("#deleteOtherGoal_squats").addClass("disableCss");
-                    $("#updateOtherGoal_squats").removeClass("disableCss");
+                    $("#updateOtherGoal_squats").addClass("disableCss");
+
+                    squatsID = "";
                 }
                 else if (type == "deadLift") {
                     $("#addOtherGoal_deadLift").removeClass("disableCss");
                     $("#deleteOtherGoal_deadLift").addClass("disableCss");
-                    $("#updateOtherGoal_deadLift").removeClass("disableCss");
+                    $("#updateOtherGoal_deadLift").addClass("disableCss");
+
+                    deadLiftID = "";
                 }
                 else if (type == "barbellPress") {
                     $("#addOtherGoal_barbellPress").removeClass("disableCss");
                     $("#deleteOtherGoal_barbellPress").addClass("disableCss");
-                    $("#updateOtherGoal_barbellPress").removeClass("disableCss");
+                    $("#updateOtherGoal_barbellPress").addClass("disableCss");
+
+                    barbellPressID = "";
                 }
                 else if (type == "shoulderPress") {
                     $("#addOtherGoal_shoulderPress").removeClass("disableCss");
                     $("#deleteOtherGoal_shoulderPress").addClass("disableCss");
-                    $("#updateOtherGoal_shoulderPress").removeClass("disableCss");
+                    $("#updateOtherGoal_shoulderPress").addClass("disableCss");
+                    shoulderPressID = "";
                 }
                 else if (type == "barbellRow") {
                     $("#addOtherGoal_barbellRow").removeClass("disableCss");
                     $("#deleteOtherGoal_barbellRow").addClass("disableCss");
-                    $("#updateOtherGoal_barbellRow").removeClass("disableCss");
+                    $("#updateOtherGoal_barbellRow").addClass("disableCss");
+
+                    barbellRowID = "";
                 }
                 else if (type == "barbellCurl") {
                     $("#addOtherGoal_barbellCurl").removeClass("disableCss");
                     $("#deleteOtherGoal_barbellCurl").addClass("disableCss");
-                    $("#updateOtherGoal_barbellCurl").removeClass("disableCss");
+                    $("#updateOtherGoal_barbellCurl").addClass("disableCss");
+
+                    barbellCurlID = "";
                 }
                 else {
 

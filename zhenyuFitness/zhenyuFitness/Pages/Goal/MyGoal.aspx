@@ -498,7 +498,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_deadLift" onclick="initDeleteOtherGoalmodal('deadLift')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('deadLift')">更新数据</a>
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_deadLift" onclick="initUpdateLiftWeightStats('deadLift')">更新数据</a>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -543,7 +543,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellPress" onclick="initDeleteOtherGoalmodal('barbellPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellPress')">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_barbellPress" onclick="initUpdateLiftWeightStats('barbellPress')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -588,7 +588,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_shoulderPress" onclick="initDeleteOtherGoalmodal('shoulderPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('shoulderPress')">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_shoulderPress" onclick="initUpdateLiftWeightStats('shoulderPress')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -633,7 +633,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellRow" onclick="initDeleteOtherGoalmodal('barbellRow')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellRow')">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_barbellRow" onclick="initUpdateLiftWeightStats('barbellRow')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
@@ -678,7 +678,7 @@
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellCurl" onclick="initDeleteOtherGoalmodal('barbellCurl')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" onclick="initUpdateLiftWeightStats('barbellCurl')">更新数据</a> 
+                                                    <a href="#" data-toggle="modal" data-target="#updateLiftWeightStats" id="updateOtherGoal_barbellCurl" onclick="initUpdateLiftWeightStats('barbellCurl')">更新数据</a> 
                                                 </td>
                                             </tr>
                                             <tr>
