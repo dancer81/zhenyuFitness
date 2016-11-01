@@ -449,7 +449,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal" id="addOtherGoal_squats">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#squatsGoal" id="addOtherGoal_squats" onclick="initModal_settingGoal('squats')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_squats" onclick="initDeleteOtherGoalmodal('squats')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -494,7 +494,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal" id="addOtherGoal_deadLift">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deadLiftGoal" id="addOtherGoal_deadLift" onclick="initModal_settingGoal('deadLift')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_deadLift" onclick="initDeleteOtherGoalmodal('deadLift')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -539,7 +539,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal" id="addOtherGoal_barbellPress">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellPressGoal" id="addOtherGoal_barbellPress" onclick="initModal_settingGoal('barbellPress')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellPress" onclick="initDeleteOtherGoalmodal('barbellPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -584,7 +584,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal" id="addOtherGoal_shoulderPress">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#shoulderPressGoal" id="addOtherGoal_shoulderPress" onclick="initModal_settingGoal('shoulderPress')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_shoulderPress" onclick="initDeleteOtherGoalmodal('shoulderPress')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -629,7 +629,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal" id="addOtherGoal_barbellRow">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellRowGoal" id="addOtherGoal_barbellRow" onclick="initModal_settingGoal('barbellRow')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellRow" onclick="initDeleteOtherGoalmodal('barbellRow')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
@@ -674,7 +674,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal" id="addOtherGoal_barbellCurl">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#barbellCurlGoal" id="addOtherGoal_barbellCurl" onclick="initModal_settingGoal('barbellCurl')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
                                                     <a href="#" data-toggle="modal" data-target="#deleteOtherGoal" id="deleteOtherGoal_barbellCurl" onclick="initDeleteOtherGoalmodal('barbellCurl')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>

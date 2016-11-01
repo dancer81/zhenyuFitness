@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
@@ -239,6 +240,14 @@ namespace zhenyuFitness.ashx
                 string startRepsCount = context.Request.Form["startRepsCount"].ToString();
                 string goalLiftWeight = context.Request.Form["goalLiftWeight"].ToString();
                 string goalRepsCount = context.Request.Form["goalRepsCount"].ToString();
+
+                string sqlSelect = string.Format(@"SELECT [ID] FROM [zhenyuFitness].[dbo].[UserOtherGoal] where UserID = '{0}' and Valid = 1", userID);
+                DataTable dtSelect = dal.DoSelectToTable(sqlSelect, "");
+                if(dtSelect == null || dtSelect.Rows.Count == 0)
+                {
+                    retType = "3";
+                    return retType;
+                }
 
                 string guid = Guid.NewGuid().ToString();
                 List<string> listType = this.getOtherGoalType(type);
