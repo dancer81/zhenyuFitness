@@ -479,17 +479,17 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_deadLift">70</span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_deadLift">2016-10-1</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_deadLift">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span id="progress_currentLiftWeightAmount_deadLift">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_deadLift">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_deadLift">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -524,17 +524,17 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellPress">70</span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellPress">2016-9-9</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellPress">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span id="progress_currentLiftWeightAmount_barbellPress">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_barbellPress">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_barbellPress">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -569,17 +569,17 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_shoulderPress">70</span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_shoulderPress">2016-9-1</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_shoulderPress">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span id="progress_currentLiftWeightAmount_shoulderPress">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_shoulderPress">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_shoulderPress">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -614,17 +614,17 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellRow">70</span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellRow">2016-9-1</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellRow">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span id="progress_currentLiftWeightAmount_barbellRow">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_barbellRow">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_barbellRow">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -659,17 +659,17 @@
                                                 <td class="othergoalfield">达成日期</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">70</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellCurl">70</span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellCurl">2016-9-1</td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">75</span><span>千克</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellCurl">75</span><span>千克</span></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';">2016-9-1</span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span>101<span>千克</span></span>
-                                                    <span>(<span>12.5<span>%</span></span><span>进度完成</span>)</span>
-                                                    <span>状态：<span>进行中</span></span>
+                                                    <span id="progress_currentLiftWeightAmount_barbellCurl">101</span><span>千克</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_barbellCurl">99.5</span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_barbellCurl">进行中</span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -1919,7 +1919,7 @@
     <%--    <script src='http://www.ichartjs.com/ichart.latest.min.js'></script>--%>
     <script>
         jQuery(document).ready(function () {
-            App.init();
+            App.init();   ////to do：加载时需要判断各个目标是否过期
 
             var v = [];
             v.push('<%=SquatsID %>');

@@ -342,7 +342,7 @@ namespace zhenyuFitness.ashx
             string currentReps = context.Request.Form["currentReps"].ToString();
             string oneRepsMax = context.Request.Form["oneRepsMax"].ToString();
             string strengthGoalID = context.Request.Form["strengthGoalID"].ToString();
-
+            string goalAmount = context.Request.Form["goalAmount"].ToString();
 
             string idTrackStrengthGoal = Guid.NewGuid().ToString();
             string sqlInsertTrackStrengthGoal = string.Format(@"
@@ -403,6 +403,19 @@ namespace zhenyuFitness.ashx
             {
                 dal.ExecuteSqlTran(listSql);
                 retType = 1;
+
+                ///如果该力量型目标完成，则更新目标完成状态
+                if(int.Parse(goalAmount) <= int.Parse(oneRepsMax))
+                {
+                    string sql = string.Format(@"UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
+                                                   SET 
+                                                      [GoalStatus] = {0}
+                                                      ,[LastModifiedDate] = GETDATE()
+                                                 WHERE ID = '{1}' and Valid = 1", Common.Common.OtherGoalStatus.Achieved, strengthGoalID);
+                    dal.ExecSQL(sql);
+
+                    retType = 3;//正常，且目标完成
+                }
             }
             catch
             {
