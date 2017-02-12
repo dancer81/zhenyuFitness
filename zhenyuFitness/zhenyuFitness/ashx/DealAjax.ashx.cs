@@ -342,7 +342,7 @@ namespace zhenyuFitness.ashx
             string currentReps = context.Request.Form["currentReps"].ToString();
             string oneRepsMax = context.Request.Form["oneRepsMax"].ToString();
             string strengthGoalID = context.Request.Form["strengthGoalID"].ToString();
-            string goalAmount = context.Request.Form["goalAmount"].ToString();
+            string goalAmount = context.Request.Form["goalAmounts"].ToString();
 
             string idTrackStrengthGoal = Guid.NewGuid().ToString();
             string sqlInsertTrackStrengthGoal = string.Format(@"
@@ -411,7 +411,7 @@ namespace zhenyuFitness.ashx
                                                    SET 
                                                       [GoalStatus] = {0}
                                                       ,[LastModifiedDate] = GETDATE()
-                                                 WHERE ID = '{1}' and Valid = 1", Common.Common.OtherGoalStatus.Achieved, strengthGoalID);
+                                                 WHERE ID = '{1}' and Valid = 1", (int)Common.Common.OtherGoalStatus.Achieved, strengthGoalID);
                     dal.ExecSQL(sql);
 
                     retType = 3;//正常，且目标完成

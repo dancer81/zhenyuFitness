@@ -1935,7 +1935,7 @@ function updateLiftWeightStats()
     //alert(squatsID);
     var currentWeight = $(".UpdateLiftWeightStats_goalLiftWeightAmount").val();
     var currentReps = $(".UpdateLiftWeightStats_goalRepsCountInput_squats").val();
-    var oneRepsMax = EstimateRepMax(currentWeight, currentReps);
+    var oneRepsMax = (EstimateRepMax(currentWeight, currentReps) * 1).toFixed(0);
     if (currentWeight == "" || currentWeight == "undefined")
     {
         AlertBasic("重量不能为空！请输入。")
@@ -2020,13 +2020,14 @@ function updateLiftWeightStats()
 
     }
 
+    //alert(goalAmount);
     $.ajax({
         type: "POST",
         url: "/zhenyuFitness/ashx/DealAjax.ashx",
-        data: { ajaxtype: "updateLiftWeightStats", currentWeight: currentWeight, currentReps: currentReps, type: type, oneRepsMax: oneRepsMax, strengthGoalID: strengthGoalID, goalAmount: goalAmount },
+        data: { ajaxtype: "updateLiftWeightStats", currentWeight: currentWeight, currentReps: currentReps, type: type, oneRepsMax: oneRepsMax, strengthGoalID:strengthGoalID, goalAmounts: goalAmount },
         async: true,
         success: function (data) {
-            if (data != "1") {//更新失败
+            if (data == "2") {//更新失败
                 alert(data.toString());
                 AlertBasic("更新数据失败，请重试。");
             }
@@ -2048,11 +2049,12 @@ function updateLiftWeightStats()
                     //progress_currentLiftWeightAchievedPercent_squats = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_squats").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_squats").html("目标达成！");
+                        $("#progress_currentLiftWeightStatus_squats").html("完成！");
                         $("#progress_currentLiftWeightStatus_squats").css("color", "green");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_squats").html("进行中");
+                        $("#progress_currentLiftWeightStatus_squats").css("color", "orange");
                     }
                 }
                 else if (typedesc == "传统杠铃硬拉") {

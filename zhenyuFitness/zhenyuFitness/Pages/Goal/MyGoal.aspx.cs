@@ -82,12 +82,64 @@ namespace zhenyuFitness.Pages.Goal
         private string bfrHistory = string.Empty;
         private string bfrHistoryDate = string.Empty;
         //private List<Pair> weightHistory = new List<Pair>();
-        private string squatsID = string.Empty;
-        private string deadLiftID = string.Empty;
-        private string barbellPress = string.Empty;
-        private string shoulderPress = string.Empty;
-        private string barbellRow = string.Empty;
-        private string barbellCurl = string.Empty;
+
+        /// <summary>
+        /// strength goal data
+        /// </summary>
+        public string squatsID = string.Empty;
+        public string deadLiftID = string.Empty;
+        public string barbellPress = string.Empty;
+        public string shoulderPress = string.Empty;
+        public string barbellRow = string.Empty;
+        public string barbellCurl = string.Empty;
+
+        public string startValue_squats = string.Empty;
+        public string startDate_squats = string.Empty;
+        public string goalValue_squats = string.Empty;
+        public string goalDate_squats = string.Empty;
+        public string currentValue_squats = string.Empty;
+        public string percent_squats = string.Empty;
+        public string goalStatus_squats = string.Empty;
+
+        public string startValue_deadLift = string.Empty;
+        public string startDate_deadLift = string.Empty;
+        public string goalValue_deadLift = string.Empty;
+        public string goalDate_deadLift = string.Empty;
+        public string currentValue_deadLift = string.Empty;
+        public string percent_deadLift = string.Empty;
+        public string goalStatus_deadLift = string.Empty;
+
+        public string startValue_barbellPress = string.Empty;
+        public string startDate_barbellPress = string.Empty;
+        public string goalValue_barbellPress = string.Empty;
+        public string goalDate_barbellPress = string.Empty;
+        public string currentValue_barbellPress = string.Empty;
+        public string percent_barbellPress = string.Empty;
+        public string goalStatus_barbellPress = string.Empty;
+
+        public string startValue_shoulderPress = string.Empty;
+        public string startDate_shoulderPress = string.Empty;
+        public string goalValue_shoulderPress = string.Empty;
+        public string goalDate_shoulderPress = string.Empty;
+        public string currentValue_shoulderPress = string.Empty;
+        public string percent_shoulderPress = string.Empty;
+        public string goalStatus_shoulderPress = string.Empty;
+
+        public string startValue_barbellRow = string.Empty;
+        public string startDate_barbellRow = string.Empty;
+        public string goalValue_barbellRow = string.Empty;
+        public string goalDate_barbellRow = string.Empty;
+        public string currentValue_barbellRow = string.Empty;
+        public string percent_barbellRow = string.Empty;
+        public string goalStatus_barbellRow = string.Empty;
+
+        public string startValue_barbellCurl = string.Empty;
+        public string startDate_barbellCurl = string.Empty;
+        public string goalValue_barbellCurl = string.Empty;
+        public string goalDate_barbellCurl = string.Empty;
+        public string currentValue_barbellCurl = string.Empty;
+        public string percent_barbellCurl = string.Empty;
+        public string goalStatus_barbellCurl = string.Empty;
 
         public string SquatsID
         {
@@ -797,7 +849,8 @@ namespace zhenyuFitness.Pages.Goal
 
         private bool LoadUserOtherGoalData()
         {
-            string sql = string.Format(@"SELECT [ID],[TypeMain],[TypeSub] FROM [zhenyuFitness].[dbo].[UserOtherGoal] where [Valid] = 1 and [UserID] = '{0}'", Session["UserID"].ToString());
+            string sql = string.Format(@"SELECT [ID],[TypeMain],[TypeSub],[StartValue],[GoalValue],[GoalDaysCount],[CreateDate],[GoalStatus] 
+                    FROM [zhenyuFitness].[dbo].[UserOtherGoal] where [Valid] = 1 and [UserID] = '{0}' and [GoalStatus] in (0 , 1) order by [TypeMain] asc, [TypeSub] asc,[GoalStatus] asc", Session["UserID"].ToString());
             DataTable dt;
             try
             {
@@ -817,12 +870,17 @@ namespace zhenyuFitness.Pages.Goal
                         int typeBasic = int.Parse(dt.Rows[i]["TypeMain"].ToString());
                         int typeSub = int.Parse(dt.Rows[i]["TypeSub"].ToString());
                         string idValue = dt.Rows[i]["ID"].ToString();
-
+                             
                         this.setOtherGoalID(typeBasic, typeSub, idValue);
+
+
+                        ///初始化力量型目标区域的前台显示数据
+                        this.initOneStrengthGoalSection(dt.Rows[i]["StartValue"], dt.Rows[i]["GoalValue"], dt.Rows[i]["GoalDaysCount"], dt.Rows[i]["CreateDate"], dt.Rows[i]["ID"],typeSub);
                     }
                 }
             }
 
+            htmlOneStrengthGoalSection();
             return true;
         }
 
@@ -872,7 +930,6 @@ namespace zhenyuFitness.Pages.Goal
         }
 
         #endregion
-
         private void setOtherGoalID(int typeMain,int typeSub, string value)
         {
             if ((GoalTypeBasic)typeMain != GoalTypeBasic.Strength) return;
@@ -901,6 +958,160 @@ namespace zhenyuFitness.Pages.Goal
                 default:
                     break;
             }
+        }
+
+        /// <summary>
+        /// 根据力量型目标类型，初始化对应力量型目标区域
+        /// </summary>
+        /// <param name="startValue"></param>
+        /// <param name="goalValue"></param>
+        /// <param name="goalDays"></param>
+        /// <param name="startDate"></param>
+        /// <param name="strengthGoalID"></param>
+        /// <param name="type"></param>
+        private void initOneStrengthGoalSection(object startValue, object goalValue, object goalDays, object startDate, object strengthGoalID, int type)
+        {
+            string typeString = string.Empty;
+            switch (type)
+            {
+                case (int)Common.Common.GoalTypeStrength.Squats:
+                    typeString = "squats";
+                    break;
+                case (int)Common.Common.GoalTypeStrength.DeadLift:
+                    typeString = "deadLift";
+                    break;
+                case (int)Common.Common.GoalTypeStrength.BarbellPress:
+                    typeString = "barbellPress";
+                    break;
+                case (int)Common.Common.GoalTypeStrength.ShoulderPress:
+                    typeString = "shoulderPress";
+                    break;
+                case (int)Common.Common.GoalTypeStrength.BarbellRow:
+                    typeString = "barbellRow";
+                    break;
+                case (int)Common.Common.GoalTypeStrength.BarbellCurl:
+                    typeString = "barbellCurl";
+                    break;
+                default:
+                    break;
+
+            }
+
+            if (typeString != string.Empty)
+            {
+                if (startValue != null)
+                {
+                    this.GetType().GetField("startValue_" + typeString).SetValue(this, startValue.ToString());
+                }
+                if (startDate != null)
+                {
+                    this.GetType().GetField("startDate_" + typeString).SetValue(this, startDate.ToString());
+                }
+                if (goalDays != null)
+                {
+                    this.GetType().GetField("goalDate_" + typeString).SetValue(this, goalDays.ToString());
+                }
+                if(goalValue != null)
+                {
+                    this.GetType().GetField("goalValue_" + typeString).SetValue(this, goalValue.ToString());
+                }
+
+                DataTable dtTrack = null;
+                float percent = 0;
+                if (strengthGoalID != null)
+                {
+                    string sqlTrack = string.Format(@"SELECT  top 1    OneRepsMax
+                                      FROM[zhenyuFitness].[dbo].[TrackStrengthGoal] where StrengthGoalID = '{0}' order by CreateDate desc", strengthGoalID.ToString());
+                    dtTrack = dal.DoSelectToTable(sqlTrack, "");
+                }
+
+                ///如果track表没有，目标刚建立，尚未更新过Track数据
+                if (dtTrack == null || dtTrack.Rows.Count <= 0)
+                {
+                    this.GetType().GetField("currentValue_" + typeString).SetValue(this, this.GetType().GetField("startValue_" + typeString).GetValue(this));
+                    this.GetType().GetField("percent_" + typeString).SetValue(this, "0");
+                    this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "进行中");
+                }
+                else//如果有记录，则Track数据更新过
+                {
+                    if (dtTrack.Rows[0]["OneRepsMax"] != null)
+                    {
+                        this.GetType().GetField("currentValue_" + typeString).SetValue(this, dtTrack.Rows[0]["OneRepsMax"].ToString());
+                    }
+                    float start = float.Parse(this.GetType().GetField("startValue_" + typeString).GetValue(this).ToString());
+                    float goal = float.Parse(this.GetType().GetField("goalValue_" + typeString).GetValue(this).ToString());
+                    float current = float.Parse(this.GetType().GetField("currentValue_" + typeString).GetValue(this).ToString());
+                    percent = (current - start) / (goal - start);
+                    if (percent <= 0)
+                    {
+                        this.GetType().GetField("percent_" + typeString).SetValue(this, "0");
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:orange'>进行中<span>");
+                    }
+                    else if (percent >= 1)
+                    {
+                        this.GetType().GetField("percent_" + typeString).SetValue(this, "100");
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:green'>已完成<span>");
+                    }
+                    else
+                    {
+                        this.GetType().GetField("percent_" + typeString).SetValue(this, percent.ToString("0.0") ); 
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:orange'>进行中<span>");
+                    }
+                }
+            }
+        }
+
+        private void htmlOneStrengthGoalSection()
+        {
+            List<string> listTypeString = new List<string>();
+            listTypeString.Add("squats");
+            listTypeString.Add("deadLift");
+            listTypeString.Add("barbellPress");
+            listTypeString.Add("shoulderPress");
+            listTypeString.Add("barbellRow");
+            listTypeString.Add("barbellCurl");
+
+            string s = string.Empty;
+            foreach (string typeString in listTypeString)
+            {
+                s = this.GetType().GetField("startValue_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "0" : s ;
+                this.GetType().GetField("startValue_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("startDate_" + typeString).GetValue(this).ToString();
+                s = s.Split(' ')[0];
+                //s = DateTime.Parse(s).ToString("yyyy-MM-dd");
+                s = string.IsNullOrEmpty(s) ? "尚未制定" : s;
+                this.GetType().GetField("startDate_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("goalValue_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "0" : s ;
+                this.GetType().GetField("goalValue_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("goalDate_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "0" : s;
+                this.GetType().GetField("goalDate_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("currentValue_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "0" : s;
+                this.GetType().GetField("currentValue_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("percent_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "0" : s;
+                this.GetType().GetField("percent_" + typeString).SetValue(this, s);
+                s = string.Empty;
+
+                s = this.GetType().GetField("goalStatus_" + typeString).GetValue(this).ToString();
+                s = string.IsNullOrEmpty(s) ? "<span style='color:red'>未开始</span>" : s;
+                this.GetType().GetField("goalStatus_" + typeString).SetValue(this, s);
+                s = string.Empty;
+            }
+
         }
     }
 }
