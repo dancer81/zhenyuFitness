@@ -22,8 +22,6 @@ namespace zhenyuFitness.Pages.Goal
             if (request.Form.Count == 0)
             {
                 this.InitPage();
-
-                this.InitPageSections();
             }
             else
             {
@@ -849,93 +847,20 @@ namespace zhenyuFitness.Pages.Goal
 
         private bool LoadUserOtherGoalData()
         {
-            string sql = string.Format(@"SELECT [ID],[TypeMain],[TypeSub],[StartValue],[GoalValue],[GoalDaysCount],[CreateDate],[GoalStatus] 
-                    FROM [zhenyuFitness].[dbo].[UserOtherGoal] where [Valid] = 1 and [UserID] = '{0}' and [GoalStatus] in (0 , 1) order by [TypeMain] asc, [TypeSub] asc,[GoalStatus] asc", Session["UserID"].ToString());
-            DataTable dt;
-            try
+            if (this.initStrengthGoalSection())
             {
-                dt = dal.DoSelectToTable(sql,"");
-            }
-            catch
-            {
-                commonWeb.MessageBox(Page,"加载其他类型目标的数据时出错！","failLoadOtherGoalData");
-                return false;
-            }
-            if(dt != null && dt.Rows.Count > 0)
-            {
-                for(int i = 0;i<dt.Rows.Count;i++)
-                {
-                    if(!Common.Common.NoneOrEmptyString(dt.Rows[i]["ID"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeMain"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeSub"]))
-                    {
-                        int typeBasic = int.Parse(dt.Rows[i]["TypeMain"].ToString());
-                        int typeSub = int.Parse(dt.Rows[i]["TypeSub"].ToString());
-                        string idValue = dt.Rows[i]["ID"].ToString();
-                             
-                        this.setOtherGoalID(typeBasic, typeSub, idValue);
-
-
-                        ///初始化力量型目标区域的前台显示数据
-                        this.initOneStrengthGoalSection(dt.Rows[i]["StartValue"], dt.Rows[i]["GoalValue"], dt.Rows[i]["GoalDaysCount"], dt.Rows[i]["CreateDate"], dt.Rows[i]["ID"],typeSub);
-                    }
-                }
+                return true;
             }
 
-            htmlOneStrengthGoalSection();
-            return true;
+            return false;
         }
 
-        private void InitPageSections()
-        {
-            this.InitGoalWeightAndBFSection();
-            this.InitCurrentBodyCompositionSection();
-            this.InitSecondRowSection();
-            this.InitChartsSection();
-            this.InitStrenthGoalSection();
-            this.InitMesurementGoalSection();
-            this.InitProgressPhotosSection();
-        }
-        private void InitCurrentBodyCompositionSection()
-        {
-
-        }
-
-        private void InitGoalWeightAndBFSection()
-        {
-
-        }
-
-        private void InitSecondRowSection()
-        {
-
-        }
-
-        private void InitChartsSection()
-        {
-
-        }
-
-        private void InitStrenthGoalSection()
-        {
-
-        }
-
-        private void InitMesurementGoalSection()
-        {
-
-        }
-
-        private void InitProgressPhotosSection()
-        {
-
-        }
-
-        #endregion
-        private void setOtherGoalID(int typeMain,int typeSub, string value)
+        private void setOtherGoalID(int typeMain, int typeSub, string value)
         {
             if ((GoalTypeBasic)typeMain != GoalTypeBasic.Strength) return;
 
             GoalTypeStrength typesub = (GoalTypeStrength)typeSub;
-            switch(typesub)
+            switch (typesub)
             {
                 case GoalTypeStrength.Squats:
                     this.squatsID = value;
@@ -960,6 +885,89 @@ namespace zhenyuFitness.Pages.Goal
             }
         }
 
+        private bool initStrengthGoalSection()
+        {
+            string sql = string.Format(@"SELECT [ID],[TypeMain],[TypeSub],[StartValue],[GoalValue],[GoalDaysCount],[CreateDate],[GoalStatus], DATEDIFF(day,[CreateDate],GETDATE()) AS DaysPassed
+                    FROM [zhenyuFitness].[dbo].[UserOtherGoal] where [TypeMain]={1} and [Valid] = 1 and [UserID] = '{0}' and [GoalStatus] in ({2} , {3}, {4}) order by [TypeSub] asc,[GoalStatus] asc, [CreateDate] desc",
+                    Session["UserID"].ToString(), (int)Common.Common.GoalTypeBasic.Strength,
+                    (int)Common.Common.OtherGoalStatus.Processing,(int)Common.Common.OtherGoalStatus.Achieved,(int)Common.Common.OtherGoalStatus.Expired);
+            DataTable dt;
+            try
+            {
+                dt = dal.DoSelectToTable(sql, "");
+            }
+            catch
+            {
+                commonWeb.MessageBox(Page, "加载其他类型目标的数据时出错！", "failLoadOtherGoalData");
+                return false;
+            }
+
+            if (dt != null && dt.Rows.Count > 0)
+            {
+                this.filerStrengthTable(ref dt);
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    if (!Common.Common.NoneOrEmptyString(dt.Rows[i]["ID"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeMain"]) && !Common.Common.NoneOrEmptyString(dt.Rows[i]["TypeSub"]))
+                    {
+                        int typeBasic = int.Parse(dt.Rows[i]["TypeMain"].ToString());
+                        int typeSub = int.Parse(dt.Rows[i]["TypeSub"].ToString());
+                        string idValue = dt.Rows[i]["ID"].ToString();
+
+                        this.setOtherGoalID(typeBasic, typeSub, idValue);
+
+
+                        ///初始化力量型目标区域的前台显示数据
+                        this.initOneStrengthGoalSection(dt.Rows[i]["StartValue"], dt.Rows[i]["GoalValue"], dt.Rows[i]["GoalDaysCount"], dt.Rows[i]["CreateDate"], dt.Rows[i]["DaysPassed"],dt.Rows[i]["ID"], typeSub);
+                    }
+                }
+            }
+
+            htmlOneStrengthGoalSection();
+            return true;
+        }
+
+
+        /// <summary>
+        /// 将初始化StrengthGoal Section的表格过滤，使之每个类型的力量型目标至多只有1条数据
+        /// 这条数据的目标状态可能为：进行中、已完成
+        /// </summary>
+        /// <param name="dt"></param>
+        private void filerStrengthTable(ref DataTable dt)
+        {
+            int i = 0;
+            while (i < dt.Rows.Count)
+            {
+                if (dt.Rows[i]["TypeSub"] != null)
+                {
+                    int j = i + 1;
+                    if (j >= dt.Rows.Count) break;
+
+                    while (true)
+                    {
+                        if (j < dt.Rows.Count && dt.Rows[j]["TypeSub"] != null
+                            && dt.Rows[i]["TypeSub"].ToString() == dt.Rows[j]["TypeSub"].ToString())
+                        {
+                            dt.Rows[j].Delete();
+                            j++;
+
+                            if (j >= dt.Rows.Count)
+                            {
+                                i = j;
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            i = j;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            dt.AcceptChanges();
+        }
+
         /// <summary>
         /// 根据力量型目标类型，初始化对应力量型目标区域
         /// </summary>
@@ -969,8 +977,9 @@ namespace zhenyuFitness.Pages.Goal
         /// <param name="startDate"></param>
         /// <param name="strengthGoalID"></param>
         /// <param name="type"></param>
-        private void initOneStrengthGoalSection(object startValue, object goalValue, object goalDays, object startDate, object strengthGoalID, int type)
+        private void initOneStrengthGoalSection(object startValue, object goalValue, object goalDays, object startDate, object daysPassed, object strengthGoalID, int type)
         {
+            bool expired = false;
             string typeString = string.Empty;
             switch (type)
             {
@@ -1011,7 +1020,7 @@ namespace zhenyuFitness.Pages.Goal
                 {
                     this.GetType().GetField("goalDate_" + typeString).SetValue(this, goalDays.ToString());
                 }
-                if(goalValue != null)
+                if (goalValue != null)
                 {
                     this.GetType().GetField("goalValue_" + typeString).SetValue(this, goalValue.ToString());
                 }
@@ -1030,7 +1039,16 @@ namespace zhenyuFitness.Pages.Goal
                 {
                     this.GetType().GetField("currentValue_" + typeString).SetValue(this, this.GetType().GetField("startValue_" + typeString).GetValue(this));
                     this.GetType().GetField("percent_" + typeString).SetValue(this, "0");
-                    this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "进行中");
+                    if(int.Parse(daysPassed.ToString()) > int.Parse(goalDays.ToString()))
+                    {
+                        expired = true;
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:#460046'>已过期</span>");
+                    }
+                    else
+                    {
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:green'>进行中</span>");
+                    }
+                    
                 }
                 else//如果有记录，则Track数据更新过
                 {
@@ -1041,22 +1059,44 @@ namespace zhenyuFitness.Pages.Goal
                     float start = float.Parse(this.GetType().GetField("startValue_" + typeString).GetValue(this).ToString());
                     float goal = float.Parse(this.GetType().GetField("goalValue_" + typeString).GetValue(this).ToString());
                     float current = float.Parse(this.GetType().GetField("currentValue_" + typeString).GetValue(this).ToString());
-                    percent = (current - start) / (goal - start);
+                    percent = 100 * (current - start) / (goal - start);
                     if (percent <= 0)
                     {
                         this.GetType().GetField("percent_" + typeString).SetValue(this, "0");
-                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:orange'>进行中<span>");
+                        if (int.Parse(daysPassed.ToString()) > int.Parse(goalDays.ToString()))
+                        {
+                            expired = true;
+                            this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:#460046'>已过期</span>");
+                        }
+                        else
+                        {
+                            this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:green'>进行中</span>");
+                        }
                     }
-                    else if (percent >= 1)
+                    else if (percent >= 100)
                     {
-                        this.GetType().GetField("percent_" + typeString).SetValue(this, "100");
-                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:green'>已完成<span>");
+                        this.GetType().GetField("percent_" + typeString).SetValue(this, percent.ToString("0.0"));
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:blue'>已完成</span>");
                     }
                     else
                     {
-                        this.GetType().GetField("percent_" + typeString).SetValue(this, percent.ToString("0.0") ); 
-                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:orange'>进行中<span>");
+                        this.GetType().GetField("percent_" + typeString).SetValue(this, percent.ToString("0.0"));
+                        if (int.Parse(daysPassed.ToString()) > int.Parse(goalDays.ToString()))
+                        {
+                            expired = true;
+                            this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:#460046'>已过期</span>");
+                        }
+                        else
+                        {
+                            this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:green'>进行中</span>");
+                        }
                     }
+                }
+
+                if (expired)
+                {
+                    if (strengthGoalID != null)
+                        this.setStrengthGoalStatus_Expired(strengthGoalID.ToString());
                 }
             }
         }
@@ -1075,7 +1115,7 @@ namespace zhenyuFitness.Pages.Goal
             foreach (string typeString in listTypeString)
             {
                 s = this.GetType().GetField("startValue_" + typeString).GetValue(this).ToString();
-                s = string.IsNullOrEmpty(s) ? "0" : s ;
+                s = string.IsNullOrEmpty(s) ? "0" : s;
                 this.GetType().GetField("startValue_" + typeString).SetValue(this, s);
                 s = string.Empty;
 
@@ -1087,7 +1127,7 @@ namespace zhenyuFitness.Pages.Goal
                 s = string.Empty;
 
                 s = this.GetType().GetField("goalValue_" + typeString).GetValue(this).ToString();
-                s = string.IsNullOrEmpty(s) ? "0" : s ;
+                s = string.IsNullOrEmpty(s) ? "0" : s;
                 this.GetType().GetField("goalValue_" + typeString).SetValue(this, s);
                 s = string.Empty;
 
@@ -1113,5 +1153,17 @@ namespace zhenyuFitness.Pages.Goal
             }
 
         }
+
+        private void setStrengthGoalStatus_Expired(string id)
+        {
+            string sql = string.Format(@"UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
+                                           SET [GoalStatus] = {1}
+                                         WHERE ID = '{0}'", id, (int)Common.Common.OtherGoalStatus.Expired);
+
+            dal.ExecSQL(sql);
+        }
+
+        #endregion
+
     }
 }

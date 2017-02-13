@@ -241,16 +241,19 @@ namespace zhenyuFitness.ashx
                 string goalLiftWeight = context.Request.Form["goalLiftWeight"].ToString();
                 string goalRepsCount = context.Request.Form["goalRepsCount"].ToString();
 
-                string sqlSelect = string.Format(@"SELECT [ID] FROM [zhenyuFitness].[dbo].[UserOtherGoal] where UserID = '{0}' and Valid = 1", userID);
+                List<string> listType = this.getOtherGoalType(type);
+
+                string sqlSelect = string.Format(@"SELECT [ID] FROM [zhenyuFitness].[dbo].[UserOtherGoal] 
+                    where UserID = '{0}' and Valid = 1 and TypeMain={2} and TypeSub={3} and [GoalStatus] = {1}", userID,(int)Common.Common.OtherGoalStatus.Processing, listType[0], listType[1]);
                 DataTable dtSelect = dal.DoSelectToTable(sqlSelect, "");
-                if(dtSelect == null || dtSelect.Rows.Count == 0)
+                if(dtSelect != null && dtSelect.Rows.Count > 0)
                 {
-                    retType = "3";
+                    retType = "3";//有未完成且尚在进行中的力量型目标
                     return retType;
                 }
 
                 string guid = Guid.NewGuid().ToString();
-                List<string> listType = this.getOtherGoalType(type);
+                //List<string> listType = this.getOtherGoalType(type);
                 string sqlAddOtherGoal = string.Format(@"
                 INSERT INTO [zhenyuFitness].[dbo].[UserOtherGoal]
                     ([ID]
@@ -448,8 +451,8 @@ namespace zhenyuFitness.ashx
             string sql_deleteUserOtherGoal = string.Format(@"
                 UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
                    SET 
-                      [Valid] = 0
-                 WHERE [Valid] = 1 and [UserID]='{0}' and [ID]='{1}'",userID,strengthGoalID);
+                      [GoalStatus] = {0}
+                 WHERE [Valid] = 1 and [ID]='{1}'", (int)Common.Common.OtherGoalStatus.Canceled, strengthGoalID);
 
             string sql_insertIntoTrackActivity = string.Format(@"
                 INSERT INTO [zhenyuFitness].[dbo].[TrackActivity]

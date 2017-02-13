@@ -7,6 +7,7 @@ function initMyGoal(v) {
     initchart();
 
     initStrengthGoal();
+    //initStrengthGoalSectionButtons();
 }
 
 function initVariable(value) {
@@ -704,7 +705,7 @@ function initchart_goalAchievePercent() {
 
 //初始化力量型目标栏目的数据
 function initStrengthGoal() {
-
+    initStrengthGoalSectionButtons();
 }
 
 
@@ -1008,6 +1009,50 @@ function CheckUpdateCurrentBFR_bfrinput(inputValue) {
 function EstimateRepMax(weightUsed, numberOfRepetitions) {
     return weightUsed / (1.0278 - (0.0278 * numberOfRepetitions));
 }
+///初始化力量型目标区域按钮的可见性
+function initStrengthGoalSectionButtons() {
+    var s = ["squats", "deadLift", "barbellPress", "shoulderPress", "barbellRow", "barbellCurl"];
+    var data = "startValueHtml_";
+    var addButton = "addOtherGoal_";
+    var deleteButton = "deleteOtherGoal_";
+    var updateButton = "updateOtherGoal_";
+    var percent = "progress_currentLiftWeightAchievedPercent_";
+
+    var startDate = "startDateHtml_";
+    var goalDays = "goalDaysLeftHtml_";
+    var status = "progress_currentLiftWeightStatus_";
+
+    for (var i = 0; i < s.length; i++) {
+        if ($("#" + data + s[i]).html() == "0") {//没有进行中的目标
+            $("#" + addButton + s[i]).removeClass("disableCss");
+            $("#" + deleteButton + s[i]).addClass("disableCss");
+            $("#" + updateButton + s[i]).addClass("disableCss");
+        }
+        else {//有进行中的目标
+            var percent1 = $("#" + percent + s[i]).html() * 1;
+            //alert(percent1);
+            if (percent1 <= 100) {//未完成的目标
+                if ($("#" + status + s[i]).html().indexOf("进行中") > 0) {
+                    $("#" + addButton + s[i]).addClass("disableCss");
+                    $("#" + deleteButton + s[i]).removeClass("disableCss");
+                    $("#" + updateButton + s[i]).removeClass("disableCss");
+                }
+                else {//过期目标
+                    $("#" + addButton + s[i]).removeClass("disableCss");
+                    $("#" + deleteButton + s[i]).removeClass("disableCss");
+                    $("#" + updateButton + s[i]).addClass("disableCss");
+                }
+                
+            }
+            else {//已经完成的目标
+                $("#" + addButton + s[i]).removeClass("disableCss");
+                $("#" + deleteButton + s[i]).removeClass("disableCss");
+                $("#" + updateButton + s[i]).addClass("disableCss");
+            }
+            
+        }
+    }
+}
 //********************开始：目标设定***************************
 //初始化力量型目标增加框
 function initModal_settingGoal(type)
@@ -1280,7 +1325,7 @@ function addOtherGoal_squats() {
         data: { ajaxtype: "addOtherGoal_squats", startValue: startLiftWeightMax, goalValue: goalLiftWeightMax, goalDaysCount: goalDaysCount, type: "squats", startLiftWeight: startLiftWeight, startRepsCount: startRepsCount, goalLiftWeight: goalLiftWeight, goalRepsCount: goalRepsCount },
         async: true,
         success: function (data) {
-            if (data == "2" || data == "1" || data == "0"||data == "3") {//更新失败
+            if (data == "2" || data == "1" || data == "0" || data == "3") {//更新失败
                 if (date == "1") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
@@ -1302,10 +1347,10 @@ function addOtherGoal_squats() {
                 var nowDate = new Date();
                 $("#startDateHtml_squats").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_squats").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_squats").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_squats").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_squats").html(0);
-                $("#progress_currentLiftWeightStatus_squats").html("进行中");
+                $("#progress_currentLiftWeightStatus_squats").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_squats").addClass("disableCss");
                 $("#deleteOtherGoal_squats").removeClass("disableCss");
@@ -1377,10 +1422,10 @@ function addOtherGoal_deadLift() {
                 var nowDate = new Date();
                 $("#startDateHtml_deadLift").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_deadLift").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_deadLift").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_deadLift").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_deadLift").html(0);
-                $("#progress_currentLiftWeightStatus_deadLift").html("进行中");
+                $("#progress_currentLiftWeightStatus_deadLift").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_deadLift").addClass("disableCss");
                 $("#deleteOtherGoal_deadLift").removeClass("disableCss");
@@ -1452,10 +1497,10 @@ function addOtherGoal_barbellPress() {
                 var nowDate = new Date();
                 $("#startDateHtml_barbellPress").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_barbellPress").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_barbellPress").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_barbellPress").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_barbellPress").html(0);
-                $("#progress_currentLiftWeightStatus_barbellPress").html("进行中");
+                $("#progress_currentLiftWeightStatus_barbellPress").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_barbellPress").addClass("disableCss");
                 $("#deleteOtherGoal_barbellPress").removeClass("disableCss");
@@ -1527,10 +1572,10 @@ function addOtherGoal_shoulderPress() {
                 var nowDate = new Date();
                 $("#startDateHtml_shoulderPress").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_shoulderPress").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_shoulderPress").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_shoulderPress").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_shoulderPress").html(0);
-                $("#progress_currentLiftWeightStatus_shoulderPress").html("进行中");
+                $("#progress_currentLiftWeightStatus_shoulderPress").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_shoulderPress").addClass("disableCss");
                 $("#deleteOtherGoal_shoulderPress").removeClass("disableCss");
@@ -1602,10 +1647,10 @@ function addOtherGoal_barbellRow() {
                 var nowDate = new Date();
                 $("#startDateHtml_barbellRow").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_barbellRow").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_barbellRow").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_barbellRow").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_barbellRow").html(0);
-                $("#progress_currentLiftWeightStatus_barbellRow").html("进行中");
+                $("#progress_currentLiftWeightStatus_barbellRow").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_barbellRow").addClass("disableCss");
                 $("#deleteOtherGoal_barbellRow").removeClass("disableCss");
@@ -1676,10 +1721,10 @@ function addOtherGoal_barbellCurl() {
                 var nowDate = new Date();
                 $("#startDateHtml_barbellCurl").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
                 $("#goalValueHtml_barbellCurl").html(goalLiftWeightMax);
-                $("#goalDaysLeftHtml").html(goalDaysCount);
+                $("#goalDaysLeftHtml_barbellCurl").html(goalDaysCount);
                 $("#progress_currentLiftWeightAmount_barbellCurl").html(startLiftWeightMax);
                 $("#progress_currentLiftWeightAchievedPercent_barbellCurl").html(0);
-                $("#progress_currentLiftWeightStatus_barbellCurl").html("进行中");
+                $("#progress_currentLiftWeightStatus_barbellCurl").html("<span style='color:green'>进行中</span>");
 
                 $("#addOtherGoal_barbellCurl").addClass("disableCss");
                 $("#deleteOtherGoal_barbellCurl").removeClass("disableCss");
@@ -1856,9 +1901,30 @@ function deleteOtherGoal() {
 
                 }
 
+                //startValueHtml_deadLift
+                //startDateHtml_deadLift
+                //goalValueHtml_deadLift
+                //goalDaysLeftHtml_squats
+                //progress_currentLiftWeightAmount_squats
+                //progress_currentLiftWeightAchievedPercent_squats
+                //progress_currentLiftWeightStatus_squats
+                var s = ["squats", "deadLift", "barbellPress", "shoulderPress", "barbellRow", "barbellCurl"];
+                var startValue = "startValueHtml_";
+                var startDate = "startDateHtml_";
+                var goalValue = "goalValueHtml_";
+                var goalDays = "goalDaysLeftHtml_";
+                var current = "progress_currentLiftWeightAmount_";
+                var percent = "progress_currentLiftWeightAchievedPercent_";
+                var status = "progress_currentLiftWeightStatus_";
                 
-                //$("#addOtherGoal_barbellCurl").addClass("disableCss");
-                //$("#deleteOtherGoal_barbellCurl").removeClass("disableCss");
+                $("#" + startValue + type).html("0");
+                $("#" + startDate + type).html("尚未制定");
+                $("#" + goalValue + type).html("0");
+                $("#" + goalDays + type).html("0");
+                $("#" + current + type).html("0");
+                $("#" + percent + type).html("0");
+                $("#" + status + type).html("未开始");
+                $("#" + status + type).css("color", "red");
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -2045,86 +2111,92 @@ function updateLiftWeightStats()
                     $("#progress_currentLiftWeightAmount_squats").html(oneRepsMax);
                     var start = $("#startValueHtml_squats").html();
                     var end = $("#goalValueHtml_squats").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    alert(start + "," + oneRepsMax + "," + end);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     //progress_currentLiftWeightAchievedPercent_squats = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_squats").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_squats").html("完成！");
-                        $("#progress_currentLiftWeightStatus_squats").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_squats").html("已完成");
+                        $("#progress_currentLiftWeightStatus_squats").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_squats").html("进行中");
-                        $("#progress_currentLiftWeightStatus_squats").css("color", "orange");
+                        $("#progress_currentLiftWeightStatus_squats").css("color", "green");
                     }
                 }
                 else if (typedesc == "传统杠铃硬拉") {
                     $("#progress_currentLiftWeightAmount_deadLift").html(oneRepsMax);
                     var start = $("#startValueHtml_deadLift").html();
                     var end = $("#goalValueHtml_deadLift").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_deadLift").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_deadLift").html("目标达成！");
-                        $("#progress_currentLiftWeightStatus_deadLift").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_deadLift").html("已完成");
+                        $("#progress_currentLiftWeightStatus_deadLift").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_deadLift").html("进行中");
+                        $("#progress_currentLiftWeightStatus_deadLift").css("color", "green");
                     }
                 }
                 else if (typedesc == "杠铃平板卧推") {
                     $("#progress_currentLiftWeightAmount_barbellPress").html(oneRepsMax);
                     var start = $("#startValueHtml_barbellPress").html();
                     var end = $("#goalValueHtml_barbellPress").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellPress").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_barbellPress").html("目标达成！");
-                        $("#progress_currentLiftWeightStatus_barbellPress").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_barbellPress").html("已完成");
+                        $("#progress_currentLiftWeightStatus_barbellPress").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellPress").html("进行中");
+                        $("#progress_currentLiftWeightStatus_barbellPress").css("color", "green");
                     }
                 }
                 else if (typedesc == "杠铃肩上推举") {
                     $("#progress_currentLiftWeightAmount_shoulderPress").html(oneRepsMax);
                     var start = $("#startValueHtml_shoulderPress").html();
                     var end = $("#goalValueHtml_shoulderPress").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_shoulderPress").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_shoulderPress").html("目标达成！");
-                        $("#progress_currentLiftWeightStatus_shoulderPress").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_shoulderPress").html("已完成");
+                        $("#progress_currentLiftWeightStatus_shoulderPress").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_shoulderPress").html("进行中");
+                        $("#progress_currentLiftWeightStatus_shoulderPress").css("color", "green");
                     }
                 }
                 else if (typedesc == "杠铃划船") {
                     $("#progress_currentLiftWeightAmount_barbellRow").html(oneRepsMax);
                     var start = $("#startValueHtml_barbellRow").html();
                     var end = $("#goalValueHtml_barbellRow").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellRow").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_barbellRow").html("目标达成！");
-                        $("#progress_currentLiftWeightStatus_barbellRow").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_barbellRow").html("已完成");
+                        $("#progress_currentLiftWeightStatus_barbellRow").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellRow").html("进行中");
+                        $("#progress_currentLiftWeightStatus_barbellRow").css("color", "green");
                     }
                 }
                 else if (typedesc == "杠铃二头弯举") {
                     $("#progress_currentLiftWeightAmount_barbellCurl").html(oneRepsMax);
                     var start = $("#startValueHtml_barbellCurl").html();
                     var end = $("#goalValueHtml_barbellCurl").html();
-                    var achievedPercent = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellCurl").html(achievedPercent);
                     if (achievedPercent * 1 >= 1) {
-                        $("#progress_currentLiftWeightStatus_barbellCurl").html("目标达成！");
-                        $("#progress_currentLiftWeightStatus_barbellCurl").css("color", "green");
+                        $("#progress_currentLiftWeightStatus_barbellCurl").html("已完成");
+                        $("#progress_currentLiftWeightStatus_barbellCurl").css("color", "#3366CC");
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellCurl").html("进行中");
+                        $("#progress_currentLiftWeightStatus_barbellCurl").css("color", "green");
                     }
                 }
                 else {

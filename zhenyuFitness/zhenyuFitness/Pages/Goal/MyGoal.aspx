@@ -437,7 +437,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_squats"><%=startValue_squats%></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_squats"><%=startDate_squats %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_squats"><%=goalValue_squats %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_squats %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_squats"><%=goalDate_squats %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
@@ -482,7 +482,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_deadLift"><%=startValue_deadLift %></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_deadLift"><%=startDate_deadLift %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_deadLift"><%=goalValue_deadLift %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_deadLift %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_deadLift"><%=goalDate_deadLift %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
@@ -541,7 +541,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellPress"><%=startValue_barbellPress %></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellPress"><%=startDate_barbellPress %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellPress"><%=goalValue_barbellPress %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_barbellPress %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_barbellPress"><%=goalDate_barbellPress %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
@@ -600,7 +600,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_shoulderPress"><%=startValue_shoulderPress %></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_shoulderPress"><%=startDate_shoulderPress %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_shoulderPress"><%=goalValue_shoulderPress %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_shoulderPress %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_shoulderPress"><%=goalDate_shoulderPress %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
@@ -659,7 +659,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellRow"><%=startValue_barbellRow %></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellRow"><%=startDate_barbellRow %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellRow"><%=goalValue_barbellRow %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_barbellRow %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_barbellRow"><%=goalDate_barbellRow %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
@@ -718,7 +718,7 @@
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_barbellCurl"><%=startValue_barbellCurl %></span><span>千克</span></td>
                                                 <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_barbellCurl"><%=startDate_barbellCurl %></td>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_barbellCurl"><%=goalValue_barbellCurl %></span><span>千克</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_barbellCurl"><%=goalDate_barbellCurl %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
