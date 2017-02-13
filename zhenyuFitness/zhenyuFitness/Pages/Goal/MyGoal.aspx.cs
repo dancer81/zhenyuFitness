@@ -1076,7 +1076,7 @@ namespace zhenyuFitness.Pages.Goal
                     else if (percent >= 100)
                     {
                         this.GetType().GetField("percent_" + typeString).SetValue(this, percent.ToString("0.0"));
-                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:blue'>已完成</span>");
+                        this.GetType().GetField("goalStatus_" + typeString).SetValue(this, "<span style='color:#3366CC'>已完成</span>");
                     }
                     else
                     {

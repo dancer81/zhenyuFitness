@@ -2035,7 +2035,7 @@ function updateLiftWeightStats()
         else {
             strengthGoalID = deadLiftID;
         }
-        type = "squats";
+        type = "deadLift";
         goalAmount = $("#goalValueHtml_deadLift").html();
     }
     else if (typedesc == "杠铃平板卧推") {
@@ -2101,7 +2101,7 @@ function updateLiftWeightStats()
                 //刷新前台页面
                 AlertBasic("更新数据成功。");
                 $("#updateLiftWeightStats").modal("hide");
-
+                var complete = 0;
                 ///progress_currentLiftWeightAmount_squats
                 ///progress_currentLiftWeightAchievedPercent_squats
                 ///progress_currentLiftWeightStatus_squats
@@ -2111,13 +2111,14 @@ function updateLiftWeightStats()
                     $("#progress_currentLiftWeightAmount_squats").html(oneRepsMax);
                     var start = $("#startValueHtml_squats").html();
                     var end = $("#goalValueHtml_squats").html();
-                    alert(start + "," + oneRepsMax + "," + end);
-                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
+                    //alert(start + "," + oneRepsMax + "," + end);
+                    var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1); 
                     //progress_currentLiftWeightAchievedPercent_squats = ((oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_squats").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_squats").html("已完成");
                         $("#progress_currentLiftWeightStatus_squats").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_squats").html("进行中");
@@ -2130,9 +2131,10 @@ function updateLiftWeightStats()
                     var end = $("#goalValueHtml_deadLift").html();
                     var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_deadLift").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_deadLift").html("已完成");
                         $("#progress_currentLiftWeightStatus_deadLift").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_deadLift").html("进行中");
@@ -2145,9 +2147,10 @@ function updateLiftWeightStats()
                     var end = $("#goalValueHtml_barbellPress").html();
                     var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellPress").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_barbellPress").html("已完成");
                         $("#progress_currentLiftWeightStatus_barbellPress").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellPress").html("进行中");
@@ -2160,9 +2163,10 @@ function updateLiftWeightStats()
                     var end = $("#goalValueHtml_shoulderPress").html();
                     var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_shoulderPress").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_shoulderPress").html("已完成");
                         $("#progress_currentLiftWeightStatus_shoulderPress").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_shoulderPress").html("进行中");
@@ -2175,9 +2179,10 @@ function updateLiftWeightStats()
                     var end = $("#goalValueHtml_barbellRow").html();
                     var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellRow").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_barbellRow").html("已完成");
                         $("#progress_currentLiftWeightStatus_barbellRow").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellRow").html("进行中");
@@ -2190,9 +2195,10 @@ function updateLiftWeightStats()
                     var end = $("#goalValueHtml_barbellCurl").html();
                     var achievedPercent = (100 * (oneRepsMax * 1 - start * 1) / (end * 1 - start * 1)).toFixed(1);
                     $("#progress_currentLiftWeightAchievedPercent_barbellCurl").html(achievedPercent);
-                    if (achievedPercent * 1 >= 1) {
+                    if (achievedPercent * 1 >= 100) {
                         $("#progress_currentLiftWeightStatus_barbellCurl").html("已完成");
                         $("#progress_currentLiftWeightStatus_barbellCurl").css("color", "#3366CC");
+                        complete = 1;
                     }
                     else {
                         $("#progress_currentLiftWeightStatus_barbellCurl").html("进行中");
@@ -2201,6 +2207,9 @@ function updateLiftWeightStats()
                 }
                 else {
 
+                }
+                if (complete == 1) {
+                    $("#addOtherGoal_" + type).removeClass("disableCss");
                 }
             }
         },
