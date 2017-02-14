@@ -829,7 +829,7 @@
                                                 <td class="othergoalfield">起始数值</td>
                                                 <td class="othergoalfield">起始日期</td>
                                                 <td class="othergoalfield">目标数值</td>
-                                                <td class="othergoalfield">达成日期</td>
+                                                <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_arm"><%=startValue_barbellCurl %></span><span>厘米</span></td>
@@ -874,7 +874,7 @@
                                                 <td class="othergoalfield">起始数值</td>
                                                 <td class="othergoalfield">起始日期</td>
                                                 <td class="othergoalfield">目标数值</td>
-                                                <td class="othergoalfield">达成日期</td>
+                                                <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_waist"><%=startValue_barbellCurl %></span><span>厘米</span></td>
@@ -919,7 +919,7 @@
                                                 <td class="othergoalfield">起始数值</td>
                                                 <td class="othergoalfield">起始日期</td>
                                                 <td class="othergoalfield">目标数值</td>
-                                                <td class="othergoalfield">达成日期</td>
+                                                <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_thigh "><%=startValue_barbellCurl %></span><span>厘米</span></td>
@@ -965,7 +965,7 @@
                                                 <td class="othergoalfield">起始数值</td>
                                                 <td class="othergoalfield">起始日期</td>
                                                 <td class="othergoalfield">目标数值</td>
-                                                <td class="othergoalfield">达成日期</td>
+                                                <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_shoulder "><%=startValue_barbellCurl %></span><span>厘米</span></td>
@@ -1010,7 +1010,7 @@
                                                 <td class="othergoalfield">起始数值</td>
                                                 <td class="othergoalfield">起始日期</td>
                                                 <td class="othergoalfield">目标数值</td>
-                                                <td class="othergoalfield">达成日期</td>
+                                                <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
                                                 <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_hip "><%=startValue_barbellCurl %></span><span>厘米</span></td>

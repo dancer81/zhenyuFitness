@@ -2239,6 +2239,10 @@ function updateLiftWeightStats()
 //********************开始：测量型目标***************************
 ///初始化“新增测量型目标框”
 function initModal_AddMeasurementGoal(measurementType) {
+    $("#currentMeasurementAmount").val("");
+    $("#goalMeasurementAmount").val("");
+    $("#goalMeasurementDaysCountAmount").val("");
+
     switch (measurementType) {
         case "chest":
             $(".measurementType").html("胸围");
@@ -2269,6 +2273,7 @@ function initModal_AddMeasurementGoal(measurementType) {
     }
 }
 
+///提交“新增测量型目标框”
 function submitModal_AddMeasurementGoal() {
     var type = $("#measuretType").val();
     var startValue = $("#currentMeasurementAmount").val();
@@ -2281,6 +2286,8 @@ function submitModal_AddMeasurementGoal() {
         data: { ajaxtype: "addMeasurementGoal", startValue: startValue, goalValue: goalValue, goalDaysCount: goalDaysCount, type: type },
         async: true,
         success: function (data) {
+            $("#addMeasurementGoal").modal("hide");
+
             if (data == "1" || data == "0" ) {//更新失败
                 if (date == "0") {
                     AlertBasic("您尚未登录！请登录后重试。")
@@ -2293,40 +2300,14 @@ function submitModal_AddMeasurementGoal() {
                 }
             }
             else {//数据库更新成功，更新前台数据
-                //刷新前台页面
-                //$("#squatsGoal").modal("hide");
-                //AlertBasic("设定目标：自由杠铃深蹲成功。");
-                //$("#startValueHtml_squats").html(startLiftWeightMax);
-                //var nowDate = new Date();
-                //$("#startDateHtml_squats").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
-                //$("#goalValueHtml_squats").html(goalLiftWeightMax);
-                //$("#goalDaysLeftHtml_squats").html(goalDaysCount);
-                //$("#progress_currentLiftWeightAmount_squats").html(startLiftWeightMax);
-                //$("#progress_currentLiftWeightAchievedPercent_squats").html(0);
-                //$("#progress_currentLiftWeightStatus_squats").html("<span style='color:green'>进行中</span>");
-
-                //$("#addOtherGoal_squats").addClass("disableCss");
-                //$("#deleteOtherGoal_squats").removeClass("disableCss");
-                //$("#updateOtherGoal_squats").removeClass("disableCss");
-
-                //squatsID = data.toString();
-
-                //chestID = value[6]
-                //armID = value[7]
-                //waistID = value[8]
-                //thighID = value[9]
-                //shoulderID = value[10]
-                //hipID = value[11]
-
-                var startValue = "startValueHtml_";
-                var startDate = "startDateHtml_";
-                var goalValue = "goalValueHtml_";
-                var goalDaysLeft = "goalDaysLeftHtml_";
-                var currentAmount = "progress_currentLiftWeightAmount_";
-                var percent = "progress_currentLiftWeightAchievedPercent_";
-                var status = "progress_currentLiftWeightStatus_";
-
-
+                AlertBasic("更新数据成功。");
+                var startValueHtml = "startValueHtml_";
+                var startDateHtml = "startDateHtml_";
+                var goalValueHtml = "goalValueHtml_";
+                var goalDaysLeftHtml = "goalDaysLeftHtml_";
+                var currentValueHtml = "progress_currentLiftWeightAmount_";
+                var percentHtml = "progress_currentLiftWeightAchievedPercent_";
+                var statusHtml = "progress_currentLiftWeightStatus_";
 
                 switch (type) {
                     case "chest":
@@ -2335,9 +2316,21 @@ function submitModal_AddMeasurementGoal() {
                     default:
                         break;
                 }
+                ///设置按钮的可见性
                 $("#addOtherGoal_" + type).addClass("disableCss");
                 $("#deleteOtherGoal_" + type).removeClass("disableCss");
                 $("#updateOtherGoal_" + type).removeClass("disableCss");
+
+                ///更新对应的显示字段
+                $("#" + startValueHtml + type).html(startValue);
+                $("#" + startDateHtml + type).html((new Date()).toLocaleDateString());
+                $("#" + goalValueHtml + type).html(goalValue);
+                $("#" + goalDaysLeftHtml + type).html(goalDaysCount);
+                $("#" + currentValueHtml + type).html(startValue);
+                $("#" + percentHtml + type).html("0.0");
+                $("#" + statusHtml + type).html("进行中");
+                $("#" + statusHtml + type).css("color", "green");
+
             }
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {

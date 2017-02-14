@@ -547,7 +547,7 @@ namespace zhenyuFitness.ashx
                                            ,{1}
                                            ,GETDATE()
                                            ,{1}
-                                           ,1", userID,(int)Common.Common.GoalTypeBasic.Measurement,
+                                           ,1)", userID,(int)Common.Common.GoalTypeBasic.Measurement,
                                            this.getMeasurementGoalType(type), startValue, goalValue,
                                            goalDaysCount,(int)Common.Common.OtherGoalStatus.Processing,guid);
             try
