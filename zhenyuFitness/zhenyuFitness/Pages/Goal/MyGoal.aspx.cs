@@ -139,6 +139,13 @@ namespace zhenyuFitness.Pages.Goal
         public string percent_barbellCurl = string.Empty;
         public string goalStatus_barbellCurl = string.Empty;
 
+        public string ChestID = string.Empty;
+        public string ArmID = string.Empty;
+        public string WaistID = string.Empty;
+        public string ThighID = string.Empty;
+        public string ShoulderID = string.Empty;
+        public string HipID = string.Empty;
+
         public string SquatsID
         {
             get
@@ -425,6 +432,14 @@ namespace zhenyuFitness.Pages.Goal
             {
                 float bfchange = float.Parse(this.CurrentBodyFatWeight) - float.Parse(this.StartWeight) * (float.Parse(this.StartBFR)) / 100;
                 return bfchange > 0 ? "总共增加" : bfchange == 0 ? "没有变化" : "总共减少";
+            }
+        }
+
+        public string GreenArrowImg
+        {
+            get
+            {
+                return  Common.Common.ResourceRootPath + "/img/其他/arrow_100x60_green_rightward.png";
             }
         }
 

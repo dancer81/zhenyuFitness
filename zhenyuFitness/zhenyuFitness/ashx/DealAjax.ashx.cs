@@ -75,6 +75,13 @@ namespace zhenyuFitness.ashx
                     context.Response.Write(deleteStrengthGoal_retType);
                     context.Response.End();
                     break;
+                case "addMeasurementGoal":
+                    string addMeasurementGoal_retType = this.AddMeasurementGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(addMeasurementGoal_retType);
+                    context.Response.End();
+                    break;
                 default:
                     break;
             }
@@ -494,7 +501,67 @@ namespace zhenyuFitness.ashx
 
 
 
+        private string AddMeasurementGoal(HttpContext context)
+        {
+            string retType = "0";
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                return retType;
 
+            }
+
+            string guid = Guid.NewGuid().ToString();
+            string userID = context.Session["UserID"].ToString();
+            string startValue = context.Request.Form["startValue"].ToString();
+            string goalValue = context.Request.Form["goalValue"].ToString();
+            string goalDaysCount = context.Request.Form["goalDaysCount"].ToString();
+            string type = context.Request.Form["type"].ToString();
+
+            //判断是否有未完成的目标
+            //不判断也可以
+
+            string sqlAdd = string.Format(@"INSERT INTO [zhenyuFitness].[dbo].[UserOtherGoal]
+                                           ([ID]
+                                           ,[UserID]
+                                           ,[TypeMain]
+                                           ,[TypeSub]
+                                           ,[StartValue]
+                                           ,[GoalValue]
+                                           ,[GoalDaysCount]
+                                           ,[GoalStatus]
+                                           ,[CreateDate]
+                                           ,[CreateUser]
+                                           ,[LastModifiedDate]
+                                           ,[LastModifiedUser]
+                                           ,[Valid])
+                                     VALUES
+                                           ('{7}'
+                                           ,'{0}'
+                                           ,{1}
+                                           ,{2}
+                                           ,{3}
+                                           ,{4}
+                                           ,{5}
+                                           ,{6}
+                                           ,GETDATE()
+                                           ,{1}
+                                           ,GETDATE()
+                                           ,{1}
+                                           ,1", userID,(int)Common.Common.GoalTypeBasic.Measurement,
+                                           this.getMeasurementGoalType(type), startValue, goalValue,
+                                           goalDaysCount,(int)Common.Common.OtherGoalStatus.Processing,guid);
+            try
+            {
+                dal.ExecSQL(sqlAdd);
+                retType = guid;
+            }
+            catch
+            {
+                retType = "1";
+            }
+            return retType;
+
+        }
 
 
 
@@ -636,6 +703,35 @@ namespace zhenyuFitness.ashx
             { }
 
             return trackActivityType;
+        }
+
+        private int getMeasurementGoalType(string type)
+        {
+            int ret = -1;
+            switch (type)
+            {
+                case "chest":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Chest;
+                    break;
+                case "arm":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Arm;
+                    break;
+                case "waist":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Waist;
+                    break;
+                case "thigh":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Thigh;
+                    break;
+                case "shoulder":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Shoulder;
+                    break;
+                case "hip":
+                    ret = (int)Common.Common.GoalTypeMeasurement.Hip;
+                    break;
+                default:
+                    break;
+            }
+            return ret;
         }
     }
 }

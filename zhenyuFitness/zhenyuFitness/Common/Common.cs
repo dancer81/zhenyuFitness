@@ -202,6 +202,22 @@ namespace zhenyuFitness.Common
             BarbellCurl,
         }
 
+        public enum GoalTypeMeasurement
+        {
+            [Description("胸部")]
+            Chest,
+            [Description("大臂")]
+            Arm,
+            [Description("腰围")]
+            Waist,
+            [Description("大腿")]
+            Thigh,
+            [Description("肩膀")]
+            Shoulder,
+            [Description("臀部")]
+            Hip,
+        }
+
         public enum BFRGoalStatus
         {
             [Description("进行中")]

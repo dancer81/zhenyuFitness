@@ -11,13 +11,20 @@ function initMyGoal(v) {
 }
 
 function initVariable(value) {
-    if (value.length < 6) { alert("其他类型目标的ID数量不符。");return; }
+    if (value.length < 12) { alert("其他类型目标的ID数量不符。");return; }
     squatsID = value[0];
     deadLiftID = value[1];
     barbellPressID = value[2];
     shoulderPressID = value[3];
     barbellRowID = value[4];
     barbellCurlID = value[5];
+
+    chestID = value[6]
+    armID = value[7]
+    waistID = value[8]
+    thighID = value[9]
+    shoulderID = value[10]
+    hipID = value[11]
 }
 
 function initDatePicker() {
@@ -2228,4 +2235,115 @@ function updateLiftWeightStats()
 
 
 //********************结束：更新力量型目标的数据***************************
+
+//********************开始：测量型目标***************************
+///初始化“新增测量型目标框”
+function initModal_AddMeasurementGoal(measurementType) {
+    switch (measurementType) {
+        case "chest":
+            $(".measurementType").html("胸围");
+            $("#measuretType").val("chest");
+            break;
+        case "arm":
+            $(".measurementType").html("大臂围度");
+            $("#measuretType").val("arm");
+            break;
+        case "waist":
+            $(".measurementType").html("腰围");
+            $("#measuretType").val("waist");
+            break;
+        case "thigh":
+            $(".measurementType").html("大腿围度");
+            $("#measuretType").val("thigh");
+            break;
+        case "shoulder":
+            $(".measurementType").html("肩膀围度");
+            $("#measuretType").val("shoulder");
+            break;
+        case "hip":
+            $(".measurementType").html("臀围");
+            $("#measuretType").val("hip");
+            break;
+        default:
+            break;
+    }
+}
+
+function submitModal_AddMeasurementGoal() {
+    var type = $("#measuretType").val();
+    var startValue = $("#currentMeasurementAmount").val();
+    var goalValue = $("#goalMeasurementAmount").val();
+    var goalDaysCount = $("#goalMeasurementDaysCountAmount").val();
+
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "addMeasurementGoal", startValue: startValue, goalValue: goalValue, goalDaysCount: goalDaysCount, type: type },
+        async: true,
+        success: function (data) {
+            if (data == "1" || data == "0" ) {//更新失败
+                if (date == "0") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "1") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                //刷新前台页面
+                //$("#squatsGoal").modal("hide");
+                //AlertBasic("设定目标：自由杠铃深蹲成功。");
+                //$("#startValueHtml_squats").html(startLiftWeightMax);
+                //var nowDate = new Date();
+                //$("#startDateHtml_squats").html(nowDate.getFullYear() + "-" + (nowDate.getMonth() * 1 + 1).toString() + "-" + nowDate.getDate());
+                //$("#goalValueHtml_squats").html(goalLiftWeightMax);
+                //$("#goalDaysLeftHtml_squats").html(goalDaysCount);
+                //$("#progress_currentLiftWeightAmount_squats").html(startLiftWeightMax);
+                //$("#progress_currentLiftWeightAchievedPercent_squats").html(0);
+                //$("#progress_currentLiftWeightStatus_squats").html("<span style='color:green'>进行中</span>");
+
+                //$("#addOtherGoal_squats").addClass("disableCss");
+                //$("#deleteOtherGoal_squats").removeClass("disableCss");
+                //$("#updateOtherGoal_squats").removeClass("disableCss");
+
+                //squatsID = data.toString();
+
+                //chestID = value[6]
+                //armID = value[7]
+                //waistID = value[8]
+                //thighID = value[9]
+                //shoulderID = value[10]
+                //hipID = value[11]
+
+                var startValue = "startValueHtml_";
+                var startDate = "startDateHtml_";
+                var goalValue = "goalValueHtml_";
+                var goalDaysLeft = "goalDaysLeftHtml_";
+                var currentAmount = "progress_currentLiftWeightAmount_";
+                var percent = "progress_currentLiftWeightAchievedPercent_";
+                var status = "progress_currentLiftWeightStatus_";
+
+
+
+                switch (type) {
+                    case "chest":
+                        chestID = data.toString();
+                        break;
+                    default:
+                        break;
+                }
+                $("#addOtherGoal_" + type).addClass("disableCss");
+                $("#deleteOtherGoal_" + type).removeClass("disableCss");
+                $("#updateOtherGoal_" + type).removeClass("disableCss");
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("增加测量型目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
 
