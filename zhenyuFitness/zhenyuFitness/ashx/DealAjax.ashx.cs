@@ -82,6 +82,13 @@ namespace zhenyuFitness.ashx
                     context.Response.Write(addMeasurementGoal_retType);
                     context.Response.End();
                     break;
+                case "deleteMeasurementGoal":
+                    int deleteMeasurementGoal_retType = this.DeleteMeasurementGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(deleteMeasurementGoal_retType);
+                    context.Response.End();
+                    break;
                 default:
                     break;
             }
@@ -500,7 +507,7 @@ namespace zhenyuFitness.ashx
 
 
 
-
+        //新增测量型目标
         private string AddMeasurementGoal(HttpContext context)
         {
             string retType = "0";
@@ -561,6 +568,34 @@ namespace zhenyuFitness.ashx
             }
             return retType;
 
+        }
+
+        //删除测量型目标
+        private int DeleteMeasurementGoal(HttpContext context)
+        {
+            int retType = 0;
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                return retType;
+
+            }
+
+            string id = context.Request.Form["ID"].ToString();
+
+            string sqlDelete = string.Format(@"UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
+                                               SET 
+                                             [GoalStatus] = {1} WHERE ID = '{0}'",
+                                             id, (int)Common.Common.OtherGoalStatus.Canceled);
+            try
+            {
+                dal.ExecSQL(sqlDelete);
+                retType = 1;
+            }
+            catch
+            {
+                retType = 2;
+            }
+            return retType;
         }
 
 

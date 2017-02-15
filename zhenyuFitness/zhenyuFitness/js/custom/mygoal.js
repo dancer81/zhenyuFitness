@@ -1011,8 +1011,8 @@ function CheckUpdateCurrentBFR_bfrinput(inputValue) {
 
 
 
-
-//估算One Rep Max
+///********************开始：力量型目标***************************
+///估算One Rep Max
 function EstimateRepMax(weightUsed, numberOfRepetitions) {
     return weightUsed / (1.0278 - (0.0278 * numberOfRepetitions));
 }
@@ -1060,7 +1060,7 @@ function initStrengthGoalSectionButtons() {
         }
     }
 }
-//********************开始：目标设定***************************
+///********************开始：目标设定***************************
 //初始化力量型目标增加框
 function initModal_settingGoal(type)
 {
@@ -1147,7 +1147,7 @@ function initModal_settingGoal(type)
     }
 }
 
-//start:在力量型目标框里操作时的变化
+///start:在力量型目标框里操作时的变化
 function updateModel_squats(currentLiftWeightAmount, currentRepsCount, goalLiftWeightAmount, goalRepsCount)
 {
     if (currentLiftWeightAmount.length > 3) {
@@ -1293,9 +1293,9 @@ function updateModel_barbellCurl(currentLiftWeightAmount, currentRepsCount, goal
     }
     $('#goalLiftWeightRepsCount_barbellCurl').html(goalRepsCount);
 }
-//end:在力量型目标框里操作时的变化
+///end:在力量型目标框里操作时的变化
 
-//start：添加力量型目标
+///start：添加力量型目标
 function addOtherGoal_squats() {
     var startLiftWeight = $("#currentLiftWeightAmount_squats").val();
     var startRepsCount = $("#currentRepsCountInput_squats").val();
@@ -1372,7 +1372,6 @@ function addOtherGoal_squats() {
         }
     });
 }
-
 function addOtherGoal_deadLift() {
     var startLiftWeight = $("#currentLiftWeightAmount_deadLift").val();
     var startRepsCount = $("#currentRepsCountInput_deadLift").val();
@@ -1447,7 +1446,6 @@ function addOtherGoal_deadLift() {
         }
     });
 }
-
 function addOtherGoal_barbellPress() {
     var startLiftWeight = $("#currentLiftWeightAmount_barbellPress").val();
     var startRepsCount = $("#currentRepsCountInput_barbellPress").val();
@@ -1522,7 +1520,6 @@ function addOtherGoal_barbellPress() {
         }
     });
 }
-
 function addOtherGoal_shoulderPress() {
     var startLiftWeight = $("#currentLiftWeightAmount_shoulderPress").val();
     var startRepsCount = $("#currentRepsCountInput_shoulderPress").val();
@@ -1597,7 +1594,6 @@ function addOtherGoal_shoulderPress() {
         }
     });
 }
-
 function addOtherGoal_barbellRow() {
     var startLiftWeight = $("#currentLiftWeightAmount_barbellRow").val();
     var startRepsCount = $("#currentRepsCountInput_barbellRow").val();
@@ -1671,7 +1667,6 @@ function addOtherGoal_barbellRow() {
         }
     });
 }
-
 function addOtherGoal_barbellCurl() {
     var startLiftWeight = $("#currentLiftWeightAmount_barbellCurl").val();
     var startRepsCount = $("#currentRepsCountInput_barbellCurl").val();
@@ -1745,14 +1740,9 @@ function addOtherGoal_barbellCurl() {
         }
     });
 }
-//end：添加力量型目标
-//********************结束：目标设定***************************
+///end：添加力量型目标
 
-
-
-
-//********************开始：力量型目标删除***************************
-//初始化力量型目标删除框
+///初始化：“删除力量型目标框”
 function initDeleteOtherGoalmodal(type) {
     if (type == "squats") {
         $(".strengthSubTitlName").html("自由杠铃深蹲");
@@ -1782,7 +1772,7 @@ function initDeleteOtherGoalmodal(type) {
 
     }
 }
-//删除力量型目标
+///提交：“删除力量型目标框”
 function deleteOtherGoal() {
     var type;
     var strengthGoalID;
@@ -1940,13 +1930,9 @@ function deleteOtherGoal() {
         }
     });
 }
-//********************结束：力量型目标删除***************************
 
 
-
-
-
-//********************开始：更新力量型目标的数据***************************
+///初始化：“更新力量型目标框”
 function initUpdateLiftWeightStats(type)
 {
     $(".UpdateLiftWeightStats_goalLiftWeightAmount").val("");
@@ -1989,7 +1975,7 @@ function initUpdateLiftWeightStats(type)
 
     }
 }
-
+///数据过滤
 function updateModel_updateLiftWeightStats(goalLiftWeightAmount, goalRepsCount)
 {
     if (goalLiftWeightAmount.length > 3) {
@@ -2002,7 +1988,7 @@ function updateModel_updateLiftWeightStats(goalLiftWeightAmount, goalRepsCount)
     }
     $('.UpdateLiftWeightStats_goalLiftWeightRepsCount_squats').html(goalRepsCount);
 }
-
+///提交：“更新力量型目标框”
 function updateLiftWeightStats()
 {
     //alert(squatsID);
@@ -2229,12 +2215,8 @@ function updateLiftWeightStats()
 
 
 }
+///********************结束：力量型目标***************************
 
-
-
-
-
-//********************结束：更新力量型目标的数据***************************
 
 //********************开始：测量型目标***************************
 ///初始化“新增测量型目标框”
@@ -2300,7 +2282,7 @@ function submitModal_AddMeasurementGoal() {
                 }
             }
             else {//数据库更新成功，更新前台数据
-                AlertBasic("更新数据成功。");
+                AlertBasic("新增目标成功。");
                 var startValueHtml = "startValueHtml_";
                 var startDateHtml = "startDateHtml_";
                 var goalValueHtml = "goalValueHtml_";
@@ -2340,6 +2322,135 @@ function submitModal_AddMeasurementGoal() {
     });
 }
 
+///初始化“删除测量型目标框”
+function initModal_DeleteMeasurementGoal(measurementType) {
+    var startDate = $("#startDateHtml_" + measurementType).html();
+    var measurementID;
+    switch (measurementType) {
+        case "chest":
+            $(".measurementType").html("胸围");
+            measurementID = chestID;
+            break;
+        case "arm":
+            $(".measurementType").html("大臂围度");
+            measurementID = armID;
+            break;
+        case "waist":
+            $(".measurementType").html("腰围");
+            measurementID = waistID;
+            break;
+        case "thigh":
+            $(".measurementType").html("大腿围度");
+            measurementID = thighID;
+            break;
+        case "shoulder":
+            $(".measurementType").html("肩膀围度");
+            measurementID = shoulderID;
+            break;
+        case "hip":
+            $(".measurementType").html("臀围");
+            measurementID = hipID;
+            break;
+        default:
+            break;
+    }
+    $(".measurementSubTitleCreateDate").html(startDate);
+    $("#measurementID").val(measurementID);
+    $("#measuretType").val(measurementType);
+    
+}
+
+///提交“删除测量型目标框”
+function submitModal_DeleteMeasurementGoal() {
+    //alert(1);
+    var id = $("#measurementID").val();
+    var type = $("#measuretType").val();
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "deleteMeasurementGoal", ID: id},
+        async: true,
+        success: function (data) {
+            $("#deleteMeasurementGoal").modal("hide");
+
+            if (data == "2" || data == "0") {//更新失败
+                if (date == "0") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (date == "2") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                AlertBasic("删除目标成功。");
+                
+                ///设置按钮的可见性
+                $("#addOtherGoal_" + type).removeClass("disableCss");
+                $("#deleteOtherGoal_" + type).addClass("disableCss");
+                $("#updateOtherGoal_" + type).addClass("disableCss");
+
+                ///更新对应的显示字段
+                var startValueHtml = "startValueHtml_";
+                var startDateHtml = "startDateHtml_";
+                var goalValueHtml = "goalValueHtml_";
+                var goalDaysLeftHtml = "goalDaysLeftHtml_";
+                var currentValueHtml = "progress_currentLiftWeightAmount_";
+                var percentHtml = "progress_currentLiftWeightAchievedPercent_";
+                var statusHtml = "progress_currentLiftWeightStatus_";
+
+                $("#" + startValueHtml + type).html(0);
+                $("#" + startDateHtml + type).html("尚未制定");
+                $("#" + goalValueHtml + type).html(0);
+                $("#" + goalDaysLeftHtml + type).html(0);
+                $("#" + currentValueHtml + type).html(0);
+                $("#" + percentHtml + type).html("0.0");
+                $("#" + statusHtml + type).html("未开始");
+                $("#" + statusHtml + type).css("color", "red");
+
+                switch (type) {
+                    case "chest":
+                        chestID = "";
+                        break;
+                    case "arm":
+                        armID = "";
+                        break;
+                    case "waist":
+                        waistID = "";
+                        break;
+                    case "thigh":
+                        thighID = "";
+                        break;
+                    case "shoulder":
+                        shoulderID = "";
+                        break;
+                    case "hip":
+                        hipID = "";
+                        break;
+                    default:
+                        break;
+                }
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("删除测量型目标时出错了");
+            alert(errorThrown);
+        }
+    });
+}
+
+///初始化“更新测量型目标框”
+function initModal_UpdateMeasurementGoal(measurementType)
+{
+
+}
+
+///提交“更新测量型目标框”
+function submitModal_updateMeasurementGoal() {
+
+}
 
 
 //********************结束：测量型目标***************************

@@ -1895,7 +1895,7 @@
                     </div>
                     <div class="modal-body">
                         <div class="container">
-                            <div><span class="strengthSubTitle"><span class="measurementType"></span>目标</span></div>
+                            <div><span class="strengthSubTitle">新增：<span class="measurementType"></span>目标</span></div>
                             <div class="strengthGoalContent">
                                 <table>
                                     <tr>
@@ -1953,6 +1953,72 @@
                         <input type="hidden" id="measuretType"/>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                         <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_AddMeasurementGoal()">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade strengthGoal" id="deleteMeasurementGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title"><span class="strengthTitle">测量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle" >删除目标：<span class="strengthSubTitlName"></span></span></div>
+                            <div class="strengthGoalContent" style="height:150px;padding-top:20px;">
+                                <span class="deleteCurrentGoal_message">确定要删除测量型目标：<span class="strengthSubTitlName measurementType"></span>吗？</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate measurementSubTitleCreateDate"></span>】</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" id="measurementID" />
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_DeleteMeasurementGoal()">确定</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade strengthGoal" id="updateMeasurementGoal" tabindex="-1" role="dialog" aria-labelledby="squatsGoalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" style="color: white;"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" ><span class="strengthTitle">测量型目标</span></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div><span class="strengthSubTitle">更新数据：<span class="measurementType"></span>目标</span><span class="deleteCurrentGoal_createdatetime">【该目标创建于<span class="strengthSubTitleCreateDate updateMeasurementGoal_createDateTime"></span>】</span></div>
+                            <div class="strengthGoalContent">
+                                <table>
+                                    <tr>
+                                        <td style="padding-left:160px;padding-top:30px;">
+                                            <div class="goalLiftWeightDaysCountDesc">您当前的数据</div>
+                                            <div class="goalLiftWeightDaysCountWrap">
+                                                <div>
+                                                    <input min="1" id="currentMeasurementGoalData" class="goalLiftWeightDaysCountAmount" type="number" />
+                                                </div>
+                                                <div class="goalLiftWeightDaysCountUnit">厘米</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <span class="deleteCurrentGoal_createdatetime">【当前时间：<span class="strengthSubTitleCreateDate updateMeasurementGoal_currentDateTime"></span>】</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+<%--                        <input type="hidden" id="measuretType"/>--%>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_updateMeasurementGoal()">提交</button>
                     </div>
                 </div>
             </div>
