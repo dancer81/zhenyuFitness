@@ -1950,7 +1950,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" id="measuretType"/>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                         <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_AddMeasurementGoal()">提交</button>
                     </div>
@@ -1974,7 +1973,6 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <input type="hidden" id="measurementID" />
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                         <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_DeleteMeasurementGoal()">确定</button>
                     </div>
@@ -2007,8 +2005,8 @@
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <span class="deleteCurrentGoal_createdatetime">【当前时间：<span class="strengthSubTitleCreateDate updateMeasurementGoal_currentDateTime"></span>】</span>
+                                        <td style="padding-top:18px;">
+                                            <span  class="deleteCurrentGoal_createdatetime">【当前时间：<span class="strengthSubTitleCreateDate updateMeasurementGoal_currentDateTime"></span>】</span>
                                         </td>
                                     </tr>
                                 </table>
@@ -2016,13 +2014,14 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-<%--                        <input type="hidden" id="measuretType"/>--%>
                         <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
                         <button style="margin-right: 18px;" type="button" class="btn btn-primary" onclick="submitModal_updateMeasurementGoal()">提交</button>
                     </div>
                 </div>
             </div>
         </div>
+        <input type="hidden" id="measurementID" />
+        <input type="hidden" id="measuretType"/>
 
     </div>
     <input type="hidden" id="goalid" value="<%=GoalID %>" />

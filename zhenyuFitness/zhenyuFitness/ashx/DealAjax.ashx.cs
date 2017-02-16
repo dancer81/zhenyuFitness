@@ -89,6 +89,13 @@ namespace zhenyuFitness.ashx
                     context.Response.Write(deleteMeasurementGoal_retType);
                     context.Response.End();
                     break;
+                case "updateMeasurementGoal":
+                    int updateMeasurementGoal_retType = this.UpdateMeasurementGoal(context);
+
+                    context.Response.Clear();
+                    context.Response.Write(updateMeasurementGoal_retType);
+                    context.Response.End();
+                    break;
                 default:
                     break;
             }
@@ -598,7 +605,77 @@ namespace zhenyuFitness.ashx
             return retType;
         }
 
+        //更新测量型目标
+        private int UpdateMeasurementGoal(HttpContext context)
+        {
+            int retType = 0;
+            if (Common.Common.NoneOrEmptyString(context.Session["UserID"]))
+            {
+                return retType;
 
+            }
+
+            string id = context.Request.Form["ID"].ToString();
+            string userID = context.Session["UserID"].ToString();
+            string currentValue = context.Request.Form["currentValue"].ToString();
+            string startValue = context.Request.Form["startValue"].ToString();
+            string goalValue = context.Request.Form["goalValue"].ToString();
+            int type = this.getMeasurementGoalType(context.Request.Form["type"].ToString());
+
+            bool complete = false;
+            float start = float.Parse(startValue);
+            float goal = float.Parse(goalValue);
+            float current = float.Parse(currentValue);
+            if(((current - start) / (goal - start))>= 1){
+                complete = true;
+            }
+
+            string sqlInsertTrackMeasurementGoal = string.Format(@"INSERT INTO [zhenyuFitness].[dbo].[TrackMeasurementGoal]
+                                           ([ID]
+                                           ,[UserID]
+                                           ,[MeasurementGoalID]
+                                           ,[TypeMain]
+                                           ,[TypeSub]
+                                           ,[CurrentValue]
+                                           ,[CreateDate]
+                                           ,[CreateUser]
+                                           ,[LastModifiedDate]
+                                           ,[LastModifiedUser]
+                                           ,[Valid])
+                                     VALUES
+                                           (NEWID()
+                                           ,'{0}'
+                                           ,'{1}'
+                                           ,{2}
+                                           ,{3}
+                                           ,{4}
+                                           ,GETDATE()
+                                           ,'{0}'
+                                           ,GETDATE()
+                                           ,'{0}'
+                                           ,1)",userID,id,(int)Common.Common.GoalTypeBasic.Measurement,
+                                           type,currentValue);
+            string sqlUpdateGoalStatus = string.Format(@"UPDATE [zhenyuFitness].[dbo].[UserOtherGoal]
+                        SET [GoalStatus] = {1} WHERE ID = '{0}'",id,(int)Common.Common.OtherGoalStatus.Achieved);
+            try
+            {
+                if (complete)
+                {
+                    dal.ExecuteSqlTran(new List<string>() { sqlInsertTrackMeasurementGoal, sqlUpdateGoalStatus });
+                    retType = 2;
+                }
+                else
+                {
+                    dal.ExecSQL(sqlInsertTrackMeasurementGoal);
+                }
+                retType = 1;
+            }
+            catch
+            {
+                retType = 3;
+            }
+            return retType;
+        }
 
 
 

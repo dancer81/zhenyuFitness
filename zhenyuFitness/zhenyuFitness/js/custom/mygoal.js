@@ -2271,10 +2271,10 @@ function submitModal_AddMeasurementGoal() {
             $("#addMeasurementGoal").modal("hide");
 
             if (data == "1" || data == "0" ) {//更新失败
-                if (date == "0") {
+                if (data == "0") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "1") {
+                else if (data == "1") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -2295,6 +2295,21 @@ function submitModal_AddMeasurementGoal() {
                     case "chest":
                         chestID = data.toString();
                         break;
+                    case "arm":
+                        armID = data.toString();
+                        break;
+                    case "waist":
+                        waistID = data.toString();
+                        break;
+                    case "thigh":
+                        thighID = data.toString();
+                        break;
+                    case "shoulder":
+                        shoulderID = data.toString();
+                        break;
+                    case "hip":
+                        hipID = data.toString();
+                        break;
                     default:
                         break;
                 }
@@ -2303,6 +2318,7 @@ function submitModal_AddMeasurementGoal() {
                 $("#deleteOtherGoal_" + type).removeClass("disableCss");
                 $("#updateOtherGoal_" + type).removeClass("disableCss");
 
+                alert(type+","+startValue + "," + goalValue );
                 ///更新对应的显示字段
                 $("#" + startValueHtml + type).html(startValue);
                 $("#" + startDateHtml + type).html((new Date()).toLocaleDateString());
@@ -2374,10 +2390,10 @@ function submitModal_DeleteMeasurementGoal() {
             $("#deleteMeasurementGoal").modal("hide");
 
             if (data == "2" || data == "0") {//更新失败
-                if (date == "0") {
+                if (data == "0") {
                     AlertBasic("您尚未登录！请登录后重试。")
                 }
-                else if (date == "2") {
+                else if (data == "2") {
                     AlertBasic("更新数据时出错，请重试！");
                 }
                 else {
@@ -2444,12 +2460,108 @@ function submitModal_DeleteMeasurementGoal() {
 ///初始化“更新测量型目标框”
 function initModal_UpdateMeasurementGoal(measurementType)
 {
+    var measurementID;
+    switch (measurementType) {
+        case "chest":
+            $(".measurementType").html("胸围");
+            measurementID = chestID;
+            break;
+        case "arm":
+            $(".measurementType").html("大臂围度");
+            measurementID = armID;
+            break;
+        case "waist":
+            $(".measurementType").html("腰围");
+            measurementID = waistID;
+            break;
+        case "thigh":
+            $(".measurementType").html("大腿围度");
+            measurementID = thighID;
+            break;
+        case "shoulder":
+            $(".measurementType").html("肩膀围度");
+            measurementID = shoulderID;
+            break;
+        case "hip":
+            $(".measurementType").html("臀围");
+            measurementID = hipID;
+            break;
+        default:
+            break;
+    }
 
+    $(".updateMeasurementGoal_createDateTime").html($("#startDateHtml_" + measurementType).html());
+    $(".updateMeasurementGoal_currentDateTime").html((new Date()).toLocaleString());
+
+    $("#measurementID").val(measurementID);
+    $("#measuretType").val(measurementType);
 }
 
 ///提交“更新测量型目标框”
 function submitModal_updateMeasurementGoal() {
+    var id = $("#measurementID").val();
+    var type = $("#measuretType").val();
+    var startValue = $("#startValueHtml_" + type).html();
+    var goalValue = $("#goalValueHtml_" + type).html();
+    var currentValue = $("#currentMeasurementGoalData").val();
 
+    $.ajax({
+        type: "POST",
+        url: "/zhenyuFitness/ashx/DealAjax.ashx",
+        data: { ajaxtype: "updateMeasurementGoal", ID: id, currentValue: currentValue, startValue: startValue, goalValue: goalValue, type:type },
+        async: true,
+        success: function (data) {
+            $("#updateMeasurementGoal").modal("hide");
+
+            if (data == "3" || data == "0") {//更新失败
+                if (date == "0") {
+                    AlertBasic("您尚未登录！请登录后重试。")
+                }
+                else if (data == "3") {
+                    AlertBasic("更新数据时出错，请重试！");
+                }
+                else {
+                    AlertBasic("什么都没有发生！");
+                }
+            }
+            else {//数据库更新成功，更新前台数据
+                AlertBasic("更新数据成功。");
+
+                ///设置按钮的可见性
+                if(data == "3") $("#addOtherGoal_" + type).removeClass("disableCss");//目标完成时，显示“新增”按钮
+
+                ///更新对应的显示字段
+                var startValueHtml = "#startValueHtml_" + type;
+                var startDateHtml = "#startDateHtml_" + type;
+                var goalValueHtml = "#goalValueHtml_" + type;
+                var goalDaysLeftHtml = "#goalDaysLeftHtml_" + type;
+                var currentValueHtml = "#progress_currentLiftWeightAmount_" + type;
+                var percentHtml = "#progress_currentLiftWeightAchievedPercent_" + type;
+                var statusHtml = "#progress_currentLiftWeightStatus_" + type;
+
+                var start = parseFloat($(startValueHtml).html());
+                var goal = parseFloat($(goalValueHtml).html());
+                var current = parseFloat(currentValue);
+                var percent = 100 * (current - start) / (goal - start);
+                //alert(start + "," + goal + "," + current + "," + percent)
+
+                $(currentValueHtml).html(currentValue);
+                $(percentHtml).html(percent.toFixed(1));
+                if (percent >= 100) {
+                    $(statusHtml).html("已完成");
+                    $(statusHtml).css("color", "#3366CC");
+                }
+                else {
+                    $(statusHtml).html("进行中");
+                    $(statusHtml).css("color", "green");
+                }
+            }
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            alert("更新测量型目标时出错了");
+            alert(errorThrown);
+        }
+    });
 }
 
 
