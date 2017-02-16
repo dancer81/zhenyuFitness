@@ -2318,7 +2318,7 @@ function submitModal_AddMeasurementGoal() {
                 $("#deleteOtherGoal_" + type).removeClass("disableCss");
                 $("#updateOtherGoal_" + type).removeClass("disableCss");
 
-                alert(type+","+startValue + "," + goalValue );
+                //alert(type+","+startValue + "," + goalValue );
                 ///更新对应的显示字段
                 $("#" + startValueHtml + type).html(startValue);
                 $("#" + startDateHtml + type).html((new Date()).toLocaleDateString());
@@ -2328,6 +2328,7 @@ function submitModal_AddMeasurementGoal() {
                 $("#" + percentHtml + type).html("0.0");
                 $("#" + statusHtml + type).html("进行中");
                 $("#" + statusHtml + type).css("color", "green");
+                //alert("asdasdf");
 
             }
         },
