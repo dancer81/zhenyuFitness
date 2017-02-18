@@ -422,7 +422,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+                                                        <div id="progressbar_squats" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_squats %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -467,7 +467,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_deadLift" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_deadLift %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -526,7 +526,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_barbellPress" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_barbellPress %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -585,7 +585,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_shoulderPress" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_shoulderPress %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -644,7 +644,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_barbellRow" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_barbellRow %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -703,7 +703,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_barbellCurl" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_barbellCurl %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -775,7 +775,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_chest" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_chest %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -787,17 +787,17 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_chest"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_chest"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_chest"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_chest"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_chest"><%=startValue_chest %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_chest"><%=startDate_chest %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_chest"><%=goalValue_chest %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_chest"><%=goalDate_chest %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_chest"><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_chest"><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_chest"><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_chest"><%=currentValue_chest %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_chest"><%=percent_chest %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_chest"><%=goalStatus_chest %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -820,7 +820,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_arm" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_arm %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -832,17 +832,17 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_arm"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_arm"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_arm"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_arm"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_arm"><%=startValue_arm %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_arm"><%=startDate_arm %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_arm"><%=goalValue_arm %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_arm"><%=goalDate_arm %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_arm"><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_arm"><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_arm"><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_arm"><%=currentValue_arm %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_arm"><%=percent_arm %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_arm"><%=goalStatus_arm %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -865,7 +865,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_waist" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_waist %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -877,17 +877,17 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_waist"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_waist"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_waist"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_waist"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_waist"><%=startValue_waist %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_waist"><%=startDate_waist %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_waist"><%=goalValue_waist %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_waist"><%=goalDate_waist %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_waist"><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_waist"><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_waist"><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_waist"><%=currentValue_waist %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_waist"><%=percent_waist %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_waist"><%=goalStatus_waist %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -910,7 +910,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_thigh" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_thigh %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -922,22 +922,17 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_thigh"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_thigh"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_thigh"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_thigh"><%=goalDate_barbellCurl %></span>天</td>
-
-                                                <%--<td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_thigh "><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_thigh "><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_thigh "><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_thigh "><%=goalDate_barbellCurl %></span>天</td>--%>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_thigh"><%=startValue_thigh %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_thigh"><%=startDate_thigh %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_thigh"><%=goalValue_thigh %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_thigh"><%=goalDate_thigh %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_thigh "><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_thigh "><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_thigh "><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_thigh"><%=currentValue_thigh %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_thigh"><%=percent_thigh %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_thigh"><%=goalStatus_thigh %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -949,6 +944,23 @@
                                                     <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_thigh" onclick="initModal_UpdateMeasurementGoal('thigh')">更新数据</a>
                                                 </td>
                                             </tr>
+                                            <%--<tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
+                                                    <span id="progress_currentLiftWeightAmount_thigh "><%=currentValue_thigh %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_thigh "><%=percent_thigh %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_thigh "><%=goalStatus_thigh %></span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#" data-toggle="modal" data-target="#addMeasurementGoal" id="addOtherGoal_thigh" onclick="initModal_AddMeasurementGoal('thigh')">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteMeasurementGoal" id="deleteOtherGoal_thigh" onclick="initModal_DeleteMeasurementGoal('thigh')">目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_thigh" onclick="initModal_UpdateMeasurementGoal('thigh')">更新数据</a>
+                                                </td>
+                                            </tr>--%>
                                             <tr>
                                                 <td class="othergoalseperator"></td>
                                             </tr>
@@ -961,7 +973,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_shoulder" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_shoulder %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -973,17 +985,17 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_shoulder"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_shoulder"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_shoulder"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_shoulder"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_shoulder"><%=startValue_shoulder %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_shoulder"><%=startDate_shoulder %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_shoulder"><%=goalValue_shoulder %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_shoulder"><%=goalDate_shoulder %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_shoulder "><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_shoulder "><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_shoulder "><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_shoulder"><%=currentValue_shoulder %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_shoulder"><%=percent_shoulder %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_shoulder"><%=goalStatus_shoulder %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
@@ -995,6 +1007,23 @@
                                                     <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_shoulder" onclick="initModal_UpdateMeasurementGoal('shoulder')">更新数据</a>
                                                 </td>
                                             </tr>
+                                            <%--<tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
+                                                    <span id="progress_currentLiftWeightAmount_shoulder "><%=currentValue_shoulder %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_shoulder "><%=percent_shoulder %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_shoulder "><%=goalStatus_shoulder %></span></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="4" class="othergoaloperation">
+                                                    <a href="#" data-toggle="modal" data-target="#addMeasurementGoal" id="addOtherGoal_shoulder" onclick="initModal_AddMeasurementGoal('shoulder')">目标设定</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteMeasurementGoal" id="deleteOtherGoal_shoulder" onclick="initModal_DeleteMeasurementGoal('shoulder')">目标删除</a>
+                                                    <span>&nbsp;|&nbsp;</span>
+                                                    <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_shoulder" onclick="initModal_UpdateMeasurementGoal('shoulder')">更新数据</a>
+                                                </td>
+                                            </tr>--%>
                                             <tr>
                                                 <td class="othergoalseperator"></td>
                                             </tr>
@@ -1006,7 +1035,7 @@
                                             <tr>
                                                 <td colspan="4" style="text-align: left; padding-left: 0; height: 28px;">
                                                     <div class="progress progress-striped active" style="margin-top: 10px; margin-bottom: 10px;">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: 35%">
+                                                        <div id="progressbar_hip" class="progress-bar" role="progressbar" aria-valuenow="35" aria-valuemin="0" aria-valuemax="100" style="width: <%=percent_hip %>%">
                                                         </div>
                                                     </div>
                                                 </td>
@@ -1018,28 +1047,38 @@
                                                 <td class="othergoalfield">剩余天数</td>
                                             </tr>
                                             <tr>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_hip"><%=startValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_hip"><%=startDate_barbellCurl %></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_hip"><%=goalValue_barbellCurl %></span><span>厘米</span></td>
-                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_hip"><%=goalDate_barbellCurl %></span>天</td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="startValueHtml_hip"><%=startValue_hip %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue" style="font-family: 'Times New Roman';" id="startDateHtml_hip"><%=startDate_hip %></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalValueHtml_hip"><%=goalValue_hip %></span><span>厘米</span></td>
+                                                <td class="othergoalvalue"><span style="font-family: 'Times New Roman';" id="goalDaysLeftHtml_hip"><%=goalDate_hip %></span>天</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoalprogressdesc">
                                                     <span>当前</span>
-                                                    <span id="progress_currentLiftWeightAmount_hip "><%=currentValue_barbellCurl %></span><span>厘米</span>
-                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_hip "><%=percent_barbellCurl %></span>%<span>进度完成</span>)</span>
-                                                    <span>状态：<span id="progress_currentLiftWeightStatus_hip "><%=goalStatus_barbellCurl %></span></span>
+                                                    <span id="progress_currentLiftWeightAmount_hip"><%=currentValue_hip %></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_hip"><%=percent_hip %></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_hip"><%=goalStatus_hip %></span></span>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="4" class="othergoaloperation">
-                                                    <a href="#" data-toggle="modal" data-target="#addMeasurementGoal" id="addOtherGoal_hip " onclick="initModal_AddMeasurementGoal('hip')">目标设定</a>
+                                                    <a href="#" data-toggle="modal" data-target="#addMeasurementGoal" id="addOtherGoal_hip" onclick="initModal_AddMeasurementGoal('hip')">目标设定</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#deleteMeasurementGoal" id="deleteOtherGoal_hip " onclick="initModal_DeleteMeasurementGoal('hip')">目标删除</a>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteMeasurementGoal" id="deleteOtherGoal_hip" onclick="initModal_DeleteMeasurementGoal('hip')">目标删除</a>
                                                     <span>&nbsp;|&nbsp;</span>
-                                                    <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_hip " onclick="initModal_UpdateMeasurementGoal('hip')">更新数据</a>
+                                                    <a href="#" data-toggle="modal" data-target="#updateMeasurementGoal" id="updateOtherGoal_hip" onclick="initModal_UpdateMeasurementGoal('hip')">更新数据</a>
                                                 </td>
                                             </tr>
+                                            <%--
+                                            <tr>
+                                                <td colspan="4" class="othergoalprogressdesc">
+                                                    <span>当前</span>
+                                                    <span id="progress_currentLiftWeightAmount_hip "><%=currentValue_hip%></span><span>厘米</span>
+                                                    <span>(<span id="progress_currentLiftWeightAchievedPercent_hip "><%=percent_hip%></span>%<span>进度完成</span>)</span>
+                                                    <span>状态：<span id="progress_currentLiftWeightStatus_hip "><%=goalStatus_hip%></span></span>
+                                                </td>
+                                            </tr>--%>
+                                            <%--  --%>
                                             <tr>
                                                 <td class="othergoalseperator"></td>
                                             </tr>
@@ -2051,12 +2090,12 @@
             App.init();   ////to do：加载时需要判断各个目标是否过期
 
             var v = [];
-            v.push('<%=SquatsID %>');
-            v.push('<%=DeadLiftID %>');
-            v.push('<%=BarbellPress %>');
-            v.push('<%=ShoulderPress %>');
-            v.push('<%=BarbellPress %>');
-            v.push('<%=BarbellPress %>');
+            v.push('<%=this.squatsID %>');
+            v.push('<%=this.deadLiftID %>');
+            v.push('<%=this.barbellPress %>');
+            v.push('<%=this.shoulderPress %>');
+            v.push('<%=this.barbellRow %>');
+            v.push('<%=this.barbellCurl %>');
 
             v.push('<%=ChestID %>');
             v.push('<%=ArmID %>');
