@@ -243,7 +243,7 @@ namespace zhenyuFitness.Common
         }
         #endregion
 
-            #region 动作相关
+        #region 动作相关
         public enum ForceType
         {
             [Description("推")]
@@ -290,6 +290,43 @@ namespace zhenyuFitness.Common
             Post,
             [Description("其他")]
             Other,
+        };
+        #endregion
+
+        #region 图片相关
+        public enum PhotoFormat
+        {
+            JPG_JPEG,
+            PNG,
+            TIF,
+        };
+
+        public enum PhotoCategory
+        {
+            [Description("个人主页的Banner照片")]
+            PersonalBanner,
+            [Description("对外展示的个人档案的照片")]
+            MainProfile,
+            [Description("个人健身进展的照片")]
+            Progress,
+        };
+
+        public enum ThumbnailCategory
+        {
+            Middle,
+            Small,
+        }
+
+
+        #endregion
+
+        #region 系统相关
+        public enum Module
+        {
+            [Description("健身目标模块")]
+            FitnessGoal,
+            [Description("健身计划模块")]
+            FitnessPlan,
         };
         #endregion
 

@@ -222,6 +222,7 @@
     <Content Include="MasterPages\generalMaster.Master" />
     <Content Include="js\jquery_Countdown\images\.DS_Store" />
     <Content Include="ashx\DealAjax.ashx" />
+    <Content Include="Pages\PhotoManager\PhotoUpload.aspx" />
     <Content Include="TestPages\WebForm1.aspx" />
     <Content Include="TestPages\WebForm2.aspx" />
     <Content Include="问题\TextFile1.txt" />
@@ -1245,6 +1246,13 @@
     </Compile>
     <Compile Include="Pages\LoujunjieAdmin\Admin_ExerciseList.aspx.designer.cs">
       <DependentUpon>Admin_ExerciseList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PhotoManager\PhotoUpload.aspx.cs">
+      <DependentUpon>PhotoUpload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\PhotoManager\PhotoUpload.aspx.designer.cs">
+      <DependentUpon>PhotoUpload.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RedirectPages\Login.aspx.cs">
