@@ -1,4 +1,4 @@
-var App = function () {
+﻿var App = function () {
 
 	var currentPage = ''; // current page
 	var collapsed = false; //sidebar collapsed
@@ -1222,11 +1222,11 @@ var App = function () {
 		    //"sInfoEmtpy": "Showing 0 to 0 of 0 records",
 		    //"sInfoFiltered": "(filtered from _MAX_ total records)"
 		    //},
-		    "aaSorting": [[5, "desc"]],//����5�н�������
-		    //"bStateSave": true //ˢ�µ��������������ʧ
+		    "aaSorting": [[5, "desc"]],//按第5列降序排序
+		    //"bStateSave": true //刷新导致搜索结果不消失
 		    //"bJQueryUI":true,
 		    "bProcessing": true,
-		    "sProcessing": "<img src=\'../../img/loaders/4.gif�� />"
+		    "sProcessing": "<img src=\'../../img/loaders/4.gif’ />"
 
 
 
@@ -1517,18 +1517,29 @@ var App = function () {
 	/*-----------------------------------------------------------------------------------*/
 	var handleDropzone = function () {
 		try {
-			  $(".dropzone").dropzone({
+		    $(".dropzone").dropzone({
+
 			    paramName: "file", // The name that will be used to transfer the file
-			    maxFilesize: 0.5, // MB
-			  
-				addRemoveLinks : true,
-				dictResponseError: 'Error while uploading file!',
-				
+			    maxFilesize: 5, // MB
+			    maxFiles: 5,
+			    addRemoveLinks: true,
+			    acceptedFiles: ".jpg,.gif,.png",
+			    //previewsContainer: "#adds",
+
+			    dictMaxFilesExceeded: "您最多只能上传10个文件！",
+			    dictResponseError: '文件上传失败!',
+			    dictInvalidFileType: "你不能上传该类型文件,文件类型只能是*.jpg,*.gif,*.png。",
+			    dictFallbackMessage: "浏览器不受支持",
+			    dictFileTooBig: "图片必须小于5M",
+				//dictResponseError: 'Error while uploading file!',
+		        dictRemoveFile:'移除图片',
+		        dictDefaultMessage:'<span class="bigger-150 bolder"><i class="icon-caret-right red"></i> 拖动文件至该处</span> / <span class="smaller-80 grey">(或点击此处)</span> <br /> / <i class="upload-icon icon-cloud-upload blue icon-3x"></i>',
+			      //Photo you are uploading must be less than 0.5M
 				//change the previewTemplate to use Bootstrap progress bars
-				previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-sm progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span></span></div>\n  <div class=\"dz-error-mark\"><span></span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
+		        previewTemplate: "<div class=\"dz-preview dz-file-preview\">\n  <div class=\"dz-details\">\n    <div class=\"dz-filename\"><span data-dz-name></span></div>\n    <div class=\"dz-size\" data-dz-size></div>\n    <img data-dz-thumbnail />\n  </div>\n  <div class=\"progress progress-sm progress-striped active\"><div class=\"progress-bar progress-bar-success\" data-dz-uploadprogress></div></div>\n  <div class=\"dz-success-mark\"><span>✔</span></div>\n  <div class=\"dz-error-mark\"><span>✘</span></div>\n  <div class=\"dz-error-message\"><span data-dz-errormessage></span></div>\n</div>"
 			  });
 			} catch(e) {
-			  alert('Dropzone.js does not support older browsers!');
+			  alert('您的浏览器版本过低!');
 			}
 	}
 	/*-----------------------------------------------------------------------------------*/
@@ -2112,11 +2123,11 @@ var App = function () {
 		$('#pie_2').easyPieChart({
 			easing: 'easeOutBounce',
 			onStep: function(from, to, percent) {
-			    //if (percent > 80 && percent <= 100) $(this.el).find('.percent').text("�ܸ�");
-			    //if (percent > 60 && percent <= 80) $(this.el).find('.percent').text("��");
-			    //if (percent > 40 && percent <= 60) $(this.el).find('.percent').text("ʼ��");
-			    //if (percent > 20 && percent <= 40) $(this.el).find('.percent').text("��");
-			    //if (percent > 0 && percent <= 20) $(this.el).find('.percent').text("�ܵ�");
+			    //if (percent > 80 && percent <= 100) $(this.el).find('.percent').text("很高");
+			    //if (percent > 60 && percent <= 80) $(this.el).find('.percent').text("高");
+			    //if (percent > 40 && percent <= 60) $(this.el).find('.percent').text("始终");
+			    //if (percent > 20 && percent <= 40) $(this.el).find('.percent').text("低");
+			    //if (percent > 0 && percent <= 20) $(this.el).find('.percent').text("很低");
 			    //$(this.el).find('.percent').text(Math.round(percent * 100) / 100);
 			},
 			lineWidth: 6,

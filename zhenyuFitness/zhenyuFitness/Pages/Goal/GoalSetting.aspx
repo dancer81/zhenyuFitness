@@ -20,7 +20,7 @@
 
     <link href="../../css/custom/common.css" rel="stylesheet" />
     <link href="../../css/custom/goal.css" rel="stylesheet" />
-    <script src="../..//js/custom/goal.js"></script>
+    <script src="../../js/custom/goal.js"></script>
     <style>
         .bgcolor-1 {
             background: #FFFFF;
