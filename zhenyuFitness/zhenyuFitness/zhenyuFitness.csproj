@@ -99,6 +99,17 @@
     <Content Include="css\custom\mygoal.css" />
     <Content Include="css\inputcomponent.css" />
     <Content Include="css\inputstyle.css" />
+    <Content Include="js\crop\css\main.css" />
+    <Content Include="js\crop\dist\cropper.css" />
+    <Content Include="js\crop\dist\cropper.js" />
+    <Content Include="js\crop\dist\cropper.min.css" />
+    <Content Include="js\crop\dist\cropper.min.js" />
+    <Content Include="js\crop\images\loading.gif" />
+    <Content Include="js\crop\images\picture.jpg" />
+    <Content Include="js\crop\index - 复制%282%29.html" />
+    <Content Include="js\crop\index - 复制.html" />
+    <Content Include="js\crop\index.html" />
+    <Content Include="js\crop\js\main.js" />
     <Content Include="js\custom\common.js" />
     <Content Include="js\custom\generalMaster.js" />
     <Content Include="js\custom\mygoal.js" />

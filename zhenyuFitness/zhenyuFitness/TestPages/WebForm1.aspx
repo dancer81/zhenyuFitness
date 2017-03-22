@@ -9,7 +9,7 @@
     <input id="goalDaysCount" class="form-control datepicker goalDaysCount" type="text" name="regular" size="10">
     <script>
         jQuery(document).ready(function () {
-            $("#goalDaysCount").datepicker();;
+            $("#goalDaysCount").datepicker();; 
         });
     </script>
 </asp:Content>
