@@ -1518,7 +1518,7 @@
 	var handleDropzone = function () {
 		try {
 		    $(".dropzone").dropzone({
-
+		        url: "PhotoUpload.aspx",
 			    paramName: "file", // The name that will be used to transfer the file
 			    maxFilesize: 5, // MB
 			    maxFiles: 5,

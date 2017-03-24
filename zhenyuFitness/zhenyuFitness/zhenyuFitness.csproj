@@ -237,6 +237,7 @@
     <Content Include="TestPages\WebForm1.aspx" />
     <Content Include="TestPages\WebForm2.aspx" />
     <Content Include="问题\TextFile1.txt" />
+    <Content Include="ashx\DealAjaxUploadFiles.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1175,6 +1176,9 @@
   <ItemGroup>
     <Compile Include="ashx\DealAjax.ashx.cs">
       <DependentUpon>DealAjax.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="ashx\DealAjaxUploadFiles.ashx.cs">
+      <DependentUpon>DealAjaxUploadFiles.ashx</DependentUpon>
     </Compile>
     <Compile Include="Common\Common.cs" />
     <Compile Include="Common\CommonWeb.cs" />
