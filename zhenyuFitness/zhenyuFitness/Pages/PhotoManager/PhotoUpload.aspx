@@ -80,7 +80,8 @@
         Dropzone.options.myDropzone = {
 
             //指定上传图片的路径
-            url: "PhotoUpload.aspx",
+            //url: "PhotoUpload.aspx",
+            url: "../../ashx/DealAjaxUploadFiles.ashx",
 
             //添加上传取消和删除预览图片的链接，默认不添加
             addRemoveLinks: true,
@@ -113,10 +114,12 @@
 
                 //当上传完成后的事件，接受的数据为JSON格式
                 this.on("complete", function (data) {
+                    alert(data);
                     if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
-                        var res = eval('(' + data.xhr.responseText + ')');
+                        var res = eval('(' + data.xhr.responseText + ')'); 
                         var msg;
                         if (res.Result) {
+                            //alert('asdfasdf');
                             msg = "恭喜，已成功上传" + res.Count + "张照片！";
                         }
                         else {

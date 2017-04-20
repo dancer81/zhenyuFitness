@@ -15,7 +15,7 @@ namespace zhenyuFitness.ashx
         public void ProcessRequest(HttpContext context)
         {
             context.Response.ContentType = "text/plain";
-            context.Response.Write("Hello World");
+            context.Response.Write("msg:HelloWorld");
         }
 
         public bool IsReusable
