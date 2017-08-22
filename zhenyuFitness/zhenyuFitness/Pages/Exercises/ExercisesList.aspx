@@ -12,7 +12,7 @@
 	<script type="text/javascript" src="../../js/datatables/media/assets/js/datatables.min.js" ></script>
 	<%--<script type="text/javascript" src="../../js/datatables/extras/TableTools/media/js/TableTools.min.js"></script>--%>
 	<%--<script type="text/javascript" src="../../js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js"></script>--%>
-</asp:Content>
+</asp:Content> 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <div class="row">
 					<div class="col-md-12">
