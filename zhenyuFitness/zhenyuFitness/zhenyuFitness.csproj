@@ -113,6 +113,7 @@
     <Content Include="js\custom\common.js" />
     <Content Include="js\custom\generalMaster.js" />
     <Content Include="js\custom\mygoal.js" />
+    <Content Include="js\dropzone\dropzone.js" />
     <Content Include="js\icharts.js\dist\ichart.coordinate.js" />
     <Content Include="js\icharts.js\dist\ichartjs.base.js" />
     <Content Include="js\icharts.js\dist\ichartjs.column.js" />

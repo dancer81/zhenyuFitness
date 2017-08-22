@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <!-- DROPZONE -->
-    <script type="text/javascript" src="../../js/dropzone/dropzone.min.js"></script>
+    <script type="text/javascript" src="../../js/dropzone/dropzone.js"></script>
     <div class="row">
         <div class="col-md-12">
             <!-- BOX -->
@@ -36,7 +36,7 @@
                     <form action="/"
                         class="dropzone"
                         enctype="multipart/form-data"
-                        id="my-dropzone"
+                        id="mydropzone"
                         method="post">
                         <!--上传图片时，需要同时提交的数据，这里做个演示-->
                         <%--@Html.Hidden("hidAlbumId")--%>
@@ -77,8 +77,8 @@
     <script>
 
         //Dropzone的初始化，myDropzone为form的id
-        Dropzone.options.myDropzone = {
-
+        Dropzone.options.mydropzone = {
+            dictDefaultMessage:"1111111",
             //指定上传图片的路径
             //url: "PhotoUpload.aspx",
             url: "../../ashx/DealAjaxUploadFiles.ashx",
