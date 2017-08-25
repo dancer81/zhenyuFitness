@@ -8,12 +8,16 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <!-- DROPZONE -->
     <script type="text/javascript" src="../../js/dropzone/dropzone.js"></script>
+
+
+
+
     <div class="row">
         <div class="col-md-12">
             <!-- BOX -->
             <div class="box border blue">
                 <div class="box-title">
-                    <h4><i class="fa fa-cloud-download"></i>PhotoUploader</h4>
+                    <h4><i class="fa fa-cloud-download"></i>图片上传</h4>
                     <div class="tools hidden-xs">
                         <a href="javascript:;" class="collapse">
                             <i class="fa fa-chevron-up"></i>
@@ -21,28 +25,14 @@
                     </div>
                 </div>
                 <div class="box-body">
-<%--                    <button id="submit-all">Submit all files</button>
-                    <form action="PhotoUpload.aspx" class="dropzone" id="my-dropzone"></form>--%>
-
-                    <%--/zhenyuFitness/ashx/DealAjax.ashx--%>
-                    <%--<form action="PhotoUpload.aspx" method="post" 
-                        class="dropzone"
-                        id="my-awesome-dropzone">
-                        <div class="fallback">
-                            <input name="file" type="file" multiple="" />
-                        </div>
-                    </form>--%>
-                    <!--class="dropzone" 使用dropzone自带的样式 样式在引用的CSS中-->
-                    <form action="/"
+                    <form action="../../ashx/DealAjaxUploadFiles.ashx"
                         class="dropzone"
                         enctype="multipart/form-data"
                         id="mydropzone"
-                        method="post">
-                        <!--上传图片时，需要同时提交的数据，这里做个演示-->
-                        <%--@Html.Hidden("hidAlbumId")--%>
+                        method="post">                    
                     </form>
+                    <%--<div class="dropz"></div>--%>
                     <div>
-                        <!--上传按钮，提供多张图片一次性上传的功能-->
                         <button type="submit" id="submit-all" disabled="disabled">上传</button>
                     </div>
                 </div>
@@ -52,24 +42,6 @@
     </div>
 
 
-
-   <%-- <div class="dz-preview dz-file-preview">
-        <div class="dz-details">
-            <div class="dz-filename"><span data-dz-name></span></div>
-            <div class="dz-size" data-dz-size></div>
-            <img data-dz-thumbnail />
-        </div>
-        <div class="progress progress-sm progress-striped active">
-            <div class="progress-bar progress-bar-success" data-dz-uploadprogress></div>
-        </div>
-        <div class="dz-success-mark"><span>✔</span></div>
-        <div class="dz-error-mark"><span>✘</span></div>
-        <div class="dz-error-message"><span data-dz-errormessage></span></div>
-    </div>--%>
-    <%--
-    当文件在上传过程中的时候， dz-preview 中的 dz-processing 将被显示；
-    当文件上传之后 dz-success 将被显示；
-    如果文件上传错误或没网 dz-error 将被显示，此时 data-dz-errormessage 的内容将是服务器端返回的信息。--%>
 
 
 
@@ -146,6 +118,8 @@
 
 
         jQuery(document).ready(function () {
+
+
             //App.setPage("dropzone_file_upload");  //Set current page
             //App.init(); //Initialise plugins and elements
         });
